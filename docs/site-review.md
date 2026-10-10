@@ -28,3 +28,23 @@ Imagery: Esri, Maxar, Earthstar Geographics, and the GIS User Community. Outline
 unnamed polygon looks like a waste heap on both dates but is not mapped as landfill in OSM and is not
 inside the chosen outline. It may be legacy waste or a quarry. Adding it needs a hand-drawn outline
 (`polygon_source: manual`) by a person who can confirm what it is; the agent did not draw one.
+
+## Other monitored sites (checked 2026-10-11, same method, current Esri imagery only)
+
+These sites have no backtest; they are monitored by the live scan. Same caveat: checked by the AI coding
+agent on the team's request, not yet by a team member.
+
+| Site | Outline | What the imagery shows | Exclusions noted |
+|---|---|---|---|
+| kanjurmarg-mumbai | way/257455760 (named "Kanjur Landfill") | Outline encloses the whole landfill complex: mound, processing sheds, ponds | sheds and ponds inside |
+| bhalswa-delhi | way/414943488 ("Bhalswa Landfill Area") | Outline fits the terraced mound; small unnamed landfill pieces nearby are not part of it | dense housing around |
+| okhla-delhi | way/608169272 ("Okhla Landfill") | Outline fits the mound | container depot east; building complex south-west |
+| bandhwari-gurugram | way/34263673 ("Bandhwari Solid Waste Management Plant") | Outline covers most of the bare mound; waste extends a little beyond it west and south | — |
+| kodungaiyur-chennai | way/29199633 ("Kodungaiyur Corporation Landfill") | Outline fits the large grey-mound dump | plant with round tanks west; storage tanks north-east |
+| dhapa-kolkata | way/325363390 ("Dhapa Landfill") | Outline fits the long dump with mounds and sheds | sheds inside the north end |
+| perungudi-chennai | way/84106307 (OSM name "Pallikaranai Dumpyard", found within 3 km of the OSM place "Perungudi") | Large terraced dump | plant with round tanks north-east |
+| mandur-bengaluru | way/135169264 + way/285786390 (both "Mandur Landfill") | North polygon shows waste mounds and a pond; south polygon is mostly tree cover (possibly an older covered section) | south part mostly vegetated |
+
+Not monitored (no outline): pirana-ahmedabad and jawahar-nagar-hyderabad (the proximity search found only tiny
+dumps near places with the same name in other states, rejected); uruli-devachi-pune, bhandewadi-nagpur,
+dadumajra-chandigarh (Overpass unavailable during the searches). 11 sites are monitored; the MVP aimed for 15–25.

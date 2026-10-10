@@ -1,0 +1,57 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/1462375167",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       74.4904165,
+       15.8250504
+      ],
+      [
+       74.4905014,
+       15.8250236
+      ],
+      [
+       74.4904919,
+       15.82497
+      ],
+      [
+       74.4904073,
+       15.8249888
+      ],
+      [
+       74.4904165,
+       15.8250504
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1462375167",
+    "osm_name": "Illegal Dumping Ground",
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 15.825009,
+    "centroid_lon": 74.490453,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Dumping Ground"
+    },
+    "state": "Karnataka",
+    "site_id": "pirana-ahmedabad",
+    "retrieved_utc": "2026-10-10T18:23:37Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

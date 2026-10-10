@@ -1,0 +1,832 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/596505749",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       76.3151389,
+       32.2161097
+      ],
+      [
+       76.3148922,
+       32.2161415
+      ],
+      [
+       76.3145649,
+       32.2165999
+      ],
+      [
+       76.3143182,
+       32.2166725
+      ],
+      [
+       76.3142538,
+       32.2171127
+      ],
+      [
+       76.3144362,
+       32.2171899
+      ],
+      [
+       76.3146132,
+       32.2171763
+      ],
+      [
+       76.3149726,
+       32.2173442
+      ],
+      [
+       76.3150853,
+       32.2173941
+      ],
+      [
+       76.3153374,
+       32.2171218
+      ],
+      [
+       76.3154232,
+       32.2168586
+      ],
+      [
+       76.3152516,
+       32.2168177
+      ],
+      [
+       76.3152784,
+       32.21655
+      ],
+      [
+       76.3153535,
+       32.2164274
+      ],
+      [
+       76.3151389,
+       32.2161097
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/596505749",
+    "osm_name": "Municipal Landfill",
+    "osm_name_en": null,
+    "area_ha": 0.96,
+    "centroid_lat": 32.216788,
+    "centroid_lon": 76.314882,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Municipal Landfill"
+    },
+    "state": "Himachal Pradesh",
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/627628781",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9539099,
+       19.1815909
+      ],
+      [
+       72.953068,
+       19.1815983
+      ],
+      [
+       72.9529446,
+       19.1808643
+      ],
+      [
+       72.9537946,
+       19.1808259
+      ],
+      [
+       72.9539099,
+       19.1815909
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/627628781",
+    "osm_name": "Dumping Ground",
+    "osm_name_en": null,
+    "area_ha": 0.74,
+    "centroid_lat": 19.181219,
+    "centroid_lon": 72.953432,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Dumping Ground"
+    },
+    "state": "Maharashtra",
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1387674205",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9360981,
+       19.1794287
+      ],
+      [
+       72.9361244,
+       19.1795224
+      ],
+      [
+       72.9361533,
+       19.1795699
+      ],
+      [
+       72.9362141,
+       19.1795599
+      ],
+      [
+       72.9362889,
+       19.1794719
+      ],
+      [
+       72.936275,
+       19.1794345
+      ],
+      [
+       72.9361993,
+       19.179486
+      ],
+      [
+       72.9361574,
+       19.1795173
+      ],
+      [
+       72.9361489,
+       19.1794619
+      ],
+      [
+       72.9360981,
+       19.1794287
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1387674205",
+    "osm_name": "Illegal Dump Site",
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 19.179504,
+    "centroid_lon": 72.936193,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Dump Site"
+    },
+    "state": "Maharashtra",
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1462735392",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9296879,
+       19.1712172
+      ],
+      [
+       72.9296722,
+       19.1712212
+      ],
+      [
+       72.9296627,
+       19.1712087
+      ],
+      [
+       72.9296723,
+       19.1711981
+      ],
+      [
+       72.9296879,
+       19.1712172
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1462735392",
+    "osm_name": "Illegal Waste Dump",
+    "osm_name_en": null,
+    "area_ha": 0.0,
+    "centroid_lat": 19.171211,
+    "centroid_lon": 72.929674,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Waste Dump"
+    },
+    "state": "Maharashtra",
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1463607345",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9359131,
+       19.1786722
+      ],
+      [
+       72.9359809,
+       19.1786508
+      ],
+      [
+       72.9359268,
+       19.1784599
+      ],
+      [
+       72.9358762,
+       19.1783827
+      ],
+      [
+       72.9357792,
+       19.178439
+      ],
+      [
+       72.935869,
+       19.1785569
+      ],
+      [
+       72.9359131,
+       19.1786722
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1463607345",
+    "osm_name": "Illegal Dump Site",
+    "osm_name_en": null,
+    "area_ha": 0.03,
+    "centroid_lat": 19.17852,
+    "centroid_lon": 72.935891,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Dump Site"
+    },
+    "state": "Maharashtra",
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1078273625",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       74.479993,
+       16.7023101
+      ],
+      [
+       74.4815648,
+       16.7019761
+      ],
+      [
+       74.4827986,
+       16.7017398
+      ],
+      [
+       74.4829917,
+       16.7023615
+      ],
+      [
+       74.4817096,
+       16.7028547
+      ],
+      [
+       74.4817954,
+       16.7035792
+      ],
+      [
+       74.4802076,
+       16.7041392
+      ],
+      [
+       74.479993,
+       16.7023101
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1078273625",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 4.54,
+    "centroid_lat": 16.702809,
+    "centroid_lon": 74.481235,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill"
+    },
+    "state": null,
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/151861273",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.976765,
+       19.1691418
+      ],
+      [
+       72.9766791,
+       19.1673582
+      ],
+      [
+       72.9766631,
+       19.1667553
+      ],
+      [
+       72.9760623,
+       19.1606443
+      ],
+      [
+       72.9748499,
+       19.1610497
+      ],
+      [
+       72.9736161,
+       19.1636643
+      ],
+      [
+       72.9740345,
+       19.1664005
+      ],
+      [
+       72.974056,
+       19.1675255
+      ],
+      [
+       72.9740355,
+       19.1681639
+      ],
+      [
+       72.9736789,
+       19.1689361
+      ],
+      [
+       72.9733929,
+       19.1691618
+      ],
+      [
+       72.9730714,
+       19.1692323
+      ],
+      [
+       72.9725754,
+       19.1694027
+      ],
+      [
+       72.972128,
+       19.1696893
+      ],
+      [
+       72.9716166,
+       19.1701437
+      ],
+      [
+       72.9716502,
+       19.1706045
+      ],
+      [
+       72.9715964,
+       19.1709286
+      ],
+      [
+       72.9714416,
+       19.1709286
+      ],
+      [
+       72.9713104,
+       19.170328
+      ],
+      [
+       72.9707755,
+       19.1703534
+      ],
+      [
+       72.970069,
+       19.1705822
+      ],
+      [
+       72.9696989,
+       19.1708428
+      ],
+      [
+       72.9697426,
+       19.1711129
+      ],
+      [
+       72.9692952,
+       19.1713544
+      ],
+      [
+       72.9684275,
+       19.1714226
+      ],
+      [
+       72.9686294,
+       19.1720772
+      ],
+      [
+       72.9687034,
+       19.1721503
+      ],
+      [
+       72.9686967,
+       19.172306
+      ],
+      [
+       72.9697405,
+       19.1722881
+      ],
+      [
+       72.9708795,
+       19.1722925
+      ],
+      [
+       72.9709446,
+       19.1723515
+      ],
+      [
+       72.9709066,
+       19.1729559
+      ],
+      [
+       72.9709504,
+       19.1731054
+      ],
+      [
+       72.9715338,
+       19.1731181
+      ],
+      [
+       72.9715322,
+       19.172857
+      ],
+      [
+       72.9716756,
+       19.1728405
+      ],
+      [
+       72.9716457,
+       19.1733342
+      ],
+      [
+       72.9720276,
+       19.1734159
+      ],
+      [
+       72.9728957,
+       19.1735997
+      ],
+      [
+       72.9733966,
+       19.1740868
+      ],
+      [
+       72.9754297,
+       19.173131
+      ],
+      [
+       72.9760649,
+       19.1734449
+      ],
+      [
+       72.9769421,
+       19.1722479
+      ],
+      [
+       72.9770708,
+       19.17203
+      ],
+      [
+       72.9774437,
+       19.171536
+      ],
+      [
+       72.977103,
+       19.1702262
+      ],
+      [
+       72.976765,
+       19.1691418
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/151861273",
+    "osm_name": "Mulund Dumping Ground",
+    "osm_name_en": null,
+    "area_ha": 56.1,
+    "centroid_lat": 19.168851,
+    "centroid_lon": 72.974309,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Mulund Dumping Ground",
+     "operator": "BMC"
+    },
+    "distance_to_chosen_m": 1829.5,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1390926976",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9613813,
+       19.1758363
+      ],
+      [
+       72.961334,
+       19.1758772
+      ],
+      [
+       72.9612965,
+       19.1758311
+      ],
+      [
+       72.9613433,
+       19.1757887
+      ],
+      [
+       72.9613813,
+       19.1758363
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1390926976",
+    "osm_name": "Illegal Dump Site",
+    "osm_name_en": null,
+    "area_ha": 0.0,
+    "centroid_lat": 19.175833,
+    "centroid_lon": 72.961339,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Dump Site"
+    },
+    "distance_to_chosen_m": 963.9,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1392345563",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9411485,
+       19.1960362
+      ],
+      [
+       72.9412222,
+       19.1960201
+      ],
+      [
+       72.9412086,
+       19.196186
+      ],
+      [
+       72.9412222,
+       19.1962342
+      ],
+      [
+       72.9411462,
+       19.1962342
+      ],
+      [
+       72.9411485,
+       19.1960362
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1392345563",
+    "osm_name": "Illegal Dump Site",
+    "osm_name_en": null,
+    "area_ha": 0.02,
+    "centroid_lat": 19.19613,
+    "centroid_lon": 72.941182,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Dump Site"
+    },
+    "distance_to_chosen_m": 2029.6,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1392345567",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9410778,
+       19.1948701
+      ],
+      [
+       72.9410616,
+       19.1946871
+      ],
+      [
+       72.9410141,
+       19.1946907
+      ],
+      [
+       72.9410141,
+       19.1948145
+      ],
+      [
+       72.941054,
+       19.194897
+      ],
+      [
+       72.9410778,
+       19.1948701
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1392345567",
+    "osm_name": "Illegal Dump Site",
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 19.194783,
+    "centroid_lon": 72.941044,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Dump Site"
+    },
+    "distance_to_chosen_m": 1925.7,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1392345577",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9411315,
+       19.1956175
+      ],
+      [
+       72.9411451,
+       19.1958198
+      ],
+      [
+       72.9411043,
+       19.1958658
+      ],
+      [
+       72.9410885,
+       19.1957973
+      ],
+      [
+       72.9410941,
+       19.19564
+      ],
+      [
+       72.9411315,
+       19.1956175
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1392345577",
+    "osm_name": "Illegal Dump Site",
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 19.195742,
+    "centroid_lon": 72.941115,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Illegal Dump Site"
+    },
+    "distance_to_chosen_m": 2000.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "jawahar-nagar-hyderabad",
+    "retrieved_utc": "2026-10-10T18:32:52Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  }
+ ]
+}

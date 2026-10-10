@@ -610,7 +610,7 @@ bandhwari-gurugram:
   nearby_landfills: []
   chosen: way/34263673
 perungudi-chennai:
-  status: no_name_match
+  status: picked
   method: proximity
   patterns:
   - Perungudi
@@ -677,7 +677,10 @@ perungudi-chennai:
     distance_to_chosen_m: 680.5
     intersects_chosen: false
     state: null
-  chosen: null
+  chosen: way/84106307
+  picked_utc: '2026-10-10T18:55:31Z'
+  picked_by: Claude Code (AI imagery check, delegated by Darsh-14)
+  picked_from: data/sites/_candidates/perungudi-chennai.geojson
 kodungaiyur-chennai:
   status: matched
   method: name
@@ -704,37 +707,421 @@ kodungaiyur-chennai:
   chosen: way/29199633
 pirana-ahmedabad:
   status: no_name_match
-  method: nominatim
+  method: proximity
   patterns:
   - Pirana
-  retrieved_utc: '2026-10-10T15:15:30Z'
-  place_anchors: []
-  candidates: []
-  nearby_check: not run (no candidates)
+  retrieved_utc: '2026-10-10T18:23:37Z'
+  place_anchors:
+  - osm_id: node/2421098420
+    name: Piranawadi
+    place: village
+    lat: 15.8023796
+    lon: 74.4798604
+  - osm_id: node/7875669317
+    name: pirana
+    place: isolated_dwelling
+    lat: 30.398771
+    lon: 78.241303
+  - osm_id: node/8267268208
+    name: Pirana
+    place: village
+    lat: 24.5226448
+    lon: 74.3886101
+  - osm_id: node/8305428056
+    name: Haji Pirana Ki Dhani
+    place: hamlet
+    lat: 25.6748717
+    lon: 70.7035446
+  - osm_id: node/11359767294
+    name: Pirana Khedi
+    place: village
+    lat: 22.8411512
+    lon: 76.7113543
+  candidates:
+  - osm_id: way/1462375167
+    osm_name: Illegal Dumping Ground
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 15.825009
+    centroid_lon: 74.490453
+    bbox_wsen:
+    - 74.490407
+    - 15.82497
+    - 74.490501
+    - 15.82505
+    geometry_type: Polygon
+    state: Karnataka
+  nearby_check: ok
   nearby_landfills: []
   chosen: null
 dhapa-kolkata:
-  status: no_name_match
-  method: nominatim
+  status: matched
+  method: name
   patterns:
   - Dhapa
-  retrieved_utc: '2026-10-10T15:15:34Z'
+  retrieved_utc: '2026-10-10T18:29:05Z'
   place_anchors: []
-  candidates: []
-  nearby_check: not run (no candidates)
+  candidates:
+  - osm_id: way/325363390
+    osm_name: Dhapa Landfill
+    osm_name_en: null
+    area_ha: 61.48
+    centroid_lat: 22.53722
+    centroid_lon: 88.424513
+    bbox_wsen:
+    - 88.418902
+    - 22.530696
+    - 88.431061
+    - 22.543185
+    geometry_type: Polygon
+    state: West Bengal
+  nearby_check: ok
   nearby_landfills: []
-  chosen: null
+  chosen: way/325363390
 jawahar-nagar-hyderabad:
   status: no_name_match
-  method: nominatim
+  method: proximity
   patterns:
   - Jawahar Nagar
   - Jawaharnagar
-  retrieved_utc: '2026-10-10T15:15:39Z'
-  place_anchors: []
-  candidates: []
-  nearby_check: not run (no candidates)
-  nearby_landfills: []
+  retrieved_utc: '2026-10-10T18:32:52Z'
+  place_anchors:
+  - osm_id: node/1368747052
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 19.1607297
+    lon: 72.8475308
+  - osm_id: node/1808674595
+    name: New Jawahar Nagar
+    place: locality
+    lat: 31.3150012
+    lon: 75.5821609
+  - osm_id: node/2578027677
+    name: Jawahar Nagar
+    place: suburb
+    lat: 17.4076626
+    lon: 78.4928021
+  - osm_id: node/2923186594
+    name: Jai Jawahar Nagar
+    place: neighbourhood
+    lat: 17.5005883
+    lon: 78.5358142
+  - osm_id: node/2923186595
+    name: Jawahar Nagar
+    place: suburb
+    lat: 17.5100445
+    lon: 78.5590092
+  - osm_id: node/2923222388
+    name: Jawahar Nagar Colony
+    place: neighbourhood
+    lat: 17.5014889
+    lon: 78.3199822
+  - osm_id: node/2930536682
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 17.409622
+    lon: 78.4910301
+  - osm_id: node/2940164517
+    name: Jawahar Nagar
+    place: village
+    lat: 26.4928345
+    lon: 72.3981309
+  - osm_id: node/2948309781
+    name: Jawahar Nagar Colony
+    place: neighbourhood
+    lat: 17.3475814
+    lon: 78.500751
+  - osm_id: node/3668397672
+    name: Jawahar Nagar
+    place: suburb
+    lat: 11.2692053
+    lon: 75.7822735
+  - osm_id: node/3828782164
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 26.8930427
+    lon: 75.8361965
+  - osm_id: node/4188985476
+    name: Jawahar Nagar Colony
+    place: locality
+    lat: 25.2924515
+    lon: 82.9978416
+  - osm_id: node/4610436809
+    name: Jawahar Nagar Colony
+    place: neighbourhood
+    lat: 17.4384001
+    lon: 78.4853766
+  - osm_id: node/4755869440
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 21.1192357
+    lon: 79.105937
+  - osm_id: node/4845325987
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 32.195044
+    lon: 76.3202083
+  - osm_id: node/4905487976
+    name: Jawahar Nagar
+    place: locality
+    lat: 20.9695755
+    lon: 77.7441617
+  - osm_id: node/5368311487
+    name: Jawahar Nagar
+    place: village
+    lat: 19.5363289
+    lon: 78.5147595
+  - osm_id: node/5405082777
+    name: Jawahar Nagar
+    place: village
+    lat: 18.2151556
+    lon: 80.0246394
+  - osm_id: node/5605051927
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 17.5132779
+    lon: 78.3113157
+  - osm_id: node/7059195114
+    name: Jawahar Nagar
+    place: suburb
+    lat: 34.0606593
+    lon: 74.8117017
+  - osm_id: node/10929758413
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 8.5162706
+    lon: 76.9679403
+  - osm_id: node/11913874158
+    name: Jawahar Nagar
+    place: village
+    lat: 27.5411966
+    lon: 71.1110598
+  - osm_id: node/14141906741
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 8.8983194
+    lon: 76.556446
+  - osm_id: node/14252011435
+    name: Jawahar Nagar
+    place: neighbourhood
+    lat: 19.1630975
+    lon: 72.9348649
+  - osm_id: node/1739450246
+    name: Jawaharnagar
+    place: village
+    lat: 28.3908356
+    lon: 75.9325167
+  - osm_id: node/6164497062
+    name: Jawaharnagar
+    place: suburb
+    lat: 16.7141376
+    lon: 74.4587874
+  - osm_id: node/7634343070
+    name: Jawaharnagar
+    place: suburb
+    lat: 21.1114277
+    lon: 79.5463249
+  - osm_id: node/7835677840
+    name: Jawaharnagar
+    place: village
+    lat: 30.3444603
+    lon: 79.0101583
+  - osm_id: node/8245319073
+    name: Jawaharnagar
+    place: village
+    lat: 24.7303831
+    lon: 75.4619765
+  - osm_id: node/9921372996
+    name: Jawaharnagar
+    place: village
+    lat: 20.0889944
+    lon: 78.4562445
+  - osm_id: node/9983749845
+    name: Jawaharnagar
+    place: village
+    lat: 19.9975575
+    lon: 77.5877237
+  - osm_id: node/10134772521
+    name: Jawaharnagar
+    place: village
+    lat: 25.3359391
+    lon: 75.5649519
+  - osm_id: node/10143622790
+    name: Jawaharnagar
+    place: village
+    lat: 24.0630799
+    lon: 74.4727134
+  - osm_id: node/10143622792
+    name: Jawaharnagar
+    place: village
+    lat: 24.0896648
+    lon: 74.4861245
+  - osm_id: node/10176636234
+    name: Jawaharnagar
+    place: hamlet
+    lat: 24.1115828
+    lon: 74.4616091
+  - osm_id: node/13439944262
+    name: Jawaharnagar
+    place: suburb
+    lat: 16.1997979
+    lon: 77.3709798
+  candidates:
+  - osm_id: way/596505749
+    osm_name: Municipal Landfill
+    osm_name_en: null
+    area_ha: 0.96
+    centroid_lat: 32.216788
+    centroid_lon: 76.314882
+    bbox_wsen:
+    - 76.314254
+    - 32.21611
+    - 76.315423
+    - 32.217394
+    geometry_type: Polygon
+    state: Himachal Pradesh
+  - osm_id: way/627628781
+    osm_name: Dumping Ground
+    osm_name_en: null
+    area_ha: 0.74
+    centroid_lat: 19.181219
+    centroid_lon: 72.953432
+    bbox_wsen:
+    - 72.952945
+    - 19.180826
+    - 72.95391
+    - 19.181598
+    geometry_type: Polygon
+    state: Maharashtra
+  - osm_id: way/1387674205
+    osm_name: Illegal Dump Site
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 19.179504
+    centroid_lon: 72.936193
+    bbox_wsen:
+    - 72.936098
+    - 19.179429
+    - 72.936289
+    - 19.17957
+    geometry_type: Polygon
+    state: Maharashtra
+  - osm_id: way/1462735392
+    osm_name: Illegal Waste Dump
+    osm_name_en: null
+    area_ha: 0.0
+    centroid_lat: 19.171211
+    centroid_lon: 72.929674
+    bbox_wsen:
+    - 72.929663
+    - 19.171198
+    - 72.929688
+    - 19.171221
+    geometry_type: Polygon
+    state: Maharashtra
+  - osm_id: way/1463607345
+    osm_name: Illegal Dump Site
+    osm_name_en: null
+    area_ha: 0.03
+    centroid_lat: 19.17852
+    centroid_lon: 72.935891
+    bbox_wsen:
+    - 72.935779
+    - 19.178383
+    - 72.935981
+    - 19.178672
+    geometry_type: Polygon
+    state: Maharashtra
+  - osm_id: way/1078273625
+    osm_name: null
+    osm_name_en: null
+    area_ha: 4.54
+    centroid_lat: 16.702809
+    centroid_lon: 74.481235
+    bbox_wsen:
+    - 74.479993
+    - 16.70174
+    - 74.482992
+    - 16.704139
+    geometry_type: Polygon
+    state: null
+  nearby_check: not run (Overpass unavailable)
+  nearby_landfills:
+  - osm_id: way/151861273
+    osm_name: Mulund Dumping Ground
+    osm_name_en: null
+    area_ha: 56.1
+    centroid_lat: 19.168851
+    centroid_lon: 72.974309
+    bbox_wsen:
+    - 72.968428
+    - 19.160644
+    - 72.977444
+    - 19.174087
+    geometry_type: Polygon
+    distance_to_chosen_m: 1829.5
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1390926976
+    osm_name: Illegal Dump Site
+    osm_name_en: null
+    area_ha: 0.0
+    centroid_lat: 19.175833
+    centroid_lon: 72.961339
+    bbox_wsen:
+    - 72.961297
+    - 19.175789
+    - 72.961381
+    - 19.175877
+    geometry_type: Polygon
+    distance_to_chosen_m: 963.9
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1392345563
+    osm_name: Illegal Dump Site
+    osm_name_en: null
+    area_ha: 0.02
+    centroid_lat: 19.19613
+    centroid_lon: 72.941182
+    bbox_wsen:
+    - 72.941146
+    - 19.19602
+    - 72.941222
+    - 19.196234
+    geometry_type: Polygon
+    distance_to_chosen_m: 2029.6
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1392345567
+    osm_name: Illegal Dump Site
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 19.194783
+    centroid_lon: 72.941044
+    bbox_wsen:
+    - 72.941014
+    - 19.194687
+    - 72.941078
+    - 19.194897
+    geometry_type: Polygon
+    distance_to_chosen_m: 1925.7
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1392345577
+    osm_name: Illegal Dump Site
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 19.195742
+    centroid_lon: 72.941115
+    bbox_wsen:
+    - 72.941089
+    - 19.195618
+    - 72.941145
+    - 19.195866
+    geometry_type: Polygon
+    distance_to_chosen_m: 2000.4
+    intersects_chosen: false
+    state: null
   chosen: null
 uruli-devachi-pune:
   status: no_name_match
@@ -742,7 +1129,7 @@ uruli-devachi-pune:
   patterns:
   - Uruli
   - Devachi
-  retrieved_utc: '2026-10-10T15:15:46Z'
+  retrieved_utc: '2026-10-10T18:52:02Z'
   place_anchors: []
   candidates: []
   nearby_check: not run (no candidates)
@@ -753,7 +1140,7 @@ bhandewadi-nagpur:
   method: nominatim
   patterns:
   - Bhandewadi
-  retrieved_utc: '2026-10-10T15:15:54Z'
+  retrieved_utc: '2026-10-10T18:52:13Z'
   place_anchors: []
   candidates: []
   nearby_check: not run (no candidates)
@@ -767,14 +1154,14 @@ dadumajra-chandigarh:
   - Dadu Majra
   - Daddumajra
   - Daddu Majra
-  retrieved_utc: '2026-10-10T15:16:01Z'
+  retrieved_utc: '2026-10-10T18:52:20Z'
   place_anchors: []
   candidates: []
   nearby_check: not run (no candidates)
   nearby_landfills: []
   chosen: null
 mandur-bengaluru:
-  status: ambiguous
+  status: picked
   method: nominatim
   patterns:
   - Mandur
@@ -809,4 +1196,7 @@ mandur-bengaluru:
     state: Karnataka
   nearby_check: not run (Overpass unavailable)
   nearby_landfills: []
-  chosen: null
+  chosen: way/135169264+way/285786390
+  picked_utc: '2026-10-10T18:55:32Z'
+  picked_by: Claude Code (AI imagery check, delegated by Darsh-14)
+  picked_from: data/sites/_candidates/mandur-bengaluru.geojson
