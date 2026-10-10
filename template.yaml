@@ -95,7 +95,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Description: Scheduled FIRMS NRT scan for India; matches sites, updates incidents. Never sends alerts.
-      CodeUri: build/scan/
+      CodeUri: build/scan.zip
       Handler: handlers.scan.handler
       MemorySize: 512
       Timeout: 120
@@ -126,7 +126,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Description: HTTP API for the dashboard; approve publishes to SNS (replays to the demo topic only).
-      CodeUri: build/api/
+      CodeUri: build/api.zip
       Handler: handlers.api.handler
       MemorySize: 256
       Timeout: 15
@@ -168,7 +168,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Description: Strands agent on Amazon Bedrock; read-only tools, validator, retry, fallback template.
-      CodeUri: build/draft/
+      CodeUri: build/draft.zip
       Handler: handlers.draft.handler
       MemorySize: 1024
       Timeout: 120

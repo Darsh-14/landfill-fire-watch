@@ -85,10 +85,14 @@ package:
 	done
 	cp out/backtest.json build/api/data/backtest.json
 	find build -type d -name "__pycache__" -prune -exec rm -rf {} +
-	du -sh build/*
+	$(PY) scripts/zip_packages.py $(FUNCTIONS)
 
 lint:
 	"$(dir $(PY))cfn-lint" --regions ap-south-1 -- template.yaml
 
+# Deviation from CLAUDE.md §5 (`sam build && sam deploy`): without Docker, `sam build` on Windows
+# drops the Linux .so files from the prebuilt packages. CodeUri points at build/<fn>.zip instead,
+# and sam deploy uploads those zips unchanged. Never run `sam build` for this stack.
 deploy: package
-	sam build && sam deploy
+	rm -rf .aws-sam
+	sam deploy --template-file template.yaml
