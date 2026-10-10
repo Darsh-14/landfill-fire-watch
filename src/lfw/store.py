@@ -19,7 +19,7 @@ from typing import Protocol
 
 from lfw.models import Detection, Incident
 
-ROOT = Path(__file__).resolve().parents[2]
+from lfw.paths import ROOT
 
 
 class Store(Protocol):

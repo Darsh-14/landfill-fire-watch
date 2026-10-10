@@ -1,0 +1,44 @@
+annotated-types==0.8.0
+    # via pydantic
+anyio==4.15.1
+    # via httpx
+certifi==2026.7.22
+    # via
+    #   httpcore
+    #   httpx
+h11==0.16.0
+    # via httpcore
+httpcore==1.0.9
+    # via httpx
+httpx==0.28.1
+    # via -r handlers/requirements-api.txt
+idna==3.20
+    # via
+    #   anyio
+    #   httpx
+numpy==2.2.6
+    # via shapely
+pydantic==2.14.0
+    # via
+    #   -r handlers/requirements-api.txt
+    #   pydantic-settings
+pydantic-core==2.50.0
+    # via pydantic
+pydantic-settings==2.15.0
+    # via -r handlers/requirements-api.txt
+python-dotenv==1.2.4
+    # via pydantic-settings
+pyyaml==6.0.3
+    # via -r handlers/requirements-api.txt
+shapely==2.1.2
+    # via -r handlers/requirements-api.txt
+typing-extensions==4.16.0
+    # via
+    #   anyio
+    #   pydantic
+    #   pydantic-core
+    #   typing-inspection
+typing-inspection==0.4.4
+    # via
+    #   pydantic
+    #   pydantic-settings

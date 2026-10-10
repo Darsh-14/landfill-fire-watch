@@ -21,8 +21,9 @@ from lfw.smoke import SCREENING_NOTE, compass
 from lfw.store import Store
 from lfw.timeutil import ist_str
 
-ROOT = Path(__file__).resolve().parents[3]
-RULES = ROOT / "data" / "rules.yaml"
+from lfw.paths import DATA
+
+RULES = DATA / "rules.yaml"
 MAX_RECEPTORS_LISTED = 15  # nearest receptors given to the model; the full list stays in the context
 
 # Fixed limits text (MVP §9). The dashboard shows the same five lines (tests check they match).

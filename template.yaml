@@ -1,0 +1,236 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Landfill Fire Watch - satellite hotspot screening for Indian landfills with human-approved alerts.
+  Scheduled scan (EventBridge Scheduler) -> Lambda -> DynamoDB/S3; HTTP API; Strands agent on Bedrock;
+  SNS live + demo topics. Build packages first with `make package` (Linux wheels, no Docker).
+
+Parameters:
+  AlertEmail:
+    Type: String
+    Description: Email address subscribed to both SNS topics (confirm the subscription emails).
+  BedrockModelId:
+    Type: String
+    Description: Bedrock model id or inference profile id for the drafting agent (check the Bedrock console).
+  BedrockRegion:
+    Type: String
+    Default: ap-south-1
+    Description: Region for Bedrock calls (can differ from the stack region if the model is elsewhere).
+  AllowedOrigin:
+    Type: String
+    Default: "*"
+    Description: CORS origin of the dashboard (set to the Amplify URL after the web deploy).
+  FirmsKeyParam:
+    Type: String
+    Default: /lfw/firms_map_key
+    Description: SSM SecureString parameter name holding the FIRMS MAP_KEY.
+  AdminTokenParam:
+    Type: String
+    Default: /lfw/admin_token
+    Description: SSM SecureString parameter name holding the admin token.
+  ScanSchedule:
+    Type: String
+    Default: rate(3 hours)
+
+Globals:
+  Function:
+    Runtime: python3.13
+    Architectures: [x86_64]
+    Environment:
+      Variables:
+        STORE: dynamodb
+        TABLE_NAME: !Ref Table
+        PYTHONUTF8: "1"
+
+Resources:
+  # ------------------------------------------------------------------ data
+  Table:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - { AttributeName: pk, AttributeType: S }
+        - { AttributeName: sk, AttributeType: S }
+        - { AttributeName: gsi1pk, AttributeType: S }
+        - { AttributeName: gsi1sk, AttributeType: S }
+      KeySchema:
+        - { AttributeName: pk, KeyType: HASH }
+        - { AttributeName: sk, KeyType: RANGE }
+      GlobalSecondaryIndexes:
+        - IndexName: gsi1
+          KeySchema:
+            - { AttributeName: gsi1pk, KeyType: HASH }
+            - { AttributeName: gsi1sk, KeyType: RANGE }
+          Projection: { ProjectionType: ALL }
+
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules: [{ ObjectOwnership: BucketOwnerEnforced }]
+
+  # ------------------------------------------------------------------ alerts (sent only on approval)
+  LiveTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: Landfill Fire Watch LIVE
+      Subscription: [{ Protocol: email, Endpoint: !Ref AlertEmail }]
+
+  DemoTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: Landfill Fire Watch DEMO (replays)
+      Subscription: [{ Protocol: email, Endpoint: !Ref AlertEmail }]
+
+  # ------------------------------------------------------------------ functions
+  ScanFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Scheduled FIRMS NRT scan for India; matches sites, updates incidents. Never sends alerts.
+      CodeUri: build/scan/
+      Handler: handlers.scan.handler
+      MemorySize: 512
+      Timeout: 120
+      Environment:
+        Variables:
+          RAW_BUCKET: !Ref Bucket
+          FIRMS_KEY_PARAM: !Ref FirmsKeyParam
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: [dynamodb:PutItem, dynamodb:GetItem, dynamodb:Query, dynamodb:BatchWriteItem]
+              Resource: [!GetAtt Table.Arn, !Sub "${Table.Arn}/index/gsi1"]
+            - Effect: Allow
+              Action: [s3:PutObject]
+              Resource: !Sub "${Bucket.Arn}/raw/*"
+            - Effect: Allow
+              Action: [ssm:GetParameter]
+              Resource: !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${FirmsKeyParam}"
+      Events:
+        Every3Hours:
+          Type: ScheduleV2
+          Properties:
+            ScheduleExpression: !Ref ScanSchedule
+            Description: Landfill Fire Watch live scan
+            State: ENABLED
+
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: HTTP API for the dashboard; approve publishes to SNS (replays to the demo topic only).
+      CodeUri: build/api/
+      Handler: handlers.api.handler
+      MemorySize: 256
+      Timeout: 15
+      Environment:
+        Variables:
+          RAW_BUCKET: !Ref Bucket
+          ADMIN_TOKEN_PARAM: !Ref AdminTokenParam
+          LIVE_TOPIC_ARN: !Ref LiveTopic
+          DEMO_TOPIC_ARN: !Ref DemoTopic
+          DRAFT_FUNCTION: !Ref DraftFunction
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: [dynamodb:PutItem, dynamodb:GetItem, dynamodb:Query]
+              Resource: [!GetAtt Table.Arn, !Sub "${Table.Arn}/index/gsi1"]
+            - Effect: Allow
+              Action: [sns:Publish]
+              Resource: [!Ref LiveTopic, !Ref DemoTopic]
+            - Effect: Allow
+              Action: [lambda:InvokeFunction]
+              Resource: !GetAtt DraftFunction.Arn
+            - Effect: Allow
+              Action: [s3:GetObject]
+              Resource: !Sub "${Bucket.Arn}/backtest/*"
+            - Effect: Allow
+              Action: [ssm:GetParameter]
+              Resource: !Sub "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${AdminTokenParam}"
+      Events:
+        Health: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: GET, Path: /health } }
+        Sites: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: GET, Path: /sites } }
+        Incidents: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: GET, Path: /incidents } }
+        Incident: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: GET, Path: "/incidents/{id}" } }
+        Draft: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: POST, Path: "/incidents/{id}/draft" } }
+        Approve: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: POST, Path: "/incidents/{id}/approve" } }
+        Review: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: POST, Path: "/incidents/{id}/review" } }
+        Backtest: { Type: HttpApi, Properties: { ApiId: !Ref HttpApi, Method: GET, Path: /backtest } }
+
+  DraftFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Strands agent on Amazon Bedrock; read-only tools, validator, retry, fallback template.
+      CodeUri: build/draft/
+      Handler: handlers.draft.handler
+      MemorySize: 1024
+      Timeout: 120
+      Environment:
+        Variables:
+          DRAFT_MODEL: bedrock
+          BEDROCK_MODEL_ID: !Ref BedrockModelId
+          BEDROCK_REGION: !Ref BedrockRegion
+          HINDI_ENABLED: "false"
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: [dynamodb:PutItem, dynamodb:GetItem, dynamodb:Query]
+              Resource: [!GetAtt Table.Arn, !Sub "${Table.Arn}/index/gsi1"]
+            # Converse without streaming needs only bedrock:InvokeModel. Cross-region inference profiles
+            # route to foundation models in other regions, hence the region wildcard on models.
+            - Effect: Allow
+              Action: [bedrock:InvokeModel]
+              Resource:
+                - !Sub "arn:${AWS::Partition}:bedrock:*::foundation-model/*"
+                - !Sub "arn:${AWS::Partition}:bedrock:${BedrockRegion}:${AWS::AccountId}:inference-profile/*"
+                - !Sub "arn:${AWS::Partition}:bedrock:*:${AWS::AccountId}:application-inference-profile/*"
+
+  # ------------------------------------------------------------------ API (throttled: 10 req/s, burst 20)
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      DefaultRouteSettings:
+        ThrottlingRateLimit: 10
+        ThrottlingBurstLimit: 20
+      CorsConfiguration:
+        AllowOrigins: [!Ref AllowedOrigin]
+        AllowMethods: [GET, POST, OPTIONS]
+        AllowHeaders: [content-type, x-admin-token]
+        MaxAge: 600
+
+  # ------------------------------------------------------------------ logs (14 days)
+  ScanLogs:
+    Type: AWS::Logs::LogGroup
+    Properties: { LogGroupName: !Sub "/aws/lambda/${ScanFunction}", RetentionInDays: 14 }
+  ApiLogs:
+    Type: AWS::Logs::LogGroup
+    Properties: { LogGroupName: !Sub "/aws/lambda/${ApiFunction}", RetentionInDays: 14 }
+  DraftLogs:
+    Type: AWS::Logs::LogGroup
+    Properties: { LogGroupName: !Sub "/aws/lambda/${DraftFunction}", RetentionInDays: 14 }
+
+Outputs:
+  ApiUrl:
+    Description: Base URL for web/config.js
+    Value: !Sub "https://${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}"
+  TableName:
+    Value: !Ref Table
+  BucketName:
+    Value: !Ref Bucket
+  LiveTopicArn:
+    Value: !Ref LiveTopic
+  DemoTopicArn:
+    Value: !Ref DemoTopic
+  ScanFunctionName:
+    Value: !Ref ScanFunction
+  ApiFunctionName:
+    Value: !Ref ApiFunction
+  DraftFunctionName:
+    Value: !Ref DraftFunction

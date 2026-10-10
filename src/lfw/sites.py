@@ -11,8 +11,7 @@ from shapely.ops import unary_union
 
 from lfw.geo import SiteShape, site_shape
 from lfw.models import Site
-
-ROOT = Path(__file__).resolve().parents[2]
+from lfw.paths import ROOT
 
 
 def load_sites(path: Path | None = None) -> list[Site]:

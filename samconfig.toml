@@ -1,0 +1,14 @@
+# SAM CLI defaults for `make deploy`. Pass AlertEmail and BedrockModelId at deploy time, e.g.:
+#   sam deploy --parameter-overrides AlertEmail=you@example.com BedrockModelId=<model or inference profile id>
+# (no personal values are committed here)
+version = 0.1
+
+[default.global.parameters]
+stack_name = "landfill-fire-watch"
+region = "ap-south-1"
+
+[default.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+resolve_s3 = true
+confirm_changeset = true
+fail_on_empty_changeset = false

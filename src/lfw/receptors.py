@@ -9,9 +9,9 @@ from shapely.geometry import Point, shape
 from shapely.prepared import prep
 
 from lfw.models import Receptor, SmokeZone
+from lfw.paths import DATA
 
-ROOT = Path(__file__).resolve().parents[2]
-RECEPTOR_DIR = ROOT / "data" / "receptors"
+RECEPTOR_DIR = DATA / "receptors"
 
 
 def load_receptors(site_id: str, directory: Path = RECEPTOR_DIR) -> list[Receptor]:

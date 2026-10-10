@@ -17,7 +17,7 @@ FUNCTIONS := scan api draft
 LAMBDA_PY := 3.13
 LAMBDA_PLATFORM := manylinux2014_x86_64
 
-.PHONY: setup test sites receptors backtest scan-local replay draft verify web fixtures package deploy
+.PHONY: setup test sites receptors backtest scan-local replay draft verify web api-local fixtures lock package lint deploy
 
 setup:
 	python -m venv .venv
@@ -56,17 +56,36 @@ verify:
 web:
 	cd web && "../$(PY)" -m http.server 8000
 
+# pip evaluates environment markers (e.g. sys_platform == "win32") for the HOST, not --platform,
+# so a Windows host would pull pywin32 into a Linux package. Resolve once for Linux with uv,
+# commit the locks, then install exactly those pins with pip --no-deps (Linux wheels only).
+lock:
+	for fn in $(FUNCTIONS); do \
+	  $(PY) -m uv pip compile --quiet --python-platform x86_64-manylinux2014 --python-version $(LAMBDA_PY) --only-binary :all: \
+	    --no-header --output-file "handlers/requirements-$$fn.lock.txt" "handlers/requirements-$$fn.txt" \
+	  || exit 1; \
+	done
+
 package:
 	rm -rf build
 	for fn in $(FUNCTIONS); do \
-	  mkdir -p "build/$$fn" && \
+	  mkdir -p "build/$$fn/handlers" "build/$$fn/data/sites" "build/$$fn/data/receptors" && \
 	  $(PY) -m pip install --quiet --platform $(LAMBDA_PLATFORM) --only-binary=:all: \
 	    --python-version $(LAMBDA_PY) --implementation cp \
-	    --target "build/$$fn" -r "handlers/requirements-$$fn.txt" && \
+	    --no-deps --target "build/$$fn" -r "handlers/requirements-$$fn.lock.txt" && \
 	  cp -r src/lfw "build/$$fn/" && \
-	  mkdir -p "build/$$fn/handlers" && cp handlers/__init__.py "handlers/$$fn.py" "build/$$fn/handlers/" \
+	  cp handlers/__init__.py "handlers/$$fn.py" "build/$$fn/handlers/" && \
+	  cp data/sites.yaml data/rules.yaml "build/$$fn/data/" && \
+	  cp data/sites/*.geojson "build/$$fn/data/sites/" && \
+	  cp data/receptors/*.geojson "build/$$fn/data/receptors/" \
 	  || exit 1; \
 	done
+	cp out/backtest.json build/api/data/backtest.json
+	find build -type d -name "__pycache__" -prune -exec rm -rf {} +
+	du -sh build/*
+
+lint:
+	"$(dir $(PY))cfn-lint" --regions ap-south-1 -- template.yaml
 
 deploy: package
 	sam build && sam deploy

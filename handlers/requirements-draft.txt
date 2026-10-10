@@ -1,0 +1,7 @@
+# DraftFunction: Strands Agents SDK (pulls its own boto3)
+httpx>=0.27
+pydantic>=2.7
+pydantic-settings>=2.3
+pyyaml>=6.0
+shapely>=2.0
+strands-agents>=1.59
