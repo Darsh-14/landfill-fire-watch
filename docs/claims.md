@@ -31,6 +31,7 @@ used publicly yet.
 | # | Claim | Source | Status | Used in |
 |---|---|---|---|---|
 | 13 | A scan runs every 3 hours and pulls NASA FIRMS hotspots for all of India (4 NRT feeds) | `template.yaml` (ScheduleV2 `rate(3 hours)`), `config.LIVE_SOURCES`, `config.INDIA_BBOX` | Design | README, writeup, video |
+| 13b | 11 landfills are monitored (MVP aimed for 15–25) | `data/sites.yaml`, `docs/site-review.md` | Measured | README, video (status strip) |
 | 14 | Code, not the model, decides matches, status, smoke zone and the list of places | `src/lfw/detect.py`, `incidents.py`, `smoke.py`, `pipeline.py`; agent tools are read-only | Design | README, writeup, video |
 | 15 | The validator has 11 checks and rejects invented places, changed numbers, "confirmed", health claims, unverified rules, missing [REPLAY] | `src/lfw/agent/contract.py`; `tests/test_contract.py` | Design + tested | README, writeup, video |
 | 16 | Nothing is sent until a person approves; replays go only to the demo topic | `handlers/api.py` approve route, `lfw/notify.topic_for`; `tests/test_api.py` | Design + tested | README, writeup, video |

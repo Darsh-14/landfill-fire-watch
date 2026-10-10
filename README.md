@@ -88,10 +88,11 @@ not prove there was no fire, so we do not call these false positives. Full outpu
 - A detection is not a confirmation. A person must check.
 - The smoke zone is a screening sector from wind direction. It is not a pollution forecast.
 
-Also: the event-site outlines were checked on satellite imagery by the AI coding agent at the team's request, not
-yet by a team member ([`docs/site-review.md`](docs/site-review.md)); 5 more sites have unverified outlines. No rule
-text is verified yet, so the agent cites none ([`data/rules.yaml`](data/rules.yaml)). The admin token is a demo
-control, not production authentication. Hindi drafts are off until a Hindi speaker reviews them.
+Also: 11 landfills are monitored (the MVP aimed for 15–25; five candidates had no usable OpenStreetMap outline
+during the hackathon). All 11 outlines were checked on satellite imagery by the AI coding agent at the team's
+request, not yet by a team member ([`docs/site-review.md`](docs/site-review.md)). No rule text is verified yet, so
+the agent cites none ([`data/rules.yaml`](data/rules.yaml)). The admin token is a demo control, not production
+authentication. Hindi drafts are off until a Hindi speaker reviews them.
 
 ## AWS services
 
