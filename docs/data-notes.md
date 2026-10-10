@@ -38,7 +38,7 @@ No `source` column: the parser adds the source name from the request. No country
 | `acq_time` | `1955`, `724`, `907` | `450`, `1009`, `1635` | **DIFF:** not zero-padded. MVP says HHMM; values below 1000 have 3 digits. Pad to 4 (`0450`) before parsing and in the detection key. UTC. |
 | `satellite` | `N` (S-NPP) | `Terra`, `Aqua` | **DIFF:** the FIRMS attribute page says MODIS `A`/`T`; the CSV has full words |
 | `instrument` | `VIIRS` | `MODIS` | matches `Literal["VIIRS","MODIS"]` |
-| `confidence` | letters; seen `n`, `h` | integer 0–100; seen `34`..`82` | `l` not present in these samples (TODO(verify) with a larger sample) |
+| `confidence` | letters `l`, `n`, `h` | integer 0–100 | P0 samples had only `n`, `h`; India-wide archive for 2022-03-28 has all three (S-NPP: 2873 l, 7086 n, 350 h) |
 | `version` | `2.0NRT` (NRT), `2` (SP) | `6.1NRT` (NRT), `61.03` (SP) | Keep as string |
 | `frp` | MW, e.g. `1.76` | MW, e.g. `22.7` | float |
 | `daynight` | `D` / `N` | `D` / `N` | |

@@ -54,8 +54,8 @@ STATIC_LAND_TYPE_CODES = frozenset({2})
 # 6.2 Confidence tier
 # ---------------------------------------------------------------------------
 
-# VIIRS confidence is a class letter, not a number. Fixtures show `n` and `h`.
-# TODO(verify): `l` is not in the P0 samples; confirm it from a larger sample in P1.
+# VIIRS confidence is a class letter, not a number. All three letters (l, n, h) occur in the
+# India-wide VIIRS_SNPP_SP / VIIRS_NOAA20_SP archive for 2022-03-28 (checked in P1).
 VIIRS_CONFIDENCE_TIERS = {"l": "low", "n": "nominal", "h": "high"}
 
 # MODIS confidence is 0..100 (FIRMS attribute page). Class edges from MVP §6.2:
