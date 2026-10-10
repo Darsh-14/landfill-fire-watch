@@ -77,8 +77,9 @@ We did not change any rule after seeing it.
 year before and after each event). Monsoon cloud also hides fires, so this is weak evidence; no news report does
 not prove there was no fire, so we do not call these false positives. Full output: [`out/backtest.md`](out/backtest.md).
 
-**History stat:** see [`out/history.md`](out/history.md) — satellite *detection-days* per site since 2019
-(VIIRS S-NPP archive). Detection-days are days with a hotspot on the outline, not fires.
+**History stat** ([`out/history.md`](out/history.md)): satellite *detection-days* from 1 Jan 2019 to 30 Jun 2026
+(VIIRS S-NPP archive, the same sensor every year) — Deonar 11, Brahmapuram 10, Ghazipur 2. A detection-day is a
+day with at least one hotspot on the outline; it is not a count of fires.
 
 ## Limits
 

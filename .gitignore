@@ -20,6 +20,8 @@ cache/
 out/*
 !out/backtest.md
 !out/backtest.json
+!out/history.md
+!out/history.json
 
 # Lambda packaging and SAM build output
 build/

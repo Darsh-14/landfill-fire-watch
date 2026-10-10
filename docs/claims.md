@@ -50,7 +50,7 @@ used publicly yet.
 | 24 | Brahmapuram replay: MODIS pixel at 22:05 IST, high confidence, 22.7 MW → PROBABLE | `make replay EVENT=brahmapuram-2023` (status_reason) | Measured | video |
 | 25 | Brahmapuram replay: smoke toward N, then WNW and W; 404 schools/hospitals in the 10 km sector; nearest college 1.79 km | replay incident + `data/receptors/brahmapuram-kochi.geojson` | Measured | README, video |
 | 26 | A draft naming an invented school was rejected and the retry passed | `make draft` with the local test model (fake) | Measured (local test model; label it so) | video |
-| 27 | Detection-days per site since 2019 | `out/history.md` | Measured (VIIRS S-NPP only) | README (link) |
+| 27 | Detection-days 2019-01-01 to 2026-06-30: Deonar 11, Brahmapuram 10, Ghazipur 2 | `out/history.md` | Measured (VIIRS S-NPP only; days, not fires) | README |
 
 ## Honesty notes that must stay visible
 

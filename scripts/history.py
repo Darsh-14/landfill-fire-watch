@@ -68,7 +68,7 @@ def main() -> int:
         log(f"[{s.site_id}] {len(days)} detection-days {start}..{end} ({calls} calls)")
     OUT.mkdir(exist_ok=True)
     (OUT / "history.json").write_text(json.dumps(result, indent=1) + "\n", encoding="utf-8", newline="\n")
-    years = sorted({y for v in result["sites"].values() for y in v["by_year"]})
+    years = [str(y) for y in range(start.year, end.year + 1)]  # every year, so zeros are shown as zeros
     lines = ["# Satellite detection-days per site", "",
              f"VIIRS S-NPP archive (`{SOURCE}`), {start} to {end}. A detection-day is a UTC day with at least one",
              "satellite hotspot matched to the landfill outline (static-land-source pixels excluded). These are",
