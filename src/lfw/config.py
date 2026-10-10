@@ -82,6 +82,13 @@ FRP_HIGH_MW = 10.0
 # CANDIDATE from low-tier detections only needs this many distinct overpasses (MVP §6.3).
 CANDIDATE_MIN_LOW_OVERPASSES = 2
 
+# Overpass identity. MVP §5 says distinct (satellite, acq_utc). The VIIRS_SNPP_SP fixture has rows
+# at 19:36 and 19:37 UTC on 2023-03-03 from the same satellite: one pass split across data granules.
+# Acquisitions of the same source+satellite at most this many minutes apart count as ONE overpass.
+# Successive orbits of one satellite are far more than 10 minutes apart, so real passes never merge.
+# 0 = literal MVP §5 definition. DECISION PENDING (user) before the config freeze.
+OVERPASS_MERGE_MINUTES = 10
+
 # ---------------------------------------------------------------------------
 # 6.4 Smoke screening sector (a screening sector, NOT a dispersion model)
 # ---------------------------------------------------------------------------
