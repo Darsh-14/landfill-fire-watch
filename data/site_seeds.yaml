@@ -1,0 +1,21 @@
+# Search seeds for scripts/build_sites.py. Names only, from docs/MVP.md §10.1 and §17.
+# No coordinates here by design: outlines, centroids and states come from OpenStreetMap.
+# `patterns`: case-insensitive regexes matched against OSM name tags of landuse=landfill elements.
+# `nominatim_queries`: free-text searches used only when Overpass is unavailable; results are still
+#   filtered to landuse=landfill and to names matching `patterns`.
+- site_id: deonar-mumbai
+  name: Deonar
+  city: Mumbai
+  patterns: ["Deonar"]
+  nominatim_queries: ["Deonar dumping ground", "Deonar landfill", "landfill in Mumbai"]
+- site_id: ghazipur-delhi
+  name: Ghazipur
+  city: Delhi
+  patterns: ["Ghazipur"]
+  nominatim_queries: ["Ghazipur landfill", "landfill in Delhi"]
+- site_id: brahmapuram-kochi
+  name: Brahmapuram
+  city: Kochi
+  # OSM spells the landfill "Bhramapuram" (Nominatim "landfill in Ernakulam", 2026-10-10).
+  patterns: ["Brahmapuram", "Bhramapuram"]
+  nominatim_queries: ["landfill in Ernakulam", "Brahmapuram landfill", "Bhramapuram"]

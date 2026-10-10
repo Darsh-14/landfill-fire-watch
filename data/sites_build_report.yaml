@@ -1,0 +1,68 @@
+# Output of scripts/build_sites.py: every OSM search, its candidates and the decision.
+deonar-mumbai:
+  status: matched
+  method: nominatim
+  patterns:
+  - Deonar
+  retrieved_utc: '2026-10-10T12:34:10Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/289511744
+    osm_name: Deonar Municipal Dumping Ground
+    osm_name_en: null
+    area_ha: 127.49
+    centroid_lat: 19.068208
+    centroid_lon: 72.92991
+    bbox_wsen:
+    - 72.921455
+    - 19.058644
+    - 72.937432
+    - 19.075244
+    geometry_type: Polygon
+    state: Maharashtra
+  chosen: way/289511744
+ghazipur-delhi:
+  status: matched
+  method: nominatim
+  patterns:
+  - Ghazipur
+  retrieved_utc: '2026-10-10T12:40:47Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/76727509
+    osm_name: Ghazipur Landfill
+    osm_name_en: null
+    area_ha: 29.22
+    centroid_lat: 28.624214
+    centroid_lon: 77.327327
+    bbox_wsen:
+    - 77.323904
+    - 28.620463
+    - 77.330948
+    - 28.627631
+    geometry_type: Polygon
+    state: Delhi
+  chosen: way/76727509
+brahmapuram-kochi:
+  status: matched
+  method: nominatim
+  patterns:
+  - Brahmapuram
+  - Bhramapuram
+  retrieved_utc: '2026-10-10T12:40:56Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/1262085027
+    osm_name: Bhramapuram Solid waste treatment plant
+    osm_name_en: null
+    area_ha: 6.48
+    centroid_lat: 9.991888
+    centroid_lon: 76.366982
+    bbox_wsen:
+    - 76.364863
+    - 9.99018
+    - 76.369001
+    - 9.993932
+    geometry_type: Polygon
+    state: Kerala
+  chosen: way/1262085027

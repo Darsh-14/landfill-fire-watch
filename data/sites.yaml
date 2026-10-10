@@ -1,0 +1,29 @@
+# Monitored landfills. Built by scripts/build_sites.py; `verified_by` is set by a person
+# after checking the outline on satellite imagery. Outlines: © OpenStreetMap contributors (ODbL).
+- site_id: deonar-mumbai
+  name: Deonar
+  city: Mumbai
+  state: Maharashtra
+  polygon_path: data/sites/deonar-mumbai.geojson
+  polygon_source: osm
+  osm_id: way/289511744
+  exclusions: []
+  verified_by: null
+- site_id: ghazipur-delhi
+  name: Ghazipur
+  city: Delhi
+  state: Delhi
+  polygon_path: data/sites/ghazipur-delhi.geojson
+  polygon_source: osm
+  osm_id: way/76727509
+  exclusions: []
+  verified_by: null
+- site_id: brahmapuram-kochi
+  name: Brahmapuram
+  city: Kochi
+  state: Kerala
+  polygon_path: data/sites/brahmapuram-kochi.geojson
+  polygon_source: osm
+  osm_id: way/1262085027
+  exclusions: []
+  verified_by: null
