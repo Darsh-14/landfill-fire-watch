@@ -143,11 +143,21 @@ def build_incidents(dets: Iterable[Detection], mode: Mode) -> list[Incident]:
 
 
 def apply_human_actions(rebuilt: list[Incident], existing: Mapping[str, Incident]) -> list[Incident]:
-    """Keep a person's review (and its status) when incidents are rebuilt from detections."""
+    """Keep a person's review (and its status) when incidents are rebuilt from detections.
+
+    Exception, for safety: if satellite detections arrived after the review, the code-computed status
+    is shown again (the review stays on record), so new heat at a reviewed site is never hidden.
+    """
     out = []
     for inc in rebuilt:
         prev = existing.get(inc.incident_id)
         if prev is not None and prev.human_action is not None:
-            inc = inc.model_copy(update={"human_action": prev.human_action, "status": prev.human_action.status})
+            review = prev.human_action
+            if inc.last_utc > review.utc:
+                note = f"new detections after the review ({review.status} at {review.utc:%Y-%m-%d %H:%M}Z)"
+                inc = inc.model_copy(update={"human_action": review,
+                                             "status_reason": f"{inc.status_reason}; {note}".lstrip("; ")})
+            else:
+                inc = inc.model_copy(update={"human_action": review, "status": review.status})
         out.append(inc)
     return out

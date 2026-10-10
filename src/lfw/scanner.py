@@ -77,7 +77,11 @@ def run_scan(
     touched |= {i.site_id for i in live_existing.values() if i.last_utc >= since}
     updated, created = [], []
     for site_id in sorted(touched):
-        recent = [d for d in store.get_detections(site_id, since=since) if d.mode == "live"]
+        # Reach back to the first detection of any still-open incident, so a fire longer than the
+        # lookback keeps its incident id (and its review) instead of being split into a new one.
+        open_firsts = [i.first_utc for i in live_existing.values() if i.site_id == site_id and i.last_utc >= since]
+        site_since = min([since, *open_firsts])
+        recent = [d for d in store.get_detections(site_id, since=site_since) if d.mode == "live"]
         rebuilt = incidents.apply_human_actions(incidents.build_incidents(recent, "live"),
                                                 {k: v for k, v in live_existing.items() if v.site_id == site_id})
         for inc in rebuilt:

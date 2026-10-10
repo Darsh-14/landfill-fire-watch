@@ -187,3 +187,43 @@ def test_quiet_windows_dates():
     import backtest
 
     assert backtest.quiet_windows({"reported_start": date(2016, 1, 27)})[0] == (date(2015, 7, 15), date(2015, 8, 13))
+
+
+# --- incidents over time: long fires keep their id; new heat after a review is not hidden
+
+
+def test_new_detections_after_a_review_show_the_computed_status_again():
+    first = [det(t="2023-03-02T16:35", tier="high", frp=22.7)]
+    (inc,) = incidents.build_incidents(first, "replay")
+    reviewed = inc.model_copy(update={"status": "CLOSED", "human_action": HumanAction(
+        status="CLOSED", note="out", utc=datetime(2023, 3, 2, 18, 0, tzinfo=UTC))})
+    later = first + [det(t="2023-03-03T04:50", tier="nominal", lat=10.001)]  # within 36 h: same incident
+    (rebuilt,) = incidents.apply_human_actions(incidents.build_incidents(later, "replay"), {inc.incident_id: reviewed})
+    assert rebuilt.incident_id == inc.incident_id and rebuilt.status == "PROBABLE"
+    assert rebuilt.human_action.status == "CLOSED" and "new detections after the review" in rebuilt.status_reason
+    (same,) = incidents.apply_human_actions(incidents.build_incidents(first, "replay"), {inc.incident_id: reviewed})
+    assert same.status == "CLOSED"  # nothing new since the review: the person's status stands
+
+
+def test_fire_longer_than_the_lookback_keeps_one_incident(tmp_path):
+    from conftest import square_site
+    from lfw.models import RawFetch, Site
+    from lfw.scanner import run_scan
+    from lfw.store import LocalStore
+
+    site = square_site("s1", 10.0, 76.0, 300)
+    sites = [Site(site_id="s1", name="S", city="C", state="X", polygon_path="-", polygon_source="manual", osm_id=None)]
+    dets = [det(t=f"2026-10-{d:02d}T08:00", tier="nominal", lat=10.0, lon=76.0 + d / 100000, mode="live") for d in range(1, 11)]
+    store = LocalStore(tmp_path)
+    store.put_detections(dets)
+    (inc,) = incidents.build_incidents(dets, "live")
+    store.put_incident(inc)
+    header = b"latitude,longitude,bright_ti4,scan,track,acq_date,acq_time,satellite,instrument,confidence,version,bright_ti5,frp,daynight\n"
+
+    def fetch(key, src, bbox, day_range, **kw):
+        return header, RawFetch(source=src, url_redacted="x", retrieved_utc="t", sha256="s", bytes=len(header))
+
+    forecast = json.loads((FIXTURES / "openmeteo_forecast_brahmapuram.json").read_text(encoding="utf-8"))
+    run_scan(store, "K", sites, {"s1": site}, datetime(2026, 10, 10, 9, 0, tzinfo=UTC), fetch=fetch,
+             forecast=lambda lat, lon: forecast, lookback_days=7)  # first detection is 9 days old
+    assert [i.incident_id for i in store.list_incidents("live")] == [inc.incident_id]
