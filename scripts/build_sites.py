@@ -48,6 +48,8 @@ REPORT = ROOT / "data" / "sites_build_report.yaml"
 
 # Fallback search radius around OSM place nodes with the site name, when no landfill carries the name.
 PROXIMITY_RADIUS_M = 3000
+# Radius for listing other landfill polygons near a candidate (split outlines, neighbouring dumps).
+NEARBY_RADIUS_M = 3000
 NAME_KEYS = "^(name|name:en|alt_name|old_name|official_name)$"
 INDIA_AREA = 'area["ISO3166-1"="IN"]["admin_level"="2"]->.in;'
 ATTRIBUTION = "© OpenStreetMap contributors"
@@ -198,7 +200,7 @@ def feature(site_id: str, info: dict, g: BaseGeometry, retrieved: str) -> dict:
 def write_geojson(path: Path, features: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fc = {"type": "FeatureCollection", "attribution": ATTRIBUTION, "license": "ODbL-1.0", "features": features}
-    path.write_text(json.dumps(fc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(fc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
 
 
 def search(seed: dict) -> tuple[str, list[tuple[dict, BaseGeometry]], list[dict]]:
@@ -234,6 +236,38 @@ def load_existing() -> dict[str, dict]:
     return {s["site_id"]: s for s in (yaml.safe_load(SITES_YAML.read_text(encoding="utf-8")) or [])}
 
 
+def nearby_query(osm_id: str) -> str:
+    kind, num = osm_id.split("/")
+    return (
+        f"[out:json][timeout:90];{kind}({num})->.s;"
+        f'nwr["landuse"="landfill"](around.s:{NEARBY_RADIUS_M});'
+        "out tags geom;"
+    )
+
+
+def nearby_landfills(info: dict, g: BaseGeometry) -> tuple[list[tuple[dict, BaseGeometry]], str]:
+    """Other landuse=landfill elements within NEARBY_RADIUS_M (named or not), for human review."""
+    try:
+        data = overpass(nearby_query(info["osm_id"]))
+    except FetchError:
+        return [], "not run (Overpass unavailable)"
+    proj = geo.projection_for(g)
+    base = proj.forward(g)
+    out = []
+    for el in data.get("elements", []):
+        oid = f"{el['type']}/{el['id']}"
+        if oid == info["osm_id"]:
+            continue
+        ng = element_geometry(el)
+        if ng is None:
+            continue
+        d = describe(el, ng)
+        d["distance_to_chosen_m"] = round(base.distance(proj.forward(ng)), 1)
+        d["intersects_chosen"] = bool(base.intersects(proj.forward(ng)))
+        out.append((d, ng))
+    return out, "ok"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--only", nargs="*", default=None, help="site_ids to build (default: all seeds)")
@@ -260,14 +294,30 @@ def main() -> int:
             info["state"] = state_of(el, info["osm_id"])
             infos.append((info, g))
 
+        nearby: list[tuple[dict, BaseGeometry]] = []
+        nearby_status = "not run (no candidates)"
+        for info, g in infos:
+            found_near, nearby_status = nearby_landfills(info, g)
+            known = {i["osm_id"] for i, _ in infos} | {i["osm_id"] for i, _ in nearby}
+            nearby += [(d, ng) for d, ng in found_near if d["osm_id"] not in known]
+        for d, _ in nearby:
+            d["state"] = None
+
         chosen: tuple[dict, BaseGeometry] | None = None
         if sid in picks:
-            match = [x for x in infos if x[0]["osm_id"] == picks[sid]]
-            if not match:
-                log(f"[{sid}] --pick {picks[sid]} is not among the candidates; nothing written")
+            pool = {i["osm_id"]: (i, g) for i, g in infos + nearby}
+            ids = picks[sid].split("+")
+            missing = [i for i in ids if i not in pool]
+            if missing:
+                log(f"[{sid}] --pick {missing} not among candidates or nearby landfills; nothing written")
                 status = "pick_not_found"
             else:
-                chosen, status = match[0], "picked_by_person"
+                parts = [pool[i] for i in ids]
+                g = unary_union([pg for _, pg in parts])
+                info = describe({"type": "pick", "id": 0, "tags": parts[0][0]["tags"]}, g)
+                info.update(osm_id="+".join(ids), osm_name=parts[0][0]["osm_name"],
+                            state=next((p[0].get("state") for p in parts if p[0].get("state")), None))
+                chosen, status = (info, g), "picked_by_person"
         elif method in ("name", "nominatim") and len(infos) == 1:
             chosen, status = infos[0], "matched"
         elif method in ("name", "nominatim") and len(infos) > 1:
@@ -277,8 +327,13 @@ def main() -> int:
 
         CANDIDATES_DIR.mkdir(parents=True, exist_ok=True)
         cand_path = CANDIDATES_DIR / f"{sid}.geojson"
-        if infos:
-            write_geojson(cand_path, [feature(sid, i, g, retrieved) for i, g in infos])
+        if infos or nearby:
+            feats = [feature(sid, i, g, retrieved) for i, g in infos]
+            for i, g in nearby:
+                f = feature(sid, i, g, retrieved)
+                f["properties"]["role"] = "nearby_landfill"
+                feats.append(f)
+            write_geojson(cand_path, feats)
         elif cand_path.exists():
             cand_path.unlink()
 
@@ -289,6 +344,8 @@ def main() -> int:
             "retrieved_utc": retrieved,
             "place_anchors": anchors,
             "candidates": [{k: v for k, v in i.items() if k != "tags"} for i, _ in infos],
+            "nearby_check": nearby_status,
+            "nearby_landfills": [{k: v for k, v in i.items() if k != "tags"} for i, _ in nearby],
             "chosen": chosen[0]["osm_id"] if chosen else None,
         }
         log(f"[{sid}] status={status} candidates={len(infos)}")
@@ -316,11 +373,13 @@ def main() -> int:
         "# after checking the outline on satellite imagery. Outlines: © OpenStreetMap contributors (ODbL).\n"
         + yaml.safe_dump(list(sites_out.values()), sort_keys=False, allow_unicode=True),
         encoding="utf-8",
+        newline="\n",
     )
     REPORT.write_text(
         "# Output of scripts/build_sites.py: every OSM search, its candidates and the decision.\n"
         + yaml.safe_dump(report, sort_keys=False, allow_unicode=True),
         encoding="utf-8",
+        newline="\n",
     )
     return 0
 

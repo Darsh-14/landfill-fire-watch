@@ -1,10 +1,10 @@
 # Output of scripts/build_sites.py: every OSM search, its candidates and the decision.
 deonar-mumbai:
   status: matched
-  method: nominatim
+  method: name
   patterns:
   - Deonar
-  retrieved_utc: '2026-10-10T12:34:10Z'
+  retrieved_utc: '2026-10-10T12:45:54Z'
   place_anchors: []
   candidates:
   - osm_id: way/289511744
@@ -20,13 +20,30 @@ deonar-mumbai:
     - 19.075244
     geometry_type: Polygon
     state: Maharashtra
+  nearby_check: ok
+  nearby_landfills:
+  - osm_id: way/314528563
+    osm_name: null
+    osm_name_en: null
+    area_ha: 2.86
+    centroid_lat: 19.066069
+    centroid_lon: 72.930805
+    bbox_wsen:
+    - 72.929777
+    - 19.064944
+    - 72.931837
+    - 19.067187
+    geometry_type: Polygon
+    distance_to_chosen_m: 0.0
+    intersects_chosen: true
+    state: null
   chosen: way/289511744
 ghazipur-delhi:
   status: matched
-  method: nominatim
+  method: name
   patterns:
   - Ghazipur
-  retrieved_utc: '2026-10-10T12:40:47Z'
+  retrieved_utc: '2026-10-10T12:50:04Z'
   place_anchors: []
   candidates:
   - osm_id: way/76727509
@@ -42,14 +59,16 @@ ghazipur-delhi:
     - 28.627631
     geometry_type: Polygon
     state: Delhi
+  nearby_check: ok
+  nearby_landfills: []
   chosen: way/76727509
 brahmapuram-kochi:
   status: matched
-  method: nominatim
+  method: name
   patterns:
   - Brahmapuram
   - Bhramapuram
-  retrieved_utc: '2026-10-10T12:40:56Z'
+  retrieved_utc: '2026-10-10T12:52:48Z'
   place_anchors: []
   candidates:
   - osm_id: way/1262085027
@@ -65,4 +84,21 @@ brahmapuram-kochi:
     - 9.993932
     geometry_type: Polygon
     state: Kerala
+  nearby_check: ok
+  nearby_landfills:
+  - osm_id: way/1417183060
+    osm_name: null
+    osm_name_en: null
+    area_ha: 60.58
+    centroid_lat: 9.990325
+    centroid_lon: 76.374834
+    bbox_wsen:
+    - 76.369336
+    - 9.985725
+    - 76.379045
+    - 9.994263
+    geometry_type: Polygon
+    distance_to_chosen_m: 155.9
+    intersects_chosen: false
+    state: null
   chosen: way/1262085027
