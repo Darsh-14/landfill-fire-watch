@@ -26,12 +26,13 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import ROOT, log, utc_now_iso  # noqa: E402
 
-from lfw import config, detect, firms, incidents  # noqa: E402
+from lfw import config, detect, firms, incidents, pipeline, receptors, smoke, wind  # noqa: E402
 from lfw.geo import SiteShape, distance_to_site_m, pixel_half_size_m  # noqa: E402
-from lfw.models import Detection  # noqa: E402
+from lfw.models import Detection, Incident  # noqa: E402
 from lfw.sites import load_shapes, load_sites  # noqa: E402
 
 CACHE = ROOT / "cache" / "firms"
+WIND_CACHE = ROOT / "cache" / "wind"
 FREEZE = ROOT / "data" / "config_freeze.yaml"
 EVENTS = ROOT / "data" / "events.yaml"
 OUT = ROOT / "out"
@@ -141,10 +142,52 @@ def evaluate_window(shape: SiteShape, raw: list[Detection], start: date, end: da
         ],
         "nearest_unmatched": nearest,
         "_incidents": incs,
+        "_matched": matched,
     }
 
 
-def event_metrics(event: dict, res: dict) -> dict:
+def archive_wind(shape: SiteShape, start: date, end: date):
+    """Open-Meteo archive hours for [start, end + 1 day] at the site centroid (cached)."""
+    payload = wind.fetch_archive(shape.centroid_lat, shape.centroid_lon, start, end + timedelta(days=1),
+                                 cache_dir=WIND_CACHE)
+    return wind.parse_hourly(payload)
+
+
+def enrich_incidents(shape: SiteShape, res: dict, start: date, end: date) -> list[tuple[Incident, list]]:
+    """Smoke zone + receptors for every incident of a window (MVP §6.4, §6.5)."""
+    if not res["_incidents"]:
+        return []
+    hours, grid = archive_wind(shape, start, end)
+    site_receptors = receptors.load_receptors(shape.site_id)
+    out = []
+    for inc in res["_incidents"]:
+        sel = pipeline.wind_hours_for(inc, res["_matched"], hours)
+        out.append(pipeline.enrich(inc, shape, sel, grid, site_receptors, pipeline.status_time(inc)))
+    return out
+
+
+def smoke_summary(inc: Incident | None, inside: list) -> tuple[str, str, dict | None]:
+    if inc is None or inc.smoke is None:
+        return "—", "—", None
+    z = inc.smoke
+    if z.calm:
+        text = f"calm: {z.length_km:g} km circle"
+    else:
+        names = list(dict.fromkeys(smoke.compass(t) for t in z.toward_deg))
+        # Bearings wrap at 360°, so list the directions in time order instead of a min-max range.
+        text = (f"toward {', '.join(names)}; {z.length_km:g} km; half-angle ≤ {z.half_angle_deg}°; "
+                f"{len(z.wind_hours)} wind hours")
+    kinds: dict[str, int] = {}
+    for r in inside:
+        kinds[r.kind] = kinds.get(r.kind, 0) + 1
+    detail = {"toward_deg": z.toward_deg, "half_angles_deg": z.half_angles_deg, "calm": z.calm,
+              "length_km": z.length_km, "mean_speed_ms": z.mean_speed_ms, "wind_hours": len(z.wind_hours),
+              "wind_point": [z.wind_point_lat, z.wind_point_lon], "receptors": len(inside),
+              "receptor_kinds": kinds}
+    return text, str(len(inside)), detail
+
+
+def event_metrics(event: dict, res: dict, enriched: list[tuple[Incident, list]] | None = None) -> dict:
     """MVP §10.3. Detected = at least one PROBABLE incident in the window."""
     probable = [i for i in res["_incidents"] if i.status == "PROBABLE"]
     first = min(probable, key=lambda i: i.first_utc) if probable else None
@@ -163,9 +206,16 @@ def event_metrics(event: dict, res: dict) -> dict:
         "probable_reached_ist": ist(first.probable_utc) if first else None,
         "overpasses_with_detections": res["overpasses_with_detections"],
         "max_frp_mw": res["max_frp_mw"],
-        "smoke_zone": "pending P2",
-        "receptor_count": "pending P2",
+        **_smoke_fields(first, enriched),
     }
+
+
+def _smoke_fields(first: Incident | None, enriched: list[tuple[Incident, list]] | None) -> dict:
+    """Smoke zone and receptor count on the first PROBABLE incident (MVP §10.3)."""
+    match = next(((i, r) for i, r in (enriched or []) if first is not None and i.incident_id == first.incident_id),
+                 (None, []))
+    text, count, detail = smoke_summary(*match)
+    return {"smoke_zone": text, "receptor_count": count, "smoke_detail": detail}
 
 
 # ---------------------------------------------------------------- guards and output
@@ -251,19 +301,46 @@ def write_outputs(report: dict, stem: str) -> None:
     (OUT / f"{stem}.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
+def replay(event_id: str) -> int:
+    """`make replay EVENT=...`: replay incidents (mode=replay) with smoke zone and receptors -> store."""
+    from lfw.store import get_store
+
+    ev = next((e for e in yaml.safe_load(EVENTS.read_text(encoding="utf-8")) if e["event_id"] == event_id), None)
+    if ev is None:
+        log(f"unknown event {event_id}")
+        return 2
+    key_secret = config.get_settings().firms_map_key
+    key = key_secret.get_secret_value() if key_secret else ""
+    site = next(s for s in load_sites() if s.site_id == ev["site_id"])
+    shape = load_shapes([site])[site.site_id]
+    a, b = ev["window_start"], ev["window_end"]
+    raw, _ = fetch_window(key, ev["archive_sources"], query_bbox(shape), a, b)
+    res = evaluate_window(shape, raw, a, b)
+    store = get_store()
+    store.put_detections(res["_matched"])
+    for inc, inside in enrich_incidents(shape, res, a, b):
+        store.put_incident(inc)
+        z = inc.smoke
+        log(json.dumps({"event": "replay_incident", "incident_id": inc.incident_id, "status": inc.status,
+                        "mode": inc.mode, "first_ist": ist(inc.first_utc), "status_reached_ist": ist(pipeline.status_time(inc)),
+                        "overpasses": inc.overpass_count, "max_frp_mw": inc.max_frp_mw,
+                        "smoke_toward_deg": z.toward_deg if z else None, "receptors_in_zone": len(inside)}))
+    log(f"stored {len(res['_matched'])} detections and {len(res['_incidents'])} replay incidents")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--event", nargs="*", default=None)
     ap.add_argument("--dev", action="store_true", help="skip guards; write out/backtest_dev.*")
     ap.add_argument("--freeze", action="store_true", help="record the config freeze and exit")
-    ap.add_argument("--replay", default=None, help="P2: build replay incidents for one event (not yet wired)")
+    ap.add_argument("--replay", default=None, help="build replay incidents for one event into the store")
     args = ap.parse_args()
 
     if args.freeze:
         return do_freeze()
     if args.replay:
-        log("--replay is wired to the store in P2")
-        return 2
+        return replay(args.replay)
 
     events = yaml.safe_load(EVENTS.read_text(encoding="utf-8"))
     if args.event:
@@ -307,13 +384,14 @@ def main() -> int:
             report["fetches"] += [{**f, "event_id": ev["event_id"], "window": kind} for f in fetches]
             res = evaluate_window(shape, raw, a, b)
             if kind == "event":
-                m = event_metrics(ev, res)
+                m = event_metrics(ev, res, enrich_incidents(shape, res, a, b))
                 report["events"].append(m)
                 if not m["detected"]:
                     log(f"[{ev['event_id']}] MISS: no PROBABLE incident. Nearest raw detections:")
                     for n in res["nearest_unmatched"] + res["matched_detections"]:
                         log(f"    {n}")
             res.pop("_incidents")
+            res.pop("_matched")
             res["event_id"] = ev["event_id"]
             (report["event_windows"] if kind == "event" else report["quiet_windows"]).append(res)
 

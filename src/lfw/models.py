@@ -63,10 +63,13 @@ class SmokeZone(BaseModel):
     computed_utc: datetime
     wind_hours: list[WindHour]
     toward_deg: list[int]
-    half_angle_deg: int
+    half_angle_deg: int  # the widest half-angle used
     length_km: float
     calm: bool
     geometry_geojson: dict
+    # added: per-hour half-angle (30 or 45 deg) and the mean speed that decides `calm`.
+    half_angles_deg: list[int] = []
+    mean_speed_ms: float | None = None
     # added: Open-Meteo returns the grid point it used, which differs from the request point.
     wind_point_lat: float | None = None
     wind_point_lon: float | None = None

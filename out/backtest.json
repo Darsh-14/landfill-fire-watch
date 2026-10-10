@@ -1,7 +1,7 @@
 {
  "dev": false,
- "generated_utc": "2026-10-10T15:39:19Z",
- "git_commit": "c8aff7c",
+ "generated_utc": "2026-10-10T17:45:37Z",
+ "git_commit": "e848883",
  "config_hash": "264d376145f22cd62b0d37e6c694a2270534312545cfcf33fc5fe22ef69690de",
  "freeze": "frozen 2026-10-10T15:18:15Z at 1d234e5",
  "outlines_verified": "deonar-mumbai: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md); ghazipur-delhi: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md); brahmapuram-kochi: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)",
@@ -21,8 +21,58 @@
    "probable_reached_ist": "2016-01-28 13:56 IST",
    "overpasses_with_detections": 12,
    "max_frp_mw": 49.61,
-   "smoke_zone": "pending P2",
-   "receptor_count": "pending P2"
+   "smoke_zone": "toward SSW, ESE, SE, SSE; 10 km; half-angle ≤ 45°; 14 wind hours",
+   "receptor_count": "217",
+   "smoke_detail": {
+    "toward_deg": [
+     201,
+     204,
+     205,
+     204,
+     204,
+     207,
+     207,
+     108,
+     114,
+     126,
+     133,
+     140,
+     145,
+     156
+    ],
+    "half_angles_deg": [
+     30,
+     30,
+     30,
+     30,
+     30,
+     30,
+     30,
+     45,
+     30,
+     30,
+     30,
+     30,
+     30,
+     30
+    ],
+    "calm": false,
+    "length_km": 10.0,
+    "mean_speed_ms": 3.13,
+    "wind_hours": 14,
+    "wind_point": [
+     19.086115,
+     72.94176
+    ],
+    "receptors": 217,
+    "receptor_kinds": {
+     "school": 83,
+     "hospital": 78,
+     "clinic": 29,
+     "kindergarten": 2,
+     "college": 25
+    }
+   }
   },
   {
    "event_id": "ghazipur-2022",
@@ -40,8 +90,9 @@
    "probable_reached_ist": null,
    "overpasses_with_detections": 1,
    "max_frp_mw": 1.68,
-   "smoke_zone": "pending P2",
-   "receptor_count": "pending P2"
+   "smoke_zone": "—",
+   "receptor_count": "—",
+   "smoke_detail": null
   },
   {
    "event_id": "brahmapuram-2023",
@@ -59,8 +110,44 @@
    "probable_reached_ist": "2023-03-02 22:05 IST",
    "overpasses_with_detections": 13,
    "max_frp_mw": 27.1,
-   "smoke_zone": "pending P2",
-   "receptor_count": "pending P2"
+   "smoke_zone": "toward N, WNW, W; 10 km; half-angle ≤ 45°; 7 wind hours",
+   "receptor_count": "404",
+   "smoke_detail": {
+    "toward_deg": [
+     0,
+     284,
+     274,
+     260,
+     264,
+     270,
+     266
+    ],
+    "half_angles_deg": [
+     45,
+     45,
+     45,
+     45,
+     45,
+     45,
+     45
+    ],
+    "calm": false,
+    "length_km": 10.0,
+    "mean_speed_ms": 1.48,
+    "wind_hours": 7,
+    "wind_point": [
+     10.017574,
+     76.36602
+    ],
+    "receptors": 404,
+    "receptor_kinds": {
+     "school": 154,
+     "college": 29,
+     "clinic": 92,
+     "kindergarten": 21,
+     "hospital": 108
+    }
+   }
   }
  ],
  "event_windows": [

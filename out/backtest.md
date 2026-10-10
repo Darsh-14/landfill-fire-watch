@@ -1,6 +1,6 @@
 # Backtest results
 
-- Generated: 2026-10-10T15:39:19Z · git `c8aff7c`
+- Generated: 2026-10-10T17:45:37Z · git `e848883`
 - Config hash: `264d376145f22cd62b0d37e6c694a2270534312545cfcf33fc5fe22ef69690de` · frozen 2026-10-10T15:18:15Z at 1d234e5
 - Outline check (`verified_by` in data/sites.yaml): deonar-mumbai: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md); ghazipur-delhi: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md); brahmapuram-kochi: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
 - Data: NASA FIRMS archive (standard processing). Detected = at least one PROBABLE incident in the window.
@@ -9,9 +9,9 @@
 
 | Event | Reported start | Sources | Detected | First detection (IST) | Δ days | PROBABLE reached (IST) | Overpasses with detections | Max FRP (MW) | Smoke zone | Receptors |
 |---|---|---|---|---|---|---|---|---|---|---|
-| deonar-2016 | 2016-01-27 | VIIRS_SNPP_SP, MODIS_SP | yes | 2016-01-28 02:45 IST | 1 | 2016-01-28 13:56 IST | 12 | 49.61 | pending P2 | pending P2 |
-| ghazipur-2022 | 2022-03-28 | VIIRS_SNPP_SP, VIIRS_NOAA20_SP, MODIS_SP | **no (miss)** | — | — | — | 1 | 1.68 | pending P2 | pending P2 |
-| brahmapuram-2023 | 2023-03-02 | VIIRS_SNPP_SP, VIIRS_NOAA20_SP, MODIS_SP | yes | 2023-03-02 22:05 IST | 0 | 2023-03-02 22:05 IST | 13 | 27.1 | pending P2 | pending P2 |
+| deonar-2016 | 2016-01-27 | VIIRS_SNPP_SP, MODIS_SP | yes | 2016-01-28 02:45 IST | 1 | 2016-01-28 13:56 IST | 12 | 49.61 | toward SSW, ESE, SE, SSE; 10 km; half-angle ≤ 45°; 14 wind hours | 217 |
+| ghazipur-2022 | 2022-03-28 | VIIRS_SNPP_SP, VIIRS_NOAA20_SP, MODIS_SP | **no (miss)** | — | — | — | 1 | 1.68 | — | — |
+| brahmapuram-2023 | 2023-03-02 | VIIRS_SNPP_SP, VIIRS_NOAA20_SP, MODIS_SP | yes | 2023-03-02 22:05 IST | 0 | 2023-03-02 22:05 IST | 13 | 27.1 | toward N, WNW, W; 10 km; half-angle ≤ 45°; 7 wind hours | 404 |
 
 ## Alerts in windows with no reported fire
 
