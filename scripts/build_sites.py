@@ -268,10 +268,57 @@ def nearby_landfills(info: dict, g: BaseGeometry) -> tuple[list[tuple[dict, Base
     return out, "ok"
 
 
+def write_site(seed: dict, chosen: tuple[dict, BaseGeometry], retrieved: str,
+               existing: dict[str, dict], sites_out: dict[str, dict]) -> None:
+    sid = seed["site_id"]
+    info, g = chosen
+    write_geojson(SITES_DIR / f"{sid}.geojson", [feature(sid, info, g, retrieved)])
+    prev = existing.get(sid, {})
+    same = prev.get("osm_id") == info["osm_id"]
+    sites_out[sid] = {
+        "site_id": sid,
+        "name": seed["name"],
+        "city": seed["city"],
+        "state": info["state"] or "TODO(verify)",
+        "polygon_path": f"data/sites/{sid}.geojson",
+        "polygon_source": "osm",
+        "osm_id": info["osm_id"],
+        "exclusions": prev.get("exclusions", []) if same else [],
+        # A changed outline must be checked on a map again.
+        "verified_by": prev.get("verified_by") if same else None,
+    }
+
+
+def pick_from_candidates(sid: str, ids: list[str]) -> tuple[dict, BaseGeometry] | None:
+    """Union of the chosen polygons from data/sites/_candidates/<sid>.geojson."""
+    path = CANDIDATES_DIR / f"{sid}.geojson"
+    if not path.exists():
+        log(f"[{sid}] no candidates file; run a search first")
+        return None
+    feats = {f["id"]: f for f in json.loads(path.read_text(encoding="utf-8"))["features"]}
+    missing = [i for i in ids if i not in feats]
+    if missing:
+        log(f"[{sid}] --pick {missing} not in {path.name}; nothing written")
+        return None
+    parts = [feats[i] for i in ids]
+    g = unary_union([shape(f["geometry"]) for f in parts])
+    g = g if g.is_valid else shapely.make_valid(g)
+    first = parts[0]["properties"]
+    info = describe({"type": "pick", "id": 0, "tags": first.get("tags", {})}, g)
+    info.update(
+        osm_id="+".join(ids),
+        osm_name=first.get("osm_name"),
+        state=next((f["properties"].get("state") for f in parts if f["properties"].get("state")), None),
+    )
+    return info, g
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--only", nargs="*", default=None, help="site_ids to build (default: all seeds)")
-    ap.add_argument("--pick", nargs="*", default=[], help="SITE_ID=osm_type/osm_id chosen by a person")
+    ap.add_argument("--pick", nargs="*", default=[],
+                    help="SITE_ID=type/id[+type/id] chosen from the saved candidates file")
+    ap.add_argument("--picked-by", default=None, help="who made the --pick choice (recorded in the report)")
     args = ap.parse_args()
 
     seeds = yaml.safe_load(SEEDS.read_text(encoding="utf-8"))
@@ -286,6 +333,20 @@ def main() -> int:
         if args.only is not None and sid not in args.only:
             continue
         retrieved = utc_now_iso()
+        if sid in picks:
+            # A person's (or delegated) choice among polygons already saved in the candidates file:
+            # no new search, so the choice applies to exactly the geometry that was reviewed.
+            ids = picks[sid].split("+")
+            chosen = pick_from_candidates(sid, ids)
+            if chosen is None:
+                continue
+            rec = report.get(sid, {})
+            rec.update(status="picked", chosen=chosen[0]["osm_id"], picked_utc=retrieved,
+                       picked_by=args.picked_by, picked_from=f"data/sites/_candidates/{sid}.geojson")
+            report[sid] = rec
+            write_site(seed, chosen, retrieved, existing, sites_out)
+            log(f"[{sid}] picked {chosen[0]['osm_id']} ({chosen[0]['area_ha']} ha)")
+            continue
         log(f"[{sid}] searching OSM for landuse=landfill named {seed['patterns']}")
         method, cands, anchors = search(seed)
         infos = []
@@ -304,21 +365,7 @@ def main() -> int:
             d["state"] = None
 
         chosen: tuple[dict, BaseGeometry] | None = None
-        if sid in picks:
-            pool = {i["osm_id"]: (i, g) for i, g in infos + nearby}
-            ids = picks[sid].split("+")
-            missing = [i for i in ids if i not in pool]
-            if missing:
-                log(f"[{sid}] --pick {missing} not among candidates or nearby landfills; nothing written")
-                status = "pick_not_found"
-            else:
-                parts = [pool[i] for i in ids]
-                g = unary_union([pg for _, pg in parts])
-                info = describe({"type": "pick", "id": 0, "tags": parts[0][0]["tags"]}, g)
-                info.update(osm_id="+".join(ids), osm_name=parts[0][0]["osm_name"],
-                            state=next((p[0].get("state") for p in parts if p[0].get("state")), None))
-                chosen, status = (info, g), "picked_by_person"
-        elif method in ("name", "nominatim") and len(infos) == 1:
+        if method in ("name", "nominatim") and len(infos) == 1:
             chosen, status = infos[0], "matched"
         elif method in ("name", "nominatim") and len(infos) > 1:
             status = "ambiguous"
@@ -351,22 +398,7 @@ def main() -> int:
         log(f"[{sid}] status={status} candidates={len(infos)}")
 
         if chosen:
-            info, g = chosen
-            write_geojson(SITES_DIR / f"{sid}.geojson", [feature(sid, info, g, retrieved)])
-            prev = existing.get(sid, {})
-            same = prev.get("osm_id") == info["osm_id"]
-            sites_out[sid] = {
-                "site_id": sid,
-                "name": seed["name"],
-                "city": seed["city"],
-                "state": info["state"] or "TODO(verify)",
-                "polygon_path": f"data/sites/{sid}.geojson",
-                "polygon_source": "osm",
-                "osm_id": info["osm_id"],
-                "exclusions": prev.get("exclusions", []) if same else [],
-                # A changed outline must be checked on a map again.
-                "verified_by": prev.get("verified_by") if same else None,
-            }
+            write_site(seed, chosen, retrieved, existing, sites_out)
 
     SITES_YAML.write_text(
         "# Monitored landfills. Built by scripts/build_sites.py; `verified_by` is set by a person\n"

@@ -1,6 +1,6 @@
 # Output of scripts/build_sites.py: every OSM search, its candidates and the decision.
 deonar-mumbai:
-  status: matched
+  status: picked
   method: name
   patterns:
   - Deonar
@@ -37,7 +37,10 @@ deonar-mumbai:
     distance_to_chosen_m: 0.0
     intersects_chosen: true
     state: null
-  chosen: way/289511744
+  chosen: way/289511744+way/314528563
+  picked_utc: '2026-10-10T15:17:25Z'
+  picked_by: Darsh-14
+  picked_from: data/sites/_candidates/deonar-mumbai.geojson
 ghazipur-delhi:
   status: matched
   method: name
@@ -63,7 +66,7 @@ ghazipur-delhi:
   nearby_landfills: []
   chosen: way/76727509
 brahmapuram-kochi:
-  status: matched
+  status: picked
   method: name
   patterns:
   - Brahmapuram
@@ -101,4 +104,709 @@ brahmapuram-kochi:
     distance_to_chosen_m: 155.9
     intersects_chosen: false
     state: null
-  chosen: way/1262085027
+  chosen: way/1262085027+way/1417183060
+  picked_utc: '2026-10-10T15:17:27Z'
+  picked_by: Claude Code (AI imagery check, delegated by Darsh-14)
+  picked_from: data/sites/_candidates/brahmapuram-kochi.geojson
+kanjurmarg-mumbai:
+  status: matched
+  method: name
+  patterns:
+  - Kanjur
+  retrieved_utc: '2026-10-10T14:33:49Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/257455760
+    osm_name: Kanjur Landfill
+    osm_name_en: null
+    area_ha: 142.84
+    centroid_lat: 19.124155
+    centroid_lon: 72.950893
+    bbox_wsen:
+    - 72.941868
+    - 19.120066
+    - 72.961031
+    - 19.128242
+    geometry_type: Polygon
+    state: Maharashtra
+  nearby_check: ok
+  nearby_landfills:
+  - osm_id: way/1533564150
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.79
+    centroid_lat: 19.123362
+    centroid_lon: 72.939003
+    bbox_wsen:
+    - 72.938404
+    - 19.122643
+    - 72.939639
+    - 19.124084
+    geometry_type: Polygon
+    distance_to_chosen_m: 290.5
+    intersects_chosen: false
+    state: null
+  chosen: way/257455760
+bhalswa-delhi:
+  status: matched
+  method: name
+  patterns:
+  - Bhalswa
+  retrieved_utc: '2026-10-10T14:39:35Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/414943488
+    osm_name: Bhalswa Landfill Area
+    osm_name_en: null
+    area_ha: 27.91
+    centroid_lat: 28.740938
+    centroid_lon: 77.157327
+    bbox_wsen:
+    - 77.154022
+    - 28.738037
+    - 77.160979
+    - 28.743799
+    geometry_type: Polygon
+    state: Delhi
+  nearby_check: ok
+  nearby_landfills:
+  - osm_id: way/1174458540
+    osm_name: null
+    osm_name_en: null
+    area_ha: 1.04
+    centroid_lat: 28.743598
+    centroid_lon: 77.16473
+    bbox_wsen:
+    - 77.164407
+    - 28.742814
+    - 77.16504
+    - 28.744413
+    geometry_type: Polygon
+    distance_to_chosen_m: 397.5
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1174536151
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.47
+    centroid_lat: 28.755597
+    centroid_lon: 77.163635
+    bbox_wsen:
+    - 77.16326
+    - 28.755184
+    - 77.163965
+    - 28.755943
+    geometry_type: Polygon
+    distance_to_chosen_m: 1419.7
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1175896949
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.02
+    centroid_lat: 28.752684
+    centroid_lon: 77.162405
+    bbox_wsen:
+    - 77.162289
+    - 28.752648
+    - 77.162521
+    - 28.75272
+    geometry_type: Polygon
+    distance_to_chosen_m: 1108.9
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1175896966
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.07
+    centroid_lat: 28.75298
+    centroid_lon: 77.162073
+    bbox_wsen:
+    - 77.161896
+    - 28.752889
+    - 77.162249
+    - 28.75307
+    geometry_type: Polygon
+    distance_to_chosen_m: 1117.5
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1176131154
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.38
+    centroid_lat: 28.754062
+    centroid_lon: 77.161118
+    bbox_wsen:
+    - 77.160455
+    - 28.753543
+    - 77.162601
+    - 28.754791
+    geometry_type: Polygon
+    distance_to_chosen_m: 1137.4
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1176576162
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.23
+    centroid_lat: 28.723532
+    centroid_lon: 77.161919
+    bbox_wsen:
+    - 77.161542
+    - 28.723148
+    - 77.162271
+    - 28.723927
+    geometry_type: Polygon
+    distance_to_chosen_m: 1623.2
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1177222868
+    osm_name: null
+    osm_name_en: null
+    area_ha: 2.38
+    centroid_lat: 28.722532
+    centroid_lon: 77.177565
+    bbox_wsen:
+    - 77.176015
+    - 28.721352
+    - 77.178995
+    - 28.723604
+    geometry_type: Polygon
+    distance_to_chosen_m: 2355.4
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1177245477
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 28.722727
+    centroid_lon: 77.169365
+    bbox_wsen:
+    - 77.169267
+    - 28.722652
+    - 77.169461
+    - 28.722804
+    geometry_type: Polygon
+    distance_to_chosen_m: 2041.3
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1177547177
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.06
+    centroid_lat: 28.753022
+    centroid_lon: 77.161455
+    bbox_wsen:
+    - 77.161218
+    - 28.752958
+    - 77.161697
+    - 28.753086
+    geometry_type: Polygon
+    distance_to_chosen_m: 1099.0
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1177576575
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.08
+    centroid_lat: 28.751957
+    centroid_lon: 77.161261
+    bbox_wsen:
+    - 77.161126
+    - 28.751822
+    - 77.161395
+    - 28.752092
+    geometry_type: Polygon
+    distance_to_chosen_m: 978.1
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1179943437
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.05
+    centroid_lat: 28.744366
+    centroid_lon: 77.157463
+    bbox_wsen:
+    - 77.157335
+    - 28.74426
+    - 77.157601
+    - 28.744467
+    geometry_type: Polygon
+    distance_to_chosen_m: 64.4
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1180003625
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.68
+    centroid_lat: 28.74435
+    centroid_lon: 77.157324
+    bbox_wsen:
+    - 77.156802
+    - 28.743835
+    - 77.157664
+    - 28.745006
+    geometry_type: Polygon
+    distance_to_chosen_m: 7.4
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1180980348
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.0
+    centroid_lat: 28.747632
+    centroid_lon: 77.158736
+    bbox_wsen:
+    - 77.158702
+    - 28.747624
+    - 77.15877
+    - 28.747641
+    geometry_type: Polygon
+    distance_to_chosen_m: 456.9
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1180980350
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.02
+    centroid_lat: 28.74649
+    centroid_lon: 77.15815
+    bbox_wsen:
+    - 77.158076
+    - 28.746379
+    - 77.158224
+    - 28.746595
+    geometry_type: Polygon
+    distance_to_chosen_m: 308.3
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1180980360
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 28.746429
+    centroid_lon: 77.158531
+    bbox_wsen:
+    - 77.158481
+    - 28.746385
+    - 77.158583
+    - 28.746475
+    geometry_type: Polygon
+    distance_to_chosen_m: 320.4
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1181342832
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.03
+    centroid_lat: 28.748085
+    centroid_lon: 77.157381
+    bbox_wsen:
+    - 77.157286
+    - 28.74802
+    - 77.157476
+    - 28.74815
+    geometry_type: Polygon
+    distance_to_chosen_m: 471.3
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1181342839
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 28.747654
+    centroid_lon: 77.156885
+    bbox_wsen:
+    - 77.15683
+    - 28.747599
+    - 77.156942
+    - 28.747709
+    geometry_type: Polygon
+    distance_to_chosen_m: 422.5
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1181342843
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.0
+    centroid_lat: 28.747285
+    centroid_lon: 77.156663
+    bbox_wsen:
+    - 77.156621
+    - 28.747258
+    - 77.156704
+    - 28.747311
+    geometry_type: Polygon
+    distance_to_chosen_m: 384.9
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1181342846
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 28.748275
+    centroid_lon: 77.156919
+    bbox_wsen:
+    - 77.156886
+    - 28.748209
+    - 77.156952
+    - 28.74834
+    geometry_type: Polygon
+    distance_to_chosen_m: 490.4
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1182290169
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 28.748715
+    centroid_lon: 77.157434
+    bbox_wsen:
+    - 77.157386
+    - 28.748656
+    - 77.157482
+    - 28.748774
+    geometry_type: Polygon
+    distance_to_chosen_m: 542.7
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1182290185
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.03
+    centroid_lat: 28.749383
+    centroid_lon: 77.157974
+    bbox_wsen:
+    - 77.15786
+    - 28.749321
+    - 77.158089
+    - 28.749444
+    geometry_type: Polygon
+    distance_to_chosen_m: 621.7
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1186804310
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.1
+    centroid_lat: 28.746001
+    centroid_lon: 77.162612
+    bbox_wsen:
+    - 77.16238
+    - 28.745892
+    - 77.162841
+    - 28.746107
+    geometry_type: Polygon
+    distance_to_chosen_m: 490.4
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1189514227
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.1
+    centroid_lat: 28.736924
+    centroid_lon: 77.161146
+    bbox_wsen:
+    - 77.160584
+    - 28.736721
+    - 77.161534
+    - 28.737133
+    geometry_type: Polygon
+    distance_to_chosen_m: 271.9
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1192637691
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.07
+    centroid_lat: 28.751096
+    centroid_lon: 77.169177
+    bbox_wsen:
+    - 77.169043
+    - 28.750977
+    - 77.169312
+    - 28.751212
+    geometry_type: Polygon
+    distance_to_chosen_m: 1332.2
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1194263911
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 28.744561
+    centroid_lon: 77.168017
+    bbox_wsen:
+    - 77.167954
+    - 28.744482
+    - 77.168104
+    - 28.744633
+    geometry_type: Polygon
+    distance_to_chosen_m: 791.5
+    intersects_chosen: false
+    state: null
+  - osm_id: way/1195586183
+    osm_name: null
+    osm_name_en: null
+    area_ha: 0.01
+    centroid_lat: 28.746106
+    centroid_lon: 77.164364
+    bbox_wsen:
+    - 77.164316
+    - 28.746058
+    - 77.164413
+    - 28.746153
+    geometry_type: Polygon
+    distance_to_chosen_m: 617.1
+    intersects_chosen: false
+    state: null
+  chosen: way/414943488
+okhla-delhi:
+  status: matched
+  method: name
+  patterns:
+  - Okhla
+  retrieved_utc: '2026-10-10T14:50:51Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/608169272
+    osm_name: Okhla Landfill
+    osm_name_en: null
+    area_ha: 25.84
+    centroid_lat: 28.511693
+    centroid_lon: 77.284232
+    bbox_wsen:
+    - 77.281412
+    - 28.507353
+    - 77.286054
+    - 28.51638
+    geometry_type: Polygon
+    state: Delhi
+  nearby_check: ok
+  nearby_landfills: []
+  chosen: way/608169272
+bandhwari-gurugram:
+  status: matched
+  method: name
+  patterns:
+  - Bandhwari
+  retrieved_utc: '2026-10-10T14:56:35Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/34263673
+    osm_name: Bandhwari Solid Waste Management Plant
+    osm_name_en: null
+    area_ha: 11.85
+    centroid_lat: 28.402383
+    centroid_lon: 77.17204
+    bbox_wsen:
+    - 77.169764
+    - 28.400362
+    - 77.174331
+    - 28.40431
+    geometry_type: Polygon
+    state: Haryana
+  nearby_check: ok
+  nearby_landfills: []
+  chosen: way/34263673
+perungudi-chennai:
+  status: no_name_match
+  method: proximity
+  patterns:
+  - Perungudi
+  retrieved_utc: '2026-10-10T15:01:21Z'
+  place_anchors:
+  - osm_id: node/257439179
+    name: Perungudi
+    place: suburb
+    lat: 12.9710239
+    lon: 80.2418051
+  - osm_id: node/3014193583
+    name: Maravarperungudi
+    place: village
+    lat: 9.3911021
+    lon: 78.1814903
+  - osm_id: node/5300918859
+    name: Perungudipatti
+    place: village
+    lat: 10.5247122
+    lon: 78.7452578
+  - osm_id: node/5588778878
+    name: Perungudi
+    place: village
+    lat: 10.299508
+    lon: 78.8289428
+  - osm_id: node/9893403785
+    name: Perungudi
+    place: hamlet
+    lat: 10.82381
+    lon: 78.63949
+  - osm_id: node/10959699590
+    name: Perungudi
+    place: hamlet
+    lat: 10.7522884
+    lon: 79.6107912
+  candidates:
+  - osm_id: way/84106307
+    osm_name: Pallikaranai Dumpyard
+    osm_name_en: null
+    area_ha: 104.58
+    centroid_lat: 12.95443
+    centroid_lon: 80.225808
+    bbox_wsen:
+    - 80.219413
+    - 12.950015
+    - 80.234359
+    - 12.959076
+    geometry_type: Polygon
+    state: Tamil Nadu
+  nearby_check: ok
+  nearby_landfills:
+  - osm_id: way/121118533
+    osm_name: Velachery Landfill
+    osm_name_en: null
+    area_ha: 4.82
+    centroid_lat: 12.958317
+    centroid_lon: 80.212551
+    bbox_wsen:
+    - 80.211192
+    - 12.956945
+    - 80.213966
+    - 12.959617
+    geometry_type: Polygon
+    distance_to_chosen_m: 680.5
+    intersects_chosen: false
+    state: null
+  chosen: null
+kodungaiyur-chennai:
+  status: matched
+  method: name
+  patterns:
+  - Kodungaiyur
+  retrieved_utc: '2026-10-10T15:09:00Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/29199633
+    osm_name: Kodungaiyur Corporation Landfill
+    osm_name_en: null
+    area_ha: 128.16
+    centroid_lat: 13.135121
+    centroid_lon: 80.269215
+    bbox_wsen:
+    - 80.262474
+    - 13.128223
+    - 80.27633
+    - 13.141515
+    geometry_type: Polygon
+    state: Tamil Nadu
+  nearby_check: not run (Overpass unavailable)
+  nearby_landfills: []
+  chosen: way/29199633
+pirana-ahmedabad:
+  status: no_name_match
+  method: nominatim
+  patterns:
+  - Pirana
+  retrieved_utc: '2026-10-10T15:15:30Z'
+  place_anchors: []
+  candidates: []
+  nearby_check: not run (no candidates)
+  nearby_landfills: []
+  chosen: null
+dhapa-kolkata:
+  status: no_name_match
+  method: nominatim
+  patterns:
+  - Dhapa
+  retrieved_utc: '2026-10-10T15:15:34Z'
+  place_anchors: []
+  candidates: []
+  nearby_check: not run (no candidates)
+  nearby_landfills: []
+  chosen: null
+jawahar-nagar-hyderabad:
+  status: no_name_match
+  method: nominatim
+  patterns:
+  - Jawahar Nagar
+  - Jawaharnagar
+  retrieved_utc: '2026-10-10T15:15:39Z'
+  place_anchors: []
+  candidates: []
+  nearby_check: not run (no candidates)
+  nearby_landfills: []
+  chosen: null
+uruli-devachi-pune:
+  status: no_name_match
+  method: nominatim
+  patterns:
+  - Uruli
+  - Devachi
+  retrieved_utc: '2026-10-10T15:15:46Z'
+  place_anchors: []
+  candidates: []
+  nearby_check: not run (no candidates)
+  nearby_landfills: []
+  chosen: null
+bhandewadi-nagpur:
+  status: no_name_match
+  method: nominatim
+  patterns:
+  - Bhandewadi
+  retrieved_utc: '2026-10-10T15:15:54Z'
+  place_anchors: []
+  candidates: []
+  nearby_check: not run (no candidates)
+  nearby_landfills: []
+  chosen: null
+dadumajra-chandigarh:
+  status: no_name_match
+  method: nominatim
+  patterns:
+  - Dadumajra
+  - Dadu Majra
+  - Daddumajra
+  - Daddu Majra
+  retrieved_utc: '2026-10-10T15:16:01Z'
+  place_anchors: []
+  candidates: []
+  nearby_check: not run (no candidates)
+  nearby_landfills: []
+  chosen: null
+mandur-bengaluru:
+  status: ambiguous
+  method: nominatim
+  patterns:
+  - Mandur
+  retrieved_utc: '2026-10-10T15:16:05Z'
+  place_anchors: []
+  candidates:
+  - osm_id: way/135169264
+    osm_name: Mandur Landfill
+    osm_name_en: null
+    area_ha: 39.31
+    centroid_lat: 13.081355
+    centroid_lon: 77.727978
+    bbox_wsen:
+    - 77.723444
+    - 13.079113
+    - 77.734004
+    - 13.084714
+    geometry_type: Polygon
+    state: Karnataka
+  - osm_id: way/285786390
+    osm_name: Mandur Landfill
+    osm_name_en: null
+    area_ha: 19.08
+    centroid_lat: 13.084439
+    centroid_lon: 77.72568
+    bbox_wsen:
+    - 77.722613
+    - 13.082855
+    - 77.729226
+    - 13.085964
+    geometry_type: Polygon
+    state: Karnataka
+  nearby_check: not run (Overpass unavailable)
+  nearby_landfills: []
+  chosen: null

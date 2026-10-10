@@ -1,0 +1,209 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/135169264",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.7234436,
+       13.0826968
+      ],
+      [
+       77.7237675,
+       13.0791134
+      ],
+      [
+       77.7258991,
+       13.0792183
+      ],
+      [
+       77.7273515,
+       13.079285
+      ],
+      [
+       77.7283868,
+       13.0793091
+      ],
+      [
+       77.7289583,
+       13.079269
+      ],
+      [
+       77.7301892,
+       13.079317
+      ],
+      [
+       77.7316216,
+       13.0795044
+      ],
+      [
+       77.7312327,
+       13.0812128
+      ],
+      [
+       77.7324351,
+       13.081336
+      ],
+      [
+       77.7340035,
+       13.0814968
+      ],
+      [
+       77.733947,
+       13.0817774
+      ],
+      [
+       77.7328259,
+       13.0817408
+      ],
+      [
+       77.7311522,
+       13.0822058
+      ],
+      [
+       77.731297,
+       13.0830994
+      ],
+      [
+       77.7316028,
+       13.0840974
+      ],
+      [
+       77.7317852,
+       13.0846669
+      ],
+      [
+       77.7315384,
+       13.0847139
+      ],
+      [
+       77.7312541,
+       13.0846878
+      ],
+      [
+       77.730226,
+       13.0844563
+      ],
+      [
+       77.7289968,
+       13.083106
+      ],
+      [
+       77.7274133,
+       13.0829162
+      ],
+      [
+       77.7234436,
+       13.0826968
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/135169264",
+    "osm_name": "Mandur Landfill",
+    "osm_name_en": null,
+    "area_ha": 39.31,
+    "centroid_lat": 13.081355,
+    "centroid_lon": 77.727978,
+    "geometry_type": "Polygon",
+    "tags": {
+     "operator": "BBMP",
+     "name": "Mandur Landfill",
+     "landuse": "landfill"
+    },
+    "state": "Karnataka",
+    "site_id": "mandur-bengaluru",
+    "retrieved_utc": "2026-10-10T15:16:05Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/285786390",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.7226127,
+       13.0852014
+      ],
+      [
+       77.7231277,
+       13.0841982
+      ],
+      [
+       77.7232216,
+       13.0839411
+      ],
+      [
+       77.7233362,
+       13.0828551
+      ],
+      [
+       77.7248168,
+       13.0829805
+      ],
+      [
+       77.7271557,
+       13.083085
+      ],
+      [
+       77.7287972,
+       13.0832313
+      ],
+      [
+       77.7292263,
+       13.0836389
+      ],
+      [
+       77.7275855,
+       13.0858388
+      ],
+      [
+       77.722661,
+       13.0859642
+      ],
+      [
+       77.7226295,
+       13.0854659
+      ],
+      [
+       77.7226127,
+       13.0852014
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/285786390",
+    "osm_name": "Mandur Landfill",
+    "osm_name_en": null,
+    "area_ha": 19.08,
+    "centroid_lat": 13.084439,
+    "centroid_lon": 77.72568,
+    "geometry_type": "Polygon",
+    "tags": {
+     "operator": "BBMP",
+     "name": "Mandur Landfill",
+     "landuse": "landfill"
+    },
+    "state": "Karnataka",
+    "site_id": "mandur-bengaluru",
+    "retrieved_utc": "2026-10-10T15:16:05Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

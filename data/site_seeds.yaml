@@ -19,3 +19,71 @@
   # OSM spells the landfill "Bhramapuram" (Nominatim "landfill in Ernakulam", 2026-10-10).
   patterns: ["Brahmapuram", "Bhramapuram"]
   nominatim_queries: ["landfill in Ernakulam", "Brahmapuram landfill", "Bhramapuram"]
+
+# Other candidates from docs/MVP.md §17 (verify each one; outlines are checked by a person).
+- site_id: kanjurmarg-mumbai
+  name: Kanjurmarg
+  city: Mumbai
+  # Nominatim "landfill in Mumbai" (2026-10-10) lists "Kanjur Landfill".
+  patterns: ["Kanjur"]
+  nominatim_queries: ["Kanjur landfill", "landfill in Mumbai"]
+- site_id: bhalswa-delhi
+  name: Bhalswa
+  city: Delhi
+  patterns: ["Bhalswa"]
+  nominatim_queries: ["Bhalswa landfill", "landfill in Delhi"]
+- site_id: okhla-delhi
+  name: Okhla
+  city: Delhi
+  patterns: ["Okhla"]
+  nominatim_queries: ["Okhla landfill", "landfill in Delhi"]
+- site_id: bandhwari-gurugram
+  name: Bandhwari
+  city: Gurugram
+  patterns: ["Bandhwari"]
+  nominatim_queries: ["Bandhwari landfill", "landfill in Gurugram"]
+- site_id: perungudi-chennai
+  name: Perungudi
+  city: Chennai
+  patterns: ["Perungudi"]
+  nominatim_queries: ["Perungudi dump yard", "landfill in Chennai"]
+- site_id: kodungaiyur-chennai
+  name: Kodungaiyur
+  city: Chennai
+  patterns: ["Kodungaiyur"]
+  nominatim_queries: ["Kodungaiyur dump yard", "landfill in Chennai"]
+- site_id: pirana-ahmedabad
+  name: Pirana
+  city: Ahmedabad
+  patterns: ["Pirana"]
+  nominatim_queries: ["Pirana landfill", "landfill in Ahmedabad"]
+- site_id: dhapa-kolkata
+  name: Dhapa
+  city: Kolkata
+  patterns: ["Dhapa"]
+  nominatim_queries: ["Dhapa dumping ground", "landfill in Kolkata"]
+- site_id: jawahar-nagar-hyderabad
+  name: Jawahar Nagar
+  city: Hyderabad
+  patterns: ["Jawahar Nagar", "Jawaharnagar"]
+  nominatim_queries: ["Jawahar Nagar dumpyard", "landfill in Hyderabad"]
+- site_id: uruli-devachi-pune
+  name: Uruli Devachi
+  city: Pune
+  patterns: ["Uruli", "Devachi"]
+  nominatim_queries: ["Uruli Devachi landfill", "landfill in Pune"]
+- site_id: bhandewadi-nagpur
+  name: Bhandewadi
+  city: Nagpur
+  patterns: ["Bhandewadi"]
+  nominatim_queries: ["Bhandewadi dumping yard", "landfill in Nagpur"]
+- site_id: dadumajra-chandigarh
+  name: Dadumajra
+  city: Chandigarh
+  patterns: ["Dadumajra", "Dadu Majra", "Daddumajra", "Daddu Majra"]
+  nominatim_queries: ["Dadumajra dumping ground", "landfill in Chandigarh"]
+- site_id: mandur-bengaluru
+  name: Mandur
+  city: Bengaluru
+  patterns: ["Mandur"]
+  nominatim_queries: ["Mandur landfill", "landfill in Bengaluru"]

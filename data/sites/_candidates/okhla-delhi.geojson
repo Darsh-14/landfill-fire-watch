@@ -1,0 +1,115 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/608169272",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.2858967,
+       28.5114105
+      ],
+      [
+       77.2856959,
+       28.5161098
+      ],
+      [
+       77.2852375,
+       28.5163803
+      ],
+      [
+       77.2840541,
+       28.5146378
+      ],
+      [
+       77.2832717,
+       28.515041
+      ],
+      [
+       77.2833943,
+       28.5137762
+      ],
+      [
+       77.2832805,
+       28.5137733
+      ],
+      [
+       77.283204,
+       28.5131347
+      ],
+      [
+       77.2816591,
+       28.513097
+      ],
+      [
+       77.2814123,
+       28.5112303
+      ],
+      [
+       77.282968,
+       28.5104195
+      ],
+      [
+       77.2825817,
+       28.5097124
+      ],
+      [
+       77.2826783,
+       28.509505
+      ],
+      [
+       77.2825496,
+       28.5092222
+      ],
+      [
+       77.2840108,
+       28.508563
+      ],
+      [
+       77.2841996,
+       28.5083762
+      ],
+      [
+       77.2860539,
+       28.5073529
+      ],
+      [
+       77.2859914,
+       28.5075821
+      ],
+      [
+       77.2858967,
+       28.5114105
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/608169272",
+    "osm_name": "Okhla Landfill",
+    "osm_name_en": null,
+    "area_ha": 25.84,
+    "centroid_lat": 28.511693,
+    "centroid_lon": 77.284232,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Okhla Landfill",
+     "wikidata": "Q28169805",
+     "wikipedia": "en:Okhla landfill"
+    },
+    "state": "Delhi",
+    "site_id": "okhla-delhi",
+    "retrieved_utc": "2026-10-10T14:50:51Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

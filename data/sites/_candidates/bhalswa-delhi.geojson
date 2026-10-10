@@ -1,0 +1,1854 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/414943488",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1540218,
+       28.7432018
+      ],
+      [
+       77.1564465,
+       28.7437615
+      ],
+      [
+       77.1568435,
+       28.7437991
+      ],
+      [
+       77.1570071,
+       28.7437803
+      ],
+      [
+       77.1571957,
+       28.7437332
+      ],
+      [
+       77.1573566,
+       28.7436074
+      ],
+      [
+       77.1575999,
+       28.7432865
+      ],
+      [
+       77.157664,
+       28.743094
+      ],
+      [
+       77.1584245,
+       28.7426136
+      ],
+      [
+       77.1595686,
+       28.7422235
+      ],
+      [
+       77.1599495,
+       28.74204
+      ],
+      [
+       77.1604055,
+       28.7416732
+      ],
+      [
+       77.1606361,
+       28.7414568
+      ],
+      [
+       77.1607702,
+       28.740375
+      ],
+      [
+       77.1609795,
+       28.7402715
+      ],
+      [
+       77.1605879,
+       28.7397635
+      ],
+      [
+       77.1599441,
+       28.7393731
+      ],
+      [
+       77.1589195,
+       28.7386817
+      ],
+      [
+       77.1575892,
+       28.7380772
+      ],
+      [
+       77.1568537,
+       28.7380374
+      ],
+      [
+       77.1563527,
+       28.7382631
+      ],
+      [
+       77.1556915,
+       28.7387863
+      ],
+      [
+       77.1551698,
+       28.7393802
+      ],
+      [
+       77.1548962,
+       28.7403962
+      ],
+      [
+       77.1540218,
+       28.7432018
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/414943488",
+    "osm_name": "Bhalswa Landfill Area",
+    "osm_name_en": null,
+    "area_ha": 27.91,
+    "centroid_lat": 28.740938,
+    "centroid_lon": 77.157327,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "loc_name:hi": "खत्ता",
+     "name": "Bhalswa Landfill Area"
+    },
+    "state": "Delhi",
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1174458540",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1644068,
+       28.7428173
+      ],
+      [
+       77.1650398,
+       28.7428137
+      ],
+      [
+       77.1650197,
+       28.7444129
+      ],
+      [
+       77.1644524,
+       28.744407
+      ],
+      [
+       77.1644068,
+       28.7428173
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1174458540",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 1.04,
+    "centroid_lat": 28.743598,
+    "centroid_lon": 77.16473,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 397.5,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1174536151",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1639645,
+       28.7558689
+      ],
+      [
+       77.1639623,
+       28.7551888
+      ],
+      [
+       77.1637118,
+       28.7551838
+      ],
+      [
+       77.1636982,
+       28.7553735
+      ],
+      [
+       77.1632626,
+       28.7553397
+      ],
+      [
+       77.1632599,
+       28.7558521
+      ],
+      [
+       77.1635251,
+       28.7559323
+      ],
+      [
+       77.1636869,
+       28.7559429
+      ],
+      [
+       77.1639645,
+       28.7558689
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1174536151",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.47,
+    "centroid_lat": 28.755597,
+    "centroid_lon": 77.163635,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 1419.7,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1175896949",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1622891,
+       28.7527196
+      ],
+      [
+       77.1622888,
+       28.7526497
+      ],
+      [
+       77.1625211,
+       28.7526481
+      ],
+      [
+       77.1625213,
+       28.752718
+      ],
+      [
+       77.1622891,
+       28.7527196
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1175896949",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.02,
+    "centroid_lat": 28.752684,
+    "centroid_lon": 77.162405,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 1108.9,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1175896966",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1618959,
+       28.7530696
+      ],
+      [
+       77.1622489,
+       28.7530617
+      ],
+      [
+       77.1622469,
+       28.7528887
+      ],
+      [
+       77.1618971,
+       28.7528983
+      ],
+      [
+       77.1618959,
+       28.7530696
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1175896966",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.07,
+    "centroid_lat": 28.75298,
+    "centroid_lon": 77.162073,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 1117.5,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1176131154",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1612279,
+       28.7547461
+      ],
+      [
+       77.1611908,
+       28.7535429
+      ],
+      [
+       77.1604639,
+       28.7535523
+      ],
+      [
+       77.1604545,
+       28.7540532
+      ],
+      [
+       77.16048,
+       28.7539944
+      ],
+      [
+       77.1604881,
+       28.7539533
+      ],
+      [
+       77.1605189,
+       28.7539333
+      ],
+      [
+       77.1605404,
+       28.7539321
+      ],
+      [
+       77.1605699,
+       28.7539415
+      ],
+      [
+       77.16059,
+       28.7539427
+      ],
+      [
+       77.1606168,
+       28.7539262
+      ],
+      [
+       77.1606329,
+       28.7539156
+      ],
+      [
+       77.1606798,
+       28.7539145
+      ],
+      [
+       77.160708,
+       28.7539074
+      ],
+      [
+       77.1607281,
+       28.7538792
+      ],
+      [
+       77.1607362,
+       28.753851
+      ],
+      [
+       77.1607335,
+       28.7538169
+      ],
+      [
+       77.1607201,
+       28.7537863
+      ],
+      [
+       77.160712,
+       28.7537651
+      ],
+      [
+       77.1607254,
+       28.7537428
+      ],
+      [
+       77.1607389,
+       28.7537357
+      ],
+      [
+       77.1607563,
+       28.753724
+      ],
+      [
+       77.160759,
+       28.7536969
+      ],
+      [
+       77.1607496,
+       28.7536617
+      ],
+      [
+       77.1607576,
+       28.7536346
+      ],
+      [
+       77.1607737,
+       28.7536158
+      ],
+      [
+       77.1608049,
+       28.7536058
+      ],
+      [
+       77.1608261,
+       28.7536101
+      ],
+      [
+       77.160881,
+       28.7536546
+      ],
+      [
+       77.1609467,
+       28.7536911
+      ],
+      [
+       77.1609963,
+       28.753744
+      ],
+      [
+       77.1610391,
+       28.7538284
+      ],
+      [
+       77.1610849,
+       28.7539086
+      ],
+      [
+       77.1610956,
+       28.7539603
+      ],
+      [
+       77.1610822,
+       28.7540062
+      ],
+      [
+       77.161058,
+       28.7540579
+      ],
+      [
+       77.161058,
+       28.7541026
+      ],
+      [
+       77.1610728,
+       28.7541449
+      ],
+      [
+       77.1610983,
+       28.7541731
+      ],
+      [
+       77.1611184,
+       28.754239
+      ],
+      [
+       77.1611626,
+       28.7542919
+      ],
+      [
+       77.1611787,
+       28.7543177
+      ],
+      [
+       77.1611814,
+       28.7543683
+      ],
+      [
+       77.1611649,
+       28.7544169
+      ],
+      [
+       77.1611382,
+       28.7544447
+      ],
+      [
+       77.1611264,
+       28.7544788
+      ],
+      [
+       77.1611264,
+       28.7545305
+      ],
+      [
+       77.1611425,
+       28.7545541
+      ],
+      [
+       77.1611492,
+       28.7545799
+      ],
+      [
+       77.1611425,
+       28.7546117
+      ],
+      [
+       77.1611238,
+       28.7546516
+      ],
+      [
+       77.1611211,
+       28.7546893
+      ],
+      [
+       77.1611331,
+       28.7547222
+      ],
+      [
+       77.1611707,
+       28.754761
+      ],
+      [
+       77.1611895,
+       28.754791
+      ],
+      [
+       77.1613217,
+       28.7547896
+      ],
+      [
+       77.1622833,
+       28.754779
+      ],
+      [
+       77.1625558,
+       28.7547709
+      ],
+      [
+       77.1626008,
+       28.7547696
+      ],
+      [
+       77.1625976,
+       28.754714
+      ],
+      [
+       77.1612279,
+       28.7547461
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1176131154",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.38,
+    "centroid_lat": 28.754062,
+    "centroid_lon": 77.161118,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 1137.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1176576162",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1615418,
+       28.7238538
+      ],
+      [
+       77.1616818,
+       28.7239274
+      ],
+      [
+       77.1617929,
+       28.7237647
+      ],
+      [
+       77.1619004,
+       28.7238212
+      ],
+      [
+       77.1622714,
+       28.7232782
+      ],
+      [
+       77.1620238,
+       28.7231481
+      ],
+      [
+       77.1615418,
+       28.7238538
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1176576162",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.23,
+    "centroid_lat": 28.723532,
+    "centroid_lon": 77.161919,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 1623.2,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1177222868",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1760153,
+       28.7234618
+      ],
+      [
+       77.1770973,
+       28.7236036
+      ],
+      [
+       77.1776767,
+       28.7223808
+      ],
+      [
+       77.17839,
+       28.722647
+      ],
+      [
+       77.1786321,
+       28.7223798
+      ],
+      [
+       77.1789948,
+       28.7217695
+      ],
+      [
+       77.1786704,
+       28.721352
+      ],
+      [
+       77.1778799,
+       28.7219768
+      ],
+      [
+       77.1774524,
+       28.7220056
+      ],
+      [
+       77.177267,
+       28.7220737
+      ],
+      [
+       77.1760153,
+       28.7234618
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1177222868",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 2.38,
+    "centroid_lat": 28.722532,
+    "centroid_lon": 77.177565,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 2355.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1177245477",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1694279,
+       28.7228039
+      ],
+      [
+       77.1694607,
+       28.7227593
+      ],
+      [
+       77.1693032,
+       28.7226522
+      ],
+      [
+       77.1692667,
+       28.722693
+      ],
+      [
+       77.1694279,
+       28.7228039
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1177245477",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 28.722727,
+    "centroid_lon": 77.169365,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 2041.3,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1177547177",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1616972,
+       28.7530778
+      ],
+      [
+       77.1616962,
+       28.7530258
+      ],
+      [
+       77.1616945,
+       28.7529926
+      ],
+      [
+       77.1616767,
+       28.7529929
+      ],
+      [
+       77.161676,
+       28.7529583
+      ],
+      [
+       77.1612179,
+       28.7529657
+      ],
+      [
+       77.1612204,
+       28.7530855
+      ],
+      [
+       77.1616972,
+       28.7530778
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1177547177",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.06,
+    "centroid_lat": 28.753022,
+    "centroid_lon": 77.161455,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 1099.0,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1177576575",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1611316,
+       28.7520925
+      ],
+      [
+       77.1613953,
+       28.7520883
+      ],
+      [
+       77.1613899,
+       28.751822
+      ],
+      [
+       77.1611261,
+       28.7518262
+      ],
+      [
+       77.1611316,
+       28.7520925
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1177576575",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.08,
+    "centroid_lat": 28.751957,
+    "centroid_lon": 77.161261,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 978.1,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1179943437",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1575124,
+       28.7444629
+      ],
+      [
+       77.1576009,
+       28.7443881
+      ],
+      [
+       77.1575816,
+       28.7442985
+      ],
+      [
+       77.1574705,
+       28.7442597
+      ],
+      [
+       77.1573353,
+       28.7443148
+      ],
+      [
+       77.1573345,
+       28.7444178
+      ],
+      [
+       77.1574214,
+       28.7444665
+      ],
+      [
+       77.1575124,
+       28.7444629
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1179943437",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.05,
+    "centroid_lat": 28.744366,
+    "centroid_lon": 77.157463,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "natural": "wetland"
+    },
+    "distance_to_chosen_m": 64.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1180003625",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1576641,
+       28.7442176
+      ],
+      [
+       77.1576596,
+       28.7446623
+      ],
+      [
+       77.1576046,
+       28.745006
+      ],
+      [
+       77.1571227,
+       28.744869
+      ],
+      [
+       77.1572367,
+       28.7443585
+      ],
+      [
+       77.1568022,
+       28.7442447
+      ],
+      [
+       77.1569435,
+       28.7438543
+      ],
+      [
+       77.1574698,
+       28.7438346
+      ],
+      [
+       77.1576641,
+       28.7442176
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1180003625",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.68,
+    "centroid_lat": 28.74435,
+    "centroid_lon": 77.157324,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 7.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1180980348",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1587695,
+       28.7476406
+      ],
+      [
+       77.1587697,
+       28.7476239
+      ],
+      [
+       77.1587032,
+       28.747624
+      ],
+      [
+       77.1587018,
+       28.74764
+      ],
+      [
+       77.1587695,
+       28.7476406
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1180980348",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.0,
+    "centroid_lat": 28.747632,
+    "centroid_lon": 77.158736,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 456.9,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1180980350",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1581758,
+       28.7465935
+      ],
+      [
+       77.1581743,
+       28.7464869
+      ],
+      [
+       77.1582239,
+       28.7464859
+      ],
+      [
+       77.1582224,
+       28.7463795
+      ],
+      [
+       77.1581338,
+       28.746381
+      ],
+      [
+       77.1581352,
+       28.7464763
+      ],
+      [
+       77.158076,
+       28.7464769
+      ],
+      [
+       77.1580777,
+       28.7465946
+      ],
+      [
+       77.1581758,
+       28.7465935
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1180980350",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.02,
+    "centroid_lat": 28.74649,
+    "centroid_lon": 77.15815,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 308.3,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1180980360",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1585775,
+       28.7464749
+      ],
+      [
+       77.1585832,
+       28.7463861
+      ],
+      [
+       77.1584816,
+       28.7463851
+      ],
+      [
+       77.1584814,
+       28.746471
+      ],
+      [
+       77.1585775,
+       28.7464749
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1180980360",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 28.746429,
+    "centroid_lon": 77.158531,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 320.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1181342832",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1572878,
+       28.7480197
+      ],
+      [
+       77.1574762,
+       28.7480197
+      ],
+      [
+       77.1574747,
+       28.7481504
+      ],
+      [
+       77.1572864,
+       28.7481504
+      ],
+      [
+       77.1572878,
+       28.7480197
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1181342832",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.03,
+    "centroid_lat": 28.748085,
+    "centroid_lon": 77.157381,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 471.3,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1181342839",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.156833,
+       28.747599
+      ],
+      [
+       77.1569417,
+       28.7475994
+      ],
+      [
+       77.1569373,
+       28.747709
+      ],
+      [
+       77.15683,
+       28.7477092
+      ],
+      [
+       77.156833,
+       28.747599
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1181342839",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 28.747654,
+    "centroid_lon": 77.156885,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 422.5,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1181342843",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1566213,
+       28.7472594
+      ],
+      [
+       77.1567034,
+       28.7472583
+      ],
+      [
+       77.1567043,
+       28.7473103
+      ],
+      [
+       77.1566222,
+       28.7473115
+      ],
+      [
+       77.1566213,
+       28.7472594
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1181342843",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.0,
+    "centroid_lat": 28.747285,
+    "centroid_lon": 77.156663,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 384.9,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1181342846",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1568872,
+       28.7482091
+      ],
+      [
+       77.1569517,
+       28.7482097
+      ],
+      [
+       77.1569502,
+       28.7483404
+      ],
+      [
+       77.1568858,
+       28.7483398
+      ],
+      [
+       77.1568872,
+       28.7482091
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1181342846",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 28.748275,
+    "centroid_lon": 77.156919,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 490.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1182290169",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1573866,
+       28.7487744
+      ],
+      [
+       77.1574817,
+       28.7487739
+      ],
+      [
+       77.1574809,
+       28.7486557
+      ],
+      [
+       77.1573857,
+       28.7486563
+      ],
+      [
+       77.1573866,
+       28.7487744
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1182290169",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 28.748715,
+    "centroid_lon": 77.157434,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 542.7,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1182290185",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1580871,
+       28.7494442
+      ],
+      [
+       77.1580887,
+       28.7493234
+      ],
+      [
+       77.1578616,
+       28.7493211
+      ],
+      [
+       77.15786,
+       28.7494419
+      ],
+      [
+       77.1580871,
+       28.7494442
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1182290185",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.03,
+    "centroid_lat": 28.749383,
+    "centroid_lon": 77.157974,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill",
+     "natural": "wetland"
+    },
+    "distance_to_chosen_m": 621.7,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1186804310",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1628412,
+       28.746107
+      ],
+      [
+       77.162837,
+       28.7458918
+      ],
+      [
+       77.1623804,
+       28.7459013
+      ],
+      [
+       77.1623806,
+       28.7461026
+      ],
+      [
+       77.1628412,
+       28.746107
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1186804310",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.1,
+    "centroid_lat": 28.746001,
+    "centroid_lon": 77.162612,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 490.4,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1189514227",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1608723,
+       28.7368712
+      ],
+      [
+       77.1610938,
+       28.7369668
+      ],
+      [
+       77.1613399,
+       28.7370539
+      ],
+      [
+       77.1615344,
+       28.737133
+      ],
+      [
+       77.1615151,
+       28.7369961
+      ],
+      [
+       77.1609714,
+       28.7367996
+      ],
+      [
+       77.1605845,
+       28.7367206
+      ],
+      [
+       77.1608723,
+       28.7368712
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1189514227",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.1,
+    "centroid_lat": 28.736924,
+    "centroid_lon": 77.161146,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 271.9,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1192637691",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1690441,
+       28.7512118
+      ],
+      [
+       77.1690434,
+       28.7509826
+      ],
+      [
+       77.1693076,
+       28.7509768
+      ],
+      [
+       77.1693122,
+       28.7512112
+      ],
+      [
+       77.1690441,
+       28.7512118
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1192637691",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.07,
+    "centroid_lat": 28.751096,
+    "centroid_lon": 77.169177,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 1332.2,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1194263911",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1679542,
+       28.7446333
+      ],
+      [
+       77.1681041,
+       28.7445861
+      ],
+      [
+       77.1680314,
+       28.7444816
+      ],
+      [
+       77.1679628,
+       28.7445225
+      ],
+      [
+       77.1679542,
+       28.7446333
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1194263911",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 28.744561,
+    "centroid_lon": 77.168017,
+    "geometry_type": "Polygon",
+    "tags": {
+     "informal": "yes",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 791.5,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1195586183",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1644124,
+       28.7460583
+      ],
+      [
+       77.1643158,
+       28.7460587
+      ],
+      [
+       77.1643163,
+       28.746153
+      ],
+      [
+       77.1644129,
+       28.7461526
+      ],
+      [
+       77.1644124,
+       28.7460583
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1195586183",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.01,
+    "centroid_lat": 28.746106,
+    "centroid_lon": 77.164364,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 617.1,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "bhalswa-delhi",
+    "retrieved_utc": "2026-10-10T14:39:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  }
+ ]
+}

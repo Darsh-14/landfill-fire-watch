@@ -1,0 +1,97 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/29199633",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       80.2624741,
+       13.1339852
+      ],
+      [
+       80.2667918,
+       13.1306695
+      ],
+      [
+       80.2668703,
+       13.1304098
+      ],
+      [
+       80.2697722,
+       13.1282232
+      ],
+      [
+       80.2715236,
+       13.1309201
+      ],
+      [
+       80.2741444,
+       13.1310385
+      ],
+      [
+       80.2748208,
+       13.1308271
+      ],
+      [
+       80.2763301,
+       13.1360118
+      ],
+      [
+       80.2736818,
+       13.137199
+      ],
+      [
+       80.2684483,
+       13.1413744
+      ],
+      [
+       80.2649962,
+       13.1415149
+      ],
+      [
+       80.2649671,
+       13.1413607
+      ],
+      [
+       80.2640183,
+       13.135646
+      ],
+      [
+       80.2633226,
+       13.1358201
+      ],
+      [
+       80.2624741,
+       13.1339852
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/29199633",
+    "osm_name": "Kodungaiyur Corporation Landfill",
+    "osm_name_en": null,
+    "area_ha": 128.16,
+    "centroid_lat": 13.135121,
+    "centroid_lon": 80.269215,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Kodungaiyur Corporation Landfill"
+    },
+    "state": "Tamil Nadu",
+    "site_id": "kodungaiyur-chennai",
+    "retrieved_utc": "2026-10-10T15:09:00Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

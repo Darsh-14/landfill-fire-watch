@@ -1,0 +1,101 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/34263673",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.1714397,
+       28.4043102
+      ],
+      [
+       77.171153,
+       28.4038044
+      ],
+      [
+       77.1707704,
+       28.4027574
+      ],
+      [
+       77.1703595,
+       28.4020781
+      ],
+      [
+       77.1697999,
+       28.4012632
+      ],
+      [
+       77.1697637,
+       28.4008203
+      ],
+      [
+       77.1720016,
+       28.4003616
+      ],
+      [
+       77.1724945,
+       28.4008351
+      ],
+      [
+       77.1728263,
+       28.4013297
+      ],
+      [
+       77.1735866,
+       28.4020597
+      ],
+      [
+       77.1741677,
+       28.4030465
+      ],
+      [
+       77.1743315,
+       28.4035283
+      ],
+      [
+       77.1741898,
+       28.4035727
+      ],
+      [
+       77.1742762,
+       28.4038477
+      ],
+      [
+       77.1734465,
+       28.4040172
+      ],
+      [
+       77.1714397,
+       28.4043102
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/34263673",
+    "osm_name": "Bandhwari Solid Waste Management Plant",
+    "osm_name_en": null,
+    "area_ha": 11.85,
+    "centroid_lat": 28.402383,
+    "centroid_lon": 77.17204,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Bandhwari Solid Waste Management Plant"
+    },
+    "state": "Haryana",
+    "site_id": "bandhwari-gurugram",
+    "retrieved_utc": "2026-10-10T14:56:35Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

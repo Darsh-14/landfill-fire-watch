@@ -6,9 +6,11 @@
   state: Maharashtra
   polygon_path: data/sites/deonar-mumbai.geojson
   polygon_source: osm
-  osm_id: way/289511744
-  exclusions: []
-  verified_by: null
+  osm_id: way/289511744+way/314528563
+  exclusions:
+  - Industrial complex with buildings inside the outline, south-centre (Esri imagery 2026-10-10).
+  - BEST bus depot adjacent (OSM way/222972350).
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
 - site_id: ghazipur-delhi
   name: Ghazipur
   city: Delhi
@@ -16,14 +18,67 @@
   polygon_path: data/sites/ghazipur-delhi.geojson
   polygon_source: osm
   osm_id: way/76727509
-  exclusions: []
-  verified_by: null
+  exclusions:
+  - OSM 'Bio-Gas Plant' touches the outline (way/283807712).
+  - Industrial buildings on the west edge (Esri imagery 2026-10-10).
+  - Crematorium 481 m away (OSM way/25493904).
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
 - site_id: brahmapuram-kochi
   name: Brahmapuram
   city: Kochi
   state: Kerala
   polygon_path: data/sites/brahmapuram-kochi.geojson
   polygon_source: osm
-  osm_id: way/1262085027
+  osm_id: way/1262085027+way/1417183060
+  exclusions:
+  - KSEB Brahmapuram Diesel Power Plant 287 m away (OSM way/310521022).
+  - FACT Ambalamedu industrial area 220 m away (OSM way/59266110).
+  - HPCL industrial site 717 m away (OSM way/133981662).
+  - Waste-plant buildings and tanks next to the named outline (Esri imagery).
+  - 'TODO(verify): white textured area SW of the outline, possibly waste, not inside the outline.'
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
+- site_id: kanjurmarg-mumbai
+  name: Kanjurmarg
+  city: Mumbai
+  state: Maharashtra
+  polygon_path: data/sites/kanjurmarg-mumbai.geojson
+  polygon_source: osm
+  osm_id: way/257455760
+  exclusions: []
+  verified_by: null
+- site_id: bhalswa-delhi
+  name: Bhalswa
+  city: Delhi
+  state: Delhi
+  polygon_path: data/sites/bhalswa-delhi.geojson
+  polygon_source: osm
+  osm_id: way/414943488
+  exclusions: []
+  verified_by: null
+- site_id: okhla-delhi
+  name: Okhla
+  city: Delhi
+  state: Delhi
+  polygon_path: data/sites/okhla-delhi.geojson
+  polygon_source: osm
+  osm_id: way/608169272
+  exclusions: []
+  verified_by: null
+- site_id: bandhwari-gurugram
+  name: Bandhwari
+  city: Gurugram
+  state: Haryana
+  polygon_path: data/sites/bandhwari-gurugram.geojson
+  polygon_source: osm
+  osm_id: way/34263673
+  exclusions: []
+  verified_by: null
+- site_id: kodungaiyur-chennai
+  name: Kodungaiyur
+  city: Chennai
+  state: Tamil Nadu
+  polygon_path: data/sites/kodungaiyur-chennai.geojson
+  polygon_source: osm
+  osm_id: way/29199633
   exclusions: []
   verified_by: null

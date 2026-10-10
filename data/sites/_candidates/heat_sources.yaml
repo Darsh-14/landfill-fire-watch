@@ -1,0 +1,790 @@
+# Possible heat sources near each site, from OpenStreetMap (© OpenStreetMap contributors, ODbL).
+# Review aid for `exclusions` in data/sites.yaml. Written by scripts/nearby_heat_sources.py.
+deonar-mumbai:
+  retrieved_utc: '2026-10-10T14:31:49Z'
+  radius_m: 3000
+  measured_from:
+  - way/289511744
+  - way/314528563
+  features:
+  - osm_id: way/222972350
+    name: Shivaji Nagar BEST Bus Depot
+    tags:
+      landuse: industrial
+      industrial: depot
+      operator: BEST
+    distance_to_site_m: 0
+    area_ha: 3.15
+  - osm_id: way/1127321832
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 11
+    area_ha: 4.55
+  - osm_id: way/626243840
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 515
+    area_ha: 1.56
+  - osm_id: way/122289551
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 521
+    area_ha: 1.54
+  - osm_id: way/626243839
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 614
+    area_ha: 0.41
+  - osm_id: way/626243764
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 798
+    area_ha: 5.69
+  - osm_id: way/626348892
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 846
+    area_ha: 0.59
+  - osm_id: way/626243769
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 914
+    area_ha: 2.05
+  - osm_id: way/626348893
+    name: Janata Timber Market
+    tags:
+      landuse: industrial
+      amenity: marketplace
+    distance_to_site_m: 917
+    area_ha: 1.46
+  - osm_id: way/626243768
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1021
+    area_ha: 0.62
+  - osm_id: way/626243767
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1074
+    area_ha: 4.38
+  - osm_id: way/626243766
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1077
+    area_ha: 1.21
+  - osm_id: way/314518900
+    name: Deonar Weigh Bridge
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1100
+    area_ha: 0.08
+  - osm_id: way/626243771
+    name: Deonar Abattoir
+    tags:
+      landuse: industrial
+      industrial: slaughterhouse
+    distance_to_site_m: 1132
+    area_ha: 25.02
+  - osm_id: way/626376025
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1151
+    area_ha: 1.94
+  - osm_id: way/961496728
+    name: Mandale Metro Depot
+    tags:
+      landuse: industrial
+      industrial: depot
+      operator: Metro Line 2 Carshed
+    distance_to_site_m: 1241
+    area_ha: 30.29
+  - osm_id: way/131951659
+    name: Ghatkopar BEST Bus Depot
+    tags:
+      landuse: industrial
+      industrial: depot
+      operator: BEST
+    distance_to_site_m: 1254
+    area_ha: 2.27
+  - osm_id: way/430346744
+    name: CPP Ltd
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1396
+    area_ha: 3.72
+  - osm_id: way/179915834
+    name: MTNL Telephone Exchange Mankhurd
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1407
+    area_ha: 0.61
+  - osm_id: way/626348929
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1623
+    area_ha: 0.37
+  - osm_id: way/430346743
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1643
+    area_ha: 0.74
+  - osm_id: way/120515757
+    name: BSNL Telecom Factory Deonar
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1777
+    area_ha: 6.84
+  - osm_id: way/250281482
+    name: Water pumping station
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1847
+    area_ha: 0.01
+  - osm_id: way/1123859441
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1924
+    area_ha: 2.86
+  - osm_id: way/151581222
+    name: Godrej Estate (East)
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1931
+    area_ha: 42.86
+  - osm_id: way/1123854971
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2166
+    area_ha: 3.67
+  - osm_id: way/1123854973
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2207
+    area_ha: 2.06
+  - osm_id: way/122294384
+    name: Deonar BEST Bus Depot
+    tags:
+      landuse: industrial
+      industrial: depot
+      operator: BEST
+    distance_to_site_m: 2253
+    area_ha: 3.71
+  - osm_id: way/1016600596
+    name: null
+    tags:
+      landuse: industrial
+      operator: Yogayatan Ports
+    distance_to_site_m: 2336
+    area_ha: 4.44
+  - osm_id: way/1411456435
+    name: Majithia Industrial Estate
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2437
+    area_ha: 0.45
+  - osm_id: way/1291729685
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2441
+    area_ha: 9.0
+  - osm_id: way/48863714
+    name: Godrej Estate (West)
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2562
+    area_ha: 41.03
+  - osm_id: way/48966380
+    name: Bhabha Atomic Research Centre - BARC
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2573
+    area_ha: 267.98
+  - osm_id: way/223308803
+    name: Bombay Textile Research Association
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2579
+    area_ha: 8.39
+  - osm_id: way/853277764
+    name: null
+    tags:
+      power: generator
+      generator:source: biomass
+    distance_to_site_m: 2899
+    area_ha: 0.01
+  - osm_id: way/48864360
+    name: Kurla EMU Carshed
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2900
+    area_ha: 19.11
+  - osm_id: way/1126494065
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2936
+    area_ha: 5.51
+  - osm_id: way/1411783362
+    name: Ghatkopar Industrial Estate
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2936
+    area_ha: 3.94
+  - osm_id: way/256572909
+    name: Vikhroli BEST Bus Depot
+    tags:
+      landuse: industrial
+      industrial: depot
+      operator: BEST
+    distance_to_site_m: 2984
+    area_ha: 1.39
+  - osm_id: way/260754869
+    name: Essel Studios
+    tags:
+      landuse: industrial
+    distance_to_site_m: 3000
+    area_ha: 1.04
+ghazipur-delhi:
+  retrieved_utc: '2026-10-10T14:31:57Z'
+  radius_m: 3000
+  measured_from:
+  - way/76727509
+  features:
+  - osm_id: way/283807712
+    name: Bio-Gas Plant
+    tags:
+      power: plant
+      plant:source: biogas
+    distance_to_site_m: 0
+    area_ha: 2.39
+  - osm_id: way/283808810
+    name: Cold Storage
+    tags:
+      landuse: industrial
+    distance_to_site_m: 290
+    area_ha: 2.62
+  - osm_id: way/25493904
+    name: Gazipur Shamshan Ghat
+    tags:
+      amenity: crematorium
+    distance_to_site_m: 481
+    area_ha: 0.84
+  - osm_id: way/287054776
+    name: Inland Container Depot
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1297
+    area_ha: 5.07
+  - osm_id: way/345666867
+    name: Delhi Jal Board, Booster Pump station
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1420
+    area_ha: 0.21
+  - osm_id: way/287054778
+    name: null
+    tags:
+      landuse: industrial
+      operator: Tata Motors Limited
+    distance_to_site_m: 1461
+    area_ha: 2.08
+  - osm_id: way/287054787
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1711
+    area_ha: 0.4
+  - osm_id: way/287054784
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1727
+    area_ha: 0.42
+  - osm_id: way/287054788
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1772
+    area_ha: 0.44
+  - osm_id: way/661784209
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2068
+    area_ha: 38.4
+  - osm_id: way/802304540
+    name: null
+    tags:
+      landuse: industrial
+      operator: Dabur
+    distance_to_site_m: 2096
+    area_ha: 7.98
+  - osm_id: way/1498754706
+    name: null
+    tags:
+      landuse: industrial
+      operator: Bisleri
+    distance_to_site_m: 2101
+    area_ha: 1.3
+  - osm_id: way/76700057
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2140
+    area_ha: 82.8
+  - osm_id: way/76849193
+    name: null
+    tags:
+      landuse: industrial
+      industrial: depot
+    distance_to_site_m: 2160
+    area_ha: 1.87
+  - osm_id: way/72004862
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2204
+    area_ha: 19.52
+  - osm_id: way/71221209
+    name: Sector 11
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2213
+    area_ha: 61.66
+  - osm_id: way/802304538
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2230
+    area_ha: 0.91
+  - osm_id: way/802304539
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2264
+    area_ha: 5.18
+  - osm_id: way/802304536
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2294
+    area_ha: 15.38
+  - osm_id: way/802304537
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2301
+    area_ha: 0.89
+  - osm_id: way/71295897
+    name: Sector 8
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2365
+    area_ha: 62.99
+  - osm_id: way/74168430
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2485
+    area_ha: 85.0
+  - osm_id: way/71297383
+    name: Sector 7
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2617
+    area_ha: 21.68
+  - osm_id: way/71621507
+    name: Sector 57
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2637
+    area_ha: 44.26
+  - osm_id: way/906721185
+    name: Sector 6
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2708
+    area_ha: 18.99
+  - osm_id: way/802304533
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2721
+    area_ha: 4.3
+  - osm_id: way/71651922
+    name: Sector 58
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2808
+    area_ha: 67.26
+  - osm_id: way/802304534
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2860
+    area_ha: 4.35
+  - osm_id: way/77001373
+    name: M.E.A. Stores
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2949
+    area_ha: 24.74
+brahmapuram-kochi:
+  retrieved_utc: '2026-10-10T14:33:18Z'
+  radius_m: 3000
+  measured_from:
+  - way/1262085027
+  - way/1417183060
+  features:
+  - osm_id: way/906851974
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 0
+    area_ha: 4.42
+  - osm_id: way/1468881079
+    name: null
+    tags:
+      power: plant
+      plant:source: solar
+    distance_to_site_m: 208
+    area_ha: 2.22
+  - osm_id: way/59266110
+    name: FACT Ambalamedu
+    tags:
+      landuse: industrial
+    distance_to_site_m: 220
+    area_ha: 90.59
+  - osm_id: way/310521022
+    name: Brahmapuram Diesel Power Plant
+    tags:
+      power: plant
+      plant:source: diesel
+      landuse: industrial
+      operator: Kerala State Electricity Board Limited
+    distance_to_site_m: 287
+    area_ha: 8.32
+  - osm_id: way/483718096
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 348
+    area_ha: 61.23
+  - osm_id: node/2310341099
+    name: null
+    tags:
+      power: generator
+      generator:source: diesel
+    distance_to_site_m: 374
+    area_ha: null
+  - osm_id: node/7685398344
+    name: null
+    tags:
+      power: generator
+      generator:source: diesel
+    distance_to_site_m: 385
+    area_ha: null
+  - osm_id: node/7685398343
+    name: null
+    tags:
+      power: generator
+      generator:source: diesel
+    distance_to_site_m: 435
+    area_ha: null
+  - osm_id: node/8791550089
+    name: Southern Air Products (20MT)
+    tags:
+      man_made: works
+    distance_to_site_m: 468
+    area_ha: null
+  - osm_id: way/1417183059
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 582
+    area_ha: 4.85
+  - osm_id: way/133981662
+    name: Hindustan Petroleum Corporation Ltd
+    tags:
+      landuse: industrial
+      industrial: oil
+    distance_to_site_m: 717
+    area_ha: 18.38
+  - osm_id: way/906854708
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1015
+    area_ha: 2.3
+  - osm_id: way/59266107
+    name: BPCL Refinery
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1052
+    area_ha: 179.42
+  - osm_id: way/906854707
+    name: Nitta Gelatin India Limited
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1093
+    area_ha: 5.44
+  - osm_id: way/804491783
+    name: null
+    tags:
+      man_made: chimney
+    distance_to_site_m: 1101
+    area_ha: 0.0
+  - osm_id: way/804491784
+    name: null
+    tags:
+      man_made: chimney
+    distance_to_site_m: 1103
+    area_ha: 0.0
+  - osm_id: way/133981673
+    name: Bharat Petroleum Coporation Limited
+    tags:
+      landuse: industrial
+      industrial: oil
+    distance_to_site_m: 1265
+    area_ha: 18.8
+  - osm_id: way/906854728
+    name: Traco Cable  Company
+    tags:
+      landuse: industrial
+      industrial: manufacturing_company
+    distance_to_site_m: 1475
+    area_ha: 4.35
+  - osm_id: way/1017273383
+    name: Hindustan Petyroleum cooperation Limited Plant And Liquified Petroleum gas
+      Terminal
+    tags:
+      landuse: industrial
+      industrial: gas
+    distance_to_site_m: 1477
+    area_ha: 0.02
+  - osm_id: way/810646824
+    name: null
+    tags:
+      man_made: chimney
+    distance_to_site_m: 1619
+    area_ha: 0.0
+  - osm_id: way/1292043891
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1652
+    area_ha: 0.32
+  - osm_id: way/133981808
+    name: Bharat Petroleum Corporation Ltd
+    tags:
+      landuse: industrial
+      industrial: oil
+    distance_to_site_m: 1757
+    area_ha: 44.96
+  - osm_id: way/802375392
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1805
+    area_ha: 1.65
+  - osm_id: node/9383040119
+    name: Funeral Place
+    tags:
+      amenity: crematorium
+    distance_to_site_m: 1835
+    area_ha: null
+  - osm_id: way/799386635
+    name: Philips Carbon Black
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1852
+    area_ha: 4.88
+  - osm_id: way/906851975
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 1869
+    area_ha: 37.65
+  - osm_id: way/1218909830
+    name: null
+    tags:
+      power: plant
+      plant:source: gas
+      landuse: industrial
+    distance_to_site_m: 1925
+    area_ha: 0.09
+  - osm_id: node/11294504665
+    name: null
+    tags:
+      man_made: chimney
+    distance_to_site_m: 1938
+    area_ha: null
+  - osm_id: way/1448572418
+    name: null
+    tags:
+      power: plant
+      plant:source: solar
+    distance_to_site_m: 1942
+    area_ha: 8.02
+  - osm_id: node/8791522816
+    name: Air Products (35MT)
+    tags:
+      man_made: works
+    distance_to_site_m: 2012
+    area_ha: null
+  - osm_id: node/8791546177
+    name: Sterling Gases Ltd (0MT)
+    tags:
+      man_made: works
+    distance_to_site_m: 2102
+    area_ha: null
+  - osm_id: way/906851976
+    name: Hindustan Organic Chemicals Limited (HOCL)
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2152
+    area_ha: 49.94
+  - osm_id: way/59266108
+    name: BPCL Refinery
+    tags:
+      landuse: industrial
+      industrial: refinery
+    distance_to_site_m: 2156
+    area_ha: 138.08
+  - osm_id: way/802375393
+    name: null
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2173
+    area_ha: 0.4
+  - osm_id: way/133756697
+    name: Cochin Special Economic Zone
+    tags:
+      landuse: industrial
+    distance_to_site_m: 2432
+    area_ha: 40.6
+  - osm_id: way/906854720
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2432
+    area_ha: 1.37
+  - osm_id: way/906854718
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2440
+    area_ha: 1.04
+  - osm_id: way/802199016
+    name: XO Pack Private Limited
+    tags:
+      man_made: works
+    distance_to_site_m: 2501
+    area_ha: 0.51
+  - osm_id: way/906854722
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2502
+    area_ha: 0.51
+  - osm_id: way/906854721
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2538
+    area_ha: 0.39
+  - osm_id: way/906854717
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2541
+    area_ha: 0.42
+  - osm_id: way/906854719
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2571
+    area_ha: 0.28
+  - osm_id: way/906886659
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2590
+    area_ha: 0.98
+  - osm_id: node/11951716114
+    name: Filtrowin Industries
+    tags:
+      man_made: works
+    distance_to_site_m: 2608
+    area_ha: null
+  - osm_id: way/906854723
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2655
+    area_ha: 5.15
+  - osm_id: way/906854713
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2799
+    area_ha: 0.64
+  - osm_id: way/906854712
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2819
+    area_ha: 0.36
+  - osm_id: way/906854716
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2825
+    area_ha: 0.41
+  - osm_id: way/906854725
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2857
+    area_ha: 0.84
+  - osm_id: way/906854714
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2876
+    area_ha: 0.58
+  - osm_id: way/906854710
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2920
+    area_ha: 0.98
+  - osm_id: way/906854711
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2934
+    area_ha: 0.42
+  - osm_id: way/906854724
+    name: null
+    tags:
+      man_made: works
+    distance_to_site_m: 2950
+    area_ha: 0.68

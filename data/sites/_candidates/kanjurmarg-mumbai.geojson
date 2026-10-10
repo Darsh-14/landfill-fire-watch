@@ -1,0 +1,178 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/257455760",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9418676,
+       19.1260089
+      ],
+      [
+       72.9419097,
+       19.1253363
+      ],
+      [
+       72.9433715,
+       19.1202863
+      ],
+      [
+       72.9439997,
+       19.1200662
+      ],
+      [
+       72.9461296,
+       19.1201734
+      ],
+      [
+       72.9465795,
+       19.120196
+      ],
+      [
+       72.9516858,
+       19.120453
+      ],
+      [
+       72.952081,
+       19.1203129
+      ],
+      [
+       72.9569863,
+       19.1205263
+      ],
+      [
+       72.9571628,
+       19.120373
+      ],
+      [
+       72.960847,
+       19.1259345
+      ],
+      [
+       72.9610305,
+       19.1274082
+      ],
+      [
+       72.9593648,
+       19.1274015
+      ],
+      [
+       72.9544525,
+       19.1271214
+      ],
+      [
+       72.9513532,
+       19.1278356
+      ],
+      [
+       72.9512694,
+       19.1278549
+      ],
+      [
+       72.9498225,
+       19.128075
+      ],
+      [
+       72.9444514,
+       19.1282417
+      ],
+      [
+       72.9438656,
+       19.1280817
+      ],
+      [
+       72.9439503,
+       19.1263012
+      ],
+      [
+       72.9436044,
+       19.1259478
+      ],
+      [
+       72.9418676,
+       19.1260089
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/257455760",
+    "osm_name": "Kanjur Landfill",
+    "osm_name_en": null,
+    "area_ha": 142.84,
+    "centroid_lat": 19.124155,
+    "centroid_lon": 72.950893,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Kanjur Landfill"
+    },
+    "state": "Maharashtra",
+    "site_id": "kanjurmarg-mumbai",
+    "retrieved_utc": "2026-10-10T14:33:49Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "way/1533564150",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.9384035,
+       19.1226429
+      ],
+      [
+       72.938701,
+       19.1228668
+      ],
+      [
+       72.9396386,
+       19.1232796
+      ],
+      [
+       72.938952,
+       19.1240845
+      ],
+      [
+       72.9384035,
+       19.1226429
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1533564150",
+    "osm_name": null,
+    "osm_name_en": null,
+    "area_ha": 0.79,
+    "centroid_lat": 19.123362,
+    "centroid_lon": 72.939003,
+    "geometry_type": "Polygon",
+    "tags": {
+     "amenity": "waste_transfer_station",
+     "landuse": "landfill"
+    },
+    "distance_to_chosen_m": 290.5,
+    "intersects_chosen": false,
+    "state": null,
+    "site_id": "kanjurmarg-mumbai",
+    "retrieved_utc": "2026-10-10T14:33:49Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "role": "nearby_landfill"
+   }
+  }
+ ]
+}
