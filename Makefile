@@ -17,7 +17,7 @@ FUNCTIONS := scan api draft
 LAMBDA_PY := 3.13
 LAMBDA_PLATFORM := manylinux2014_x86_64
 
-.PHONY: setup test sites receptors backtest scan-local replay draft verify web api-local fixtures lock package lint deploy-check deploy
+.PHONY: setup test sites receptors backtest scan-local replay draft verify web api-local fixtures lock package lint compliance deploy-check deploy
 
 setup:
 	python -m venv .venv
@@ -86,6 +86,10 @@ package:
 	cp out/backtest.json build/api/data/backtest.json
 	find build -type d -name "__pycache__" -prune -exec rm -rf {} +
 	$(PY) scripts/zip_packages.py $(FUNCTIONS)
+
+compliance:
+	gitleaks git --no-banner -v
+	$(PY) scripts/compliance_check.py
 
 lint:
 	"$(dir $(PY))cfn-lint" --regions ap-south-1 -- template.yaml
