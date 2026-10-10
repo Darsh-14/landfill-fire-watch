@@ -9,6 +9,9 @@ endif
 EVENT ?=
 INCIDENT ?=
 
+# Windows consoles default to cp1252; scripts print UTF-8 (arrows, °, Devanagari).
+export PYTHONUTF8 := 1
+
 # Lambda packaging without Docker: Linux wheels only (CLAUDE.md §3, MVP §12).
 FUNCTIONS := scan api draft
 LAMBDA_PY := 3.13

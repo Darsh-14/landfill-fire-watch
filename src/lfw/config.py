@@ -46,15 +46,16 @@ MATCH_MARGIN_M = 100.0
 
 # FIRMS `type` code for "other static land source" (FIRMS attribute page: 0 = presumed vegetation
 # fire, 1 = active volcano, 2 = other static land source, 3 = offshore). Such hits are kept but
-# forced to tier "low" and flagged (MVP §6.1 step 5). The page says `type` exists for MODIS
-# standard-quality data; confirm per source from the archive fixtures.
+# forced to tier "low" and flagged (MVP §6.1 step 5). Fixtures: both VIIRS_SNPP_SP and MODIS_SP
+# have a `type` column; NRT feeds do not (docs/data-notes.md).
 STATIC_LAND_TYPE_CODES = frozenset({2})
 
 # ---------------------------------------------------------------------------
 # 6.2 Confidence tier
 # ---------------------------------------------------------------------------
 
-# VIIRS confidence is a class, not a number. TODO(verify): letters confirmed from the fixtures.
+# VIIRS confidence is a class letter, not a number. Fixtures show `n` and `h`.
+# TODO(verify): `l` is not in the P0 samples; confirm it from a larger sample in P1.
 VIIRS_CONFIDENCE_TIERS = {"l": "low", "n": "nominal", "h": "high"}
 
 # MODIS confidence is 0..100 (FIRMS attribute page). Class edges from MVP §6.2:
