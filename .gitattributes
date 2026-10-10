@@ -1,0 +1,6 @@
+# Keep LF in the repo and the working tree: the Makefile runs under sh and Lambda runs on Linux.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.pdf binary
+*.zip binary
