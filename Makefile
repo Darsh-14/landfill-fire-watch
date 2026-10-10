@@ -17,7 +17,7 @@ FUNCTIONS := scan api draft
 LAMBDA_PY := 3.13
 LAMBDA_PLATFORM := manylinux2014_x86_64
 
-.PHONY: setup test sites receptors backtest scan-local replay draft verify web api-local fixtures lock package lint deploy
+.PHONY: setup test sites receptors backtest scan-local replay draft verify web api-local fixtures lock package lint deploy-check deploy
 
 setup:
 	python -m venv .venv
@@ -93,6 +93,15 @@ lint:
 # Deviation from CLAUDE.md §5 (`sam build && sam deploy`): without Docker, `sam build` on Windows
 # drops the Linux .so files from the prebuilt packages. CodeUri points at build/<fn>.zip instead,
 # and sam deploy uploads those zips unchanged. Never run `sam build` for this stack.
-deploy: package
+ALERT_EMAIL ?=
+BEDROCK_MODEL_ID ?=
+ALLOWED_ORIGIN ?= *
+
+deploy-check:
+	@test -n "$(ALERT_EMAIL)" && test -n "$(BEDROCK_MODEL_ID)" || { \
+	  echo "usage: make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id> [ALLOWED_ORIGIN=https://...]"; exit 2; }
+
+deploy: deploy-check package
 	rm -rf .aws-sam
-	sam deploy --template-file template.yaml
+	sam deploy --template-file template.yaml --parameter-overrides \
+	  AlertEmail="$(ALERT_EMAIL)" BedrockModelId="$(BEDROCK_MODEL_ID)" AllowedOrigin="$(ALLOWED_ORIGIN)"
