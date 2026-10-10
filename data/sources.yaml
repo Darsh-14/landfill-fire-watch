@@ -68,3 +68,12 @@
   sha256: cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
   retrieved_utc: '2026-10-10T18:25:21Z'
   bytes: 11358
+- id: fsi-fast-3-2019
+  kind: pdf
+  title: Forest Survey of India, Technical Information Series Vol. I No. 2 (2019), FSI Forest Fire Alert System (FAST 3.0)
+  url: https://fsiforestfire.gov.in/libraries/assets/documents/technical-information-series-v1-n2.pdf
+  s3_key: sources/fsi-fast-3-2019.pdf
+  note: 'p.4: FSI filters out all fires other than forest fires using a custom filter which is a combination of Recorded Forest Area boundaries as well as forest cover data.'
+  sha256: 709e4eeb7188e8a880f473cbcbcb39e310a0ee29124ca3a0b6f3f66db9659394
+  retrieved_utc: '2026-10-10T18:32:14Z'
+  bytes: 3322740
