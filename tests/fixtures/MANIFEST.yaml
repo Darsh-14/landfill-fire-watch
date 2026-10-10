@@ -1,4 +1,42 @@
 # Real API samples saved by scripts/fetch_fixtures.py. FIRMS key redacted as {MAP_KEY}.
+firms_archive_MODIS_SP_brahmapuram_2023-02-27.csv:
+  url: https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/MODIS_SP/76.3149,9.9402,76.4190,10.0439/5/2023-02-27
+  retrieved_utc: '2026-10-10T12:48:44Z'
+  bytes: 285
+  sha256: 06ffc2c0e3b31676d1b49a98d9d704c3a11c2bbcc00f89b0e74b52d642445f10
+  data_rows: 2
+  note: 'Archive sample: returns 2023-02-27 .. 2023-03-03 (DATE .. DATE+DAY_RANGE-1),
+    bbox = OSM outline bounds of brahmapuram-kochi + 0.05 deg.'
+firms_archive_VIIRS_SNPP_SP_brahmapuram_2023-02-27.csv:
+  url: https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_SNPP_SP/76.3149,9.9402,76.4190,10.0439/5/2023-02-27
+  retrieved_utc: '2026-10-10T12:48:41Z'
+  bytes: 741
+  sha256: b27e135e614c611fa775765e85faed7a7b2937c0a36ad612c35006a0af1c5633
+  data_rows: 8
+  note: 'Archive sample: returns 2023-02-27 .. 2023-03-03 (DATE .. DATE+DAY_RANGE-1),
+    bbox = OSM outline bounds of brahmapuram-kochi + 0.05 deg.'
+firms_data_availability_all.csv:
+  url: https://firms.modaps.eosdis.nasa.gov/api/data_availability/csv/{MAP_KEY}/ALL
+  retrieved_utc: '2026-10-10T12:48:32Z'
+  bytes: 404
+  sha256: cbf7b1eb33df82107ae907a8dc41d32b7729718ebe8be8058239f5ef15502499
+  data_rows: 11
+firms_live_MODIS_NRT_punjab.csv:
+  url: https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/MODIS_NRT/73.8798,29.5429,76.9391,32.5112/1
+  retrieved_utc: '2026-10-10T12:48:37Z'
+  bytes: 1496
+  sha256: e555ceb6173d4e22d47fbfa5b1b322965561ad781116595983f75a8fc45ba61b
+  data_rows: 16
+  note: Live sample, day range 1, bbox = Nominatim boundingbox of Punjab, India (chosen
+    because crop-residue burning makes empty samples unlikely in October).
+firms_live_VIIRS_SNPP_NRT_punjab.csv:
+  url: https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_SNPP_NRT/73.8798,29.5429,76.9391,32.5112/1
+  retrieved_utc: '2026-10-10T12:48:35Z'
+  bytes: 2899
+  sha256: 1c3c580e4f74f4b0c6edecaf88099a1edc060f73186f3d0c2802de07c6b8c9cc
+  data_rows: 35
+  note: Live sample, day range 1, bbox = Nominatim boundingbox of Punjab, India (chosen
+    because crop-residue burning makes empty samples unlikely in October).
 nominatim_india.json:
   url: https://nominatim.openstreetmap.org/search?q=India&featureType=country&format=jsonv2&limit=1
   retrieved_utc: '2026-10-10T12:42:34Z'
