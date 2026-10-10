@@ -1,0 +1,32 @@
+# Secrets: never commit (CLAUDE.md rule 8)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Raw API cache (re-downloadable; S3 holds the AWS copy)
+cache/
+
+# Local outputs; keep the backtest report under version control
+out/*
+!out/backtest.md
+!out/backtest.json
+
+# Lambda packaging and SAM build output
+build/
+.aws-sam/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
