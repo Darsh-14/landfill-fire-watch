@@ -120,7 +120,7 @@ satellite-imagery check of the event-site outlines at the team's request.
 
 ```bash
 make setup                 # venv + dependencies (Python 3.13)
-make test                  # pytest
+make check                 # ruff + cfn-lint + all tests (AWS paths run on moto; the agent runs on a scripted model)
 cp .env.example .env       # add FIRMS_MAP_KEY (free key from NASA FIRMS)
 make backtest              # out/backtest.md (refuses to run unless outlines are checked and config is frozen)
 make replay EVENT=brahmapuram-2023
