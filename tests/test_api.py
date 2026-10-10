@@ -168,3 +168,14 @@ def test_live_scan_offline(tmp_path):
     assert store.latest_scan()["scan_utc"] == "2026-10-10T09:00:00Z"
     rec2 = run_scan(store, "KEY", sites, {"test-site": site}, now, fetch=fetch, forecast=lambda lat, lon: forecast)
     assert rec2["incidents_created"] == [] and rec2["incidents_updated"] == rec["incidents_created"]
+
+
+def test_detail_overpass_groups_match_incident_count(env):
+    store, _, deps = env
+    dets = [det(t="2023-03-03T19:36", site_id=SITE), det(t="2023-03-03T19:37", site_id=SITE, lat=10.001),
+            det(t="2023-03-04T07:40", site_id=SITE, lat=10.002)]
+    (inc,) = incidents.build_incidents(dets, "replay")
+    store.put_incident(inc)
+    store.put_detections(dets)
+    _, d = call(deps, "GET", f"/incidents/{inc.incident_id}", token=None)
+    assert len({x["overpass"] for x in d["detections"]}) == inc.overpass_count == 2

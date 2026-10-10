@@ -56,6 +56,9 @@ verify:
 web:
 	cd web && "../$(PY)" -m http.server 8000
 
+api-local:
+	STORE=local $(PY) scripts/local_api.py --port 8001
+
 # pip evaluates environment markers (e.g. sys_platform == "win32") for the HOST, not --platform,
 # so a Windows host would pull pywin32 into a Linux package. Resolve once for Linux with uv,
 # commit the locks, then install exactly those pins with pip --no-deps (Linux wheels only).

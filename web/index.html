@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landfill Fire Watch</title>
+  <meta name="description" content="Satellite hotspot screening for Indian landfills, with human-approved alerts for people downwind.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"
+        integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Landfill Fire Watch</h1>
+      <span class="tag">satellite hotspot screening · a person approves every alert</span>
+    </div>
+    <div id="status-strip" class="status-strip" aria-live="polite">Loading status…</div>
+  </header>
+
+  <main>
+    <section id="map-wrap" aria-label="Map">
+      <div id="map"></div>
+      <div class="legend">
+        <span><i class="sw site"></i>Landfill outline</span>
+        <span><i class="sw det-high"></i>Hotspot (pixel size) high</span>
+        <span><i class="sw det-nominal"></i>nominal</span>
+        <span><i class="sw det-low"></i>low</span>
+        <span><i class="sw smoke"></i>Smoke screening sector</span>
+        <span><i class="dot school"></i>School / college</span>
+        <span><i class="dot hospital"></i>Hospital / clinic</span>
+      </div>
+    </section>
+
+    <section id="side" aria-label="Incidents">
+      <nav class="tabs" role="tablist">
+        <button role="tab" class="tab active" data-view="incidents">Incidents</button>
+        <button role="tab" class="tab" data-view="backtest">Backtest</button>
+        <button role="tab" class="tab" data-view="sites">Sites</button>
+      </nav>
+
+      <div id="view-incidents" class="view">
+        <div id="incident-list" class="incident-list"></div>
+        <div id="incident-panel" class="incident-panel hidden"></div>
+      </div>
+
+      <div id="view-backtest" class="view hidden">
+        <div id="backtest"></div>
+      </div>
+
+      <div id="view-sites" class="view hidden">
+        <div id="site-list"></div>
+      </div>
+
+      <aside id="limits" class="limits" aria-label="Limits">
+        <h2>Limits</h2>
+        <ul>
+          <li>Detects surface fires only. Fires that smoulder underground can be missed.</li>
+          <li>Pixel size is about 375 m (VIIRS) to 1 km or more (MODIS). A hotspot can come from a nearby heat source.</li>
+          <li>Satellites pass a few times a day. Cloud and thick smoke can block detection.</li>
+          <li>A detection is not a confirmation. A person must check.</li>
+          <li>The smoke zone is a screening sector from wind direction. It is not a pollution forecast.</li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p class="aws">Running on AWS (ap-south-1): EventBridge · Lambda · DynamoDB · S3 · Bedrock (Strands) · SNS</p>
+    <p class="credits">
+      Fire data: We acknowledge the use of data and/or imagery from NASA's Fire Information for Resource Management
+      System (FIRMS) (<a href="https://earthdata.nasa.gov/firms">https://earthdata.nasa.gov/firms</a>), part of NASA's
+      Land, Atmosphere Near real-time Capability for Earth observations (LANCE)
+      (<a href="https://earthdata.nasa.gov/lance">https://earthdata.nasa.gov/lance</a>) and NASA's Earth Science Data
+      and Information System (ESDIS).
+      · Landfill outlines, schools and hospitals: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL).
+      · Wind: <a href="https://open-meteo.com/">Open-Meteo.com</a> (CC BY 4.0).
+    </p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
+          integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

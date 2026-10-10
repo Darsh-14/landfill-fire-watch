@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from typing import Any, Callable
 
-from lfw import notify
+from lfw import incidents, notify
 from lfw import receptors as rc
 from lfw.logjson import log_json
 from lfw.models import HumanAction
@@ -93,6 +93,7 @@ def incident_detail(deps: Deps, incident_id: str) -> dict | None:
         return None
     keys = set(inc.detection_keys)
     dets = [d for d in deps.store.get_detections(inc.site_id) if d.key in keys]
+    ov = incidents.overpass_ids(dets)  # same grouping the status rules use
     by_id = {r.receptor_id: r for r in rc.load_receptors(inc.site_id)}
     recs = [by_id[i] for i in inc.receptor_ids if i in by_id]
     site = _site_index().get(inc.site_id)
@@ -103,7 +104,9 @@ def incident_detail(deps: Deps, incident_id: str) -> dict | None:
         "detections": [{"key": d.key, "lat": d.lat, "lon": d.lon, "acq_utc": utc_iso(d.acq_utc),
                         "acq_ist": ist_str(d.acq_utc), "source": d.source, "satellite": d.satellite,
                         "tier": d.confidence_tier, "frp_mw": d.frp_mw, "scan_km": d.scan_km,
-                        "track_km": d.track_km, "static": d.static_source, "match_distance_m": d.match_distance_m}
+                        "track_km": d.track_km, "static": d.static_source, "match_distance_m": d.match_distance_m,
+                        "overpass": f"{ov[d.key][0]}|{ov[d.key][1]}|{utc_iso(ov[d.key][2])}",
+                        "overpass_ist": ist_str(ov[d.key][2])}
                        for d in dets],
         "receptors": [{"receptor_id": r.receptor_id, "name": rc.display_name(r), "kind": r.kind,
                        "distance_km": r.distance_km, "lat": r.lat, "lon": r.lon}
