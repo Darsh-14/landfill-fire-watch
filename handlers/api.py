@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from typing import Any, Callable
 
-from lfw import incidents, notify
+from lfw import incidents, notify, policy
 from lfw import receptors as rc
 from lfw.logjson import log_json
 from lfw.models import HumanAction
@@ -129,6 +129,12 @@ def approve(deps: Deps, incident_id: str) -> dict:
         kind, arn = notify.topic_for(inc.mode, deps.live_topic_arn, deps.demo_topic_arn)
     except notify.TopicError as exc:
         return resp(503, {"error": str(exc)})
+    # Second gate: the Cedar approval policy (duty officer only; replay -> demo only; validated drafts only).
+    allowed, why = policy.authorize_approve("admin-token-holder", [policy.DUTY_OFFICER], incident_id,
+                                            inc.mode, bool(draft.get("validated")), kind)
+    if not allowed:
+        log_json("approval_refused", incident_id=incident_id, reason=why)
+        return resp(403, {"error": "approval refused by policy", "detail": why})
     site = _site_index().get(inc.site_id)
     msg_id = deps.publish(arn, notify.subject_for(inc, site.name if site else inc.site_id), notify.message_for(draft, inc))
     now = utc_iso(deps.now())

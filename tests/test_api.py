@@ -179,3 +179,12 @@ def test_detail_overpass_groups_match_incident_count(env):
     store.put_detections(dets)
     _, d = call(deps, "GET", f"/incidents/{inc.incident_id}", token=None)
     assert len({x["overpass"] for x in d["detections"]}) == inc.overpass_count == 2
+
+
+def test_approve_refused_when_policy_denies(env, monkeypatch):
+    store, outbox, deps = env
+    inc = seed(store, "replay")
+    add_draft(store, inc)
+    monkeypatch.setattr(api.policy, "authorize_approve", lambda *a, **k: (False, "cedar: deny"))
+    code, body = call(deps, "POST", f"/incidents/{inc.incident_id}/approve")
+    assert code == 403 and outbox.sent == []
