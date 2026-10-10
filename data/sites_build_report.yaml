@@ -1125,22 +1125,177 @@ jawahar-nagar-hyderabad:
   chosen: null
 uruli-devachi-pune:
   status: no_name_match
-  method: nominatim
+  method: proximity
   patterns:
   - Uruli
   - Devachi
-  retrieved_utc: '2026-10-10T18:52:02Z'
-  place_anchors: []
+  retrieved_utc: '2026-10-10T19:06:20Z'
+  place_anchors:
+  - osm_id: node/316417196
+    name: Puruliya
+    place: county
+    lat: 23.333333
+    lon: 86.416667
+  - osm_id: node/342117519
+    name: Uruli Kanchan
+    place: village
+    lat: 18.4872401
+    lon: 74.133
+  - osm_id: node/654094042
+    name: Purulia
+    place: city
+    lat: 23.3291882
+    lon: 86.3672378
+  - osm_id: node/1811146511
+    name: Huruli
+    place: village
+    lat: 13.6114887
+    lon: 75.1059856
+  - osm_id: node/2453208021
+    name: Suruli
+    place: village
+    lat: 12.7917663
+    lon: 75.3679695
+  - osm_id: node/2921566443
+    name: Hurulihalu
+    place: village
+    lat: 14.7162627
+    lon: 76.5536218
+  - osm_id: node/2986116136
+    name: Urulikunnam
+    place: village
+    lat: 9.6387071
+    lon: 76.7160266
+  - osm_id: node/3003288182
+    name: Huruli
+    place: village
+    lat: 14.5752448
+    lon: 75.1804029
+  - osm_id: node/3085802484
+    name: Hurulihalli
+    place: hamlet
+    lat: 13.7523867
+    lon: 76.175632
+  - osm_id: node/3625544226
+    name: Hurulikoppa
+    place: village
+    lat: 14.5765934
+    lon: 75.1870817
+  - osm_id: node/3781769690
+    name: Hurulihalli
+    place: village
+    lat: 13.7419666
+    lon: 75.7623588
+  - osm_id: node/3834506464
+    name: Hurulihalli
+    place: village
+    lat: 13.1192777
+    lon: 77.353016
+  - osm_id: node/3955907199
+    name: Karihurulikoppalu
+    place: village
+    lat: 12.4124829
+    lon: 76.9304384
+  - osm_id: node/6052321042
+    name: Gunturulinganapalem
+    place: village
+    lat: 15.1475447
+    lon: 79.6160633
+  - osm_id: node/9111220337
+    name: ANCHURULI SETTLEMENT
+    place: isolated_dwelling
+    lat: 9.7808653
+    lon: 77.0604473
+  - osm_id: node/9251507187
+    name: Gurulipiri
+    place: hamlet
+    lat: 22.8365504
+    lon: 85.5118811
+  - osm_id: node/9705051908
+    name: Purulia
+    place: hamlet
+    lat: 24.80636
+    lon: 87.7606129
+  - osm_id: node/9809759709
+    name: Kurulia Number Two
+    place: hamlet
+    lat: 22.69468
+    lon: 85.631735
+  - osm_id: node/9809759712
+    name: Kurulia Number One
+    place: hamlet
+    lat: 22.704509
+    lon: 85.618374
+  - osm_id: node/10026087418
+    name: Churuli
+    place: village
+    lat: 11.7939649
+    lon: 75.8457746
+  - osm_id: node/10028040759
+    name: Surulipatti
+    place: village
+    lat: 9.7077881
+    lon: 77.3017358
+  - osm_id: node/10055576909
+    name: Churulia
+    place: village
+    lat: 23.7829747
+    lon: 87.0701406
+  - osm_id: node/10601942358
+    name: Kuruli
+    place: suburb
+    lat: 22.3428004
+    lon: 88.5557167
+  - osm_id: node/10856344836
+    name: Anchuruli
+    place: hamlet
+    lat: 9.7694314
+    lon: 77.0762813
+  - osm_id: node/11341853748
+    name: Urulikoppalu
+    place: village
+    lat: 13.0654246
+    lon: 76.1176403
+  - osm_id: node/13131510213
+    name: Huruli
+    place: hamlet
+    lat: 19.4984772
+    lon: 83.625152
+  - osm_id: node/13597631673
+    name: Churulicode
+    place: village
+    lat: 9.2747346
+    lon: 76.7633343
+  - osm_id: node/13619511201
+    name: Urulikkal
+    place: village
+    lat: 10.3347313
+    lon: 76.8958769
+  - osm_id: node/2820170762
+    name: Devachihatti
+    place: village
+    lat: 15.7095095
+    lon: 74.338789
+  - osm_id: node/9377998954
+    name: Devachi Goundanpudur
+    place: hamlet
+    lat: 10.8485803
+    lon: 78.2006392
+  - osm_id: node/13717807295
+    name: Devachiwadi
+    place: hamlet
+    lat: 19.6720767
+    lon: 73.696974
   candidates: []
   nearby_check: not run (no candidates)
   nearby_landfills: []
   chosen: null
 bhandewadi-nagpur:
   status: no_name_match
-  method: nominatim
+  method: proximity
   patterns:
   - Bhandewadi
-  retrieved_utc: '2026-10-10T18:52:13Z'
+  retrieved_utc: '2026-10-10T19:18:35Z'
   place_anchors: []
   candidates: []
   nearby_check: not run (no candidates)
@@ -1148,13 +1303,13 @@ bhandewadi-nagpur:
   chosen: null
 dadumajra-chandigarh:
   status: no_name_match
-  method: nominatim
+  method: proximity
   patterns:
   - Dadumajra
   - Dadu Majra
   - Daddumajra
   - Daddu Majra
-  retrieved_utc: '2026-10-10T18:52:20Z'
+  retrieved_utc: '2026-10-10T19:24:14Z'
   place_anchors: []
   candidates: []
   nearby_check: not run (no candidates)

@@ -47,4 +47,5 @@ agent on the team's request, not yet by a team member.
 
 Not monitored (no outline): pirana-ahmedabad and jawahar-nagar-hyderabad (the proximity search found only tiny
 dumps near places with the same name in other states, rejected); uruli-devachi-pune, bhandewadi-nagpur,
-dadumajra-chandigarh (Overpass unavailable during the searches). 11 sites are monitored; the MVP aimed for 15–25.
+dadumajra-chandigarh (no landuse=landfill element in OSM by name or within 3 km of the named place; Overpass
+search 2026-10-11). 11 sites are monitored; the MVP aimed for 15–25.
