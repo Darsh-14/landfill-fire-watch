@@ -86,14 +86,14 @@ CANDIDATE_MIN_LOW_OVERPASSES = 2
 # at 19:36 and 19:37 UTC on 2023-03-03 from the same satellite: one pass split across data granules.
 # Acquisitions of the same source+satellite at most this many minutes apart count as ONE overpass.
 # Successive orbits of one satellite are far more than 10 minutes apart, so real passes never merge.
-# 0 = literal MVP §5 definition. DECISION PENDING (user) before the config freeze.
+# 0 = literal MVP §5 definition. Decided by the team (Darsh-14) on 2026-10-10, before any backtest run.
 OVERPASS_MERGE_MINUTES = 10
 
 # Static-land-source detections (FIRMS type 2) are forced to "low" (MVP §6.1). Read literally,
 # MVP §6.3 still lets two of them from different overpasses make an incident PROBABLE. The
 # Brahmapuram VIIRS_SNPP_SP fixture has two type-2 rows 23 h 41 min apart (2023-02-28 and 03-01).
 # True = such detections still count for CANDIDATE (as low) but not for the PROBABLE overpass rule.
-# False = literal MVP §6.3. DECISION PENDING (user) before the config freeze.
+# False = literal MVP §6.3. Decided by the team (Darsh-14) on 2026-10-10, before any backtest run.
 PROBABLE_EXCLUDES_STATIC = True
 
 # ---------------------------------------------------------------------------
