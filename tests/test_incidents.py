@@ -80,3 +80,12 @@ def test_human_review_survives_rebuild():
         {inc.incident_id: reviewed},
     )
     assert rebuilt.status == "CONFIRMED" and rebuilt.human_action.note == "checked on site"
+
+
+def test_static_sources_do_not_make_probable_by_overpass_rule():
+    dets = [det(t="2023-02-28T20:33", static=True), det(t="2023-03-01T20:14", static=True, lat=10.001)]
+    (inc,) = incidents.build_incidents(dets, "replay")
+    assert inc.status == "CANDIDATE"  # 2 low overpasses -> CANDIDATE, but static -> not PROBABLE
+    ov = incidents.overpass_ids(dets)
+    status, *_ = incidents.evaluate(dets, ov, exclude_static=False)
+    assert status == "PROBABLE"  # literal MVP §6.3 reading

@@ -15,6 +15,7 @@ from lfw.config import (
     FRP_HIGH_MW,
     INCIDENT_GAP_H,
     OVERPASS_MERGE_MINUTES,
+    PROBABLE_EXCLUDES_STATIC,
     PROBABLE_MIN_OVERPASSES,
     PROBABLE_WINDOW_H,
 )
@@ -51,7 +52,11 @@ def _probable_pair(times: list[datetime]) -> datetime | None:
     return None
 
 
-def evaluate(dets: list[Detection], ov: Mapping[str, OverpassId]) -> tuple[str | None, datetime | None, datetime | None, str]:
+def evaluate(
+    dets: list[Detection],
+    ov: Mapping[str, OverpassId],
+    exclude_static: bool = PROBABLE_EXCLUDES_STATIC,
+) -> tuple[str | None, datetime | None, datetime | None, str]:
     """Status of one time-ordered cluster. Returns (status, candidate_utc, probable_utc, reason).
 
     CANDIDATE: >= 1 nominal/high detection, or low detections from >= 2 distinct overpasses.
@@ -60,11 +65,12 @@ def evaluate(dets: list[Detection], ov: Mapping[str, OverpassId]) -> tuple[str |
     """
     candidate_utc = probable_utc = None
     reasons: list[str] = []
-    seen_ov: dict[OverpassId, datetime] = {}
+    seen_ov: dict[OverpassId, datetime] = {}  # overpasses that count for the PROBABLE rule
     low_ov: set[OverpassId] = set()
     for d in dets:
         o = ov[d.key]
-        seen_ov.setdefault(o, o[2])
+        if not (exclude_static and d.static_source):
+            seen_ov.setdefault(o, o[2])
         if d.confidence_tier == "low":
             low_ov.add(o)
         if candidate_utc is None:

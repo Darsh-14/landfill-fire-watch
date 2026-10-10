@@ -43,6 +43,7 @@ def det(
     mode: str = "replay",
     scan_km: float = 0.4,
     track_km: float = 0.4,
+    static: bool = False,
 ) -> Detection:
     acq = datetime.fromisoformat(t).replace(tzinfo=UTC)
     return Detection(
@@ -54,12 +55,13 @@ def det(
         lon=lon,
         acq_utc=acq,
         confidence_raw={"low": "l", "nominal": "n", "high": "h"}[tier],
-        confidence_tier=tier,
+        confidence_tier="low" if static else tier,
         frp_mw=frp,
         scan_km=scan_km,
         track_km=track_km,
         daynight="N",
-        type_code=0,
+        type_code=2 if static else 0,
+        static_source=static,
         site_id=site_id,
         match_distance_m=0.0 if site_id else None,
         mode=mode,

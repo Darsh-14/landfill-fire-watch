@@ -89,6 +89,13 @@ CANDIDATE_MIN_LOW_OVERPASSES = 2
 # 0 = literal MVP §5 definition. DECISION PENDING (user) before the config freeze.
 OVERPASS_MERGE_MINUTES = 10
 
+# Static-land-source detections (FIRMS type 2) are forced to "low" (MVP §6.1). Read literally,
+# MVP §6.3 still lets two of them from different overpasses make an incident PROBABLE. The
+# Brahmapuram VIIRS_SNPP_SP fixture has two type-2 rows 23 h 41 min apart (2023-02-28 and 03-01).
+# True = such detections still count for CANDIDATE (as low) but not for the PROBABLE overpass rule.
+# False = literal MVP §6.3. DECISION PENDING (user) before the config freeze.
+PROBABLE_EXCLUDES_STATIC = True
+
 # ---------------------------------------------------------------------------
 # 6.4 Smoke screening sector (a screening sector, NOT a dispersion model)
 # ---------------------------------------------------------------------------
@@ -140,7 +147,16 @@ IST = timezone(timedelta(hours=5, minutes=30), name="IST")
 # ---------------------------------------------------------------------------
 
 # Quiet windows: two 30-day monsoon (Jul-Sep) windows in other years per event site (MVP §10.2).
+# Fixed rule chosen before any run: 15 Jul + 30 days (inside Jul-Sep at every site), in the year
+# before and the year after the event, with the same archive sources as the event.
 QUIET_WINDOW_DAYS = 30
+QUIET_WINDOW_START_MONTH_DAY = (7, 15)
+QUIET_WINDOW_YEAR_OFFSETS = (-1, 1)
+
+# Backtest query box: site outline bounds +/- this many degrees (about 11 km of latitude). Far larger
+# than any pixel half-size plus margin, so no matching detection is cut off. Area is free; FIRMS
+# limits transactions, not area.
+BACKTEST_BBOX_MARGIN_DEG = 0.1
 
 # ---------------------------------------------------------------------------
 # HTTP (CLAUDE.md §8: timeouts and 2 retries with backoff)
