@@ -22,7 +22,7 @@ LAMBDA_PLATFORM := manylinux2014_x86_64
 setup:
 	python -m venv .venv
 	$(PY) -m pip install --upgrade pip
-	$(PY) -m pip install -e ".[dev]"
+	$(PY) -m pip install -e ".[dev,agent]"
 
 test:
 	$(PY) -m pytest

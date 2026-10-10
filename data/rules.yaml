@@ -1,0 +1,17 @@
+# Rule quotes the agent may cite (MVP §13). The agent can cite a rule ONLY if `verified: true`
+# (CLAUDE.md rule 9). Set `verified: true` only after a person reads the source document and copies
+# the exact text and page. Do not delete or rewrite entries without telling the team (CLAUDE.md §9).
+#
+# Status 2026-10-10: no rule has been read and checked by a person, so no rule is citable yet.
+
+- key: swm2026_dumpsite_fire_prevention
+  text: "TODO(verify): exact English text"
+  source_id: swm-rules-2026-gazette
+  page: TODO(verify)
+  verified: false
+
+- key: caqm_landfill_fire_direction
+  text: "TODO(verify): exact text, direction number and date"
+  source_id: caqm-direction-landfill-fires
+  page: TODO(verify)
+  verified: false

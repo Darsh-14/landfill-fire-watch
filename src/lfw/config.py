@@ -193,6 +193,11 @@ class Settings(BaseSettings):
     store: Literal["local", "dynamodb"] = "local"
     bedrock_model_id: str | None = None
     aws_region: str | None = None
+    # Drafting model: "fake" locally (no Ollama in this setup), "bedrock" in AWS.
+    draft_model: Literal["fake", "bedrock"] = "fake"
+    fake_scenario: str = "bad-then-good"
+    # Hindi stays off until a Hindi speaker reviews the template and drafts (MVP A4, cut line 3).
+    hindi_enabled: bool = False
 
 
 def get_settings() -> Settings:
