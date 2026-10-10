@@ -1,0 +1,70 @@
+# Source documents (MVP §13): URL, title, retrieved date, SHA-256, S3 key.
+# `make verify` re-downloads each one and compares the SHA-256. News sites are not downloaded by
+# code (CLAUDE.md §9); see data/events.yaml for the quotes a person read on those pages.
+- id: caqm-direction-91-2025
+  kind: pdf
+  title: CAQM Direction No. 91 (fire at sanitary landfill sites and dumpsites, open burning of MSW and biomass, NCR)
+  url: https://caqm.nic.in/WriteReadData/LINKS/Direction%20No-9125143132-212d-40fe-9ce0-ac185ca28596.pdf
+  s3_key: sources/caqm-direction-91-2025.pdf
+  note: 'TODO(verify): on 2026-10-10 this URL returned the caqm.nic.in HTML app, not the PDF (document moved?). Rule text not read by a person; rules.yaml stays verified=false.'
+- id: caqm-press-release-2025-06-03
+  kind: pdf
+  title: CAQM press release, 3 June 2025, on Direction No. 91
+  url: https://caqm.nic.in/WriteReadData/LINKS/CAQM%20PR%2003062025%20-%20Direction%20No%20911d29d8c8-4c2e-464e-880e-19bbcfb6f958.pdf
+  s3_key: sources/caqm-press-release-2025-06-03.pdf
+  note: 'TODO(verify): on 2026-10-10 this URL returned the caqm.nic.in HTML app, not the PDF (document moved?). Rule text not read by a person; rules.yaml stays verified=false.'
+- id: swm-rules-2026-gazette
+  kind: pdf
+  title: Solid Waste Management Rules, 2026 (Gazette of India)
+  url: null
+  note: TODO(verify) official gazette PDF not located (secondary sources cite S.O. 388(E), 27 Jan 2026).
+- id: nasa-eo-deonar-2016
+  kind: html
+  title: NASA Earth Observatory - Fire Burns in Mumbai Landfill (2016-02-02)
+  url: https://science.nasa.gov/earth/earth-observatory/fire-burns-in-mumbai-landfill-87429/
+  s3_key: sources/nasa-eo-deonar-2016.html
+  sha256: d8c6f6372faa6c86b5b8725fcccef3eb00d836a606d140edde604eda2284a6aa
+  retrieved_utc: '2026-10-10T18:25:14Z'
+  bytes: 311389
+- id: firms-citation
+  kind: html
+  title: NASA FIRMS (citation / acknowledgment text)
+  url: https://www.earthdata.nasa.gov/data/tools/firms
+  sha256: 959772e496b8b10c2253bea9be5e9a0d4b79e59d47050ea43b03df9e1d49990a
+  retrieved_utc: '2026-10-10T18:25:15Z'
+  bytes: 239847
+- id: firms-attributes
+  kind: html
+  title: FIRMS active fire data attributes (MODIS, VIIRS)
+  url: https://www.earthdata.nasa.gov/data/tools/firms/active-fire-data-attributes-modis-viirs
+  sha256: 1a733a749531d3c1d625eefb9beda3f7ef3ff91066dab15842990cdb5feed0db
+  retrieved_utc: '2026-10-10T18:25:17Z'
+  bytes: 142957
+- id: firms-area-api
+  kind: html
+  title: FIRMS Area API documentation
+  url: https://firms.modaps.eosdis.nasa.gov/api/area/
+  sha256: fb1925a0ef2ea4d6069d0d07003aadaabfbb52a1ea75be7c15e015f44e7b9f22
+  retrieved_utc: '2026-10-10T18:25:18Z'
+  bytes: 25446
+- id: odbl-1-0
+  kind: html
+  title: Open Data Commons Open Database License (ODbL) v1.0
+  url: https://opendatacommons.org/licenses/odbl/1-0/
+  sha256: b8d8aebb21bf405f93f6e21bbf0d8f0a749844f9812ec58692f189add6402b47
+  retrieved_utc: '2026-10-10T18:25:19Z'
+  bytes: 51176
+- id: osm-copyright
+  kind: html
+  title: OpenStreetMap copyright and licence
+  url: https://www.openstreetmap.org/copyright
+  sha256: d458a4acdd5948d2e99be8750d3c40339428a989701080198b8f8f28c7021ac6
+  retrieved_utc: '2026-10-10T18:25:20Z'
+  bytes: 21314
+- id: apache-2-0
+  kind: text
+  title: Apache License 2.0 (text used for LICENSE)
+  url: https://www.apache.org/licenses/LICENSE-2.0.txt
+  sha256: cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
+  retrieved_utc: '2026-10-10T18:25:21Z'
+  bytes: 11358
