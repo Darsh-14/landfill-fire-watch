@@ -1,0 +1,5 @@
+# Config freeze before the first full backtest (MVP §10.4). Any later change to config.py
+# changes the hash; record it in README.md.
+config_hash: 264d376145f22cd62b0d37e6c694a2270534312545cfcf33fc5fe22ef69690de
+frozen_utc: '2026-10-10T15:18:15Z'
+git_commit: 1d234e5
