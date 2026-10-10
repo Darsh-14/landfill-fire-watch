@@ -218,7 +218,7 @@ def write_outputs(report: dict, stem: str) -> None:
     lines += [
         f"- Generated: {report['generated_utc']} · git `{report['git_commit']}`",
         f"- Config hash: `{report['config_hash']}` · {report['freeze']}",
-        f"- Outlines checked by a person: {report['outlines_verified']}",
+        f"- Outline check (`verified_by` in data/sites.yaml): {report['outlines_verified']}",
         "- Data: NASA FIRMS archive (standard processing). Detected = at least one PROBABLE incident in the window.",
         "",
         "## Documented fires",
@@ -289,7 +289,8 @@ def main() -> int:
         "git_commit": git_commit(),
         "config_hash": config.config_hash(),
         "freeze": freeze_msg,
-        "outlines_verified": "all" if not unverified else f"NO: {unverified}",
+        "outlines_verified": "; ".join(f"{e['site_id']}: {sites[e['site_id']].verified_by or 'NOT CHECKED'}"
+                                       for e in events),
         "events": [],
         "event_windows": [],
         "quiet_windows": [],
