@@ -1,0 +1,24 @@
+# Real API samples saved by scripts/fetch_fixtures.py. FIRMS key redacted as {MAP_KEY}.
+nominatim_india.json:
+  url: https://nominatim.openstreetmap.org/search?q=India&featureType=country&format=jsonv2&limit=1
+  retrieved_utc: '2026-10-10T12:42:34Z'
+  bytes: 405
+  sha256: 7e6cddb67d7d2fdf51d72ace20600248c84e97091e49faf253be26261a17da30
+nominatim_punjab.json:
+  url: https://nominatim.openstreetmap.org/search?q=Punjab%2C+India&featureType=state&format=jsonv2&limit=1
+  retrieved_utc: '2026-10-10T12:42:37Z'
+  bytes: 414
+  sha256: 5cd4ded147ecaf43a3d4fe864a997eb08a51c2a6ab84d8f0f5d7c6b020f51b8d
+openmeteo_archive_brahmapuram_2023-03-02.json:
+  url: https://archive-api.open-meteo.com/v1/archive?latitude=9.991888&longitude=76.366982&hourly=wind_speed_10m%2Cwind_direction_10m&wind_speed_unit=ms&timezone=GMT&start_date=2023-03-02&end_date=2023-03-02
+  retrieved_utc: '2026-10-10T12:42:40Z'
+  bytes: 975
+  sha256: 3e6dc240e1670fe1d36e3575f829cf35f9766fd6310c2ae058b0f0d7995fd343
+  note: Archive wind for the reported start day of brahmapuram-2023 at the OSM centroid.
+openmeteo_forecast_brahmapuram.json:
+  url: https://api.open-meteo.com/v1/forecast?latitude=9.991888&longitude=76.366982&hourly=wind_speed_10m%2Cwind_direction_10m&wind_speed_unit=ms&timezone=GMT&forecast_days=1
+  retrieved_utc: '2026-10-10T12:42:39Z'
+  bytes: 978
+  sha256: 1892b354a96ce26cee6ff70012df8f3722ef9fd038d326fbb9778b1100e88b0e
+  note: Live forecast for today at the OSM centroid of brahmapuram-kochi (forecast
+    API is for current dates).

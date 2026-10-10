@@ -1,0 +1,66 @@
+# Backtest ground truth (docs/MVP.md §10.1). Do not edit or delete entries without telling the team.
+# Each source was fetched on 2026-10-10 and the quoted sentence was read on the page.
+# `quote_checked: false` means the page could not be fetched automatically; a person must check it.
+# Windows are inclusive dates (UTC days queried from FIRMS).
+
+- event_id: deonar-2016
+  site_id: deonar-mumbai
+  reported_start: 2016-01-27
+  window_start: 2016-01-24
+  window_end: 2016-02-03
+  # NOAA-20 data starts in 2018 (CLAUDE.md §6): S-NPP and MODIS only.
+  archive_sources: [VIIRS_SNPP_SP, MODIS_SP]
+  sources:
+    - publisher: NASA Earth Observatory
+      title: Fire Burns in Mumbai Landfill
+      url: https://science.nasa.gov/earth/earth-observatory/fire-burns-in-mumbai-landfill-87429
+      original_url: https://earthobservatory.nasa.gov/images/87429/fire-burns-in-mumbai-landfill
+      published: 2016-02-02
+      quote: "Beginning on January 27, 2016, sensors on the Terra, Aqua, and Suomi NPP satellites began to detect evidence of smoke and fire at the landfill."
+      quote_checked: true
+
+- event_id: ghazipur-2022
+  site_id: ghazipur-delhi
+  reported_start: 2022-03-28
+  window_start: 2022-03-25
+  window_end: 2022-04-04
+  archive_sources: [VIIRS_SNPP_SP, VIIRS_NOAA20_SP, MODIS_SP]
+  sources:
+    - publisher: Down To Earth
+      title: "'Unscientific' disposal, treatment of waste behind massive fire at Ghazipur landfill, say experts"
+      url: https://www.downtoearth.org.in/news/waste/-unscientific-disposal-treatment-of-waste-behind-massive-fire-at-ghazipur-landfill-say-experts-82129
+      published: 2022-03-29
+      quote: "A massive fire broke out at the Ghazipur landfill on the afternoon of March 28, 2022."
+      quote_checked: true
+
+- event_id: brahmapuram-2023
+  site_id: brahmapuram-kochi
+  reported_start: 2023-03-02
+  window_start: 2023-02-27
+  window_end: 2023-03-14
+  archive_sources: [VIIRS_SNPP_SP, VIIRS_NOAA20_SP, MODIS_SP]
+  sources:
+    - publisher: Down To Earth
+      title: 5 days in, Brahmapuram blaze continues to choke Kochi
+      url: https://www.downtoearth.org.in/news/environment/5-days-in-brahmapuram-blaze-continues-to-choke-kochi-88084
+      published: 2023-03-06
+      quote: "the fire that broke out at the Brahmapuram waste plant on March 2, 2023"
+      quote_checked: true
+    - publisher: Gulf News
+      title: "Kerala waste dump fire: All you want to know about it"
+      url: https://gulfnews.com/world/asia/india/kerala-waste-dump-fire-all-you-want-to-know-about-it-1.1678288387342
+      published: 2023-03-09
+      quote: "The fire started at the Brahmapuram waste treatment plant in Kizhakkambalam in Ernakulam district on March 2."
+      quote_checked: true
+    - publisher: Deccan Herald
+      title: Kerala govt says 95% of fire at Brahmapuram waste treatment plant doused
+      url: https://www.deccanherald.com/india/kerala-govt-says-95-of-fire-at-brahmapuram-waste-treatment-plant-doused-1199582.html
+      published: TODO(verify)
+      quote: TODO(verify) "95 per cent of the fire ... doused" (page returned HTTP 403 to automated fetch)
+      quote_checked: false
+    - publisher: Onmanorama
+      title: Kochi still reels under poor air as Brahmapuram smoulders; collector says 95% fire doused
+      url: https://www.onmanorama.com/news/kerala/2023/03/12/brahmapuram-fire-kochi-air-pollution-waste-treatment-plant-disaster.html
+      published: 2023-03-12
+      quote: "95 per cent of the fire is already extinguished"
+      quote_checked: true
