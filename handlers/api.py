@@ -10,9 +10,10 @@ from __future__ import annotations
 import hmac
 import json
 import os
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
-from typing import Any, Callable
+from typing import Any
 
 from lfw import incidents, notify, policy
 from lfw import receptors as rc
@@ -248,7 +249,12 @@ def handler(event, context=None) -> dict:
         import base64
 
         body = base64.b64decode(body).decode("utf-8")
-    out = route(http.get("method", "GET"), event.get("rawPath", "/"), event.get("pathParameters") or {},
-                event.get("queryStringParameters") or {}, event.get("headers") or {}, body, _deps)
+    try:
+        out = route(http.get("method", "GET"), event.get("rawPath", "/"), event.get("pathParameters") or {},
+                    event.get("queryStringParameters") or {}, event.get("headers") or {}, body, _deps)
+    except Exception as exc:  # log the cause (no headers, no secrets) and return JSON instead of a bare 500
+        log_json("api_error", method=http.get("method"), path=event.get("rawPath"),
+                 error=f"{type(exc).__name__}: {exc}"[:300])
+        out = resp(500, {"error": "internal error; see the ApiFunction logs"})
     log_json("api_request", method=http.get("method"), path=event.get("rawPath"), status=out["statusCode"])
     return out

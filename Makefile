@@ -17,7 +17,7 @@ FUNCTIONS := scan api draft
 LAMBDA_PY := 3.13
 LAMBDA_PLATFORM := manylinux2014_x86_64
 
-.PHONY: setup test sites receptors backtest scan-local replay draft verify web api-local fixtures lock package lint compliance deploy-check deploy
+.PHONY: setup test sites receptors backtest scan-local replay draft verify web api-local fixtures lock package lint check compliance deploy-check deploy
 
 setup:
 	python -m venv .venv
@@ -93,6 +93,11 @@ compliance:
 
 lint:
 	"$(dir $(PY))cfn-lint" --regions ap-south-1 -- template.yaml
+
+# Everything a reviewer can run without AWS: static checks, template checks, tests.
+check: lint
+	$(PY) -m ruff check src handlers scripts tests
+	$(PY) -m pytest
 
 # Deviation from CLAUDE.md §5 (`sam build && sam deploy`): without Docker, `sam build` on Windows
 # drops the Linux .so files from the prebuilt packages. CodeUri points at build/<fn>.zip instead,

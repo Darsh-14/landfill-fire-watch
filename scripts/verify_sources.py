@@ -1,7 +1,8 @@
 """`make verify`: re-download each source document in data/sources.yaml and compare SHA-256 (MVP §13).
 
-Prints OK / CHANGED / UNREACHABLE / NOT RECORDED per source. HTML pages often change (ads, scripts),
-so CHANGED on a web page means "re-read the quote", not "the claim is wrong". PDFs should stay OK.
+Prints OK / CHANGED / UNREACHABLE / MISSING / NOT RECORDED per source. HTML pages often change (ads,
+scripts), so CHANGED on a web page means "re-read the quote", not "the claim is wrong". A PDF URL that
+no longer returns a PDF is UNREACHABLE. Exit code 1 only when a recorded PDF changed.
 News sites are not downloaded by code (CLAUDE.md §9); they are listed in data/events.yaml with the
 quote a person read.
 
@@ -20,7 +21,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, FetchError, request, utc_now_iso  # noqa: E402
+from _common import ROOT, FetchError, request, utc_now_iso
 
 SOURCES = ROOT / "data" / "sources.yaml"
 HEADER = ("# Source documents (MVP §13): URL, title, retrieved date, SHA-256, S3 key.\n"
@@ -50,8 +51,9 @@ def main() -> int:
             worst = max(worst, 1)
             continue
         if e.get("kind") == "pdf" and not body.lstrip().startswith(b"%PDF"):
-            print(f"NOT A PDF    {e['id']}: the URL returned {body[:15]!r}… (document moved?)")
-            worst = max(worst, 2)
+            # The document is not served at this URL any more: as good as unreachable (MVP §13 status).
+            print(f"UNREACHABLE  {e['id']}: the URL returned {body[:15]!r}…, not a PDF (document moved?)")
+            worst = max(worst, 1)
             continue
         digest = hashlib.sha256(body).hexdigest()
         if args.record and not e.get("sha256"):

@@ -18,6 +18,9 @@ from lfw.scanner import run_scan
 from lfw.sites import load_shapes, load_sites
 from lfw.store import get_store
 
+FETCH_TIMEOUT_S = 45.0  # per FIRMS call; India-wide day-range-1 calls took 2-18 s in local tests
+RESERVE_S = 30.0  # time kept for incidents, wind forecasts and the DynamoDB writes after the fetches
+
 
 def _s3_put_raw(bucket: str):
     import boto3
@@ -58,8 +61,15 @@ def handler(event=None, context=None) -> dict:
     shapes = load_shapes(sites)
     bucket = os.environ.get("RAW_BUCKET")
     put_raw = _s3_put_raw(bucket) if bucket else _local_put_raw(Path("cache/raw"))
-    log_json("scan_start", trigger=(event or {}).get("source", "manual"), sites=len(sites))
-    rec = run_scan(get_store(), key, sites, shapes, now, put_raw=put_raw)
+    # Time budget from the Lambda deadline: a feed is started only if, in the worst case (timeout x 2
+    # attempts + backoff), it still ends with enough time left to build incidents and write the record.
+    budget = None
+    if context is not None and hasattr(context, "get_remaining_time_in_millis"):
+        budget = context.get_remaining_time_in_millis() / 1000 - (2 * FETCH_TIMEOUT_S + 3) - RESERVE_S
+    log_json("scan_start", trigger=(event or {}).get("source", "manual"), sites=len(sites),
+             fetch_budget_s=round(budget, 1) if budget is not None else None)
+    rec = run_scan(get_store(), key, sites, shapes, now, put_raw=put_raw, fetch_budget_s=budget,
+                   fetch_timeout_s=FETCH_TIMEOUT_S, fetch_retries=1)
     return {"scan_utc": rec["scan_utc"], "matched": rec["matched_detections"],
             "created": rec["incidents_created"], "updated": rec["incidents_updated"]}
 

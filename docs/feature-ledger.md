@@ -19,5 +19,5 @@ real ones after recording and delete any feature that did not make it into the v
 | 11 | Limits panel always visible | yes | tests/test_web.py | 2:15 (planned) |
 | 12 | Raw CSV archive in S3 with SHA-256 | code yes; AWS after deploy | aws-evidence shot 4 | 2:35 (planned) |
 | 13 | History stat (detection-days per site) | see out/history.md | scripts/history.py | not in the video (planned: none) |
-| 14 | `make verify` source re-check | yes (reports NOT A PDF for CAQM) | data/sources.yaml | not in the video |
+| 14 | `make verify` source re-check | yes (reports the CAQM PDFs as UNREACHABLE: the URLs now return HTML) | data/sources.yaml | not in the video |
 | 15 | Hindi resident advisory | built, switched off (no reviewer) | fallback.py TODO(verify) | not in the video |

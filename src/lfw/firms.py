@@ -120,12 +120,12 @@ def _check_body(body: bytes, source: str) -> None:
 
 
 def fetch_area(key: str, source: str, bbox: tuple[float, float, float, float], day_range: int,
-               start: date | None = None, cache_dir: Path | None = None) -> tuple[bytes, RawFetch]:
-    """Fetch one area CSV. With cache_dir, reuse a cached copy (archive data does not change)."""
-    url = area_url(key, source, bbox, day_range, start)
-    shown = url.replace(key, "{MAP_KEY}")
+               start: date | None = None, cache_dir: Path | None = None,
+               timeout: float = 120.0, retries: int | None = None) -> tuple[bytes, RawFetch]:
+    """Fetch one area CSV. With cache_dir and a start date, reuse a cached copy (archive data does not
+    change). Live calls (no start date) are never cached."""
     cache_csv = cache_meta = None
-    if cache_dir is not None:
+    if cache_dir is not None and start is not None:
         w, s, e, n = bbox
         stem = f"{start.isoformat() if start else 'latest'}_{day_range}"
         folder = cache_dir / source / f"{w:.4f}_{s:.4f}_{e:.4f}_{n:.4f}"
@@ -137,7 +137,12 @@ def fetch_area(key: str, source: str, bbox: tuple[float, float, float, float], d
                 raise FirmsFormatError(f"cache SHA-256 mismatch: {cache_csv}")
             meta.from_cache = True
             return body, meta
-    resp = request("GET", url, timeout=120, redact_values=(key,))  # raises redacted FetchError
+    if not key:
+        raise ValueError("FIRMS MAP_KEY is empty (set FIRMS_MAP_KEY in .env, or SSM /lfw/firms_map_key in AWS)")
+    url = area_url(key, source, bbox, day_range, start)
+    shown = url.replace(key, "{MAP_KEY}")
+    extra = {} if retries is None else {"retries": retries}
+    resp = request("GET", url, timeout=timeout, redact_values=(key,), **extra)  # raises redacted FetchError
     body = resp.content
     _check_body(body, source)
     meta = RawFetch(

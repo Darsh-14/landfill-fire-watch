@@ -80,13 +80,13 @@ def main() -> int:
             body = self.rfile.read(n).decode("utf-8") if n else None
             self._send(api.route(method, u.path, {}, query, dict(self.headers), body, deps))
 
-        def do_GET(self):  # noqa: N802
+        def do_GET(self):
             self._route("GET")
 
-        def do_POST(self):  # noqa: N802
+        def do_POST(self):
             self._route("POST")
 
-        def do_OPTIONS(self):  # noqa: N802
+        def do_OPTIONS(self):
             self._send({"statusCode": 204, "body": ""})
 
         def log_message(self, fmt, *a):

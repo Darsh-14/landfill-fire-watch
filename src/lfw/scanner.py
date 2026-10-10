@@ -34,14 +34,25 @@ def run_scan(
     put_raw: PutRawFn | None = None,
     forecast: Callable[[float, float], dict] = wind.fetch_forecast,
     lookback_days: int = 7,
+    fetch_budget_s: float | None = None,
+    fetch_timeout_s: float = 60.0,
+    fetch_retries: int | None = None,
 ) -> dict:
+    """With fetch_budget_s (Lambda), feeds not started within the budget are skipped and recorded,
+    so the scan record is always written before the function times out."""
     t0 = time.monotonic()
     sources: dict[str, dict] = {}
     all_dets: list[Detection] = []
     for src in LIVE_SOURCES:
         info: dict = {}
+        if fetch_budget_s is not None and time.monotonic() - t0 > fetch_budget_s:
+            info["error"] = f"skipped: fetch time budget of {fetch_budget_s:.0f} s used up"
+            sources[src] = info
+            log_json("scan_source", source=src, **info)
+            continue
         try:
-            body, meta = fetch(key, src, INDIA_BBOX, SCAN_DAY_RANGE)
+            kw = {"timeout": fetch_timeout_s} | ({} if fetch_retries is None else {"retries": fetch_retries})
+            body, meta = fetch(key, src, INDIA_BBOX, SCAN_DAY_RANGE, **kw)
             info.update(rows=0, sha256=meta.sha256, bytes=meta.bytes, retrieved_utc=meta.retrieved_utc)
             if put_raw is not None:
                 info["s3_key"] = put_raw(src, body, meta, now)

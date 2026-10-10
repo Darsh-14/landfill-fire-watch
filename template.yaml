@@ -98,7 +98,10 @@ Resources:
       CodeUri: build/scan.zip
       Handler: handlers.scan.handler
       MemorySize: 512
-      Timeout: 120
+      # MVP §12 says 120 s. Raised to 300 s: 4 India-wide FIRMS calls took 2-18 s each in tests and a
+      # slow feed can take 45 s x 2 attempts; handlers/scan.py budgets the fetches from the remaining
+      # time so the scan record is always written before the timeout.
+      Timeout: 300
       Environment:
         Variables:
           RAW_BUCKET: !Ref Bucket
@@ -178,6 +181,8 @@ Resources:
           BEDROCK_MODEL_ID: !Ref BedrockModelId
           BEDROCK_REGION: !Ref BedrockRegion
           HINDI_ENABLED: "false"
+          # Agent time budget below the 120 s timeout: the template and the DynamoDB write still fit.
+          DRAFT_TIME_BUDGET_S: "95"
       Policies:
         - Statement:
             - Effect: Allow

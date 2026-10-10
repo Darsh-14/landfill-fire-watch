@@ -16,12 +16,12 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, log, utc_now_iso  # noqa: E402
-from build_sites import ATTRIBUTION, overpass  # noqa: E402
+from _common import ROOT, log, utc_now_iso
+from build_sites import ATTRIBUTION, overpass
 
-from lfw.config import RECEPTOR_AMENITIES, RECEPTOR_RADIUS_KM  # noqa: E402
-from lfw.geo import LocalProjection  # noqa: E402
-from lfw.sites import load_shapes, load_sites  # noqa: E402
+from lfw.config import RECEPTOR_AMENITIES, RECEPTOR_RADIUS_KM
+from lfw.geo import LocalProjection
+from lfw.sites import load_shapes, load_sites
 
 OUT_DIR = ROOT / "data" / "receptors"
 

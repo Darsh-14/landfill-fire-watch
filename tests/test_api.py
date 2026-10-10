@@ -152,7 +152,7 @@ def test_live_scan_offline(tmp_path):
                   osm_id=None)]
     forecast = json.loads((FIXTURES / "openmeteo_forecast_brahmapuram.json").read_text(encoding="utf-8"))
 
-    def fetch(key, src, bbox, day_range):
+    def fetch(key, src, bbox, day_range, **kw):
         if src == "VIIRS_NOAA21_NRT":
             raise RuntimeError("feed down")
         body = viirs if src == "VIIRS_SNPP_NRT" else viirs.split(b"\n")[0] + b"\n"

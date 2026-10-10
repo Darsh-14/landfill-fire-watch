@@ -7,7 +7,7 @@ No Docker is needed.
 ## 1. How it fits together
 
 ```
-EventBridge Scheduler ──rate(3 hours)──► ScanFunction (Lambda, python3.13, 512 MB, 120 s)
+EventBridge Scheduler ──rate(3 hours)──► ScanFunction (Lambda, python3.13, 512 MB, 300 s)
                                             │  FIRMS Area API: 4 NRT feeds, India bbox, last 24 h
                                             │  (MAP_KEY from SSM /lfw/firms_map_key)
                                             ├─► S3  raw/firms/<source>/<yyyy>/<mm>/<dd>/<scan>.csv
@@ -84,7 +84,7 @@ MSYS_NO_PATHCONV=1 aws ssm put-parameter --region ap-south-1 --name /lfw/admin_t
 ## 3. Deploy the backend
 
 ```bash
-make test                          # 114+ tests must pass
+make check                         # ruff + cfn-lint + all tests (no AWS needed)
 make lint                          # cfn-lint on template.yaml
 make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id from step 2>
 ```

@@ -2,16 +2,21 @@
 
 Never invents an outline. A site gets `data/sites/<site_id>.geojson` only when:
   * exactly one OSM landfill element in India matches its name patterns, or
-  * a person picks one candidate with `--pick <site_id>=<osm_type>/<osm_id>`.
+  * a person picks polygons from the saved candidates file with
+    `--pick <site_id>=<type>/<id>[+<type>/<id>]` (several ids are joined into one outline).
 No match, or several matches, is recorded in `data/sites_build_report.yaml` with all candidates
 (written to `data/sites/_candidates/<site_id>.geojson` for map review).
+
+A search never replaces an outline that has `verified_by` set: the report records the difference
+and the checked outline stays until a person re-picks it with `--pick`.
 
 Search order: Overpass name search over India. If every Overpass endpoint fails (busy servers),
 fall back to Nominatim free-text search, keep only landuse=landfill results whose name matches the
 patterns, and record method "nominatim" so a person knows the completeness check was weaker.
 
 Usage:
-  python scripts/build_sites.py [--only SITE_ID ...] [--pick SITE_ID=way/123 ...]
+  python scripts/build_sites.py [--only SITE_ID ...]
+  python scripts/build_sites.py --only SITE_ID --pick SITE_ID=way/1+way/2 --picked-by NAME
 """
 
 from __future__ import annotations
@@ -25,15 +30,14 @@ from pathlib import Path
 
 import shapely
 import yaml
-from shapely.geometry import LineString, Polygon, mapping
+from shapely.geometry import LineString, Polygon, mapping, shape
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import polygonize, unary_union
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, FetchError, log, request, utc_now_iso  # noqa: E402
-from shapely.geometry import shape  # noqa: E402
+from _common import ROOT, FetchError, log, request, utc_now_iso
 
-from lfw import geo  # noqa: E402
+from lfw import geo
 
 OVERPASS_URLS = (
     "https://overpass-api.de/api/interpreter",
@@ -115,6 +119,20 @@ def nominatim_state(osm_id: str) -> str | None:
     for f in data.get("features", []):
         return (f["properties"].get("address") or {}).get("state")
     return None
+
+
+REGEX_SPECIAL = set(".^$*+?()[]{}|\\")
+
+
+def ql_regex(text: str) -> str:
+    """A literal name as an Overpass QL regex inside a double-quoted QL string.
+
+    re.escape() is not used: it also escapes spaces, and a backslash-space is not a valid escape in a
+    QL string. Regex metacharacters get one backslash; then every backslash and double quote is
+    escaped again for the QL string literal itself.
+    """
+    rx = "".join("\\" + ch if ch in REGEX_SPECIAL else ch for ch in text)
+    return rx.replace("\\", "\\\\").replace('"', '\\"')
 
 
 def name_query(pattern: str) -> str:
@@ -208,7 +226,7 @@ def search(seed: dict) -> tuple[str, list[tuple[dict, BaseGeometry]], list[dict]
     found: dict[str, tuple[dict, BaseGeometry]] = {}
     try:
         for pattern in seed["patterns"]:
-            for el in overpass(name_query(re.escape(pattern))).get("elements", []):
+            for el in overpass(name_query(ql_regex(pattern))).get("elements", []):
                 g = element_geometry(el)
                 if g is not None:
                     found[f"{el['type']}/{el['id']}"] = (el, g)
@@ -219,7 +237,7 @@ def search(seed: dict) -> tuple[str, list[tuple[dict, BaseGeometry]], list[dict]
         return "name", list(found.values()), []
     anchors: list[dict] = []
     for pattern in seed["patterns"]:
-        for el in overpass(proximity_query(re.escape(pattern))).get("elements", []):
+        for el in overpass(proximity_query(ql_regex(pattern))).get("elements", []):
             if el["type"] == "node" and "place" in el.get("tags", {}):
                 anchors.append({"osm_id": f"node/{el['id']}", "name": el["tags"].get("name"),
                                 "place": el["tags"].get("place"), "lat": el["lat"], "lon": el["lon"]})
@@ -268,6 +286,11 @@ def nearby_landfills(info: dict, g: BaseGeometry) -> tuple[list[tuple[dict, Base
     return out, "ok"
 
 
+def protects_verified(prev_site: dict, chosen_osm_id: str) -> bool:
+    """True when an automatic search result must not replace an outline that was checked on a map."""
+    return bool(prev_site.get("verified_by")) and prev_site.get("osm_id") != chosen_osm_id
+
+
 def write_site(seed: dict, chosen: tuple[dict, BaseGeometry], retrieved: str,
                existing: dict[str, dict], sites_out: dict[str, dict]) -> None:
     sid = seed["site_id"]
@@ -277,7 +300,8 @@ def write_site(seed: dict, chosen: tuple[dict, BaseGeometry], retrieved: str,
     same = prev.get("osm_id") == info["osm_id"]
     sites_out[sid] = {
         "site_id": sid,
-        "name": seed["name"],
+        # keep a curated display name while the outline is unchanged
+        "name": prev.get("name", seed["name"]) if same else seed["name"],
         "city": seed["city"],
         "state": info["state"] or "TODO(verify)",
         "polygon_path": f"data/sites/{sid}.geojson",
@@ -384,6 +408,12 @@ def main() -> int:
         elif cand_path.exists():
             cand_path.unlink()
 
+        prev_site, prev_report = existing.get(sid, {}), report.get(sid, {})
+        if chosen and protects_verified(prev_site, chosen[0]["osm_id"]):
+            log(f"[{sid}] search found {chosen[0]['osm_id']}, but {prev_site['osm_id']} was checked on a map; "
+                "keeping it (re-pick with --pick to change)")
+            status, chosen = "kept_verified", None
+
         report[sid] = {
             "status": status,
             "method": method,
@@ -395,6 +425,9 @@ def main() -> int:
             "nearby_landfills": [{k: v for k, v in i.items() if k != "tags"} for i, _ in nearby],
             "chosen": chosen[0]["osm_id"] if chosen else None,
         }
+        if status == "kept_verified":
+            report[sid]["kept_outline"] = prev_site["osm_id"]
+            report[sid].update({k: prev_report[k] for k in ("picked_by", "picked_utc", "picked_from") if k in prev_report})
         log(f"[{sid}] status={status} candidates={len(infos)}")
 
         if chosen:

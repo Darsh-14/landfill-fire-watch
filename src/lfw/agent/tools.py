@@ -16,12 +16,11 @@ from lfw import receptors as rc
 from lfw.agent.contract import DraftContext, FactsUsed
 from lfw.logjson import log_json
 from lfw.models import Incident
+from lfw.paths import DATA
 from lfw.sites import load_sites
 from lfw.smoke import SCREENING_NOTE, compass
 from lfw.store import Store
-from lfw.timeutil import ist_str
-
-from lfw.paths import DATA
+from lfw.timeutil import ist_str, utc_iso
 
 RULES = DATA / "rules.yaml"
 MAX_RECEPTORS_LISTED = 15  # nearest receptors given to the model; the full list stays in the context
@@ -56,7 +55,9 @@ def build_context(store: Store, incident_id: str, now: datetime | None = None,
     inc = store.get_incident(incident_id)
     if inc is None:
         raise KeyError(f"unknown incident {incident_id}")
-    site = next(s for s in load_sites() if s.site_id == inc.site_id)
+    site = next((s for s in load_sites() if s.site_id == inc.site_id), None)
+    if site is None:
+        raise KeyError(f"incident {incident_id} refers to unknown site {inc.site_id}")
     site_receptors = rc.load_receptors(inc.site_id)
     by_id = {r.receptor_id: r for r in site_receptors}
     in_zone = sorted((by_id[i] for i in inc.receptor_ids if i in by_id), key=lambda r: (r.distance_km, r.receptor_id))
@@ -81,6 +82,12 @@ def build_context(store: Store, incident_id: str, now: datetime | None = None,
         data_age_sentence=data_age_sentence(inc, now),
         limits=LIMITS,
         hindi_enabled=hindi_enabled,
+        first_utc=utc_iso(inc.first_utc),
+        last_utc=utc_iso(inc.last_utc),
+        last_ist=ist_str(inc.last_utc),
+        smoke_half_angle_deg=inc.smoke.half_angle_deg if inc.smoke else None,
+        wind_hours=[{"time_utc": utc_iso(h.time_utc), "speed_ms": h.speed_ms, "from_deg": h.from_deg}
+                    for h in (inc.smoke.wind_hours if inc.smoke else [])],
     )
 
 
@@ -91,7 +98,9 @@ def incident_payload(ctx: DraftContext) -> dict:
     return {
         "incident_id": ctx.incident_id, "mode": ctx.mode, "status": ctx.status,
         "site": {"name": ctx.site_name, "city": ctx.city, "state": ctx.state},
-        "first_detected_ist": ctx.facts.first_detected_ist, "overpass_count": ctx.facts.overpass_count,
+        "first_detected_ist": ctx.facts.first_detected_ist, "first_detected_utc": ctx.first_utc,
+        "last_detected_ist": ctx.last_ist, "last_detected_utc": ctx.last_utc,
+        "overpass_count": ctx.facts.overpass_count,
         "max_frp_mw": ctx.max_frp_mw, "facts_used": ctx.facts.model_dump(),
         "screening_sentence": ctx.screening_sentence, "data_age_sentence": ctx.data_age_sentence,
         "hindi_enabled": ctx.hindi_enabled,
@@ -101,7 +110,8 @@ def incident_payload(ctx: DraftContext) -> dict:
 
 def smoke_payload(ctx: DraftContext) -> dict:
     return {"toward_deg": ctx.facts.smoke_toward_deg, "toward_compass": ctx.toward_compass,
-            "length_km": ctx.smoke_length_km, "calm": ctx.calm, "note": ctx.screening_sentence}
+            "half_angle_deg": ctx.smoke_half_angle_deg, "length_km": ctx.smoke_length_km, "calm": ctx.calm,
+            "wind_hours": ctx.wind_hours, "note": ctx.screening_sentence}
 
 
 def receptors_payload(ctx: DraftContext) -> dict:

@@ -3,7 +3,7 @@
 1. Reads the stack output ApiUrl and writes web/config.js.
 2. Creates the Amplify app + branch on first run (reuses them later).
 3. Zips web/, creates a deployment, uploads the zip, starts the deployment, waits for it.
-Prints the dashboard URL. Then restrict CORS: sam deploy --parameter-overrides AllowedOrigin=<url>.
+Prints the dashboard URL. Then restrict CORS: make deploy ALERT_EMAIL=... BEDROCK_MODEL_ID=... ALLOWED_ORIGIN=<url>.
 
 Usage: python scripts/deploy_web.py [--app-name landfill-fire-watch] [--branch main]
 """
@@ -66,7 +66,7 @@ def main() -> int:
         time.sleep(5)
     url = f"https://{args.branch}.{app['defaultDomain']}"
     print(f"Amplify deployment {status}: {url}")
-    print(f"Next: sam deploy --parameter-overrides AllowedOrigin={url} AlertEmail=... BedrockModelId=...")
+    print(f"Next, lock CORS to this origin: make deploy ALERT_EMAIL=... BEDROCK_MODEL_ID=... ALLOWED_ORIGIN={url}")
     return 0 if status == "SUCCEED" else 1
 
 

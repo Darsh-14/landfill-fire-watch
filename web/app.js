@@ -95,7 +95,11 @@
         <strong>${esc(siteName(i.site_id))}</strong>
         <div class="meta">First detection ${esc(i.first_ist)} · ${esc(i.overpass_count)} overpasses · ${esc(i.receptors_in_zone)} places in sector</div>
       </button>`;
-    list.innerHTML = (live.length ? live.map(row).join("") : '<p class="empty">No live incidents. The scheduled scan found no possible fire at the monitored sites.</p>')
+    // MVP §2.2 item 12: how many incidents a person has marked, per outcome.
+    const count = (s) => items.filter((i) => i.human_status === s).length;
+    const reviewed = `<p class="note review-counts">Reviewed by a person: ${count("CONFIRMED")} confirmed · ${count("FALSE_ALARM")} false alarm · ${count("CLOSED")} closed · ${items.filter((i) => !i.human_status).length} not reviewed</p>`;
+    list.innerHTML = reviewed
+      + (live.length ? live.map(row).join("") : '<p class="empty">No live incidents. The scheduled scan found no possible fire at the monitored sites.</p>')
       + (replay.length ? '<h3 class="note">Replays</h3>' + replay.map(row).join("") : "");
     list.querySelectorAll(".incident-item").forEach((b) => b.addEventListener("click", () => openIncident(b.dataset.id)));
   }

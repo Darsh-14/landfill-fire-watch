@@ -117,7 +117,12 @@ class DynamoStore:
                start: str | None = None) -> list[dict]:
         from boto3.dynamodb.conditions import Key
 
-        cond = Key("pk").eq(pk) & (Key("sk").between(start, prefix + "~") if start else Key("sk").begins_with(prefix))
+        # DynamoDB rejects an empty string in a key condition, so "no prefix" means "pk only".
+        cond = Key("pk").eq(pk)
+        if start:
+            cond = cond & Key("sk").between(start, prefix + "~")
+        elif prefix:
+            cond = cond & Key("sk").begins_with(prefix)
         kw = {"KeyConditionExpression": cond, "ScanIndexForward": not newest_first}
         if limit:
             kw["Limit"] = limit

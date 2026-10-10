@@ -19,9 +19,9 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, log, request, sha256_bytes, utc_now_iso  # noqa: E402
+from _common import ROOT, log, request, sha256_bytes, utc_now_iso
 
-from lfw.config import FIRMS_BASE_URL, get_settings  # noqa: E402
+from lfw.config import FIRMS_BASE_URL, get_settings
 
 FIX = ROOT / "tests" / "fixtures"
 MANIFEST = FIX / "MANIFEST.yaml"

@@ -74,6 +74,12 @@ class DraftContext(BaseModel):
     data_age_sentence: str
     limits: list[str]
     hindi_enabled: bool
+    # Extra facts for the tools (MVP §7.2: times in UTC and IST; half-angle and wind hours).
+    first_utc: str | None = None
+    last_utc: str | None = None
+    last_ist: str | None = None
+    smoke_half_angle_deg: int | None = None
+    wind_hours: list[dict] = []
 
 
 class CheckResult(BaseModel):
@@ -169,18 +175,23 @@ def validate(raw: str | dict, ctx: DraftContext) -> tuple[DraftBundle | None, Va
     add(7, "says 'possible fire' or 'satellite hotspot'", not missing, f"missing in {missing}" if missing else "")
 
     # 8. official alert has the screening-sector sentence and the data-age sentence
-    lacks = [n for n, s in (("screening-sector sentence", ctx.screening_sentence),
-                            ("data-age sentence", ctx.data_age_sentence)) if s not in draft.official_alert_en]
-    add(8, "official alert has screening + data-age sentences", not lacks, f"missing {lacks}" if lacks else "")
+    lacks = [(n, s) for n, s in (("screening-sector sentence", ctx.screening_sentence),
+                                 ("data-age sentence", ctx.data_age_sentence)) if s not in draft.official_alert_en]
+    add(8, "official alert has screening + data-age sentences", not lacks,
+        "; ".join(f"missing the {n}, copy it exactly: \"{s}\"" for n, s in lacks))
 
     # 9. no health claims (MVP: no AQI tool, so these phrases are banned)
     health = [f"{f}: '{m.group(0)}'" for f, t in texts.items() for rx in BANNED_HEALTH for m in rx.finditer(t)]
     add(9, "no health claims (AQI / toxic levels)", not health, "; ".join(health))
 
-    # 10. the Hindi text contains Devanagari
+    # 10. the Hindi text contains Devanagari. With Hindi disabled the field must be empty: an
+    # unreviewed Hindi text is never validated, so it must never be stored or sent (MVP A4).
     if ctx.hindi_enabled:
         add(10, "Hindi text is Devanagari", bool(DEVANAGARI.search(draft.resident_advisory_hi)),
             "" if DEVANAGARI.search(draft.resident_advisory_hi) else "no Devanagari characters")
+    elif draft.resident_advisory_hi.strip():
+        add(10, "Hindi text is Devanagari", False,
+            "Hindi is disabled (no reviewer, MVP A4): resident_advisory_hi must be an empty string")
     else:
         add(10, "Hindi text is Devanagari", None, "skipped: Hindi disabled (no reviewer, MVP A4)")
 

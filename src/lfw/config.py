@@ -198,6 +198,8 @@ class Settings(BaseSettings):
     fake_scenario: str = "bad-then-good"
     # Hindi stays off until a Hindi speaker reviews the template and drafts (MVP A4, cut line 3).
     hindi_enabled: bool = False
+    # Seconds the drafting agent may use (Lambda sets it below its timeout); None = no limit.
+    draft_time_budget_s: float | None = None
 
 
 def get_settings() -> Settings:

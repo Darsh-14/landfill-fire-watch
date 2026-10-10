@@ -10,6 +10,8 @@ import argparse
 import json
 import os
 import sys
+import threading
+import time
 from datetime import UTC, datetime
 from typing import Protocol
 
@@ -30,15 +32,22 @@ class Drafter(Protocol):
     def retry(self, ctx: DraftContext, errors: list[str]) -> str: ...
 
 
+MAX_AGENT_TURNS = 8  # tool calls (4 tools) + structured output, with room for one more round
+MIN_RETRY_S = 20.0  # skip the retry when less than this is left of the time budget
+BEDROCK_READ_TIMEOUT_S = 60
+
+
 class StrandsBedrockDrafter:
     """Strands Agent on Amazon Bedrock with the five read-only tools and structured output."""
 
-    def __init__(self, model_id: str | None = None, region: str | None = None) -> None:
+    def __init__(self, model_id: str | None = None, region: str | None = None, model=None) -> None:
+        self._model = model  # tests inject a scripted strands Model; production builds BedrockModel
         self.model_id = model_id or os.environ.get("BEDROCK_MODEL_ID")
         if not self.model_id:
             raise RuntimeError("BEDROCK_MODEL_ID is not set")
         self.region = region or os.environ.get("BEDROCK_REGION") or os.environ.get("AWS_REGION")
         self.name = f"bedrock:{self.model_id}"
+        self.deadline: float | None = None  # time.monotonic() value; set by run_draft
         self._agent = None
 
     def _make_agent(self, ctx: DraftContext):
@@ -57,21 +66,42 @@ class StrandsBedrockDrafter:
                          input=event.tool_use.get("input"), duration_s=getattr(event, "duration", None),
                          error=str(event.exception) if event.exception else None)
 
-        # streaming=False: the Converse call needs only bedrock:InvokeModel (least privilege).
-        model = BedrockModel(model_id=self.model_id, region_name=self.region, temperature=0.2,
-                             max_tokens=2500, streaming=False)
+        model = self._model
+        if model is None:
+            from botocore.config import Config
+
+            # streaming=False: the Converse call needs only bedrock:InvokeModel (least privilege).
+            # Bounded read timeout so one slow call cannot use up the Lambda's time.
+            model = BedrockModel(model_id=self.model_id, region_name=self.region, temperature=0.2,
+                                 max_tokens=2500, streaming=False,
+                                 boto_client_config=Config(read_timeout=BEDROCK_READ_TIMEOUT_S, connect_timeout=5,
+                                                           retries={"max_attempts": 2, "mode": "standard"}))
         return Agent(model=model, tools=strands_tools(ctx), system_prompt=SYSTEM_PROMPT,
                      hooks=[ToolLog()], callback_handler=None)
 
     def _ask(self, prompt: str) -> str:
         from strands.types.exceptions import StructuredOutputException
 
+        cancel, timer = threading.Event(), None
+        if self.deadline is not None:
+            remaining = self.deadline - time.monotonic()
+            if remaining <= 0:
+                return json.dumps({"_error": "time budget used up before the model call"})
+            timer = threading.Timer(remaining, cancel.set)  # stops the agent loop at the deadline
+            timer.daemon = True
+            timer.start()
         try:
-            result = self._agent(prompt, structured_output_model=DraftBundle)
+            result = self._agent(prompt, structured_output_model=DraftBundle,
+                                 limits={"turns": MAX_AGENT_TURNS}, cancel_signal=cancel)
             out = result.structured_output
-            return out.model_dump_json() if out is not None else json.dumps({"_error": "no structured output"})
+            if out is None:
+                return json.dumps({"_error": f"no structured output (stop reason: {result.stop_reason})"})
+            return out.model_dump_json()
         except StructuredOutputException as exc:
             return json.dumps({"_error": f"structured output failed: {exc}"[:500]})
+        finally:
+            if timer is not None:
+                timer.cancel()
 
     def first(self, ctx: DraftContext) -> str:
         self._agent = self._make_agent(ctx)
@@ -93,13 +123,27 @@ def make_drafter(kind: str | None = None, scenario: str | None = None) -> Drafte
     raise ValueError(f"unknown draft model {kind!r}")
 
 
-def run_draft(ctx: DraftContext, drafter: Drafter) -> dict:
-    """Two model attempts at most, then the fixed template. Every validator result is logged."""
+def run_draft(ctx: DraftContext, drafter: Drafter, time_budget_s: float | None = None,
+              min_retry_s: float = MIN_RETRY_S) -> dict:
+    """Two model attempts at most, then the fixed template. Every validator result is logged.
+
+    With a time budget (Lambda), the model calls stop at the deadline and the retry is skipped when
+    too little time is left, so the template and the store write always happen before the timeout.
+    """
     attempts = []
     draft: DraftBundle | None = None
     report: ValidationReport | None = None
     errors: list[str] = []
+    deadline = time.monotonic() + time_budget_s if time_budget_s else None
+    if hasattr(drafter, "deadline"):
+        drafter.deadline = deadline
     for n in (1, 2):
+        if n == 2 and deadline is not None and deadline - time.monotonic() < min_retry_s:
+            note = f"retry skipped: less than {min_retry_s:.0f} s left of the {time_budget_s:.0f} s time budget"
+            attempts.append({"attempt": 2, "source": drafter.name, "passed": False, "errors": [note]})
+            log_json("validator_result", incident_id=ctx.incident_id, attempt=2, source=drafter.name,
+                     passed=False, errors=[note])
+            break
         try:
             raw = drafter.first(ctx) if n == 1 else drafter.retry(ctx, errors)
         except Exception as exc:  # model or network failure counts as a failed attempt
@@ -113,7 +157,10 @@ def run_draft(ctx: DraftContext, drafter: Drafter) -> dict:
             break
     template_used = not (report and report.passed)
     if template_used:
-        draft, report = validate(fallback.build(ctx).model_dump(), ctx)
+        try:
+            draft, report = validate(fallback.build(ctx).model_dump(), ctx)
+        except Exception as exc:  # never lose the record: store a failed, unapprovable draft instead
+            draft, report = validate(json.dumps({"_error": f"template failed: {type(exc).__name__}: {exc}"}), ctx)
         attempts.append({"attempt": len(attempts) + 1, "source": "template", "passed": report.passed,
                          "errors": report.errors()})
         log_json("validator_result", incident_id=ctx.incident_id, attempt="template", source="template",
@@ -135,8 +182,9 @@ def run_draft(ctx: DraftContext, drafter: Drafter) -> dict:
 def draft_incident(incident_id: str, store: Store | None = None, kind: str | None = None,
                    scenario: str | None = None, save: bool = True, now: datetime | None = None) -> dict:
     store = store or get_store()
-    ctx = build_context(store, incident_id, now or datetime.now(UTC), hindi_enabled=get_settings().hindi_enabled)
-    rec = run_draft(ctx, make_drafter(kind, scenario))
+    settings = get_settings()
+    ctx = build_context(store, incident_id, now or datetime.now(UTC), hindi_enabled=settings.hindi_enabled)
+    rec = run_draft(ctx, make_drafter(kind, scenario), time_budget_s=settings.draft_time_budget_s)
     if save:
         store.put_draft(incident_id, rec["created_utc"], rec)
     return rec

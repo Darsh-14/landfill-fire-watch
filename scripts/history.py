@@ -22,11 +22,11 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, log, utc_now_iso  # noqa: E402
-from backtest import CACHE, chunks, query_bbox  # noqa: E402
+from _common import ROOT, log, utc_now_iso
+from backtest import CACHE, chunks, query_bbox
 
-from lfw import config, detect, firms  # noqa: E402
-from lfw.sites import load_shapes, load_sites  # noqa: E402
+from lfw import config, detect, firms
+from lfw.sites import load_shapes, load_sites
 
 SOURCE = "VIIRS_SNPP_SP"
 AVAIL = ROOT / "tests" / "fixtures" / "firms_data_availability_all.csv"

@@ -43,7 +43,7 @@
   patterns: ["Bandhwari"]
   nominatim_queries: ["Bandhwari landfill", "landfill in Gurugram"]
 - site_id: perungudi-chennai
-  name: Perungudi
+  name: Perungudi (OSM: Pallikaranai Dumpyard)
   city: Chennai
   patterns: ["Perungudi"]
   nominatim_queries: ["Perungudi dump yard", "landfill in Chennai"]

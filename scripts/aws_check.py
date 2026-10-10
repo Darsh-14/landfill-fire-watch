@@ -24,7 +24,7 @@ from pathlib import Path
 import httpx
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from aws_common import session, stack_outputs  # noqa: E402
+from aws_common import session, stack_outputs
 
 REPLAY_ID = "brahmapuram-kochi-20230302T1635"
 
@@ -44,7 +44,10 @@ def main() -> int:
     out = stack_outputs()
     results = {}
 
-    lam = s.client("lambda")
+    from botocore.config import Config
+
+    # The scan may run up to its 300 s timeout; no client retries (a retry would start a second scan).
+    lam = s.client("lambda", config=Config(read_timeout=320, retries={"max_attempts": 1}))
     r = lam.invoke(FunctionName=out["ScanFunctionName"], InvocationType="RequestResponse", Payload=b'{"source": "aws_check"}')
     payload = json.loads(r["Payload"].read() or b"{}")
     results["scan"] = ok("1 ScanFunction invoked", "FunctionError" not in r, json.dumps(payload)[:300])

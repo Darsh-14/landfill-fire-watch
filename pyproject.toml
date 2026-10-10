@@ -20,12 +20,24 @@ dependencies = [
 
 [project.optional-dependencies]
 agent = ["strands-agents>=1.59", "strands-agents-tools>=0.8"]
-dev = ["pytest>=8.0", "pillow>=10", "boto3>=1.34", "uv>=0.4", "cfn-lint>=1.0"]  # pillow: review images; boto3: in the Lambda runtime already
+# pillow: outline review images; boto3: already in the Lambda runtime; moto: AWS mocks for tests;
+# uv: Linux dependency locks; cfn-lint: template checks; ruff: static checks.
+dev = ["pytest>=8.0", "pillow>=10", "boto3>=1.34", "moto[dynamodb,s3,sns,ssm]>=5.0", "uv>=0.4", "cfn-lint>=1.0", "ruff>=0.6"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+lfw = ["policies/*.cedar"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src", "."]
 addopts = "-q"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 130
+
+[tool.ruff.lint]
+select = ["F", "E4", "E7", "E9", "B", "UP", "SIM", "RUF100"]

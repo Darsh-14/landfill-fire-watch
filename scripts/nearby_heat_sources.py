@@ -20,10 +20,10 @@ from shapely.geometry import LineString, Point, shape
 from shapely.ops import unary_union
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, log, utc_now_iso  # noqa: E402
-from build_sites import CANDIDATES_DIR, REPORT, element_geometry, overpass  # noqa: E402
+from _common import log, utc_now_iso
+from build_sites import CANDIDATES_DIR, REPORT, element_geometry, overpass
 
-from lfw import geo  # noqa: E402
+from lfw import geo
 
 OUT = CANDIDATES_DIR / "heat_sources.yaml"
 

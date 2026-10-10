@@ -1,10 +1,12 @@
 """Backtest: replay documented fires and quiet monsoon windows from the FIRMS archive (MVP §10).
 
 Guards (MVP §10.4, CLAUDE.md §7):
-  * A publishable run needs every event site outline checked by a person (`verified_by` set in
-    data/sites.yaml) and a config freeze (data/config_freeze.yaml) whose hash matches config.py.
+  * A publishable run needs every event site outline checked on a map (`verified_by` set in
+    data/sites.yaml; see docs/site-review.md for who checked) and a config freeze
+    (data/config_freeze.yaml) whose hash matches config.py.
   * `--freeze` records the freeze; config.py must be committed first.
   * `--dev` skips the guards and writes out/backtest_dev.* marked "not for publication".
+  * `--event ID ...` runs a subset and writes out/backtest_partial.*, never the published report.
 Raw CSVs are cached in cache/firms/ with a SHA-256 sidecar; 5-day calls (FIRMS DAY_RANGE limit).
 
 Usage:
@@ -18,18 +20,18 @@ import argparse
 import json
 import subprocess
 import sys
-from datetime import UTC, date, datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, log, utc_now_iso  # noqa: E402
+from _common import ROOT, log, utc_now_iso
 
-from lfw import config, detect, firms, incidents, pipeline, receptors, smoke, wind  # noqa: E402
-from lfw.geo import SiteShape, distance_to_site_m, pixel_half_size_m  # noqa: E402
-from lfw.models import Detection, Incident  # noqa: E402
-from lfw.sites import load_shapes, load_sites  # noqa: E402
+from lfw import config, detect, firms, incidents, pipeline, receptors, smoke, wind
+from lfw.geo import SiteShape, distance_to_site_m, pixel_half_size_m
+from lfw.models import Detection, Incident
+from lfw.sites import load_shapes, load_sites
 
 CACHE = ROOT / "cache" / "firms"
 WIND_CACHE = ROOT / "cache" / "wind"
@@ -319,6 +321,9 @@ def replay(event_id: str) -> int:
     store = get_store()
     store.put_detections(res["_matched"])
     for inc, inside in enrich_incidents(shape, res, a, b):
+        prev = store.get_incident(inc.incident_id)
+        if prev is not None:  # a re-run keeps a person's review of the replay incident
+            (inc,) = incidents.apply_human_actions([inc], {prev.incident_id: prev})
         store.put_incident(inc)
         z = inc.smoke
         log(json.dumps({"event": "replay_incident", "incident_id": inc.incident_id, "status": inc.status,
@@ -344,6 +349,10 @@ def main() -> int:
 
     events = yaml.safe_load(EVENTS.read_text(encoding="utf-8"))
     if args.event:
+        unknown = sorted(set(args.event) - {e["event_id"] for e in events})
+        if unknown:
+            log(f"unknown event ids: {unknown}")
+            return 2
         events = [e for e in events if e["event_id"] in args.event]
     sites = {s.site_id: s for s in load_sites()}
     unverified = [e["site_id"] for e in events if not sites[e["site_id"]].verified_by]
@@ -395,7 +404,7 @@ def main() -> int:
             res["event_id"] = ev["event_id"]
             (report["event_windows"] if kind == "event" else report["quiet_windows"]).append(res)
 
-    stem = "backtest_dev" if args.dev else "backtest"
+    stem = "backtest_dev" if args.dev else ("backtest_partial" if args.event else "backtest")
     write_outputs(report, stem)
     log(f"wrote out/{stem}.md and out/{stem}.json")
     print((OUT / f"{stem}.md").read_text(encoding="utf-8"))

@@ -25,7 +25,7 @@ from PIL import Image, ImageDraw
 from shapely.geometry import shape
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import ROOT, log, request  # noqa: E402
+from _common import ROOT, log, request
 
 CAND = ROOT / "data" / "sites" / "_candidates"
 TILE_CACHE = ROOT / "cache" / "tiles"

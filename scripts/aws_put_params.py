@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from aws_common import REGION, session  # noqa: E402
+from aws_common import REGION, session
 
 ENV = Path(__file__).resolve().parent.parent / ".env"
 

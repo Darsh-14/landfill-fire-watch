@@ -22,7 +22,7 @@ def main() -> int:
     args = ap.parse_args()
     out = stack_outputs()
     os.environ.update(STORE="dynamodb", TABLE_NAME=out["TableName"], AWS_DEFAULT_REGION=REGION)
-    import backtest  # noqa: E402  (scripts/backtest.py)
+    import backtest
 
     for ev in args.events:
         print(f"replay {ev} -> DynamoDB {out['TableName']}")

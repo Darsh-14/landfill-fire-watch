@@ -4,7 +4,7 @@ import pytest
 
 pytest.importorskip("cedarpy")
 
-from lfw.policy import DUTY_OFFICER, authorize_approve  # noqa: E402
+from lfw.policy import DUTY_OFFICER, authorize_approve
 
 
 def ok(**kw):
