@@ -142,7 +142,7 @@ make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id> BEDROCK_REGION=<re
 Steps the script cannot do for you: confirm the SNS emails; enable Bedrock model access; look at the
 deployed page in a browser.
 
-## 5. Verify end to end (fills docs/aws-evidence.md)
+## 5. Verify end to end (fills local/aws-evidence.md (kept out of the repo))
 
 ```bash
 AWS_REGION=ap-south-1 .venv/Scripts/python.exe scripts/aws_check.py --draft --approve

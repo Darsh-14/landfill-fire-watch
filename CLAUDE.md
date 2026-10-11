@@ -57,7 +57,7 @@ template.yaml                # SAM
 docs/
   MVP.md                     # full spec (read it)
   claims.md                  # every public claim + source + status
-  demo-script.md
+  (demo script and AWS shot list: local/, git-ignored)
 data/
   sites.yaml                 # monitored landfills (built by script, then checked by a person)
   sites/<site_id>.geojson    # outline of each landfill
@@ -152,7 +152,7 @@ Each phase has acceptance criteria in `docs/MVP.md` §11. Do not start a phase u
 - **Data licences:** `data/sites/` and `data/receptors/` are derived from OpenStreetMap, so they are under ODbL. Put `data/LICENSE-DATA.md` with the ODbL notice. Credit NASA FIRMS and Open-Meteo (CC BY 4.0).
 - **Submission = public repo + YouTube video under 3:00 + short writeup** (problem, build, where AWS fits). Write the writeup in `docs/writeup.md`. List the AI coding tools used in it.
 - **Judges score only the video and the submission.** A feature that is not in the video does not count. Every feature named in the writeup must appear in the video.
-- **The video must show AWS.** Keep `docs/aws-evidence.md` with the console shots to record (see `docs/MVP.md` §14).
+- **The video must show AWS.** Keep the console shot list in `local/aws-evidence.md` (git-ignored) (see `docs/MVP.md` §14).
 - Before the repo goes public: run a secret scan on the full git history. Add a LICENSE file (Apache-2.0).
 
 ## 11. Definition of done

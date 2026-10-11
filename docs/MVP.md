@@ -454,7 +454,7 @@ aws ssm put-parameter --name /lfw/admin_token --type SecureString --value <TOKEN
 | 2:40–2:55 | AWS console: EventBridge schedule, Lambda logs, DynamoDB items | "Built on AWS: EventBridge, Lambda, DynamoDB, S3, SNS, Bedrock with Strands." |
 | 2:55–3:00 | Repo URL | "Open source. Link below." |
 
-**AWS evidence shots (`docs/aws-evidence.md`).** Record each one; use 2–4 in the video:
+**AWS evidence shots (`local/aws-evidence.md (kept out of the repo)`).** Record each one; use 2–4 in the video:
 1. EventBridge Scheduler: the `rate(3 hours)` schedule and its last run.
 2. CloudWatch Logs: one scan run with JSON lines (detections fetched, matched, incidents updated).
 3. DynamoDB: the scan record and one incident item.
@@ -506,7 +506,7 @@ For each site: find the OSM `landuse=landfill` outline. A person checks it on sa
 - [ ] Public repo; README complete; LICENSE (Apache-2.0); `data/LICENSE-DATA.md` (ODbL).
 - [ ] Git history: first commit on or after 8 Oct 2026; many small commits; no rewritten history.
 - [ ] Secret scan of the full git history is clean.
-- [ ] Video under 3:00 on YouTube (public or unlisted); the link opens in a signed-out browser; shows the AWS console shots in `docs/aws-evidence.md`; shows the limits panel.
+- [ ] Video under 3:00 on YouTube (public or unlisted); the link opens in a signed-out browser; shows the AWS console shots in `local/aws-evidence.md (kept out of the repo)`; shows the limits panel.
 - [ ] Every feature in `docs/writeup.md` appears in the video.
 - [ ] `docs/writeup.md` covers the problem, the build, where AWS fits, the track, and the AI coding tools used.
 - [ ] Backtest table in the README matches `out/backtest.md`.

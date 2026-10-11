@@ -32,3 +32,6 @@ build/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Personal recording aids (demo script, AWS shot list); kept out of the public repo
+local/

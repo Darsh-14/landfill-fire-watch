@@ -1,4 +1,4 @@
-"""Post-deploy verification for docs/aws-evidence.md (prompt §7 checklist).
+"""Post-deploy verification for local/aws-evidence.md (kept out of the repo) (prompt §7 checklist).
 
 Steps (each prints OK/FAIL with the evidence):
   1. invoke ScanFunction once (synchronously) and show its result
