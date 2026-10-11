@@ -169,7 +169,7 @@
       ${SITES.length ? SITES.map((s) => `<button class="site-item${active.has(s.site_id) ? " has-inc" : ""}" data-site="${esc(s.site_id)}">
         <span class="inc-ic">${icon("pin")}</span>
         <span class="inc-main"><strong>${esc(s.name)}</strong><small>${esc(s.city)}, ${esc(s.state)}</small></span>
-        <span class="${s.verified ? "verified" : "unverified"}" title="${esc(s.verified ? s.verified_by : "The outline has not been checked on imagery yet.")}">${s.verified ? "Outline checked" : "Outline not checked"}</span>
+        <span class="${s.verified ? "verified" : "unverified"}" title="${s.verified ? "Outline checked on satellite imagery" : "Outline not checked on imagery yet"}">${s.verified ? "Outline checked" : "Outline not checked"}</span>
         <span class="inc-chev">${icon("chev")}</span></button>`).join("") : '<p class="empty">No landfills loaded.</p>'}`;
     $$(".site-item").forEach((b) => b.addEventListener("click", () => {
       const s = siteOf(b.dataset.site);
