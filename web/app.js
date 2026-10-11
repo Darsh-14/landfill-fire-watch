@@ -226,6 +226,7 @@
   const RANK = { CONFIRMED: 4, PROBABLE: 3, CANDIDATE: 2, CLOSED: 1, FALSE_ALARM: 0 };
 
   let BACKTEST = null;
+  let CURRENT = null; // the fire shown in the panel (API response)
   async function loadBacktestData() { if (!BACKTEST) { try { BACKTEST = await get("/backtest"); } catch (_) { BACKTEST = { events: [] }; } } return BACKTEST; }
   // A replay incident's place in the backtest: the event's main fire, a miss, or a later separate hotspot.
   function replayContext(inc) {
@@ -317,6 +318,7 @@
     try { history.replaceState(null, "", `#incident=${encodeURIComponent(id)}`); } catch (_) { /* file:// */ }
     let d;
     try { d = await get(`/incidents/${encodeURIComponent(id)}`); } catch (e) { panel.innerHTML = '<p class="empty">Cannot load this fire. Try refresh.</p>'; return; }
+    CURRENT = d;
     renderIncident(d);
     panel.classList.remove("reveal"); void panel.offsetWidth; panel.classList.add("reveal");
     drawIncident(d);
@@ -718,15 +720,21 @@
     return best ? best.incident_id : null;
   }
   (async () => {
-    await Promise.all([loadHealth(), loadSites()]);
-    await loadIncidents();
-    map.invalidateSize();
+    const health = loadHealth();
+    const sites = loadSites();
+    const backtest = loadBacktestData();
+    try { INCIDENTS = await get("/incidents"); } catch (e) { INCIDENTS = []; $("#incident-list").innerHTML = '<p class="empty">Cannot load fires. Try refresh.</p>'; }
     const m = location.hash.match(/^#incident=(.+)$/); // deep link, e.g. #incident=brahmapuram-kochi-20230302T1635
     const v = location.hash.match(/^#view=(incidents|backtest|sites|about)$/); // e.g. #view=backtest
-    if (m) openIncident(decodeURIComponent(m[1]));
-    else if (v) { showView(v[1]); map.fitBounds(INDIA, fitPadding()); }
-    else if (firstIncident()) openIncident(firstIncident());
-    else map.fitBounds(INDIA, fitPadding());
+    const target = m ? decodeURIComponent(m[1]) : v ? null : firstIncident();
+    if (target) openIncident(target); // does not wait for sites or the backtest
+    await Promise.all([sites, backtest, health]);
+    renderIncidentList(); drawPins(); renderSites();
+    map.invalidateSize();
+    if (v) { showView(v[1]); map.fitBounds(INDIA, fitPadding()); }
+    else if (!target) map.fitBounds(INDIA, fitPadding());
+    // The backtest note for a replay (miss or later hotspot) can arrive after the fire: add it in place.
+    if (CURRENT && replayContext(CURRENT.incident) && !$("#incident-panel .context")) renderIncident(CURRENT);
     setInterval(loadHealth, 60000);
   })();
 })();
