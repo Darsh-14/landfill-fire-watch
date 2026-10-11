@@ -44,3 +44,18 @@ def test_flexible_controls_exist():
         assert needle in p, needle
     js = (WEB / "app.js").read_text(encoding="utf-8")
     assert "panel-off" in js and "localStorage" in js
+
+
+def test_ui_strength_threshold_matches_config():
+    import re as _re
+
+    from lfw import config
+    js = (WEB / "app.js").read_text(encoding="utf-8")
+    m = _re.search(r"const FRP_STRONG_MW = ([0-9.]+);", js)
+    assert m and float(m.group(1)) == config.FRP_HIGH_MW
+
+
+def test_ui_limits_match_the_fixed_list():
+    js = (WEB / "app.js").read_text(encoding="utf-8")
+    for item in LIMITS:
+        assert item in js and item in page(), item

@@ -564,3 +564,18 @@ details.explain b { color: var(--ink); font-weight: 600; }
 .step-head .state { margin-left: auto; font-size: var(--fs-sm); font-weight: 600; color: var(--muted); white-space: nowrap; }
 .step-head .state.done { color: var(--ok); }
 .step-head h3 { flex: 1; min-width: 0; }
+
+/* ------------------------------------------------------------ rules 5-11: fact lines, limits, status icons */
+dl.lines { display: grid; grid-template-columns: 7.5em 1fr; gap: 6px 12px; margin: 2px 0 4px; font-size: var(--fs-fn); }
+dl.lines dt { color: var(--muted); }
+dl.lines dd { margin: 0; color: var(--ink); }
+dl.lines details.explain { margin: 4px 0 0; }
+.caveat { margin: 8px 0 0; font-size: var(--fs-sm); color: var(--muted); }
+ul.tech { margin: 6px 0 0; padding-left: 18px; font-size: var(--fs-sm); color: var(--muted); }
+details.limits { margin-top: 16px; border-top: 0.5px solid var(--line); padding-top: 6px; }
+details.limits ul { margin: 6px 0 0; padding-left: 18px; font-size: var(--fs-sm); color: var(--muted); }
+details.limits li { margin: 3px 0; }
+.badge .ic { width: 13px; height: 13px; margin-right: 4px; }
+.badge.lg .ic { width: 15px; height: 15px; }
+.step-head .state .ic { width: 14px; height: 14px; margin-right: 3px; vertical-align: -2px; }
+.inc-meta > span:last-child { color: var(--muted); }
