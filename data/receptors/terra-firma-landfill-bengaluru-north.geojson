@@ -1,0 +1,83 @@
+{
+ "type": "FeatureCollection",
+ "site_id": "terra-firma-landfill-bengaluru-north",
+ "centroid": [
+  77.373849,
+  13.323188
+ ],
+ "radius_km": 12.0,
+ "retrieved_utc": "2026-10-11T09:37:52Z",
+ "source": "OpenStreetMap via Overpass API",
+ "license": "ODbL-1.0",
+ "attribution": "© OpenStreetMap contributors",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.4128866,
+     13.2850004
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1443219879",
+    "name": null,
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 5.99
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.3853827,
+     13.40437
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7202987101",
+    "name": "Sasalu Government Hostel",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.11
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.3478756,
+     13.2258309
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7202935811",
+    "name": "Government Hospital Tadasigatta",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.18
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.2968345,
+     13.2523862
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/8188038311",
+    "name": "Primary Health Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.46
+   }
+  }
+ ]
+}

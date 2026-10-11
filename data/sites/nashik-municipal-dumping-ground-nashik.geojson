@@ -1,0 +1,93 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/1466071635",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       73.7376809,
+       19.9342098
+      ],
+      [
+       73.7374234,
+       19.9346637
+      ],
+      [
+       73.7374127,
+       19.9350268
+      ],
+      [
+       73.7393331,
+       19.9368826
+      ],
+      [
+       73.7424982,
+       19.9363733
+      ],
+      [
+       73.7424552,
+       19.9347141
+      ],
+      [
+       73.7423319,
+       19.9326566
+      ],
+      [
+       73.7416238,
+       19.9332466
+      ],
+      [
+       73.7412643,
+       19.9331306
+      ],
+      [
+       73.7411088,
+       19.9323641
+      ],
+      [
+       73.7406689,
+       19.9319253
+      ],
+      [
+       73.7396496,
+       19.9322329
+      ],
+      [
+       73.7388313,
+       19.9331195
+      ],
+      [
+       73.7376809,
+       19.9342098
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1466071635",
+    "osm_name": "Nashik Municipal Dumping Ground",
+    "osm_name_en": null,
+    "area_ha": 20.22,
+    "centroid_lat": 19.934612,
+    "centroid_lon": 73.740216,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Nashik Municipal Dumping Ground"
+    },
+    "state": "Maharashtra",
+    "site_id": "nashik-municipal-dumping-ground-nashik",
+    "retrieved_utc": "2026-10-11T09:16:30Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

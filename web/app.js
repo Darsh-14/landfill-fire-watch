@@ -155,6 +155,7 @@
 
   async function loadSites() {
     try { SITES = await get("/sites"); } catch (e) { SITES = []; }
+    if (SITES.length) $("#site-count").textContent = `${SITES.length} Indian`;
     siteLayer.clearLayers();
     for (const s of SITES) {
       L.geoJSON(s.outline, { style: { color: "#dfe3ea", weight: 1.6, fill: true, fillOpacity: 0.04, dashArray: s.verified ? null : "4 4" } })

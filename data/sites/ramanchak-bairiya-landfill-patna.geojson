@@ -1,0 +1,93 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/1418303886",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       85.1756422,
+       25.5683962
+      ],
+      [
+       85.1753568,
+       25.5683848
+      ],
+      [
+       85.1747905,
+       25.5645988
+      ],
+      [
+       85.180388,
+       25.5642682
+      ],
+      [
+       85.1815376,
+       25.5651178
+      ],
+      [
+       85.1802126,
+       25.5670413
+      ],
+      [
+       85.1799309,
+       25.5685366
+      ],
+      [
+       85.1799537,
+       25.5714098
+      ],
+      [
+       85.1781633,
+       25.5716009
+      ],
+      [
+       85.1775062,
+       25.5714939
+      ],
+      [
+       85.1768229,
+       25.5710317
+      ],
+      [
+       85.1767485,
+       25.5684749
+      ],
+      [
+       85.1756422,
+       25.5683962
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/1418303886",
+    "osm_name": "Ramanchak Bairiya Landfill",
+    "osm_name_en": null,
+    "area_ha": 35.49,
+    "centroid_lat": 25.567394,
+    "centroid_lon": 85.178053,
+    "geometry_type": "Polygon",
+    "tags": {
+     "addr:city": "Patna",
+     "addr:district": "Patna",
+     "addr:postcode": "800007",
+     "addr:street": "Bairiya",
+     "landuse": "landfill",
+     "name": "Ramanchak Bairiya Landfill"
+    },
+    "state": "Bihar",
+    "site_id": "ramanchak-bairiya-landfill-patna",
+    "retrieved_utc": "2026-10-11T09:16:30Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

@@ -48,4 +48,14 @@ agent on the team's request, not yet by a team member.
 Not monitored (no outline): pirana-ahmedabad and jawahar-nagar-hyderabad (the proximity search found only tiny
 dumps near places with the same name in other states, rejected); uruli-devachi-pune, bhandewadi-nagpur,
 dadumajra-chandigarh (no landuse=landfill element in OSM by name or within 3 km of the named place; Overpass
-search 2026-10-11). 11 sites are monitored; the MVP aimed for 15–25.
+search 2026-10-11). These 11 sites have checked outlines.
+
+## Added by discovery (not checked yet)
+
+`scripts/discover_sites.py` (2026-10-11) queried every named `landuse=landfill` way and relation in India from
+Overpass (223 elements, 150 after joining same-name pieces within 1 km). Kept: area at least 20 ha, not within 1 km
+of a monitored outline, and not industrial waste by name (ash, fly ash, slag, tailings, mine spoil, cyanide, red mud,
+sludge: 23 such areas were excluded). That added 10 sites, each with `verified_by: null`; the dashboard shows their
+outlines dashed. City and state are from Nominatim reverse geocoding. Generic OSM names ("Municipal Landfill") get
+the city in front. Whether "Ahmedabad Municipal Landfill" is the Pirana site was not checked. Every decision is in
+`data/sites_discovery_report.yaml`. 21 sites are monitored in total; the MVP aimed for 15–25.

@@ -1,5 +1,5 @@
-# Monitored landfills. Built by scripts/build_sites.py; `verified_by` is set by a person
-# after checking the outline on satellite imagery. Outlines: © OpenStreetMap contributors (ODbL).
+# Monitored landfills. Built by scripts/build_sites.py and scripts/discover_sites.py; `verified_by`
+# is set after checking the outline on satellite imagery. Outlines: © OpenStreetMap contributors (ODbL).
 - site_id: deonar-mumbai
   name: Deonar
   city: Mumbai
@@ -8,9 +8,11 @@
   polygon_source: osm
   osm_id: way/289511744+way/314528563
   exclusions:
-  - Industrial complex with buildings inside the outline, south-centre (Esri imagery 2026-10-10).
+  - Industrial complex with buildings inside the outline, south-centre (Esri imagery
+    2026-10-10).
   - BEST bus depot adjacent (OSM way/222972350).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: ghazipur-delhi
   name: Ghazipur
   city: Delhi
@@ -22,7 +24,8 @@
   - OSM 'Bio-Gas Plant' touches the outline (way/283807712).
   - Industrial buildings on the west edge (Esri imagery 2026-10-10).
   - Crematorium 481 m away (OSM way/25493904).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: brahmapuram-kochi
   name: Brahmapuram
   city: Kochi
@@ -35,8 +38,10 @@
   - FACT Ambalamedu industrial area 220 m away (OSM way/59266110).
   - HPCL industrial site 717 m away (OSM way/133981662).
   - Waste-plant buildings and tanks next to the named outline (Esri imagery).
-  - 'TODO(verify): white textured area SW of the outline, possibly waste, not inside the outline.'
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
+  - 'TODO(verify): white textured area SW of the outline, possibly waste, not inside
+    the outline.'
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: kanjurmarg-mumbai
   name: Kanjurmarg
   city: Mumbai
@@ -46,7 +51,8 @@
   osm_id: way/257455760
   exclusions:
   - Processing sheds and ponds inside the outline (Esri imagery 2026-10-11).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: bhalswa-delhi
   name: Bhalswa
   city: Delhi
@@ -56,7 +62,8 @@
   osm_id: way/414943488
   exclusions:
   - Dense housing on all sides; outline fits the mound (Esri imagery 2026-10-11).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: okhla-delhi
   name: Okhla
   city: Delhi
@@ -66,7 +73,8 @@
   osm_id: way/608169272
   exclusions:
   - Container depot adjacent east; building complex south-west (Esri imagery 2026-10-11).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: bandhwari-gurugram
   name: Bandhwari
   city: Gurugram
@@ -75,8 +83,10 @@
   polygon_source: osm
   osm_id: way/34263673
   exclusions:
-  - Bare waste area extends slightly beyond the outline on the west and south (Esri imagery 2026-10-11).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  - Bare waste area extends slightly beyond the outline on the west and south (Esri
+    imagery 2026-10-11).
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: kodungaiyur-chennai
   name: Kodungaiyur
   city: Chennai
@@ -85,8 +95,10 @@
   polygon_source: osm
   osm_id: way/29199633
   exclusions:
-  - Plant with round tanks adjacent west; storage tanks to the north-east (Esri imagery 2026-10-11).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  - Plant with round tanks adjacent west; storage tanks to the north-east (Esri imagery
+    2026-10-11).
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: dhapa-kolkata
   name: Dhapa
   city: Kolkata
@@ -96,7 +108,8 @@
   osm_id: way/325363390
   exclusions:
   - Sheds inside the north end of the outline (Esri imagery 2026-10-11).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: perungudi-chennai
   name: 'Perungudi (OSM: Pallikaranai Dumpyard)'
   city: Chennai
@@ -105,9 +118,11 @@
   polygon_source: osm
   osm_id: way/84106307
   exclusions:
-  - OSM name is 'Pallikaranai Dumpyard' (way/84106307), found within 3 km of the OSM place 'Perungudi'.
+  - OSM name is 'Pallikaranai Dumpyard' (way/84106307), found within 3 km of the OSM
+    place 'Perungudi'.
   - Plant with round tanks adjacent north-east (Esri imagery 2026-10-11).
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
 - site_id: mandur-bengaluru
   name: Mandur
   city: Bengaluru
@@ -116,5 +131,98 @@
   polygon_source: osm
   osm_id: way/135169264+way/285786390
   exclusions:
-  - 'Two OSM polygons named ''Mandur Landfill'': the north one shows waste mounds; the south one is mostly tree cover (possibly an older, covered section) (Esri imagery 2026-10-11).'
-  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated by Darsh-14; see docs/site-review.md)
+  - 'Two OSM polygons named ''Mandur Landfill'': the north one shows waste mounds;
+    the south one is mostly tree cover (possibly an older, covered section) (Esri
+    imagery 2026-10-11).'
+  verified_by: Claude Code (AI imagery check on Esri World Imagery, 2026-10-11, delegated
+    by Darsh-14; see docs/site-review.md)
+- site_id: mulund-dumping-ground-mumbai
+  name: Mulund Dumping Ground
+  city: Mumbai
+  state: Maharashtra
+  polygon_path: data/sites/mulund-dumping-ground-mumbai.geojson
+  polygon_source: osm
+  osm_id: way/151861273
+  exclusions: []
+  verified_by: null
+- site_id: mavallipura-bbmp-landfill-bengaluru-urban
+  name: Mavallipura BBMP Landfill
+  city: Bengaluru Urban
+  state: Karnataka
+  polygon_path: data/sites/mavallipura-bbmp-landfill-bengaluru-urban.geojson
+  polygon_source: osm
+  osm_id: way/285786403
+  exclusions: []
+  verified_by: null
+- site_id: municipal-landfill-ahmedabad
+  name: Ahmedabad Municipal Landfill
+  city: Ahmedabad
+  state: Gujarat
+  polygon_path: data/sites/municipal-landfill-ahmedabad.geojson
+  polygon_source: osm
+  osm_id: way/321136517
+  exclusions: []
+  verified_by: null
+- site_id: municipal-landfill-ranchi
+  name: Ranchi Municipal Landfill
+  city: Ranchi
+  state: Jharkhand
+  polygon_path: data/sites/municipal-landfill-ranchi.geojson
+  polygon_source: osm
+  osm_id: way/364607640
+  exclusions: []
+  verified_by: null
+- site_id: terra-firma-landfill-bengaluru-north
+  name: Terra Firma Landfill
+  city: Bengaluru North
+  state: Karnataka
+  polygon_path: data/sites/terra-firma-landfill-bengaluru-north.geojson
+  polygon_source: osm
+  osm_id: way/412912334+way/412912335+way/412912336
+  exclusions: []
+  verified_by: null
+- site_id: gvmc-dumpyard-visakhapatnam
+  name: GVMC Dumpyard
+  city: Visakhapatnam
+  state: Andhra Pradesh
+  polygon_path: data/sites/gvmc-dumpyard-visakhapatnam.geojson
+  polygon_source: osm
+  osm_id: way/487133036
+  exclusions: []
+  verified_by: null
+- site_id: municipal-landfill-kanpur
+  name: Kanpur Municipal Landfill
+  city: Kanpur
+  state: Uttar Pradesh
+  polygon_path: data/sites/municipal-landfill-kanpur.geojson
+  polygon_source: osm
+  osm_id: way/506689493+way/506689494
+  exclusions: []
+  verified_by: null
+- site_id: municipal-landfill-ganderbal
+  name: Ganderbal Municipal Landfill
+  city: Ganderbal
+  state: Jammu and Kashmir
+  polygon_path: data/sites/municipal-landfill-ganderbal.geojson
+  polygon_source: osm
+  osm_id: way/693099677
+  exclusions: []
+  verified_by: null
+- site_id: ramanchak-bairiya-landfill-patna
+  name: Ramanchak Bairiya Landfill
+  city: Patna
+  state: Bihar
+  polygon_path: data/sites/ramanchak-bairiya-landfill-patna.geojson
+  polygon_source: osm
+  osm_id: way/1418303886
+  exclusions: []
+  verified_by: null
+- site_id: nashik-municipal-dumping-ground-nashik
+  name: Nashik Municipal Dumping Ground
+  city: Nashik
+  state: Maharashtra
+  polygon_path: data/sites/nashik-municipal-dumping-ground-nashik.geojson
+  polygon_source: osm
+  osm_id: way/1466071635
+  exclusions: []
+  verified_by: null

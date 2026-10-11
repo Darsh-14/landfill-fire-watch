@@ -92,9 +92,12 @@ day with at least one hotspot on the outline; it is not a count of fires.
 - A detection is not a confirmation. A person must check.
 - The smoke zone is a screening sector from wind direction. It is not a pollution forecast.
 
-Also: 11 landfills are monitored (the MVP aimed for 15–25; five candidates had no usable OpenStreetMap outline
-during the hackathon). All 11 outlines were checked on satellite imagery by the AI coding agent at the team's
-request, not yet by a team member ([`docs/site-review.md`](docs/site-review.md)). No rule text is verified yet, so
+Also: 21 landfills are monitored. 11 come from the project's candidate list (five other candidates had no usable
+OpenStreetMap outline); their outlines were checked on satellite imagery by the AI coding agent at the team's
+request, not yet by a team member ([`docs/site-review.md`](docs/site-review.md)). 10 more were found by
+`scripts/discover_sites.py`: every named OSM landfill in India of at least 20 ha that is not industrial waste by name
+(ash ponds, slag and mine tailings are excluded) and not already monitored. Those 10 outlines are not checked yet
+and show dashed on the map ([`data/sites_discovery_report.yaml`](data/sites_discovery_report.yaml)). No rule text is verified yet, so
 the agent cites none ([`data/rules.yaml`](data/rules.yaml)). The admin token is a demo control, not production
 authentication. Hindi drafts are off until a Hindi speaker reviews them.
 

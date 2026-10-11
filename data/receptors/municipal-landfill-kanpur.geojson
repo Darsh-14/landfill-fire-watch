@@ -1,0 +1,4537 @@
+{
+ "type": "FeatureCollection",
+ "site_id": "municipal-landfill-kanpur",
+ "centroid": [
+  80.233937,
+  26.448678
+ ],
+ "radius_km": 12.0,
+ "retrieved_utc": "2026-10-11T09:27:30Z",
+ "source": "OpenStreetMap via Overpass API",
+ "license": "ODbL-1.0",
+ "attribution": "© OpenStreetMap contributors",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.243741,
+     26.4625053
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027743598",
+    "name": "Mahaveer Hospital And Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 1.82
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.247132,
+     26.4599666
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7031186353",
+    "name": "Raja Ram Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 1.82
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.244649,
+     26.4622903
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643278",
+    "name": "Merrygold Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 1.85
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2435715,
+     26.4633274
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643262",
+    "name": "Shivansh Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 1.89
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2436337,
+     26.4633734
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035713912",
+    "name": "Brij Medical Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 1.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2453125,
+     26.4681875
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/13506520701",
+    "name": "SHREE RADHA SHIKSHA MANDIR 496 C BLOCK PANKI KANPUR 208020",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 2.45
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2487713,
+     26.467618
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643197",
+    "name": "Arogya Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 2.57
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.242583,
+     26.471595
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643225",
+    "name": "Merigold Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 2.69
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2534595,
+     26.4656124
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/310313680",
+    "name": "Shi Ram Education Centre",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 2.71
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2594098,
+     26.4602956
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025765332",
+    "name": "Shri Baba Hospital and Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 2.85
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2619627,
+     26.4655444
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643223",
+    "name": "Ofc Hospital Armapur",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 3.36
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.244155,
+     26.4779926
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643209",
+    "name": "Samarpan Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 3.41
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2376196,
+     26.4802958
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/10921507966",
+    "name": "UPRVUNL Dispensary",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 3.53
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2459457,
+     26.4809198
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643188",
+    "name": "Galaxy Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 3.78
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2714112,
+     26.4380686
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643224",
+    "name": "Maa Vindhyeshwari Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 3.91
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2446146,
+     26.4840826
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643212",
+    "name": "H2O Life Care Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.08
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2730833,
+     26.436185
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643237",
+    "name": "Nostrum Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.14
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1921376,
+     26.4503008
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/289701819",
+    "name": "Pranveer Singh Institute of Technology",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 4.17
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2497008,
+     26.4840275
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7039962697",
+    "name": "Apex Hospital and Research Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.23
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2489416,
+     26.485006
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643267",
+    "name": "Sunrise Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.31
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2508067,
+     26.4844728
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643210",
+    "name": "Apex Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.32
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.256,
+     26.4842178
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643256",
+    "name": "Sis Hospital & Research Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.52
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.246312,
+     26.4883816
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643293",
+    "name": "Sakshi Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.58
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2562763,
+     26.4848634
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643221",
+    "name": "Sis Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2796814,
+     26.440292
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643255",
+    "name": "Chandra Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.65
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.246573,
+     26.490033
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643198",
+    "name": "Tirupati Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.77
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2812601,
+     26.4405956
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643244",
+    "name": "Indian Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2508829,
+     26.4908616
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643194",
+    "name": "Abhinav Nursing Home Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.98
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2725991,
+     26.4773044
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643280",
+    "name": "Shrey Hospital & Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 4.99
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2473673,
+     26.4919941
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7030449549",
+    "name": "Saubhagya Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2826888,
+     26.4373156
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643273",
+    "name": "New City Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.02
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2527644,
+     26.4927666
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643219",
+    "name": "Ansh Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.25
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2490212,
+     26.4939082
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643220",
+    "name": "Shiv Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.25
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2864849,
+     26.4434516
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643252",
+    "name": "City Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.26
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2495592,
+     26.4949552
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643264",
+    "name": "Pulse Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.38
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2863142,
+     26.4363952
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643290",
+    "name": "Parivar Kalyan Seva Sanstha Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2706965,
+     26.4842358
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1489353742",
+    "name": "Sunshine Public School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 5.39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2436952,
+     26.496557
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643214",
+    "name": "Kanha Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.41
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.270881,
+     26.4845191
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1489353744",
+    "name": "Bharti Gyansthali Higher Secondary School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 5.42
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2874106,
+     26.4354633
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643216",
+    "name": "Shri Jairam Hospital & Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.52
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2547548,
+     26.4947458
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643218",
+    "name": "Maa Jwala Hospital and Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.53
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2405193,
+     26.4980692
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643222",
+    "name": "Shaurya Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.53
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2374639,
+     26.4984456
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018342603",
+    "name": "Maa Durga Hospital and Research Center",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.55
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.265679,
+     26.489764
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643275",
+    "name": "Saine Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.55
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2521237,
+     26.4960542
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643242",
+    "name": "Vatsalya Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.57
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2900936,
+     26.4453476
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7028089716",
+    "name": "Laxmi Devi Kishanchand Memorial Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2684451,
+     26.4884205
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1489353743",
+    "name": "Escorts World School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 5.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2529902,
+     26.4966226
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643226",
+    "name": "Krishna Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.66
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2535283,
+     26.4965306
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643189",
+    "name": "Narayan Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.67
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2837909,
+     26.4742698
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643282",
+    "name": "Delight Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.72
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.292013,
+     26.446065
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643190",
+    "name": "Reenadeep Woman & Child Care Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.79
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2863112,
+     26.4724685
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/2285468603",
+    "name": "Queens Memorial School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 5.85
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2759342,
+     26.4857146
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7030846777",
+    "name": "Pracheta Ayurvedic Clinic and Panchakarma Center",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 5.87
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2869788,
+     26.4726389
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/2285468601",
+    "name": "Dolphin Junior High School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 5.91
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2902104,
+     26.4660231
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1296946249",
+    "name": "Saraswati Mahila Mahavidyalaya",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 5.93
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2926692,
+     26.4392169
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7033196402",
+    "name": "Satya Trauma and Maternity Center",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.94
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.289674,
+     26.468057
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1291415473",
+    "name": "Mahatma Gandhi College",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 5.95
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2931634,
+     26.4412092
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643201",
+    "name": "Shraddha Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.95
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2898738,
+     26.4298594
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643235",
+    "name": "Ma Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.95
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2860444,
+     26.4753348
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643276",
+    "name": "Dr. Ram Shankar Smarak Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.97
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2901908,
+     26.4298823
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643270",
+    "name": "Bliss Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.98
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2860992,
+     26.4753148
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7666557114",
+    "name": null,
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 5.98
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.266632,
+     26.4937949
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1387429991",
+    "name": "Indian Institute of Pulses Research",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 5.98
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2938076,
+     26.4423466
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643253",
+    "name": "South Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2880674,
+     26.472689
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/2285468604",
+    "name": "Swaraj India Public School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.01
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2811825,
+     26.4826868
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643274",
+    "name": "Chanda Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.04
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2868425,
+     26.4762302
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643205",
+    "name": "Swaraj Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.09
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2507339,
+     26.5020967
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025018109",
+    "name": "Kanpur Trauma and Ortho. Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.17
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2921882,
+     26.4298416
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643288",
+    "name": "Sanjeevani Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.17
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2570769,
+     26.500529
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7021097666",
+    "name": "Shyam Children and Maternity Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.21
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.269344,
+     26.4952396
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018689629",
+    "name": "Madhav Eye Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.26
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2575342,
+     26.5010511
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7028345701",
+    "name": "Spm Hospital Research and Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.28
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2336663,
+     26.5053109
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/259781081",
+    "name": "Health Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2692527,
+     26.4964408
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1453321807",
+    "name": "Dr. Virendra Swarup Public School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.37
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2977356,
+     26.4420488
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643200",
+    "name": "Kabira Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2346525,
+     26.5061521
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1137189333",
+    "name": "Campus School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2927013,
+     26.4727891
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020160125",
+    "name": "Dwivedi Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.44
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2986109,
+     26.4493968
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7029200262",
+    "name": "D. T Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 6.44
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2966156,
+     26.4637792
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643259",
+    "name": "C L Memorial Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.46
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2940364,
+     26.4714566
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027743613",
+    "name": "CGHS Dispensary, Pandunagar",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 6.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.293236,
+     26.473978
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643230",
+    "name": "The Panacea Hospital, Kanpur",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.54
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2969058,
+     26.4313268
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643292",
+    "name": "Seva Chandra Prabha Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.56
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.29936,
+     26.4407734
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643207",
+    "name": "Aashvi Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.57
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2875474,
+     26.4832658
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643286",
+    "name": "Anurag Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.58
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.297997,
+     26.432604
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643250",
+    "name": "Khushi Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.62
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3004194,
+     26.4512764
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643285",
+    "name": "Hari Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.63
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2364749,
+     26.5084407
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/295697794",
+    "name": "Kendriya Vidyalaya",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.65
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2979309,
+     26.4682431
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11684779971",
+    "name": "triangular park",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.73
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2943628,
+     26.4758744
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027822933",
+    "name": "Globus Hospital for Joint Replacement",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.73
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2959961,
+     26.4731026
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643269",
+    "name": "Bima Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.75
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2790838,
+     26.4945033
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7017979038",
+    "name": "Shekhar Rastogi Eye Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.79
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2792176,
+     26.4945687
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027726616",
+    "name": "Shubh Netra Kendra",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.81
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.302311,
+     26.4527897
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018011416",
+    "name": "R.K.Sindhi Sangh Maternity Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.82
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2951455,
+     26.4765274
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020925911",
+    "name": "Suraj Medical and Diagnostics Pvt Ltd",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 6.84
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2935573,
+     26.4795707
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7030904674",
+    "name": "Kulwanti Hospitals",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.86
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3002313,
+     26.4657898
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11690601803",
+    "name": "diamond public school",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.87
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2998844,
+     26.4304314
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035329343",
+    "name": "Priya Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.87
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3015697,
+     26.4348052
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643185",
+    "name": "Ganesh Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.91
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2837479,
+     26.4921475
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7028096712",
+    "name": "Metro Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.92
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3016336,
+     26.4341246
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643208",
+    "name": "Jeewan Jyoti Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 6.93
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2997694,
+     26.4692959
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11690613069",
+    "name": "career solution",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.94
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2999499,
+     26.4695857
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11684766634",
+    "name": "govtt school",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 6.97
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.303913,
+     26.4478043
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7037707478",
+    "name": "Dr. Jawaharlal Rohatgi Smarak Netra Chikitsalaya",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 6.97
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3012217,
+     26.4674457
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11684762443",
+    "name": "gg ground",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 7.02
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2893063,
+     26.4879419
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020787572",
+    "name": "Fortune Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.03
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3027312,
+     26.4345552
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643249",
+    "name": "Mansrovar Medical Centre Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.03
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3012719,
+     26.429673
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643268",
+    "name": "Ganga Devi Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.03
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3024695,
+     26.4643404
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643195",
+    "name": "Asg Eye Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.04
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.301827,
+     26.4294214
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7030526529",
+    "name": "Raj Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.09
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3039944,
+     26.4363234
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643199",
+    "name": "Drishti Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.11
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3021013,
+     26.4292042
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643196",
+    "name": "Chandra Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.12
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3063278,
+     26.4506626
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643231",
+    "name": "Sagh Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.21
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2969922,
+     26.41613
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643186",
+    "name": "Ram Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.25
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3020616,
+     26.4718516
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018066794",
+    "name": "Shivani Hospital Pvt Ltd",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.26
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3068255,
+     26.4520246
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643191",
+    "name": "Sai Eye Hospital, Govind Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.27
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3005286,
+     26.4758309
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643279",
+    "name": "E S I Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.28
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3057024,
+     26.4629904
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025340457",
+    "name": "C L Memorail Hospital and Maternity Home Pvt Ltd",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.32
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3052778,
+     26.4658333
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1012264148",
+    "name": "Mariampur School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 7.35
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.27722,
+     26.50238
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/12843537395",
+    "name": "Dr. Ambedkar Institute of Technology for Divyangjan",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 7.36
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.305789,
+     26.465464
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1012264149",
+    "name": "Mariampur Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3059435,
+     26.464995
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11690461082",
+    "name": "mariampur hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3060965,
+     26.4647984
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643239",
+    "name": "ESI Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3055483,
+     26.4668493
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/14006605533",
+    "name": "Matrashree Clijic",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 7.41
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2994223,
+     26.4808825
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018521757",
+    "name": "Ratandeep Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.44
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.303751,
+     26.424901
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643238",
+    "name": "SPM Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.44
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2997737,
+     26.4805524
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7028968156",
+    "name": "Angel Eyes Lasik Center",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.45
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.302848,
+     26.4226298
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643204",
+    "name": "Mandakini Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.45
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3090486,
+     26.4486148
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643234",
+    "name": "Regency Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.48
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3000928,
+     26.4807217
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020772618",
+    "name": "D S Memorial Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 7.49
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2880752,
+     26.4957485
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035452782",
+    "name": "R.P. Medical Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.51
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3065835,
+     26.4668348
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643227",
+    "name": "Guru Nanak Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.51
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3091238,
+     26.439615
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018342560",
+    "name": "Gopal Krishna Surgical and Maternity Clinic",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 7.55
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3015634,
+     26.4793574
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018418041",
+    "name": "Regency Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.55
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3065369,
+     26.4289487
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027159784",
+    "name": "Shanti Surgical Clinic and Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 7.55
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2988164,
+     26.413303
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643240",
+    "name": "South City Hospital & Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.56
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3094497,
+     26.4402574
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7029313876",
+    "name": "Dr. S.K Nigam Surgical and Laparoscopy Clinic",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 7.58
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3070136,
+     26.4677746
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7033196407",
+    "name": "Guru Teg Bhadur Charitable Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.58
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3101791,
+     26.4523437
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11690533830",
+    "name": "dbs college",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 7.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3089165,
+     26.435452
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643228",
+    "name": "Ppm Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.61
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3005119,
+     26.414795
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643294",
+    "name": "Udai Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.62
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3071246,
+     26.4685854
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:relation/112054",
+    "name": "Guru Nanak College",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 7.62
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2640495,
+     26.5117507
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/13645862471",
+    "name": "Sushrut Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.63
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.307937,
+     26.4309735
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018636413",
+    "name": "Rama Shiv Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.63
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3108157,
+     26.4395556
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643215",
+    "name": "Bmg Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.72
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3022359,
+     26.4817924
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7019366043",
+    "name": "New G.T. Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 7.73
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2417171,
+     26.5178723
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1172337971",
+    "name": "Wendy High School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 7.73
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.304545,
+     26.4789036
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643193",
+    "name": "Mahendru Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.79
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3040625,
+     26.4799462
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025501353",
+    "name": "Bimal Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 7.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3034604,
+     26.4812162
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7022298807",
+    "name": "L.P.S . Institute Of Cardilogy",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.81
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.30321,
+     26.4820398
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643236",
+    "name": "Dr. Murari Lal Chest Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.83
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3056209,
+     26.4788118
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7029614607",
+    "name": "J.L.Rohatgi Hospital and Jawaharlal Rohatagi Smarak Netra Chikitsalaya",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.88
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3056219,
+     26.4791725
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/6149794485",
+    "name": "J L Rohatgi Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3092469,
+     26.4252711
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027605975",
+    "name": "The Orient Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 7.94
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3075287,
+     26.4810191
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7037362571",
+    "name": "G.S.V.M. Medical College",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.16
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.314388,
+     26.464244
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1291414310",
+    "name": "Agarwal Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.19
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3145196,
+     26.4334214
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643247",
+    "name": "Angel Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3098693,
+     26.4773343
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/150512204",
+    "name": "Ganesh Shanker Vidyarthi College",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 8.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3106406,
+     26.4795897
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018342555",
+    "name": "Jeevani Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.37
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3114319,
+     26.4781242
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1634140077",
+    "name": "Lala Lajpat Rai and Associate Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.38
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3149804,
+     26.4693047
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025269444",
+    "name": "Jolly Nursing Home and Research Centre (P) Ltd",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 8.39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3177847,
+     26.4352451
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7031435061",
+    "name": "Sushila General Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.48
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3033404,
+     26.4041953
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643260",
+    "name": "Jaigurudev Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3133719,
+     26.418948
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643291",
+    "name": "R.U. Charitable Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.57
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3140309,
+     26.4792296
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7039962989",
+    "name": "Eye-Q Super Speciality Eye Hospitals",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.67
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.318223,
+     26.468763
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1291414312",
+    "name": "Rama Krishna Mission Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.68
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3165305,
+     26.4735576
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/115994800",
+    "name": "Kumari Udyan Vidyalaya",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 8.68
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.314271,
+     26.4795045
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7037994532",
+    "name": "Dr Lalchandani E N T and Laser Center",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3208933,
+     26.4412496
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643258",
+    "name": "Vimal Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.318127,
+     26.470832
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1291414947",
+    "name": "St Xaviers High School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 8.74
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.313289,
+     26.4829828
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027606285",
+    "name": "The Gastro Liver Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.77
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3160292,
+     26.479268
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018539753",
+    "name": "Royal Cancer Institute and Research Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.85
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3145647,
+     26.4824454
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027783656",
+    "name": "Sharma Nursing Home, Kanpur Nagar",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 8.86
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3160697,
+     26.4793556
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643217",
+    "name": "Regency Renal Sciences Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.86
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3196408,
+     26.4706637
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7038310632",
+    "name": "CGHS Dispensary, R.K.Nagar",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 8.88
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.32001,
+     26.470203
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/1291415471",
+    "name": "Hiralal Khanna College",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 8.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3202832,
+     26.4694313
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7021039196",
+    "name": "Prem Maternity Home",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3180405,
+     26.4211347
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643187",
+    "name": "Dhanvantri Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.92
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3208681,
+     26.428073
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643206",
+    "name": "Amogh Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.95
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3150207,
+     26.413784
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7026504632",
+    "name": "Utkarsh Hospital and Maternity Home",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 8.96
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3175304,
+     26.4795518
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025148897",
+    "name": "Madhuraj Multi Speciality Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3202206,
+     26.4240594
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025046367",
+    "name": "Madhulok Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.02
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3201424,
+     26.4235699
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643192",
+    "name": "Royal Children's Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.02
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3201758,
+     26.4236203
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/10959672148",
+    "name": "Good Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.03
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3194895,
+     26.4217223
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/10959672190",
+    "name": "New Shivraj Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.03
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3196676,
+     26.422144
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018940008",
+    "name": "New Shiv Raj Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.03
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3205447,
+     26.4728846
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7029338982",
+    "name": "Mehrotra Ear , Nose, Throat Hospital and Research Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.03
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3244178,
+     26.4396126
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025968842",
+    "name": "Santosh Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.06
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3058537,
+     26.4988814
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/2293280447",
+    "name": "Adarsh Saraswati vidya mandir",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.08
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3172376,
+     26.4819618
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025481522",
+    "name": "R K Devi Eye Research Institute",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.08
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3195925,
+     26.4204133
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020365852",
+    "name": "Swati Hospital and Research Center",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.09
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3081114,
+     26.4964866
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/2293298588",
+    "name": "St John School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3053232,
+     26.5000165
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7021134663",
+    "name": "Sulaxmi Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.12
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3165588,
+     26.4124031
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/11563103143",
+    "name": "Rooprani sukhandan singh mahavidyalay",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.16
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3212902,
+     26.4218358
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/12479050845",
+    "name": "Mercy Memorial School Senior Wing",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.19
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3212812,
+     26.4216757
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1352107570",
+    "name": null,
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3241168,
+     26.4301916
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1449378691",
+    "name": null,
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.21
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.324505,
+     26.4308246
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/8244500814",
+    "name": "UP Kirana School Samiti",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.23
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3240417,
+     26.4284968
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/12478830049",
+    "name": "Ghanshyamdas Shivkumar Nagarik Higher Secondary School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.25
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3094478,
+     26.497326
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/2293297523",
+    "name": "RBRD Inter college",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.26
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3266427,
+     26.441433
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027605931",
+    "name": "S D Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.26
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3232202,
+     26.4727615
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7028347032",
+    "name": "Kanpur Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 9.28
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.319435,
+     26.4151589
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643232",
+    "name": "Anuradha Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.29
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3235877,
+     26.473014
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7030526560",
+    "name": "B.R. Stone Clinic",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 9.33
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.327277,
+     26.4381365
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027572496",
+    "name": "Bhargava Medical And Trauma Centre",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 9.37
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3198902,
+     26.4841176
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018991779",
+    "name": "Paliwal Eye and Retina Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.42
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.315024,
+     26.4044301
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020160150",
+    "name": "Krishnalok Hospital, Kanpur Nagar",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.45
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3229298,
+     26.4788514
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020886876",
+    "name": "Ktc's Vedanta (A Hospital And Research Centre) Kanpur Ortho And Trauma Centre Pvt Ltd",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.47
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3224813,
+     26.4796845
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035114997",
+    "name": "Chandni Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.47
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3254947,
+     26.4728672
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020521557",
+    "name": "Navyug Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 9.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3262008,
+     26.4266655
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1349241153",
+    "name": "Delhi Public School Kidwai Nagar",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.51
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3117881,
+     26.4983439
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018666879",
+    "name": "Akshi Eye Care Centre",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 9.52
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3248114,
+     26.4757531
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7030575129",
+    "name": "Kanika Hospital Pvt Ltd",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.53
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3266269,
+     26.4263608
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/12509663661",
+    "name": "Bachpan Play School",
+    "name_local": null,
+    "kind": "kindergarten",
+    "distance_km": 9.56
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3263608,
+     26.425111
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643203",
+    "name": "ESI Hospital, Kanpur",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.57
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3267936,
+     26.4712772
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/4686324403",
+    "name": "Primary Health Center",
+    "name_local": "प्राथमिक स्वास्थ्य केन्द्र",
+    "kind": "clinic",
+    "distance_km": 9.58
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3123787,
+     26.4988679
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/955941905",
+    "name": "Pandit Deen Dayal Upadhyay School",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3270469,
+     26.4713787
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/4695005591",
+    "name": "Shanti motor driving school",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.61
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3259931,
+     26.4212057
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/12478997549",
+    "name": "Mercy Memorial School (Junior Wing)",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.66
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3139861,
+     26.4977772
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/2293323386",
+    "name": null,
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.66
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3206587,
+     26.4878566
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7028096752",
+    "name": "Khairabad Eye Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.67
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3146522,
+     26.3998309
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643283",
+    "name": "Satya Eye Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3146715,
+     26.3994503
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7021267994",
+    "name": "Rajrani Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.72
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3300111,
+     26.4294583
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643251",
+    "name": "Emerald Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3294041,
+     26.4262131
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/1352111154",
+    "name": null,
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.83
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3303629,
+     26.4689307
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035025468",
+    "name": "Prashant Nursing Home, Kanpur Nagar",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 9.86
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3118793,
+     26.3939435
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643266",
+    "name": "Sahyog Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.86
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3246691,
+     26.412936
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643257",
+    "name": "Shanti Mission Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.87
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3146814,
+     26.3972276
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643287",
+    "name": "Anil Memorial Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.87
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3297685,
+     26.4255801
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/12479081074",
+    "name": "Dr. Chiranji Lal Rashtriya Inter College",
+    "name_local": null,
+    "kind": "school",
+    "distance_km": 9.88
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3226006,
+     26.4082916
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643202",
+    "name": "Raunak Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3131154,
+     26.3948501
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643284",
+    "name": "The Expert Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3128923,
+     26.3943803
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643254",
+    "name": "S. S. Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.91
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.325028,
+     26.4854512
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7022322511",
+    "name": "Abha Nursing Home Pvt Ltd",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.95
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3333814,
+     26.4382968
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643263",
+    "name": "Gaytri Nursing Home",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 9.97
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.328964,
+     26.4201982
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035164726",
+    "name": "Shree Ram Nursing Home Pvt Ltd",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 9.98
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3293204,
+     26.4201391
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018342582",
+    "name": "S.R Hospital and Diagnostic Point",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.01
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3281649,
+     26.4164054
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643281",
+    "name": "Swastik Surgical and Maternity Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.04
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3095276,
+     26.3881898
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643248",
+    "name": "Mannat Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.09
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3116336,
+     26.3902964
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643277",
+    "name": "Krishna Hospital, Kanpur",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3350957,
+     26.4351094
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027932245",
+    "name": "Sanya Surgical Clinic",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 10.18
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3274326,
+     26.409045
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018011399",
+    "name": "Merry Gold Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.31303,
+     26.388799
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643271",
+    "name": "Uttam Hospital and Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.31
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3171224,
+     26.3929574
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643243",
+    "name": "Ramraj Hospital and Trauma Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.34
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3350672,
+     26.4271922
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643229",
+    "name": "New Angel Hospital & Research Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.35
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3357461,
+     26.468316
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7017961878",
+    "name": "Shifa Eye Research Centre(Ana Eye Hospital)",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.37
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3285672,
+     26.4095507
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7036094644",
+    "name": "Annapurna Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 10.38
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3367707,
+     26.4665567
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035491603",
+    "name": "Manama Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.43
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.323418,
+     26.396746
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643213",
+    "name": "Jagrati Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.62
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.332896,
+     26.411717
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643265",
+    "name": "J K Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.67
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3314365,
+     26.407704
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7035003246",
+    "name": "Kabeer Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.72
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3241523,
+     26.3958316
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7027932283",
+    "name": "Famity Hospital and Research Centre",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.73
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3372837,
+     26.4805512
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7038714304",
+    "name": "Excel Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.88
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3406358,
+     26.4721229
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018342626",
+    "name": "Hamid Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.94
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.33714,
+     26.4828719
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7031006644",
+    "name": "Swaroops Surgical Nursing Home",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 10.96
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3354213,
+     26.487043
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:way/116001924",
+    "name": "Government Central Textile Institute",
+    "name_local": null,
+    "kind": "college",
+    "distance_km": 10.97
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3438169,
+     26.4387576
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7020694670",
+    "name": "Huma Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 10.99
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3286391,
+     26.3970138
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643241",
+    "name": "Shifa Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.04
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3437733,
+     26.4796137
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7025610756",
+    "name": "New Leelamani Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.46
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2590829,
+     26.5493938
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/9961469617",
+    "name": "Paras Yash kothari memorial hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.48
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.344069,
+     26.4794961
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018342509",
+    "name": "Tulsi Hospitals Ltd",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.49
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3436045,
+     26.4811998
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643233",
+    "name": "McRobert Memorial Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3465098,
+     26.4760088
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7034673913",
+    "name": "CGHS Dispensary, Civil Lines",
+    "name_local": null,
+    "kind": "clinic",
+    "distance_km": 11.61
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3489359,
+     26.4727543
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7187945518",
+    "name": "UHM MALE HOSPITAL",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.76
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3486214,
+     26.4782262
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643246",
+    "name": "Amba Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.88
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.3505315,
+     26.4723152
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7506643289",
+    "name": "Ursala Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.350167,
+     26.4743257
+    ]
+   },
+   "properties": {
+    "receptor_id": "osm:node/7018918767",
+    "name": "Bhargava Hospital",
+    "name_local": null,
+    "kind": "hospital",
+    "distance_km": 11.92
+   }
+  }
+ ]
+}
