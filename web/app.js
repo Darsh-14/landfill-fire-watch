@@ -125,8 +125,8 @@
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     // Licence-required attribution, visible on every screen (OSM ODbL, Open-Meteo CC BY 4.0, NASA FIRMS).
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL) · '
-      + 'Fire data <a href="https://earthdata.nasa.gov/firms">NASA FIRMS</a> · '
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL); '
+      + 'Fire data <a href="https://earthdata.nasa.gov/firms">NASA FIRMS</a>; '
       + '<a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)',
   }).addTo(map);
   const zoomClass = () => document.getElementById("map").classList.toggle("lowzoom", map.getZoom() < 8);
@@ -258,7 +258,7 @@
       <div class="section-label">Now</div>
       ${live.length ? live.map(row).join("") : QUERY ? '<p class="empty">No live fire matches this search.</p>' : `<div class="all-clear"><div><b>No fires detected</b><span>at the ${esc(SITES.length)} watched landfills</span></div></div>
         ${replay.some((i) => i.status === "PROBABLE") ? `<button class="tour" data-id="${esc((replay.find((i) => i.site_id === "brahmapuram-kochi" && i.status === "PROBABLE") || replay.find((i) => i.status === "PROBABLE")).incident_id)}"><span><b>See how it works</b><span>Open a real past fire: Brahmapuram, Kochi, 2023</span></span>${icon("chev")}</button>` : ""}`}
-      ${replay.length ? `<div class="section-label">Past fires · replays</div>${replay.map(row).join("")}` : ""}
+      ${replay.length ? `<div class="section-label">Past fires (replays)</div>${replay.map(row).join("")}` : ""}
       <div class="section-label">Checked by a person</div>
       <div class="review-counts">
         <div><b>${count("CONFIRMED")}</b><span>confirmed</span></div><div><b>${count("FALSE_ALARM")}</b><span>false alarm</span></div>
@@ -614,7 +614,7 @@
         <p class="note">${quietAlerts} alerts in ${b.quiet_windows.length} monsoon periods with no reported fire. Weak evidence: cloud also hides fires.</p></div>
       <details class="card"><summary>Details ${icon("chev")}</summary>
         <p class="reason">NASA FIRMS archive (standard processing). Found = at least one probable fire in the window.
-          Settings frozen before the first run: <code>${esc(String(b.config_hash).slice(0, 12))}</code>, ${esc(b.freeze)}.</p>
+          Settings frozen before the first run: <span class="hash">${esc(String(b.config_hash).slice(0, 12))}</span>, ${esc(b.freeze)}.</p>
         <table><thead><tr><th>Site</th><th>Period</th><th>Matched</th><th>Alerts</th></tr></thead>
         <tbody>${b.quiet_windows.map((q) => `<tr><td>${esc(siteName(q.site_id))}</td><td>${esc(q.start)} to ${esc(q.end)}</td><td>${esc(q.matched)}</td><td>${q.incidents.length}</td></tr>`).join("")}</tbody></table>
       </details>`;

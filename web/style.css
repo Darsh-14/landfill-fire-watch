@@ -623,3 +623,37 @@ table.places td { color: var(--ink); }
 table.places td:nth-child(2) { color: var(--muted); white-space: nowrap; }
 table.places .dot { margin-right: 6px; vertical-align: 1px; }
 table.places .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------ rules 31-33: identity
+   Flat sections divided by hairlines instead of identical rounded cards; sentence-case subheads; only
+   the alert preview keeps a frame (it is the thing being approved). Numbers mark only the four steps. */
+.step, .card, .incident-item, .site-item, .review-counts div, .tour, .all-clear, .empty {
+  box-shadow: none !important; }
+:root[data-theme="light"] .step, :root[data-theme="light"] .card, :root[data-theme="light"] .incident-item,
+:root[data-theme="light"] .site-item, :root[data-theme="light"] .tour { background: transparent; }
+.step { background: transparent; border-radius: 0; padding: 16px 2px 14px; margin: 0; border-top: 0.5px solid var(--line); animation: none; }
+.card { background: transparent; border-radius: 0; padding: 14px 2px; margin: 0; border-top: 0.5px solid var(--line); }
+.incident-item, .site-item, .tour { background: transparent; border-radius: 0; margin: 0; padding: 12px 2px;
+  border-top: 0.5px solid var(--line); }
+.incident-item:hover, .site-item:hover, .tour:hover,
+:root[data-theme="light"] .incident-item:hover, :root[data-theme="light"] .site-item:hover { background: var(--surface-2); }
+.incident-item.selected { box-shadow: inset 3px 0 0 var(--tint) !important; }
+.review-counts { gap: 0; border-top: 0.5px solid var(--line); }
+.review-counts div, :root[data-theme="light"] .review-counts div { background: transparent; border-radius: 0; padding: 10px 4px; }
+.review-counts div + div { border-left: 0.5px solid var(--line); }
+.all-clear { border-radius: 0; background: transparent; padding: 12px 2px; border-top: 0.5px solid var(--line); }
+.empty { background: transparent; border-radius: 0; border-top: 0.5px solid var(--line); text-align: left; padding: 12px 2px; }
+.stat, :root[data-theme="light"] .stat { background: transparent; padding: 4px 0; border-radius: 0; }
+.kind-row div, :root[data-theme="light"] .kind-row div { background: transparent; padding: 4px 0; }
+.draft-text, :root[data-theme="light"] .draft-text { background: var(--surface-2); border: 0.5px solid var(--line-2); border-radius: 10px; }
+.section-label, .sub, .legend-group { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--muted); }
+.section-label { font-size: var(--fs-fn); margin: 20px 2px 6px; }
+.sub { font-size: var(--fs-fn); }
+.legend-group { font-size: var(--fs-sm); }
+.step-num { background: transparent; border: 1.5px solid var(--line-2); width: 24px; height: 24px; }
+.step.s-approve .step-num { background: transparent; color: var(--ink); border-color: var(--line-2); }
+.facts .badge.lg { border-radius: 6px; }
+.badge { border-radius: 6px; }
+.hash { font-variant-numeric: tabular-nums; color: var(--ink); }
+.nav-brand { box-shadow: none; }
+.brand-chip .ic { background: var(--fire); }
