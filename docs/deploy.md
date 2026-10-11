@@ -121,7 +121,7 @@ Then:
 ## 4. Deploy the dashboard (Amplify Hosting, manual deploy)
 
 ```bash
-AWS_REGION=ap-south-1 .venv/Scripts/python.exe scripts/deploy_web.py
+AWS_REGION=ap-south-1 .venv/Scripts/python.exe scripts/deploy_web.py   # add --amplify-region us-east-1 if Amplify says "maximum number of apps"
 ```
 
 It writes `web/config.js` with the stack output `ApiUrl`, creates the Amplify app and branch on the first

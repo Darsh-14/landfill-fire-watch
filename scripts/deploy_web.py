@@ -5,7 +5,7 @@
 3. Zips web/, creates a deployment, uploads the zip, starts the deployment, waits for it.
 Prints the dashboard URL. Then restrict CORS: make deploy ALERT_EMAIL=... BEDROCK_MODEL_ID=... ALLOWED_ORIGIN=<url>.
 
-Usage: python scripts/deploy_web.py [--app-name landfill-fire-watch] [--branch main]
+Usage: python scripts/deploy_web.py [--app-name landfill-fire-watch] [--branch main] [--amplify-region us-east-1]
 """
 
 from __future__ import annotations
@@ -39,6 +39,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--app-name", default="landfill-fire-watch")
     ap.add_argument("--branch", default="main")
+    # Amplify limits apps per region per account; the static site can live in another region.
+    ap.add_argument("--amplify-region", default=None, help="default: the stack region")
     args = ap.parse_args()
     api_url = stack_outputs()["ApiUrl"]
     (WEB / "config.js").write_text(
@@ -46,7 +48,7 @@ def main() -> int:
         f'window.LFW_CONFIG = {{ apiBase: "{api_url}" }};\n', encoding="utf-8", newline="\n")
     print(f"web/config.js -> {api_url}")
 
-    amp = session().client("amplify")
+    amp = session().client("amplify", region_name=args.amplify_region)
     app = next((a for a in amp.list_apps()["apps"] if a["name"] == args.app_name), None)
     if app is None:
         app = amp.create_app(name=args.app_name, platform="WEB")["app"]
