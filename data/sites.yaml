@@ -226,3 +226,84 @@
   osm_id: way/1466071635
   exclusions: []
   verified_by: null
+- site_id: corporation-landfill-tiruchirappalli
+  name: Tiruchirappalli Corporation Landfill
+  city: Tiruchirappalli
+  state: Tamil Nadu
+  polygon_path: data/sites/corporation-landfill-tiruchirappalli.geojson
+  polygon_source: osm
+  osm_id: way/109612574
+  exclusions: []
+  verified_by: null
+- site_id: turbhe-landfill-navi-mumbai
+  name: Turbhe Landfill
+  city: Navi Mumbai
+  state: Maharashtra
+  polygon_path: data/sites/turbhe-landfill-navi-mumbai.geojson
+  polygon_source: osm
+  osm_id: way/235983873
+  exclusions: []
+  verified_by: null
+- site_id: gorai-landfill-mumbai-suburban-district
+  name: Gorai Landfill
+  city: Mumbai Suburban District
+  state: Maharashtra
+  polygon_path: data/sites/gorai-landfill-mumbai-suburban-district.geojson
+  polygon_source: osm
+  osm_id: way/257455759
+  exclusions: []
+  verified_by: null
+- site_id: karnataka-compost-development-centre-kcdc-bengaluru
+  name: Karnataka Compost Development Centre - KCDC
+  city: Bengaluru
+  state: Karnataka
+  polygon_path: data/sites/karnataka-compost-development-centre-kcdc-bengaluru.geojson
+  polygon_source: osm
+  osm_id: way/287327441
+  exclusions: []
+  verified_by: null
+- site_id: karuvadikuppam-landfill-puducherry
+  name: Karuvadikuppam Landfill
+  city: Puducherry
+  state: Puducherry
+  polygon_path: data/sites/karuvadikuppam-landfill-puducherry.geojson
+  polygon_source: osm
+  osm_id: way/358822045
+  exclusions: []
+  verified_by: null
+- site_id: bingipura-quarry-pit-landfill-bengaluru-urban
+  name: Bingipura Quarry Pit Landfill
+  city: Bengaluru Urban
+  state: Karnataka
+  polygon_path: data/sites/bingipura-quarry-pit-landfill-bengaluru-urban.geojson
+  polygon_source: osm
+  osm_id: way/412929395
+  exclusions: []
+  verified_by: null
+- site_id: naregaon-municipal-dumping-ground-chhatrapati-sambhajinagar
+  name: Naregaon Municipal Dumping Ground
+  city: Chhatrapati Sambhajinagar
+  state: Maharashtra
+  polygon_path: data/sites/naregaon-municipal-dumping-ground-chhatrapati-sambhajinagar.geojson
+  polygon_source: osm
+  osm_id: way/452853983
+  exclusions: []
+  verified_by: null
+- site_id: landfill-site-mysuru
+  name: Mysuru Landfill Site
+  city: Mysuru
+  state: Karnataka
+  polygon_path: data/sites/landfill-site-mysuru.geojson
+  polygon_source: osm
+  osm_id: way/479665070
+  exclusions: []
+  verified_by: null
+- site_id: mbmc-dumping-ground-mira-bhayander
+  name: MBMC Dumping Ground
+  city: Mira-Bhayander
+  state: Maharashtra
+  polygon_path: data/sites/mbmc-dumping-ground-mira-bhayander.geojson
+  polygon_source: osm
+  osm_id: way/1258941019
+  exclusions: []
+  verified_by: null

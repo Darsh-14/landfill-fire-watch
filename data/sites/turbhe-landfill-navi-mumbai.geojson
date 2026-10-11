@@ -1,0 +1,127 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/235983873",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       73.025136,
+       19.0785239
+      ],
+      [
+       73.0235688,
+       19.0780771
+      ],
+      [
+       73.0233954,
+       19.0786117
+      ],
+      [
+       73.0232537,
+       19.0787218
+      ],
+      [
+       73.022248,
+       19.0788269
+      ],
+      [
+       73.0222699,
+       19.0795436
+      ],
+      [
+       73.0216012,
+       19.0796045
+      ],
+      [
+       73.0216521,
+       19.0799798
+      ],
+      [
+       73.0212611,
+       19.0806152
+      ],
+      [
+       73.0209328,
+       19.0805461
+      ],
+      [
+       73.0206237,
+       19.0829999
+      ],
+      [
+       73.0229143,
+       19.0834718
+      ],
+      [
+       73.0230128,
+       19.0832023
+      ],
+      [
+       73.0232334,
+       19.0832761
+      ],
+      [
+       73.023325,
+       19.0830419
+      ],
+      [
+       73.0236373,
+       19.0823266
+      ],
+      [
+       73.0236916,
+       19.0820763
+      ],
+      [
+       73.0242333,
+       19.08078
+      ],
+      [
+       73.0240004,
+       19.0806779
+      ],
+      [
+       73.0246244,
+       19.0794568
+      ],
+      [
+       73.0247851,
+       19.0795279
+      ],
+      [
+       73.025136,
+       19.0785239
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/235983873",
+    "osm_name": "Turbhe Landfill",
+    "osm_name_en": null,
+    "area_ha": 16.01,
+    "centroid_lat": 19.080885,
+    "centroid_lon": 73.022734,
+    "geometry_type": "Polygon",
+    "tags": {
+     "abandoned:landuse": "quarry",
+     "landuse": "landfill",
+     "name": "Turbhe Landfill",
+     "operator": "NMMC"
+    },
+    "state": "Maharashtra",
+    "site_id": "turbhe-landfill-navi-mumbai",
+    "retrieved_utc": "2026-10-11T12:03:13Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

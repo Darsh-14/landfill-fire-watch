@@ -1,19 +1,19 @@
 # Output of scripts/discover_sites.py: every named OSM landfill in India and the decision taken.
-retrieved_utc: '2026-10-11T09:16:30Z'
+retrieved_utc: '2026-10-11T12:03:13Z'
 query: '[out:json][timeout:300];area["ISO3166-1"="IN"]["admin_level"="2"]->.in;(way["landuse"="landfill"]["name"](area.in);relation["landuse"="landfill"]["name"](area.in););out
   tags geom;'
 response_sha256: 324050b6a79dcb933534103711f593c7e5b8bee0e9e2a79721cb965247e5de69
-min_area_ha: 20.0
+min_area_ha: 10.0
 near_existing_m: 1000.0
 merge_m: 1000.0
 elements: 223
 groups: 150
-kept: 10
+kept: 9
 decisions:
 - osm_id: way/27187397
   osm_name: Transit Dumpyard
   area_ha: 0.5
-  decision: 'skipped: 0.5 ha < 20 ha'
+  decision: 'skipped: 0.5 ha < 10 ha'
 - osm_id: way/29199633
   osm_name: Kodungaiyur Corporation Landfill
   area_ha: 128.2
@@ -21,7 +21,7 @@ decisions:
 - osm_id: way/34263673
   osm_name: Bandhwari Solid Waste Management Plant
   area_ha: 11.9
-  decision: 'skipped: 11.9 ha < 20 ha'
+  decision: 'skipped: already monitored as bandhwari-gurugram'
 - osm_id: way/76727509
   osm_name: Ghazipur Landfill
   area_ha: 29.2
@@ -33,11 +33,18 @@ decisions:
 - osm_id: way/96235922
   osm_name: Municipal Dumping Ground
   area_ha: 6.5
-  decision: 'skipped: 6.5 ha < 20 ha'
+  decision: 'skipped: 6.5 ha < 10 ha'
 - osm_id: way/109612574
   osm_name: Corporation Landfill
   area_ha: 19.0
-  decision: 'skipped: 19.0 ha < 20 ha'
+  decision: kept
+  city: Tiruchirappalli
+  state: Tamil Nadu
+  centroid:
+  - 10.804186
+  - 78.724693
+  display_name: Tiruchirappalli Corporation Landfill
+  site_id: corporation-landfill-tiruchirappalli
 - osm_id: way/114812792
   osm_name: Ash Pond
   area_ha: 180.2
@@ -46,15 +53,15 @@ decisions:
 - osm_id: way/119745527
   osm_name: Church ground
   area_ha: 1.5
-  decision: 'skipped: 1.5 ha < 20 ha'
+  decision: 'skipped: 1.5 ha < 10 ha'
 - osm_id: way/121118533
   osm_name: Velachery Landfill
   area_ha: 4.8
-  decision: 'skipped: 4.8 ha < 20 ha'
+  decision: 'skipped: 4.8 ha < 10 ha'
 - osm_id: way/124149282
   osm_name: HDMC Landfill
   area_ha: 10.0
-  decision: 'skipped: 10.0 ha < 20 ha'
+  decision: 'skipped: 10.0 ha < 10 ha'
 - osm_id: way/135169264+way/285786390
   osm_name: Mandur Landfill
   area_ha: 58.4
@@ -62,14 +69,7 @@ decisions:
 - osm_id: way/151861273
   osm_name: Mulund Dumping Ground
   area_ha: 56.1
-  decision: kept
-  city: Mumbai
-  state: Maharashtra
-  centroid:
-  - 19.168851
-  - 72.974309
-  display_name: Mulund Dumping Ground
-  site_id: mulund-dumping-ground-mumbai
+  decision: 'skipped: already monitored as mulund-dumping-ground-mumbai'
 - osm_id: way/169098263
   osm_name: Flyash Dump
   area_ha: 144.2
@@ -93,11 +93,25 @@ decisions:
 - osm_id: way/235983873
   osm_name: Turbhe Landfill
   area_ha: 16.0
-  decision: 'skipped: 16.0 ha < 20 ha'
+  decision: kept
+  city: Navi Mumbai
+  state: Maharashtra
+  centroid:
+  - 19.080885
+  - 73.022734
+  display_name: Turbhe Landfill
+  site_id: turbhe-landfill-navi-mumbai
 - osm_id: way/257455759
   osm_name: Gorai Landfill
   area_ha: 16.4
-  decision: 'skipped: 16.4 ha < 20 ha'
+  decision: kept
+  city: Mumbai Suburban District
+  state: Maharashtra
+  centroid:
+  - 19.236347
+  - 72.82655
+  display_name: Gorai Landfill
+  site_id: gorai-landfill-mumbai-suburban-district
 - osm_id: way/257455760
   osm_name: Kanjur Landfill
   area_ha: 142.8
@@ -105,22 +119,22 @@ decisions:
 - osm_id: way/257480493
   osm_name: Aadharwadi Dumping Ground
   area_ha: 8.0
-  decision: 'skipped: 8.0 ha < 20 ha'
+  decision: 'skipped: 8.0 ha < 10 ha'
 - osm_id: way/285786403
   osm_name: Mavallipura BBMP Landfill
   area_ha: 54.8
-  decision: kept
-  city: Bengaluru Urban
-  state: Karnataka
-  centroid:
-  - 13.120315
-  - 77.540389
-  display_name: Mavallipura BBMP Landfill
-  site_id: mavallipura-bbmp-landfill-bengaluru-urban
+  decision: 'skipped: already monitored as mavallipura-bbmp-landfill-bengaluru-urban'
 - osm_id: way/287327441
   osm_name: Karnataka Compost Development Centre - KCDC
   area_ha: 12.9
-  decision: 'skipped: 12.9 ha < 20 ha'
+  decision: kept
+  city: Bengaluru
+  state: Karnataka
+  centroid:
+  - 12.895877
+  - 77.649096
+  display_name: Karnataka Compost Development Centre - KCDC
+  site_id: karnataka-compost-development-centre-kcdc-bengaluru
 - osm_id: way/289511744
   osm_name: Deonar Municipal Dumping Ground
   area_ha: 127.5
@@ -128,18 +142,11 @@ decisions:
 - osm_id: way/321136517
   osm_name: Municipal Landfill
   area_ha: 42.2
-  decision: kept
-  city: Ahmedabad
-  state: Gujarat
-  centroid:
-  - 22.980903
-  - 72.566926
-  display_name: Ahmedabad Municipal Landfill
-  site_id: municipal-landfill-ahmedabad
+  decision: 'skipped: already monitored as municipal-landfill-ahmedabad'
 - osm_id: way/323047913
   osm_name: BEML Scrapyard
   area_ha: 2.6
-  decision: 'skipped: 2.6 ha < 20 ha'
+  decision: 'skipped: 2.6 ha < 10 ha'
 - osm_id: way/325363390
   osm_name: Dhapa Landfill
   area_ha: 61.5
@@ -147,7 +154,7 @@ decisions:
 - osm_id: way/326117863
   osm_name: Dumping Ground
   area_ha: 0.1
-  decision: 'skipped: 0.1 ha < 20 ha'
+  decision: 'skipped: 0.1 ha < 10 ha'
 - osm_id: way/338817474+way/338817475+way/338817477
   osm_name: Fly Ash Pond
   area_ha: 87.1
@@ -161,65 +168,66 @@ decisions:
 - osm_id: way/358822045
   osm_name: Karuvadikuppam Landfill
   area_ha: 11.1
-  decision: 'skipped: 11.1 ha < 20 ha'
+  decision: kept
+  city: Puducherry
+  state: Puducherry
+  centroid:
+  - 11.973539
+  - 79.810343
+  display_name: Karuvadikuppam Landfill
+  site_id: karuvadikuppam-landfill-puducherry
 - osm_id: way/362823777
   osm_name: Municipal Waste Management
   area_ha: 0.7
-  decision: 'skipped: 0.7 ha < 20 ha'
+  decision: 'skipped: 0.7 ha < 10 ha'
 - osm_id: way/362920024
   osm_name: Dumping Ground
   area_ha: 3.4
-  decision: 'skipped: 3.4 ha < 20 ha'
+  decision: 'skipped: 3.4 ha < 10 ha'
 - osm_id: way/364607640
   osm_name: Municipal Landfill
   area_ha: 26.5
-  decision: kept
-  city: Ranchi
-  state: Jharkhand
-  centroid:
-  - 23.411273
-  - 85.255512
-  display_name: Ranchi Municipal Landfill
-  site_id: municipal-landfill-ranchi
+  decision: 'skipped: already monitored as municipal-landfill-ranchi'
 - osm_id: way/373416266
   osm_name: Coal Dump
   area_ha: 14.1
-  decision: 'skipped: 14.1 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/383857988
   osm_name: Kannadapalayam Dumpyard
   area_ha: 2.1
-  decision: 'skipped: 2.1 ha < 20 ha'
+  decision: 'skipped: 2.1 ha < 10 ha'
 - osm_id: way/395236229+way/395236230
   osm_name: Diva Dumping Ground
   area_ha: 9.3
-  decision: 'skipped: 9.3 ha < 20 ha'
+  decision: 'skipped: 9.3 ha < 10 ha'
 - osm_id: way/395250720
   osm_name: Uran Dumping Ground
   area_ha: 1.3
-  decision: 'skipped: 1.3 ha < 20 ha'
+  decision: 'skipped: 1.3 ha < 10 ha'
 - osm_id: way/409736544
   osm_name: Vadavathoor MSW dumping yard
   area_ha: 1.9
-  decision: 'skipped: 1.9 ha < 20 ha'
+  decision: 'skipped: 1.9 ha < 10 ha'
 - osm_id: way/412912334+way/412912335+way/412912336
   osm_name: Terra Firma Landfill
   area_ha: 29.0
-  decision: kept
-  city: Bengaluru North
-  state: Karnataka
-  centroid:
-  - 13.323188
-  - 77.373849
-  display_name: Terra Firma Landfill
-  site_id: terra-firma-landfill-bengaluru-north
+  decision: 'skipped: already monitored as terra-firma-landfill-bengaluru-north'
 - osm_id: way/412929395
   osm_name: Bingipura Quarry Pit Landfill
   area_ha: 10.6
-  decision: 'skipped: 10.6 ha < 20 ha'
+  decision: kept
+  city: Bengaluru Urban
+  state: Karnataka
+  centroid:
+  - 12.835484
+  - 77.627061
+  display_name: Bingipura Quarry Pit Landfill
+  site_id: bingipura-quarry-pit-landfill-bengaluru-urban
 - osm_id: way/412940000
   osm_name: Lakshmipura Quarry Pit Landfill
   area_ha: 2.7
-  decision: 'skipped: 2.7 ha < 20 ha'
+  decision: 'skipped: 2.7 ha < 10 ha'
 - osm_id: way/414943488
   osm_name: Bhalswa Landfill Area
   area_ha: 27.9
@@ -227,11 +235,11 @@ decisions:
 - osm_id: way/441770011
   osm_name: Tisaiyanvillai Garbage yard
   area_ha: 3.2
-  decision: 'skipped: 3.2 ha < 20 ha'
+  decision: 'skipped: 3.2 ha < 10 ha'
 - osm_id: way/442154694
   osm_name: Jind city landfill
   area_ha: 2.0
-  decision: 'skipped: 2.0 ha < 20 ha'
+  decision: 'skipped: 2.0 ha < 10 ha'
 - osm_id: way/444863283
   osm_name: NTPC Ash Ground
   area_ha: 154.2
@@ -240,7 +248,14 @@ decisions:
 - osm_id: way/452853983
   osm_name: Naregaon Municipal Dumping Ground
   area_ha: 18.0
-  decision: 'skipped: 18.0 ha < 20 ha'
+  decision: kept
+  city: Chhatrapati Sambhajinagar
+  state: Maharashtra
+  centroid:
+  - 19.89277
+  - 75.398441
+  display_name: Naregaon Municipal Dumping Ground
+  site_id: naregaon-municipal-dumping-ground-chhatrapati-sambhajinagar
 - osm_id: way/453982651
   osm_name: Slag Dumping
   area_ha: 119.5
@@ -254,7 +269,8 @@ decisions:
 - osm_id: way/464283150
   osm_name: Rajghat Thermal Power Station Flyash Dump
   area_ha: 14.8
-  decision: 'skipped: 14.8 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/478811346
   osm_name: Flyash Dump
   area_ha: 47.0
@@ -263,45 +279,38 @@ decisions:
 - osm_id: way/479665070
   osm_name: Landfill Site
   area_ha: 19.2
-  decision: 'skipped: 19.2 ha < 20 ha'
+  decision: kept
+  city: Mysuru
+  state: Karnataka
+  centroid:
+  - 12.268961
+  - 76.655261
+  display_name: Mysuru Landfill Site
+  site_id: landfill-site-mysuru
 - osm_id: way/485107718
   osm_name: Solide waste management centre
   area_ha: 0.5
-  decision: 'skipped: 0.5 ha < 20 ha'
+  decision: 'skipped: 0.5 ha < 10 ha'
 - osm_id: way/487133036
   osm_name: GVMC Dumpyard
   area_ha: 41.9
-  decision: kept
-  city: Visakhapatnam
-  state: Andhra Pradesh
-  centroid:
-  - 17.839694
-  - 83.370819
-  display_name: GVMC Dumpyard
-  site_id: gvmc-dumpyard-visakhapatnam
+  decision: 'skipped: already monitored as gvmc-dumpyard-visakhapatnam'
 - osm_id: way/489404277
   osm_name: Unofficial garbage dump
   area_ha: 0.6
-  decision: 'skipped: 0.6 ha < 20 ha'
+  decision: 'skipped: 0.6 ha < 10 ha'
 - osm_id: way/506689493+way/506689494
   osm_name: Municipal Landfill
   area_ha: 49.0
-  decision: kept
-  city: Kanpur
-  state: Uttar Pradesh
-  centroid:
-  - 26.448678
-  - 80.233937
-  display_name: Kanpur Municipal Landfill
-  site_id: municipal-landfill-kanpur
+  decision: 'skipped: already monitored as municipal-landfill-kanpur'
 - osm_id: way/551667817
   osm_name: Ottupatrai Dumping Ground
   area_ha: 2.7
-  decision: 'skipped: 2.7 ha < 20 ha'
+  decision: 'skipped: 2.7 ha < 10 ha'
 - osm_id: way/596505749
   osm_name: Municipal Landfill
   area_ha: 1.0
-  decision: 'skipped: 1.0 ha < 20 ha'
+  decision: 'skipped: 1.0 ha < 10 ha'
 - osm_id: way/608169272
   osm_name: Okhla Landfill
   area_ha: 25.8
@@ -309,11 +318,11 @@ decisions:
 - osm_id: way/620052248
   osm_name: Free land
   area_ha: 0.4
-  decision: 'skipped: 0.4 ha < 20 ha'
+  decision: 'skipped: 0.4 ha < 10 ha'
 - osm_id: way/627628781
   osm_name: Dumping Ground
   area_ha: 0.7
-  decision: 'skipped: 0.7 ha < 20 ha'
+  decision: 'skipped: 0.7 ha < 10 ha'
 - osm_id: way/649092824
   osm_name: Flyash Pond
   area_ha: 200.8
@@ -327,14 +336,7 @@ decisions:
 - osm_id: way/693099677
   osm_name: Municipal Landfill
   area_ha: 26.9
-  decision: kept
-  city: Ganderbal
-  state: Jammu and Kashmir
-  centroid:
-  - 34.12443
-  - 74.786019
-  display_name: Ganderbal Municipal Landfill
-  site_id: municipal-landfill-ganderbal
+  decision: 'skipped: already monitored as municipal-landfill-ganderbal'
 - osm_id: way/703209421+way/703209422
   osm_name: Flyash Pond
   area_ha: 116.2
@@ -343,7 +345,7 @@ decisions:
 - osm_id: way/743547329
   osm_name: ozhy paramb
   area_ha: 0.4
-  decision: 'skipped: 0.4 ha < 20 ha'
+  decision: 'skipped: 0.4 ha < 10 ha'
 - osm_id: way/746273428
   osm_name: Tailings Dump
   area_ha: 40.8
@@ -352,11 +354,11 @@ decisions:
 - osm_id: way/762182998
   osm_name: plot
   area_ha: 0.2
-  decision: 'skipped: 0.2 ha < 20 ha'
+  decision: 'skipped: 0.2 ha < 10 ha'
 - osm_id: way/800282264
   osm_name: Njeliyanparambu Garbage Dump
   area_ha: 6.8
-  decision: 'skipped: 6.8 ha < 20 ha'
+  decision: 'skipped: 6.8 ha < 10 ha'
 - osm_id: way/821735579
   osm_name: Ash Dump
   area_ha: 70.7
@@ -380,31 +382,32 @@ decisions:
 - osm_id: way/847483976
   osm_name: Pragathi Nagar Dumpyard
   area_ha: 1.2
-  decision: 'skipped: 1.2 ha < 20 ha'
+  decision: 'skipped: 1.2 ha < 10 ha'
 - osm_id: way/892185545+way/892185758
   osm_name: FIELD
   area_ha: 1.0
-  decision: 'skipped: 1.0 ha < 20 ha'
+  decision: 'skipped: 1.0 ha < 10 ha'
 - osm_id: way/976685904
   osm_name: Plot for Housing
   area_ha: 0.4
-  decision: 'skipped: 0.4 ha < 20 ha'
+  decision: 'skipped: 0.4 ha < 10 ha'
 - osm_id: way/1046050721
   osm_name: Flyash dump
   area_ha: 16.4
-  decision: 'skipped: 16.4 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/1064628471
   osm_name: Poovara estate trenching ground
   area_ha: 1.0
-  decision: 'skipped: 1.0 ha < 20 ha'
+  decision: 'skipped: 1.0 ha < 10 ha'
 - osm_id: way/1069831666
   osm_name: NMMC Dumping Ground
   area_ha: 2.6
-  decision: 'skipped: 2.6 ha < 20 ha'
+  decision: 'skipped: 2.6 ha < 10 ha'
 - osm_id: way/1072611772
   osm_name: Chittoor Municipal Corporation Landfill
   area_ha: 6.5
-  decision: 'skipped: 6.5 ha < 20 ha'
+  decision: 'skipped: 6.5 ha < 10 ha'
 - osm_id: way/1096392408
   osm_name: Coal Ash Pond
   area_ha: 70.6
@@ -413,19 +416,19 @@ decisions:
 - osm_id: way/1119802854
   osm_name: Bagalur Landfill
   area_ha: 6.0
-  decision: 'skipped: 6.0 ha < 20 ha'
+  decision: 'skipped: 6.0 ha < 10 ha'
 - osm_id: way/1119802855
   osm_name: Mitaganahalli Landfill
   area_ha: 7.3
-  decision: 'skipped: 7.3 ha < 20 ha'
+  decision: 'skipped: 7.3 ha < 10 ha'
 - osm_id: way/1119802856
   osm_name: Bellahalli Landfill
   area_ha: 3.4
-  decision: 'skipped: 3.4 ha < 20 ha'
+  decision: 'skipped: 3.4 ha < 10 ha'
 - osm_id: way/1153050259
   osm_name: Mapusa Municipal Landfill
   area_ha: 6.8
-  decision: 'skipped: 6.8 ha < 20 ha'
+  decision: 'skipped: 6.8 ha < 10 ha'
 - osm_id: way/1227636895
   osm_name: Flyash Dump
   area_ha: 71.0
@@ -439,249 +442,248 @@ decisions:
 - osm_id: way/1236765218
   osm_name: Kundrathur Landfill
   area_ha: 1.3
-  decision: 'skipped: 1.3 ha < 20 ha'
+  decision: 'skipped: 1.3 ha < 10 ha'
 - osm_id: way/1258941019
   osm_name: MBMC Dumping Ground
   area_ha: 11.7
-  decision: 'skipped: 11.7 ha < 20 ha'
+  decision: kept
+  city: Mira-Bhayander
+  state: Maharashtra
+  centroid:
+  - 19.28766
+  - 72.794451
+  display_name: MBMC Dumping Ground
+  site_id: mbmc-dumping-ground-mira-bhayander
 - osm_id: way/1262085027
   osm_name: Bhramapuram Solid waste treatment plant
   area_ha: 6.5
-  decision: 'skipped: 6.5 ha < 20 ha'
+  decision: 'skipped: 6.5 ha < 10 ha'
 - osm_id: way/1283241727
   osm_name: MARTEN
   area_ha: 2.9
-  decision: 'skipped: 2.9 ha < 20 ha'
+  decision: 'skipped: 2.9 ha < 10 ha'
 - osm_id: way/1292312057
   osm_name: LANDS
   area_ha: 0.1
-  decision: 'skipped: 0.1 ha < 20 ha'
+  decision: 'skipped: 0.1 ha < 10 ha'
 - osm_id: way/1319691656
   osm_name: Sector 23 Dumping Ground
   area_ha: 4.6
-  decision: 'skipped: 4.6 ha < 20 ha'
+  decision: 'skipped: 4.6 ha < 10 ha'
 - osm_id: way/1324036780
   osm_name: Uncultivated land
   area_ha: 5.8
-  decision: 'skipped: 5.8 ha < 20 ha'
+  decision: 'skipped: 5.8 ha < 10 ha'
 - osm_id: way/1335290741+way/1361059851
   osm_name: Illegal Garbage Dumping Site
   area_ha: 0.2
-  decision: 'skipped: 0.2 ha < 20 ha'
+  decision: 'skipped: 0.2 ha < 10 ha'
 - osm_id: way/1341216716
   osm_name: Illegal Trash Dump
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1341467090
   osm_name: Illegal Waste Dump
   area_ha: 0.1
-  decision: 'skipped: 0.1 ha < 20 ha'
+  decision: 'skipped: 0.1 ha < 10 ha'
 - osm_id: way/1354135994
   osm_name: Leaf Compost
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1355622228+way/1374619093+way/1374619105+way/1374619106+way/1374619127+way/1376060718+way/1376651393+way/1376651398+way/1380922476+way/1421470592+way/1423466851+way/1424121264+way/1427516396+way/1427849484+way/1431889818+way/1442060697+way/1489326534+way/1490425013+way/1517014951+way/1518244417+way/1518244422+way/1518244427+way/1518590202+way/1523385869+way/1523392560+way/1524873504
   osm_name: Illegal Dump Site
   area_ha: 0.4
-  decision: 'skipped: 0.4 ha < 20 ha'
+  decision: 'skipped: 0.4 ha < 10 ha'
 - osm_id: way/1359588100+way/1362276487+way/1364411613
   osm_name: Illegal Dump Site
   area_ha: 0.1
-  decision: 'skipped: 0.1 ha < 20 ha'
+  decision: 'skipped: 0.1 ha < 10 ha'
 - osm_id: way/1360871674+way/1360883892+way/1360883898
   osm_name: Illegal Dump Site
   area_ha: 0.2
-  decision: 'skipped: 0.2 ha < 20 ha'
+  decision: 'skipped: 0.2 ha < 10 ha'
 - osm_id: way/1360883908
   osm_name: Market Waste Dump
   area_ha: 0.3
-  decision: 'skipped: 0.3 ha < 20 ha'
+  decision: 'skipped: 0.3 ha < 10 ha'
 - osm_id: way/1368281244
   osm_name: Illegal Dump Site
   area_ha: 0.1
-  decision: 'skipped: 0.1 ha < 20 ha'
+  decision: 'skipped: 0.1 ha < 10 ha'
 - osm_id: way/1375593803
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1382750448
   osm_name: Illegal Dump Site
   area_ha: 0.1
-  decision: 'skipped: 0.1 ha < 20 ha'
+  decision: 'skipped: 0.1 ha < 10 ha'
 - osm_id: way/1386099086
   osm_name: Dump
   area_ha: 1.7
-  decision: 'skipped: 1.7 ha < 20 ha'
+  decision: 'skipped: 1.7 ha < 10 ha'
 - osm_id: way/1387674205+way/1463607345
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1390926976
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1392345563+way/1392345567+way/1392345577
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1396814054+way/1396814056+way/1396814057+way/1547424954+way/1547424955+way/1547424956+way/1547424957+way/1547424958
   osm_name: Ore Dumps
   area_ha: 18.9
-  decision: 'skipped: 18.9 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/1409494804+way/1544891051+way/1544891052+way/1544891053+way/1544891054
   osm_name: Ore Dumps
   area_ha: 10.9
-  decision: 'skipped: 10.9 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/1410345684
   osm_name: Trash Hill Side
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1413181429
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1413181431
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1417667455+way/1524537040
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1418254465
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1418254466+way/1422782531
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1418303886
   osm_name: Ramanchak Bairiya Landfill
   area_ha: 35.5
-  decision: kept
-  city: Patna
-  state: Bihar
-  centroid:
-  - 25.567394
-  - 85.178053
-  display_name: Ramanchak Bairiya Landfill
-  site_id: ramanchak-bairiya-landfill-patna
+  decision: 'skipped: already monitored as ramanchak-bairiya-landfill-patna'
 - osm_id: way/1419367291
   osm_name: Trash Pit
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1424638598
   osm_name: Soil Dump
   area_ha: 0.3
-  decision: 'skipped: 0.3 ha < 20 ha'
+  decision: 'skipped: 0.3 ha < 10 ha'
 - osm_id: way/1428908901
   osm_name: Wet Waste Dump
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1429075374
   osm_name: Radaur Landfill
   area_ha: 0.9
-  decision: 'skipped: 0.9 ha < 20 ha'
+  decision: 'skipped: 0.9 ha < 10 ha'
 - osm_id: way/1430321715
   osm_name: Sand Dump
   area_ha: 0.1
-  decision: 'skipped: 0.1 ha < 20 ha'
+  decision: 'skipped: 0.1 ha < 10 ha'
 - osm_id: way/1444831039
   osm_name: Illegal Glass Bottle Dump
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1452243785
   osm_name: Mining Dump
   area_ha: 8.4
-  decision: 'skipped: 8.4 ha < 20 ha'
+  decision: 'skipped: 8.4 ha < 10 ha'
 - osm_id: way/1461959961
   osm_name: Illegal Dumping Ground
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1462375167
   osm_name: Illegal Dumping Ground
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1462735392
   osm_name: Illegal Waste Dump
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1464570476
   osm_name: Illegal Waste Dump
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1466071635
   osm_name: Nashik Municipal Dumping Ground
   area_ha: 20.2
-  decision: kept
-  city: Nashik
-  state: Maharashtra
-  centroid:
-  - 19.934612
-  - 73.740216
-  display_name: Nashik Municipal Dumping Ground
-  site_id: nashik-municipal-dumping-ground-nashik
+  decision: 'skipped: already monitored as nashik-municipal-dumping-ground-nashik'
 - osm_id: way/1475666323
   osm_name: Iron Ore Yard
   area_ha: 11.4
-  decision: 'skipped: 11.4 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/1475666326
   osm_name: Adani Coal Yard
   area_ha: 4.1
-  decision: 'skipped: 4.1 ha < 20 ha'
+  decision: 'skipped: 4.1 ha < 10 ha'
 - osm_id: way/1475666330
   osm_name: JSW Coal Yard
   area_ha: 4.8
-  decision: 'skipped: 4.8 ha < 20 ha'
+  decision: 'skipped: 4.8 ha < 10 ha'
 - osm_id: way/1491074545
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1495380909+way/1547423984
   osm_name: Ore Dump
   area_ha: 16.9
-  decision: 'skipped: 16.9 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/1498111143
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1498685842+way/1498685843
   osm_name: Ore Dump
   area_ha: 19.5
-  decision: 'skipped: 19.5 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/1518565062
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1521101849+way/1521101850
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1533582150
   osm_name: Illegal Dump Site
   area_ha: 0.2
-  decision: 'skipped: 0.2 ha < 20 ha'
+  decision: 'skipped: 0.2 ha < 10 ha'
 - osm_id: way/1544782106+way/1544782107
   osm_name: Ore Dumps
   area_ha: 3.1
-  decision: 'skipped: 3.1 ha < 20 ha'
+  decision: 'skipped: 3.1 ha < 10 ha'
 - osm_id: way/1544888755+way/1544888756
   osm_name: Ore Dumps
   area_ha: 7.4
-  decision: 'skipped: 7.4 ha < 20 ha'
+  decision: 'skipped: 7.4 ha < 10 ha'
 - osm_id: way/1544893056+way/1544893057
   osm_name: Ore Dumps
   area_ha: 2.2
-  decision: 'skipped: 2.2 ha < 20 ha'
+  decision: 'skipped: 2.2 ha < 10 ha'
 - osm_id: way/1547422119+way/1547422120+way/1547422121+way/1547422122+way/1547422123+way/1547422124+way/1547422125+way/1547422126
   osm_name: Ore Dumps
   area_ha: 13.2
-  decision: 'skipped: 13.2 ha < 20 ha'
+  decision: 'skipped: industrial waste by name (ash, slag, tailings, mine spoil),
+    not municipal'
 - osm_id: way/1547423978
   osm_name: Ore Dumps
   area_ha: 0.7
-  decision: 'skipped: 0.7 ha < 20 ha'
+  decision: 'skipped: 0.7 ha < 10 ha'
 - osm_id: way/1549535907
   osm_name: Reclaimed Sea Land - Ash Dyke A1
   area_ha: 168.4
@@ -690,16 +692,16 @@ decisions:
 - osm_id: way/1553558891
   osm_name: Illegal Dumping Ground
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1556777400
   osm_name: GDA Landfill And garbage incinerator
   area_ha: 0.2
-  decision: 'skipped: 0.2 ha < 20 ha'
+  decision: 'skipped: 0.2 ha < 10 ha'
 - osm_id: way/1560802958
   osm_name: Illegal Dump Site
   area_ha: 0.0
-  decision: 'skipped: 0.0 ha < 20 ha'
+  decision: 'skipped: 0.0 ha < 10 ha'
 - osm_id: way/1565341106
   osm_name: AMC Landfill
   area_ha: 3.5
-  decision: 'skipped: 3.5 ha < 20 ha'
+  decision: 'skipped: 3.5 ha < 10 ha'

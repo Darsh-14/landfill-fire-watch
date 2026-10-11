@@ -1,0 +1,105 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/358822045",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       79.8094511,
+       11.9745207
+      ],
+      [
+       79.8093771,
+       11.9744479
+      ],
+      [
+       79.8091708,
+       11.974002
+      ],
+      [
+       79.8065634,
+       11.9679942
+      ],
+      [
+       79.8061237,
+       11.9683459
+      ],
+      [
+       79.8068416,
+       11.9701546
+      ],
+      [
+       79.8072753,
+       11.9700168
+      ],
+      [
+       79.8088385,
+       11.9737869
+      ],
+      [
+       79.8093365,
+       11.974684
+      ],
+      [
+       79.8106057,
+       11.9768284
+      ],
+      [
+       79.8119167,
+       11.974895
+      ],
+      [
+       79.8133773,
+       11.9723694
+      ],
+      [
+       79.8130864,
+       11.9722617
+      ],
+      [
+       79.8126571,
+       11.9726393
+      ],
+      [
+       79.810857,
+       11.9731829
+      ],
+      [
+       79.8101982,
+       11.9742896
+      ],
+      [
+       79.8094511,
+       11.9745207
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/358822045",
+    "osm_name": "Karuvadikuppam Landfill",
+    "osm_name_en": null,
+    "area_ha": 11.08,
+    "centroid_lat": 11.973539,
+    "centroid_lon": 79.810343,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Karuvadikuppam Landfill"
+    },
+    "state": "Puducherry",
+    "site_id": "karuvadikuppam-landfill-puducherry",
+    "retrieved_utc": "2026-10-11T12:03:13Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

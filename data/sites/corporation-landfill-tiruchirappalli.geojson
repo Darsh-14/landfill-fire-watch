@@ -1,0 +1,113 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/109612574",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       78.7218151,
+       10.8063705
+      ],
+      [
+       78.7218134,
+       10.8037322
+      ],
+      [
+       78.7245072,
+       10.8036082
+      ],
+      [
+       78.7243885,
+       10.8024243
+      ],
+      [
+       78.7261216,
+       10.8021251
+      ],
+      [
+       78.7271512,
+       10.8018722
+      ],
+      [
+       78.727415,
+       10.8018027
+      ],
+      [
+       78.7277882,
+       10.8017058
+      ],
+      [
+       78.7279837,
+       10.8025014
+      ],
+      [
+       78.727063,
+       10.8027617
+      ],
+      [
+       78.7273176,
+       10.8045062
+      ],
+      [
+       78.7264523,
+       10.8047602
+      ],
+      [
+       78.7264558,
+       10.8053054
+      ],
+      [
+       78.7253599,
+       10.8053773
+      ],
+      [
+       78.7242905,
+       10.8054994
+      ],
+      [
+       78.7241952,
+       10.8061414
+      ],
+      [
+       78.7239227,
+       10.8062571
+      ],
+      [
+       78.7229139,
+       10.8063158
+      ],
+      [
+       78.7218151,
+       10.8063705
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/109612574",
+    "osm_name": "Corporation Landfill",
+    "osm_name_en": null,
+    "area_ha": 19.0,
+    "centroid_lat": 10.804186,
+    "centroid_lon": 78.724693,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Corporation Landfill"
+    },
+    "state": "Tamil Nadu",
+    "site_id": "corporation-landfill-tiruchirappalli",
+    "retrieved_utc": "2026-10-11T12:03:13Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

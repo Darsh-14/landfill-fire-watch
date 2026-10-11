@@ -1,0 +1,113 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/452853983",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       75.3969598,
+       19.8908164
+      ],
+      [
+       75.3974084,
+       19.8895884
+      ],
+      [
+       75.3998868,
+       19.8893463
+      ],
+      [
+       75.3988353,
+       19.8905872
+      ],
+      [
+       75.3985691,
+       19.8909576
+      ],
+      [
+       75.3987408,
+       19.8910282
+      ],
+      [
+       75.3989768,
+       19.8916134
+      ],
+      [
+       75.3994972,
+       19.8918252
+      ],
+      [
+       75.3997707,
+       19.8920573
+      ],
+      [
+       75.4001033,
+       19.8926273
+      ],
+      [
+       75.4001033,
+       19.8928341
+      ],
+      [
+       75.3999692,
+       19.8931368
+      ],
+      [
+       75.3999853,
+       19.8935403
+      ],
+      [
+       75.3996313,
+       19.8937623
+      ],
+      [
+       75.4002321,
+       19.8948298
+      ],
+      [
+       75.4004788,
+       19.895768
+      ],
+      [
+       75.3989124,
+       19.8955158
+      ],
+      [
+       75.3970563,
+       19.8951425
+      ],
+      [
+       75.3969598,
+       19.8908164
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/452853983",
+    "osm_name": "Naregaon Municipal Dumping Ground",
+    "osm_name_en": null,
+    "area_ha": 18.0,
+    "centroid_lat": 19.89277,
+    "centroid_lon": 75.398441,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Naregaon Municipal Dumping Ground"
+    },
+    "state": "Maharashtra",
+    "site_id": "naregaon-municipal-dumping-ground-chhatrapati-sambhajinagar",
+    "retrieved_utc": "2026-10-11T12:03:13Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

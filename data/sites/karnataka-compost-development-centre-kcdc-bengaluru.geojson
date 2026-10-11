@@ -1,0 +1,129 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/287327441",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       77.6476749,
+       12.8938746
+      ],
+      [
+       77.6477033,
+       12.8943399
+      ],
+      [
+       77.6483052,
+       12.8943085
+      ],
+      [
+       77.6483712,
+       12.8949361
+      ],
+      [
+       77.6490578,
+       12.8948079
+      ],
+      [
+       77.6490337,
+       12.8947008
+      ],
+      [
+       77.6491115,
+       12.8946955
+      ],
+      [
+       77.6489812,
+       12.8936941
+      ],
+      [
+       77.6502901,
+       12.8935581
+      ],
+      [
+       77.6505583,
+       12.8960681
+      ],
+      [
+       77.650981,
+       12.8976081
+      ],
+      [
+       77.6503028,
+       12.8975736
+      ],
+      [
+       77.6499488,
+       12.8975555
+      ],
+      [
+       77.6495943,
+       12.8975375
+      ],
+      [
+       77.6486313,
+       12.8975262
+      ],
+      [
+       77.6483349,
+       12.8975227
+      ],
+      [
+       77.6482639,
+       12.8975219
+      ],
+      [
+       77.6473332,
+       12.8975349
+      ],
+      [
+       77.6473895,
+       12.8967296
+      ],
+      [
+       77.6473734,
+       12.895744
+      ],
+      [
+       77.6475907,
+       12.8952237
+      ],
+      [
+       77.6475397,
+       12.8939007
+      ],
+      [
+       77.6476749,
+       12.8938746
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/287327441",
+    "osm_name": "Karnataka Compost Development Centre - KCDC",
+    "osm_name_en": null,
+    "area_ha": 12.94,
+    "centroid_lat": 12.895877,
+    "centroid_lon": 77.649096,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Karnataka Compost Development Centre - KCDC"
+    },
+    "state": "Karnataka",
+    "site_id": "karnataka-compost-development-centre-kcdc-bengaluru",
+    "retrieved_utc": "2026-10-11T12:03:13Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

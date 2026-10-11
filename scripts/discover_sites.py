@@ -42,9 +42,9 @@ NEAR_EXISTING_M = 1000.0  # closer than this to a monitored outline = the same l
 MERGE_M = 1000.0          # same-name pieces closer than this are one landfill
 # OSM also tags industrial waste as landuse=landfill. WeSave watches municipal solid waste, which
 # burns; ash ponds, slag and mine tailings sit next to plants whose heat would read as hotspots.
-INDUSTRIAL = re.compile(r"\b(fly ?ash|ash|slag|tailings?|spoil|cyanide|mine|red mud|sludge)\b", re.I)
+INDUSTRIAL = re.compile(r"\b(fly ?ash|ash|slag|tailings?|spoil|cyanide|mine|red mud|sludge|coal|ore|iron)\b", re.I)
 # A name made only of these words says nothing on its own ("Municipal Landfill"); the city is prefixed.
-GENERIC = {"municipal", "landfill", "dump", "dumping", "dumpyard", "ground", "yard", "site", "garbage", "waste"}
+GENERIC = {"municipal", "corporation", "landfill", "dump", "dumping", "dumpyard", "ground", "yard", "site", "garbage", "waste"}
 REPORT = ROOT / "data" / "sites_discovery_report.yaml"
 CACHE = ROOT / "cache" / "osm" / "landfills_india.json"
 

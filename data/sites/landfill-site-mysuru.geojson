@@ -1,0 +1,69 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/479665070",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       76.6520914,
+       12.2674451
+      ],
+      [
+       76.6522631,
+       12.2700766
+      ],
+      [
+       76.6558572,
+       12.2695524
+      ],
+      [
+       76.6562488,
+       12.2713661
+      ],
+      [
+       76.6580566,
+       12.2710568
+      ],
+      [
+       76.6580727,
+       12.2705379
+      ],
+      [
+       76.6574625,
+       12.2674229
+      ],
+      [
+       76.6520914,
+       12.2674451
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/479665070",
+    "osm_name": "Landfill Site",
+    "osm_name_en": null,
+    "area_ha": 19.22,
+    "centroid_lat": 12.268961,
+    "centroid_lon": 76.655261,
+    "geometry_type": "Polygon",
+    "tags": {
+     "landuse": "landfill",
+     "name": "Landfill Site"
+    },
+    "state": "Karnataka",
+    "site_id": "landfill-site-mysuru",
+    "retrieved_utc": "2026-10-11T12:03:13Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}

@@ -58,4 +58,12 @@ of a monitored outline, and not industrial waste by name (ash, fly ash, slag, ta
 sludge: 23 such areas were excluded). That added 10 sites, each with `verified_by: null`; the dashboard shows their
 outlines dashed. City and state are from Nominatim reverse geocoding. Generic OSM names ("Municipal Landfill") get
 the city in front. Whether "Ahmedabad Municipal Landfill" is the Pirana site was not checked. Every decision is in
-`data/sites_discovery_report.yaml`. 21 sites are monitored in total; the MVP aimed for 15–25.
+`data/sites_discovery_report.yaml`.
+
+Second run, same day and same saved Overpass response, minimum 10 ha: 9 more named municipal landfills of 10 to 20 ha
+(Tiruchirappalli, Turbhe in Navi Mumbai, Gorai in Mumbai, KCDC and Bingipura in Bengaluru, Karuvadikuppam in
+Puducherry, Naregaon in Chhatrapati Sambhajinagar, Mysuru, MBMC in Mira-Bhayander). The industrial filter was
+extended to coal and ore dumps after it let through Goa's ore dumps and a coal dump. These sites are smaller than one
+VIIRS pixel (about 14 ha), so a hotspot matched to them is more likely to come from neighbouring land. The report
+file holds the latest run; the first run's 10 sites appear there as "already monitored". 30 sites are monitored in
+total.

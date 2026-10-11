@@ -1,0 +1,95 @@
+{
+ "type": "FeatureCollection",
+ "attribution": "© OpenStreetMap contributors",
+ "license": "ODbL-1.0",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "way/257455759",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       72.8285982,
+       19.235913
+      ],
+      [
+       72.8284259,
+       19.2345043
+      ],
+      [
+       72.8271108,
+       19.2345685
+      ],
+      [
+       72.8269975,
+       19.2340162
+      ],
+      [
+       72.8257912,
+       19.2341618
+      ],
+      [
+       72.8254556,
+       19.2343245
+      ],
+      [
+       72.8252788,
+       19.2345985
+      ],
+      [
+       72.8250003,
+       19.234923
+      ],
+      [
+       72.8246781,
+       19.2371819
+      ],
+      [
+       72.8247589,
+       19.2379108
+      ],
+      [
+       72.8259659,
+       19.2388173
+      ],
+      [
+       72.8273017,
+       19.2384881
+      ],
+      [
+       72.8284942,
+       19.2364787
+      ],
+      [
+       72.8285982,
+       19.235913
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "osm_id": "way/257455759",
+    "osm_name": "Gorai Landfill",
+    "osm_name_en": null,
+    "area_ha": 16.41,
+    "centroid_lat": 19.236347,
+    "centroid_lon": 72.82655,
+    "geometry_type": "Polygon",
+    "tags": {
+     "disused": "yes",
+     "landuse": "landfill",
+     "name": "Gorai Landfill",
+     "operator": "BMC"
+    },
+    "state": "Maharashtra",
+    "site_id": "gorai-landfill-mumbai-suburban-district",
+    "retrieved_utc": "2026-10-11T12:03:13Z",
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+   }
+  }
+ ]
+}
