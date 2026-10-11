@@ -163,7 +163,7 @@ enabled for that model/region, or the id is an inference profile from another re
 | Tail scan logs | `aws logs tail /aws/lambda/<ScanFunctionName> --follow` |
 | Re-seed a replay | `AWS_REGION=ap-south-1 python scripts/aws_seed.py --events brahmapuram-2023` |
 | Update code | `make deploy ALERT_EMAIL=... BEDROCK_MODEL_ID=... BEDROCK_REGION=... ALLOWED_ORIGIN=...` (repeat every value: omitted ones fall back to defaults) |
-| Update web | `python scripts/deploy_web.py` |
+| Update web | `python scripts/deploy_web.py --amplify-region us-east-1` (our app lives there) |
 
 ## 7. Cost and teardown
 
