@@ -317,19 +317,26 @@
     showIndia();
   }
 
+  function ensureHatch() {
+    const svg = map.getPanes().overlayPane.querySelector("svg");
+    if (!svg || svg.querySelector("#plume-hatch")) return;
+    svg.insertAdjacentHTML("afterbegin", `<defs><pattern id="plume-hatch" width="9" height="9" patternUnits="userSpaceOnUse"
+      patternTransform="rotate(35)"><rect width="9" height="9" class="plume-base"/><line x1="0" y1="0" x2="0" y2="9" class="plume-line"/></pattern></defs>`);
+  }
   const clearIncident = () => ["hotspots", "smoke", "schools", "hospitals"].forEach((k) => LAYERS[k].clearLayers());
   function drawIncident(d) {
     clearIncident();
     const inc = d.incident;
     const bounds = L.latLngBounds([]);
     if (inc.smoke && inc.smoke.geometry_geojson) {
-      const z = L.geoJSON(inc.smoke.geometry_geojson, { style: { className: "map-smoke", weight: 1.2, fillOpacity: 0.16, dashArray: "6 4" } })
+      const z = L.geoJSON(inc.smoke.geometry_geojson, { style: { className: "map-smoke", weight: 2.5, fillOpacity: 1 } })
         .bindTooltip("Smoke screening sector (wind direction only). Not a pollution forecast.").addTo(LAYERS.smoke);
+      ensureHatch();
       bounds.extend(z.getBounds());
     }
     for (const r of d.receptors) {
       const hosp = HOSPITAL_KINDS.includes(r.kind);
-      L.circleMarker([r.lat, r.lon], { radius: 4, weight: 1, fillOpacity: 1, className: hosp ? "map-hospital" : "map-school" })
+      L.circleMarker([r.lat, r.lon], { radius: 3.5, weight: 1, fillOpacity: 0.9, className: hosp ? "map-hospital" : "map-school" })
         .bindTooltip(`${esc(r.name)} · ${esc(r.distance_km)} km`).addTo(hosp ? LAYERS.hospitals : LAYERS.schools);
     }
     for (const det of d.detections) {
@@ -639,20 +646,26 @@
     toast("Updated");
   });
 
-  const hideSplash = () => $("#splash").classList.add("done");
-  setTimeout(hideSplash, 5000); // failsafe: never leave the splash up if a request hangs
+  // The incident to open first: the most severe, newest live fire; with none, the main replay.
+  function firstIncident() {
+    const open = INCIDENTS.filter((i) => !["FALSE_ALARM", "CLOSED"].includes(i.human_status || ""));
+    const rank = (i) => [i.mode === "live" ? 1 : 0, RANK[i.status] ?? 0, i.first_utc || ""];
+    const best = [...open].sort((a, b) => {
+      const x = rank(a), y = rank(b);
+      return (y[0] - x[0]) || (y[1] - x[1]) || String(y[2]).localeCompare(String(x[2]));
+    })[0];
+    return best ? best.incident_id : null;
+  }
   (async () => {
-    const minSplash = sleep(900);
     await Promise.all([loadHealth(), loadSites()]);
     await loadIncidents();
-    await minSplash;
-    hideSplash();
     map.invalidateSize();
-    if (!location.hash.startsWith("#incident=")) map.fitBounds(INDIA, fitPadding());
     const m = location.hash.match(/^#incident=(.+)$/); // deep link, e.g. #incident=brahmapuram-kochi-20230302T1635
-    if (m) openIncident(decodeURIComponent(m[1]));
     const v = location.hash.match(/^#view=(incidents|backtest|sites|about)$/); // e.g. #view=backtest
-    if (v) showView(v[1]);
+    if (m) openIncident(decodeURIComponent(m[1]));
+    else if (v) { showView(v[1]); map.fitBounds(INDIA, fitPadding()); }
+    else if (firstIncident()) openIncident(firstIncident());
+    else map.fitBounds(INDIA, fitPadding());
     setInterval(loadHealth, 60000);
   })();
 })();
