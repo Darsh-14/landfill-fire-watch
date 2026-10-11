@@ -12,7 +12,7 @@ Observe, do not help. Note where they hesitate, what they click first, and any w
 | 2 | "Find the Kochi fire from March 2023." | Clicks the Brahmapuram item with the **REPLAY — historical data** badge | Confuses replay with a live alert |
 | 3 | "Which way was the smoke going, and is that a forecast?" | Reads "Smoke toward N, WNW, W"; says the orange area is a screening sector, not a pollution forecast | Reads the sector as measured pollution |
 | 4 | "Name three schools in that area and how far they are." | Scrolls the "Schools and hospitals in the sector" table or hovers blue dots | Cannot find the table; mixes up hospitals and schools |
-| 5 | "If you were the duty officer, what would you do before anyone gets a message?" | Opens the draft tabs, sees the validator report and that a person must press Approve (replay → demo topic only) | Thinks messages go out automatically |
+| 5 | "If you were the duty officer, what would you do before anyone gets a message?" | Opens step 3 (alert message and safety checks) and sees that a person must press Send in step 4 (replay → demo topic only) | Thinks messages go out automatically |
 
 **Record:** time to complete each step, the person's words at each hesitation, and every fix made afterwards
 (write them below with the commit id).
