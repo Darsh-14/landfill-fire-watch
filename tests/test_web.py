@@ -20,7 +20,9 @@ def test_readme_lists_the_fixed_limits():
 
 def test_footer_names_aws_services_and_credits():
     p = page()
-    assert "Running on AWS: EventBridge · Lambda · DynamoDB · S3 · SNS (ap-south-1) · Bedrock via Strands (us-east-1)" in p
+    assert "Runs on AWS" in p and "ap-south-1" in p and "us-east-1" in p
+    for svc in ("EventBridge", "Lambda", "DynamoDB", "S3", "SNS", "API Gateway", "Amplify", "Bedrock via Strands"):
+        assert f"<span>{svc}</span>" in p, svc
     js = (WEB / "app.js").read_text(encoding="utf-8")  # credits live in the map attribution, shown on every screen
     assert "OpenStreetMap contributors" in js and "NASA FIRMS" in js and "Open-Meteo.com" in js and "CC BY 4.0" in js
 

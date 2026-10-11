@@ -37,6 +37,14 @@
     const m = /^(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})/.exec(ist || "");
     return m ? `${day(m[1])}, ${m[2]}` : fmt(ist);
   }
+  function dayMonth(ist) { // "2023-03-02 22:05 IST" -> "2 Mar"
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(ist || "");
+    return m ? `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]}` : fmt(ist);
+  }
+  function dayMonthTime(ist) { // "2023-03-02 22:05 IST" -> "2 Mar, 22:05"
+    const m = /^(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})/.exec(ist || "");
+    return m ? `${dayMonth(m[1])}, ${m[2]}` : fmt(ist);
+  }
   const fromUtc = (utc) => new Date(utc).toLocaleString("en-IN", { timeZone: "Asia/Kolkata", day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }) + " IST";
   const DIRS = ["north", "north-northeast", "northeast", "east-northeast", "east", "east-southeast", "southeast", "south-southeast",
     "south", "south-southwest", "southwest", "west-southwest", "west", "west-northwest", "northwest", "north-northwest"];
@@ -365,7 +373,8 @@
 
       <section class="step">
         <div class="step-head"><span class="step-num">2</span><h3>Where smoke may go</h3></div>
-        <p class="headline">${z ? (z.calm ? `Calm wind: up to ${esc(z.length_km)} km around the site` : `Toward the ${esc(toward)}, up to ${esc(z.length_km)} km`) : "No wind data"}</p>
+        <p class="headline">${z ? (z.calm ? "Calm wind: all around the site" : `Toward the ${esc(toward)}`) : "No wind data"}
+          ${z ? `<span>Up to ${esc(z.length_km)} km from the landfill</span>` : ""}</p>
         <div class="kind-row">
           <div><b>${kinds(["school", "kindergarten", "college"])}</b><span><i class="dot school"></i>schools</span></div>
           <div><b>${kinds(["hospital", "clinic"])}</b><span><i class="dot hospital"></i>hospitals</span></div>
@@ -491,18 +500,25 @@
     const quietAlerts = b.quiet_windows.reduce((n, q) => n + q.incidents.length, 0);
     el.innerHTML = `<h2 class="view-title">Tested on past fires</h2>
       <div class="score"><b>${hits} of ${b.events.length}</b><span>documented fires found in archived satellite data</span></div>
-      ${b.events.map((m) => { const s = siteOf(m.site_id); const year = String(m.reported_start).slice(0, 4);
+      ${b.events.map((m) => {
+        const s = siteOf(m.site_id);
+        const year = String(m.reported_start).slice(0, 4);
+        const delta = Number(m.delta_days_from_reported_start);
+        const after = !m.detected ? "—" : delta === 0 ? "Same day" : `${delta} day${Math.abs(delta) === 1 ? "" : "s"} later`;
+        const passes = Number(m.overpasses_with_detections);
         return `<div class="card bt-card">
-        <span class="bt-ic${m.detected ? "" : " miss"}">${icon(m.detected ? "flame" : "close")}</span>
-        <div><h3>${esc(s ? `${s.name}, ${s.city}` : m.event_id)} · ${esc(year)}</h3>
-          <span class="${m.detected ? "pass" : "fail"}">${m.detected ? "Found" : "Missed"}</span>
-          <div class="stats">
-            <div class="stat"><span>Fire reported</span><b>${esc(day(m.reported_start))}</b></div>
-            <div class="stat"><span>First seen</span><b>${esc(m.first_detection_ist ? when(m.first_detection_ist) : "—")}</b></div>
-            ${m.detected ? `<div class="stat"><span>Days after report</span><b>${esc(fmt(m.delta_days_from_reported_start))}</b></div>
-            <div class="stat"><span>Schools and hospitals in smoke area</span><b>${esc(m.receptor_count)}</b></div>`
-              : `<div class="stat wide"><span>Why missed</span><b>Heat seen on only ${esc(m.overpasses_with_detections)} satellite pass</b></div>`}
-          </div></div></div>`; }).join("")}
+        <div class="bt-head">
+          <span class="bt-ic${m.detected ? "" : " miss"}">${icon(m.detected ? "flame" : "close")}</span>
+          <div class="grow"><h3>${esc(s ? s.name : m.event_id)}</h3><span class="note">${esc(s ? `${s.city} · ${year}` : year)}</span></div>
+          <span class="badge ${m.detected ? "found" : "missed"}">${m.detected ? "Found" : "Missed"}</span>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>Reported</span><b>${esc(dayMonth(m.reported_start))}</b></div>
+          <div class="stat"><span>First seen</span><b>${esc(m.first_detection_ist ? dayMonthTime(m.first_detection_ist) : "Not seen")}</b></div>
+          ${m.detected ? `<div class="stat"><span>Detected</span><b>${esc(after)}</b></div>
+          <div class="stat"><span>In smoke area</span><b>${esc(m.receptor_count)} places</b></div>`
+            : `<div class="stat wide"><span>Why missed</span><b>Heat seen on only ${esc(passes)} satellite pass${passes === 1 ? "" : "es"}</b></div>`}
+        </div></div>`; }).join("")}
       <div class="card"><h3>Quiet periods</h3>
         <p class="note">${quietAlerts} alerts in ${b.quiet_windows.length} monsoon periods with no reported fire. Cloud also hides fires, so this is weak evidence.</p></div>
       <details class="card"><summary>Details ${icon("chev")}</summary>
@@ -606,9 +622,11 @@
     await minSplash;
     hideSplash();
     map.invalidateSize();
-    if (!location.hash) map.fitBounds(INDIA, fitPadding());
+    if (!location.hash.startsWith("#incident=")) map.fitBounds(INDIA, fitPadding());
     const m = location.hash.match(/^#incident=(.+)$/); // deep link, e.g. #incident=brahmapuram-kochi-20230302T1635
     if (m) openIncident(decodeURIComponent(m[1]));
+    const v = location.hash.match(/^#view=(incidents|backtest|sites|about)$/); // e.g. #view=backtest
+    if (v) showView(v[1]);
     setInterval(loadHealth, 60000);
   })();
 })();

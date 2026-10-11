@@ -231,7 +231,13 @@ body.panel-off .map-top { left: 14px; }
 :root[data-theme="light"] .card, :root[data-theme="light"] .step, :root[data-theme="light"] .incident-item,
 :root[data-theme="light"] .site-item, :root[data-theme="light"] .review-counts div { background: var(--surface); box-shadow: 0 0.5px 0 var(--line); }
 .card h3 { font-size: 15px; margin-bottom: 6px; }
-.aws { margin: 0; font-size: 13px; }
+.aws h3 { margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-size: 12.5px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: var(--surface-3); white-space: nowrap; }
+:root[data-theme="light"] .chips span { background: var(--surface-2); }
+.aws .note { display: block; margin: 10px 0 0; }
+.card > p:last-child { margin-bottom: 0; }
+.card h3 + p { margin-top: 0; }
 .pass { color: var(--ok); font-weight: 600; }
 .fail { color: var(--bad); font-weight: 600; }
 .skip { color: var(--dim); font-weight: 600; }
@@ -336,12 +342,13 @@ body.panel-off .map-top { left: 14px; }
 .step.s-approve .step-num { background: var(--tint); color: var(--on-tint); }
 
 .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.stat { background: var(--surface); border-radius: 12px; padding: 9px 12px; }
+.stat { background: var(--surface); border-radius: 12px; padding: 9px 12px; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
 :root[data-theme="light"] .stat, :root[data-theme="light"] .kind-row div, :root[data-theme="light"] .draft-text { background: var(--surface-2); }
-.stat span { display: block; color: var(--muted); font-size: 12px; }
-.stat b { font-weight: 600; font-size: 15px; letter-spacing: -0.015em; }
+.stat span { display: block; color: var(--muted); font-size: 12px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat b { font-weight: 600; font-size: 15px; line-height: 1.3; letter-spacing: -0.015em; margin-top: 2px; }
 .stat.wide { grid-column: 1 / -1; }
-.headline { margin: 0 0 10px; font-size: 15.5px; font-weight: 550; letter-spacing: -0.015em; }
+.headline { margin: 0 0 10px; font-size: 15.5px; font-weight: 550; letter-spacing: -0.015em; line-height: 1.35; }
+.headline span { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
 .fine { margin: 8px 2px 0; font-size: 12px; color: var(--muted); }
 .lead-sm { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
 .reason { font-size: 12.5px; color: var(--muted); margin: 8px 0 0; }
@@ -394,15 +401,17 @@ details[open] summary .ic { transform: rotate(90deg); }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ------------------------------------------------------------ tested + landfills */
-.score { display: flex; align-items: baseline; gap: 10px; margin: 2px 0 16px; }
-.score b { font-size: 34px; font-weight: 700; letter-spacing: -0.04em; color: var(--ok); }
-.score span { color: var(--muted); font-size: 14px; }
-.bt-card { display: flex; gap: 12px; align-items: flex-start; }
+.score { display: flex; align-items: center; gap: 12px; margin: 4px 0 16px; }
+.score b { flex: none; white-space: nowrap; font-size: 34px; line-height: 1; font-weight: 700; letter-spacing: -0.04em; color: var(--ok); }
+.score span { color: var(--muted); font-size: 13.5px; line-height: 1.35; }
+.bt-head { display: flex; align-items: center; gap: 12px; }
+.bt-head h3 { font-size: 15.5px; margin: 0; line-height: 1.25; }
+.bt-head .note { display: block; font-size: 12.5px; }
 .bt-ic { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; flex: none; background: var(--ok-soft); color: var(--ok); }
 .bt-ic.miss { background: var(--fire-soft); color: var(--fire); }
-.bt-card h3 { font-size: 15.5px; margin: 0 0 2px; }
-.bt-card .stats { margin-top: 10px; }
-.bt-card > div:last-child { flex: 1; min-width: 0; }
+.bt-card .stats { margin-top: 12px; }
+.badge.found { background: var(--ok-soft); color: var(--ok); }
+.badge.missed { background: var(--fire-soft); color: var(--fire); }
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 th { text-align: left; color: var(--muted); font-weight: 500; font-size: 12px; padding: 6px; border-bottom: 0.5px solid var(--line-2); }
 td { padding: 7px 6px; border-bottom: 0.5px solid var(--line); color: var(--muted); }
