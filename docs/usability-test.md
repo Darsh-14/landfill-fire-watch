@@ -8,7 +8,7 @@ Observe, do not help. Note where they hesitate, what they click first, and any w
 
 | Step | Ask the person to… | Success looks like | Watch for |
 |---|---|---|---|
-| 1 | "Tell me what this page is for and how fresh the data is." | Reads the status strip: last scan time, sources, sites; notices the Limits panel | Thinks it shows confirmed fires; misses "N min ago" |
+| 1 | "Tell me what this page is for and how fresh the data is." | Reads the status strip: last scan time, sources, sites | Thinks it shows confirmed fires; misses "N min ago" |
 | 2 | "Find the Kochi fire from March 2023." | Clicks the Brahmapuram item with the **REPLAY — historical data** badge | Confuses replay with a live alert |
 | 3 | "Which way was the smoke going, and is that a forecast?" | Reads "Smoke toward N, WNW, W"; says the orange area is a screening sector, not a pollution forecast | Reads the sector as measured pollution |
 | 4 | "Name three schools in that area and how far they are." | Scrolls the "Schools and hospitals in the sector" table or hovers blue dots | Cannot find the table; mixes up hospitals and schools |

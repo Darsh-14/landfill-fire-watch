@@ -16,7 +16,7 @@ real ones after recording and delete any feature that did not make it into the v
 | 8 | Validator (11 checks), retry once, fixed-template fallback | yes | tests/test_contract.py (one test per check) | 1:30 (planned) |
 | 9 | Human approval before any message; replay → demo topic only | yes: AWS demo topic email 2026-10-11 | tests/test_api.py; aws-evidence shot 6 | 2:00 (planned) |
 | 10 | Backtest on 3 documented fires + 6 quiet windows, frozen config | yes | out/backtest.md | 2:15 (planned) |
-| 11 | Limits panel always visible | yes | tests/test_web.py | 2:15 (planned) |
+| 11 | Limits listed (README, writeup; removed from the dashboard by team decision 2026-10-11) | yes | README § Limits | not in the video |
 | 12 | Raw CSV archive in S3 with SHA-256 | yes (AWS) | aws-evidence shot 4 | 2:35 (planned) |
 | 13 | History stat (detection-days per site) | see out/history.md | scripts/history.py | not in the video (planned: none) |
 | 14 | `make verify` source re-check | yes (reports the CAQM PDFs as UNREACHABLE: the URLs now return HTML) | data/sources.yaml | not in the video |

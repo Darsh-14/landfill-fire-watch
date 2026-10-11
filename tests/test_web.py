@@ -1,7 +1,5 @@
 """The dashboard always shows the fixed limits text, the AWS footer and the data credits (CLAUDE.md rule 6)."""
 
-import html
-import re
 from pathlib import Path
 
 from lfw.agent.tools import LIMITS
@@ -13,15 +11,18 @@ def page() -> str:
     return (WEB / "index.html").read_text(encoding="utf-8")
 
 
-def test_limits_panel_matches_the_fixed_text():
-    items = [html.unescape(x.strip()) for x in re.findall(r"<li>(.*?)</li>", page().split('id="limits"')[1].split("</aside>")[0], re.S)]
-    assert items == LIMITS
+def test_readme_lists_the_fixed_limits():
+    # The dashboard no longer shows a limits panel (team decision 2026-10-11); the README keeps the full list.
+    readme = (WEB.parent / "README.md").read_text(encoding="utf-8")
+    for item in LIMITS:
+        assert item in readme, item
 
 
 def test_footer_names_aws_services_and_credits():
     p = page()
     assert "Running on AWS: EventBridge · Lambda · DynamoDB · S3 · SNS (ap-south-1) · Bedrock via Strands (us-east-1)" in p
-    assert "Fire Information for Resource Management" in p and "OpenStreetMap contributors" in p and "CC BY 4.0" in p
+    js = (WEB / "app.js").read_text(encoding="utf-8")  # credits live in the map attribution, shown on every screen
+    assert "OpenStreetMap contributors" in js and "NASA FIRMS" in js and "Open-Meteo.com" in js and "CC BY 4.0" in js
 
 
 def test_leaflet_is_loaded_from_cdnjs_with_integrity():

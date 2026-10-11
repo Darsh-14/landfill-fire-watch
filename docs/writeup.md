@@ -21,8 +21,8 @@ A Strands agent on Amazon Bedrock turns those computed facts into a resident adv
 agent has only read-only tools. An 11-check validator rejects any draft that names a place that is not in the
 computed list, changes a number, says "confirmed", makes health claims, or drops the `[REPLAY]` label. The agent
 gets one retry with the error list; then a fixed template is used. A person must approve every message before
-SNS emails it, and historical replays can only go to a demo topic. The dashboard shows data age, the replay label
-and a limits panel at all times.
+SNS emails it, and historical replays can only go to a demo topic. The dashboard shows data age, the satellites used
+and the replay label at all times. The limits are listed below.
 
 ## Where AWS fits
 

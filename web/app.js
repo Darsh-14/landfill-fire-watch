@@ -104,7 +104,10 @@
   L.control.zoom({ position: "topright" }).addTo(map);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · Fire data NASA FIRMS · Wind Open-Meteo',
+    // Licence-required attribution, visible on every screen (OSM ODbL, Open-Meteo CC BY 4.0, NASA FIRMS).
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL) · '
+      + 'Fire data <a href="https://earthdata.nasa.gov/firms">NASA FIRMS</a> · '
+      + '<a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)',
   }).addTo(map);
   const zoomClass = () => document.getElementById("map").classList.toggle("lowzoom", map.getZoom() < 8);
   map.on("zoomend", zoomClass); zoomClass();
