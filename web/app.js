@@ -434,7 +434,9 @@
         </dl>
         <p class="caveat">Screening estimate from wind direction. Not a pollution forecast.</p>
         <details><summary>All ${d.receptors.length} places ${icon("chev")}</summary>
-          ${d.receptors.length ? `<div class="scroll">${byName.map((r) => `<div class="rec"><i class="dot ${["hospital", "clinic"].includes(r.kind) ? "hospital" : "school"}" aria-hidden="true"></i><span>${esc(r.name)}</span><small>${esc(r.distance_km)} km</small></div>`).join("")}</div>`
+          ${d.receptors.length ? `<div class="scroll"><table class="places"><caption class="sr-only">Schools and hospitals in the smoke screening area</caption>
+            <thead><tr><th scope="col">Name</th><th scope="col">Type</th><th scope="col" class="num">Distance</th></tr></thead>
+            <tbody>${byName.map((r) => `<tr><td>${esc(r.name)}</td><td><i class="dot ${HOSPITAL_KINDS.includes(r.kind) ? "hospital" : "school"}" aria-hidden="true"></i>${esc(r.kind)}</td><td class="num">${esc(r.distance_km)} km</td></tr>`).join("")}</tbody></table></div>`
             : '<p class="empty">None inside the area.</p>'}
           <p class="reason">From OpenStreetMap${unnamed ? `; ${unnamed} have no name there` : ""}. One place can be listed twice.</p>
           ${z ? `<p class="reason">Wind: ${esc(z.wind_hours.length)} hours, average ${esc(fmt(z.mean_speed_ms))} m/s (Open-Meteo, ${esc(fmt(z.wind_point_lat))}, ${esc(fmt(z.wind_point_lon))}).</p>` : ""}

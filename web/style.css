@@ -615,3 +615,11 @@ summary { min-height: 40px; }
 .bar-step { flex: none; font-size: var(--fs-sm); color: var(--muted); min-width: 5.5em; }
 .action-bar #bar-next { flex: 1; }
 .action-bar #bar-next:disabled { opacity: 1; background: var(--ok-soft); color: var(--ok); }
+
+/* ------------------------------------------------------------ rule 28: table view of the two map series */
+table.places { font-size: var(--fs-sm); }
+table.places th { position: sticky; top: 0; background: var(--surface); }
+table.places td { color: var(--ink); }
+table.places td:nth-child(2) { color: var(--muted); white-space: nowrap; }
+table.places .dot { margin-right: 6px; vertical-align: 1px; }
+table.places .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
