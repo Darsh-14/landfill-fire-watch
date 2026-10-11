@@ -29,6 +29,12 @@
     <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="m9 12 2 2 4-4"/></symbol>
     <symbol id="i-warn" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 4 2.8 20h18.4z"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 10v4.5M12 17.2v.1"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="m16 16 4 4"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" d="M9.5 5v14"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
     <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></symbol>
   </svg>
 
@@ -62,15 +68,19 @@
         </div>
       </div>
 
-      <div class="legend" aria-label="Legend">
+      <div class="map-tools">
+        <button id="btn-panel" class="round-btn" title="Hide or show the panel" aria-label="Hide or show the panel"><svg class="ic"><use href="#i-panel"/></svg></button>
+        <button id="btn-home" class="round-btn" title="Show all of India" aria-label="Show all of India"><svg class="ic"><use href="#i-globe"/></svg></button>
+        <button id="btn-theme" class="round-btn" title="Light or dark" aria-label="Switch light or dark"><svg class="ic"><use href="#i-sun"/></svg></button>
+      </div>
+
+      <div class="legend" aria-label="Map layers">
         <button id="legend-toggle" class="legend-toggle" aria-label="Show legend">Legend</button>
-        <span><i class="sw site"></i>Landfill</span>
-        <span><i class="sw det-high"></i>Hotspot: high</span>
-        <span><i class="sw det-nominal"></i>medium</span>
-        <span><i class="sw det-low"></i>low</span>
-        <span><i class="sw smoke"></i>Possible smoke area</span>
-        <span><i class="dot school"></i>School</span>
-        <span><i class="dot hospital"></i>Hospital</span>
+        <button class="layer" data-layer="sites" aria-pressed="true"><i class="sw site"></i>Landfills</button>
+        <button class="layer" data-layer="hotspots" aria-pressed="true"><i class="sw det-high"></i><i class="sw det-nominal"></i><i class="sw det-low"></i>Hotspots <small>high · medium · low</small></button>
+        <button class="layer" data-layer="smoke" aria-pressed="true"><i class="sw smoke"></i>Possible smoke area</button>
+        <button class="layer" data-layer="schools" aria-pressed="true"><i class="dot school"></i>Schools</button>
+        <button class="layer" data-layer="hospitals" aria-pressed="true"><i class="dot hospital"></i>Hospitals</button>
       </div>
     </section>
 
@@ -78,6 +88,9 @@
     <section id="side" class="panel" aria-label="Details">
       <button class="sheet-handle" id="sheet-handle" aria-label="Expand or collapse"><i></i></button>
       <div class="panel-body">
+        <label class="search" id="search-wrap"><svg class="ic"><use href="#i-search"/></svg>
+          <input id="search" type="search" placeholder="Search landfill or city" autocomplete="off" aria-label="Search landfill or city">
+          <kbd>/</kbd></label>
         <div id="view-incidents" class="view">
           <div id="incident-list" class="incident-list"></div>
           <div id="incident-panel" class="incident-panel hidden"></div>

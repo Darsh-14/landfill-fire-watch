@@ -11,6 +11,11 @@
   const isMobile = () => window.matchMedia("(max-width: 899px)").matches;
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Per-viewer conveniences (theme, hidden layers). Storage can be blocked: everything works without it.
+  const pref = {
+    get(k, d) { try { const v = localStorage.getItem(`wesave_${k}`); return v === null ? d : JSON.parse(v); } catch (_) { return d; } },
+    set(k, v) { try { localStorage.setItem(`wesave_${k}`, JSON.stringify(v)); } catch (_) { /* ignore */ } },
+  };
 
   // ------------------------------------------------------------------ plain-language labels
   // Display names only; the statuses themselves are computed by the API's fixed rules.
@@ -103,9 +108,18 @@
   }).addTo(map);
   const zoomClass = () => document.getElementById("map").classList.toggle("lowzoom", map.getZoom() < 8);
   map.on("zoomend", zoomClass); zoomClass();
-  const siteLayer = L.layerGroup().addTo(map);
   const pinLayer = L.layerGroup().addTo(map);
-  const incidentLayer = L.layerGroup().addTo(map);
+  // Toggleable map layers; an open incident draws into the last four.
+  const LAYERS = { sites: L.layerGroup(), hotspots: L.layerGroup(), smoke: L.layerGroup(), schools: L.layerGroup(), hospitals: L.layerGroup() };
+  const hidden = new Set(pref.get("hidden_layers", []));
+  for (const [k, g] of Object.entries(LAYERS)) if (!hidden.has(k)) g.addTo(map);
+  function setLayer(k, on) {
+    if (on) LAYERS[k].addTo(map); else map.removeLayer(LAYERS[k]);
+    if (on) hidden.delete(k); else hidden.add(k);
+    pref.set("hidden_layers", [...hidden]);
+    const b = $(`.layer[data-layer="${k}"]`);
+    if (b) b.setAttribute("aria-pressed", String(on));
+  }
   const TIER = { high: ["#e8553e", "#ffb3a6"], nominal: ["#f39a3c", "#ffd29a"], low: ["#f3e27a", "#fff6c2"] };
   const KIND_COLOR = { school: "#5b8cff", kindergarten: "#5b8cff", college: "#5b8cff", hospital: "#ff6b6b", clinic: "#ff6b6b" };
   const fly = (bounds, opts) => (REDUCE ? map.fitBounds(bounds, { ...opts, animate: false }) : map.flyToBounds(bounds, { ...opts, duration: 1.1 }));
@@ -123,7 +137,8 @@
       const sheet = st === "collapsed" ? 150 : st === "expanded" ? window.innerHeight - 140 : 0.56 * window.innerHeight;
       return { paddingTopLeft: [16, 110], paddingBottomRight: [16, Math.round(sheet) + 16] };
     }
-    return { paddingTopLeft: [$("#side").offsetWidth + 40, 80], paddingBottomRight: [40, 40] };
+    const panel = document.body.classList.contains("panel-off") ? 0 : $("#side").offsetWidth;
+    return { paddingTopLeft: [panel + 40, 80], paddingBottomRight: [70, 40] };
   }
   // Whole monitored area (all sites span roughly 8-32 N, 68-92 E), framed clear of the panel or sheet.
   const INDIA = [[8, 68.5], [31.5, 91.5]];
@@ -156,22 +171,23 @@
   async function loadSites() {
     try { SITES = await get("/sites"); } catch (e) { SITES = []; }
     if (SITES.length) $("#site-count").textContent = `${SITES.length} Indian`;
-    siteLayer.clearLayers();
+    LAYERS.sites.clearLayers();
     for (const s of SITES) {
-      L.geoJSON(s.outline, { style: { color: "#dfe3ea", weight: 1.6, fill: true, fillOpacity: 0.04, dashArray: s.verified ? null : "4 4" } })
-        .bindTooltip(`${esc(s.name)}, ${esc(s.city)}`).addTo(siteLayer);
+      L.geoJSON(s.outline, { style: { className: "site-outline", weight: 1.6, fill: true, fillOpacity: 0.04, dashArray: s.verified ? null : "4 4" } })
+        .bindTooltip(`${esc(s.name)}, ${esc(s.city)}`).addTo(LAYERS.sites);
     }
   }
 
   function renderSites() {
     const active = new Set(INCIDENTS.filter((i) => i.mode === "live").map((i) => i.site_id));
+    const shownSites = SITES.filter(matches);
     $("#site-list").innerHTML = `<h2 class="view-title">Landfills</h2>
-      <p class="view-sub">${SITES.length} landfills, checked every 3 hours.</p>
-      ${SITES.length ? SITES.map((s) => `<button class="site-item${active.has(s.site_id) ? " has-inc" : ""}" data-site="${esc(s.site_id)}">
+      <p class="view-sub">${QUERY ? `${shownSites.length} of ${SITES.length} match` : `${SITES.length} landfills, checked every 3 hours.`}</p>
+      ${shownSites.length ? shownSites.map((s) => `<button class="site-item${active.has(s.site_id) ? " has-inc" : ""}" data-site="${esc(s.site_id)}">
         <span class="inc-ic">${icon("pin")}</span>
         <span class="inc-main"><strong>${esc(s.name)}</strong><small>${esc(s.city)}, ${esc(s.state)}</small></span>
         <span class="${s.verified ? "verified" : "unverified"}" title="${s.verified ? "Outline checked on satellite imagery" : "Outline not checked on imagery yet"}">${s.verified ? "Outline checked" : "Outline not checked"}</span>
-        <span class="inc-chev">${icon("chev")}</span></button>`).join("") : '<p class="empty">No landfills loaded.</p>'}`;
+        <span class="inc-chev">${icon("chev")}</span></button>`).join("") : `<p class="empty">${SITES.length ? "No landfill matches this search." : "No landfills loaded."}</p>`}`;
     $$(".site-item").forEach((b) => b.addEventListener("click", () => {
       const s = siteOf(b.dataset.site);
       if (!s) return;
@@ -181,15 +197,23 @@
   }
 
   // ------------------------------------------------------------------ incidents
+  let QUERY = "";
+  const matches = (site) => !QUERY || `${site.name} ${site.city} ${site.state}`.toLowerCase().includes(QUERY);
   let INCIDENTS = [];
   let selected = null;
   const RANK = { CONFIRMED: 4, PROBABLE: 3, CANDIDATE: 2, CLOSED: 1, FALSE_ALARM: 0 };
 
   async function loadIncidents() {
+    try { INCIDENTS = await get("/incidents"); } catch (e) { $("#incident-list").innerHTML = '<p class="empty">Cannot load fires. Try refresh.</p>'; return; }
+    renderIncidentList();
+    drawPins();
+    renderSites();
+  }
+  function renderIncidentList() {
     const list = $("#incident-list");
-    try { INCIDENTS = await get("/incidents"); } catch (e) { list.innerHTML = '<p class="empty">Cannot load fires. Try refresh.</p>'; return; }
-    const live = INCIDENTS.filter((i) => i.mode === "live");
-    const replay = INCIDENTS.filter((i) => i.mode === "replay");
+    const shown = INCIDENTS.filter((i) => matches(siteOf(i.site_id) || { name: i.site_id, city: "", state: "" }));
+    const live = shown.filter((i) => i.mode === "live");
+    const replay = shown.filter((i) => i.mode === "replay");
     const row = (i) => `<button class="incident-item ${esc(i.status)}${i.incident_id === selected ? " selected" : ""}" data-id="${esc(i.incident_id)}">
         <span class="inc-ic">${icon("flame")}</span>
         <span class="inc-main">
@@ -200,15 +224,13 @@
     const count = (s) => INCIDENTS.filter((i) => i.human_status === s).length;
     list.innerHTML = `<h2 class="view-title">Fires</h2>
       <div class="section-label">Now</div>
-      ${live.length ? live.map(row).join("") : `<div class="all-clear">${icon("shield")}<div><b>No fires detected</b><span>at the ${esc(SITES.length)} watched landfills</span></div></div>`}
+      ${live.length ? live.map(row).join("") : QUERY ? '<p class="empty">No live fire matches this search.</p>' : `<div class="all-clear">${icon("shield")}<div><b>No fires detected</b><span>at the ${esc(SITES.length)} watched landfills</span></div></div>`}
       ${replay.length ? `<div class="section-label">Past fires · replays</div>${replay.map(row).join("")}` : ""}
       <div class="section-label">Checked by a person</div>
       <div class="review-counts">
         <div><b>${count("CONFIRMED")}</b><span>confirmed</span></div><div><b>${count("FALSE_ALARM")}</b><span>false alarm</span></div>
         <div><b>${count("CLOSED")}</b><span>closed</span></div><div><b>${INCIDENTS.filter((i) => !i.human_status).length}</b><span>waiting</span></div></div>`;
     $$(".incident-item", list).forEach((b) => b.addEventListener("click", () => openIncident(b.dataset.id)));
-    drawPins();
-    renderSites();
   }
 
   function drawPins() {
@@ -266,7 +288,7 @@
 
   function closeIncident() {
     selected = null;
-    incidentLayer.clearLayers();
+    clearIncident();
     $("#incident-panel").classList.add("hidden");
     $("#incident-list").classList.remove("hidden");
     $$(".incident-item").forEach((b) => b.classList.remove("selected"));
@@ -274,24 +296,25 @@
     showIndia();
   }
 
+  const clearIncident = () => ["hotspots", "smoke", "schools", "hospitals"].forEach((k) => LAYERS[k].clearLayers());
   function drawIncident(d) {
-    incidentLayer.clearLayers();
+    clearIncident();
     const inc = d.incident;
     const bounds = L.latLngBounds([]);
     if (inc.smoke && inc.smoke.geometry_geojson) {
       const z = L.geoJSON(inc.smoke.geometry_geojson, { style: { color: "#f3b23c", weight: 1.2, fillColor: "#f3b23c", fillOpacity: 0.16, dashArray: "6 4" } })
-        .bindTooltip("Smoke screening sector (wind direction only). Not a pollution forecast.").addTo(incidentLayer);
+        .bindTooltip("Smoke screening sector (wind direction only). Not a pollution forecast.").addTo(LAYERS.smoke);
       bounds.extend(z.getBounds());
     }
     for (const r of d.receptors) {
       L.circleMarker([r.lat, r.lon], { radius: 4, color: "#111", weight: 1, fillColor: KIND_COLOR[r.kind] || "#9aa1ad", fillOpacity: 0.95 })
-        .bindTooltip(`${esc(r.name)} · ${esc(r.distance_km)} km`).addTo(incidentLayer);
+        .bindTooltip(`${esc(r.name)} · ${esc(r.distance_km)} km`).addTo(["hospital", "clinic"].includes(r.kind) ? LAYERS.hospitals : LAYERS.schools);
     }
     for (const det of d.detections) {
       const [fill, stroke] = TIER[det.tier] || TIER.low;
       const rect = L.rectangle(pixelBounds(det), { color: stroke, weight: 1, fillColor: fill, fillOpacity: 0.5 })
         .bindTooltip(`Satellite hotspot · ${esc(when(det.acq_ist))} · ${esc(TIER_NAME[det.tier] || det.tier)} confidence${det.static ? " (static source)" : ""}`)
-        .addTo(incidentLayer);
+        .addTo(LAYERS.hotspots);
       bounds.extend(rect.getBounds());
     }
     const site = siteOf(inc.site_id);
@@ -315,7 +338,8 @@
     panel.innerHTML = `
       <div class="detail-head">
         <button class="icon-btn" id="btn-back" aria-label="Back">${icon("back")}</button>
-        <div><h2>${esc(d.site ? d.site.name : inc.site_id)}</h2><span class="note">${esc(d.site ? d.site.city + ", " + d.site.state : "")}</span></div>
+        <div class="grow"><h2>${esc(d.site ? d.site.name : inc.site_id)}</h2><span class="note">${esc(d.site ? d.site.city + ", " + d.site.state : "")}</span></div>
+        <button class="icon-btn" id="btn-link" title="Copy link to this fire" aria-label="Copy link to this fire">${icon("link")}</button>
       </div>
       ${replay ? `<div class="replay-banner">${icon("info")}REPLAY — historical data. Alerts go to the demo topic only.</div>` : ""}
       <div class="status-card ${esc(inc.status)}"><b>${esc(label)}</b><span>${esc(human ? `Marked by a person${human.note ? ": " + human.note : ""}` : help)}</span></div>
@@ -360,7 +384,7 @@
         <button class="btn primary big" id="btn-approve" ${draft && draft.validated ? "" : "disabled"}>${icon("shield")}${replay ? "Send demo email" : "Send alert"}</button>
         <p class="fine">${draft && draft.validated ? (replay ? "Replay: goes to the demo email list only." : "Goes to the alert email list.") : "Write the alert first."}</p>
         <div id="action-msg" class="msg"></div>
-        ${sent ? `<div class="sent">${d.approvals.map((a) => `<div>${icon("shield")}Sent ${esc(fromUtc(a.approved_utc))}${a.topic === "demo" ? " · demo" : ""}</div>`).join("")}</div>` : ""}
+        ${sent ? sentBlock(d.approvals) : ""}
         <details><summary>Mark this fire ${icon("chev")}</summary>
           <div class="review-row">
             <button class="btn small" data-review="CONFIRMED">Confirmed fire</button>
@@ -370,9 +394,19 @@
       </section>`;
     bindDraftTabs(draft);
     $("#btn-back").addEventListener("click", closeIncident);
+    $("#btn-link").addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(location.href); toast("Link copied"); } catch (_) { toast("Copy the address bar to share this fire"); }
+    });
     $$("[data-draft]", panel).forEach((b) => b.addEventListener("click", () => requestDraft(inc.incident_id, draft ? draft.created_utc : null)));
     $("#btn-approve").addEventListener("click", () => approve(inc.incident_id, replay));
     $$("[data-review]", panel).forEach((b) => b.addEventListener("click", () => review(inc.incident_id, b.dataset.review)));
+  }
+
+  function sentBlock(approvals) {
+    const last = approvals[approvals.length - 1];
+    const many = approvals.length > 1;
+    return `<div class="sent"><div>${icon("shield")}Sent ${many ? `${approvals.length} times · last ` : ""}${esc(fromUtc(last.approved_utc))}${last.topic === "demo" ? " · demo" : ""}</div>
+      ${many ? `<details><summary>All sends ${icon("chev")}</summary>${approvals.map((a) => `<p class="reason">${esc(fromUtc(a.approved_utc))} · ${esc(a.topic)} topic${a.template_used ? " · template" : ""}</p>`).join("")}</details>` : ""}</div>`;
   }
 
   function renderDraft(draft) {
@@ -497,6 +531,62 @@
     if (isMobile() && sheetState() === "collapsed") setSheet("normal");
   }));
   $("#legend-toggle").addEventListener("click", () => $(".legend").classList.toggle("open"));
+  $$(".layer").forEach((b) => {
+    b.setAttribute("aria-pressed", String(!hidden.has(b.dataset.layer)));
+    b.addEventListener("click", () => setLayer(b.dataset.layer, hidden.has(b.dataset.layer)));
+  });
+  $("#btn-home").addEventListener("click", showIndia);
+  $("#btn-panel").addEventListener("click", () => {
+    if (isMobile()) { setSheet(sheetState() === "collapsed" ? "normal" : "collapsed"); return; }
+    document.body.classList.toggle("panel-off");
+    setTimeout(() => map.invalidateSize(), 320);
+  });
+  function applyTheme(t) {
+    document.documentElement.dataset.theme = t;
+    $("#btn-theme use").setAttribute("href", t === "light" ? "#i-moon" : "#i-sun");
+    $('meta[name="theme-color"]').setAttribute("content", t === "light" ? "#eef0f3" : "#1b1e25");
+  }
+  // ?theme=light|dark in the link wins (handy for sharing or projecting); otherwise the viewer's last choice.
+  const linkTheme = new URLSearchParams(location.search).get("theme");
+  applyTheme(["light", "dark"].includes(linkTheme) ? linkTheme : pref.get("theme", "dark"));
+  $("#btn-theme").addEventListener("click", () => {
+    const t = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    applyTheme(t);
+    pref.set("theme", t);
+  });
+  let searchTimer = null;
+  $("#search").addEventListener("input", (e) => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      QUERY = e.target.value.trim().toLowerCase();
+      // Show the results: leave an open fire (map stays where it is) or the Tested/About pages.
+      const view = $(".nav-btn.active").dataset.view;
+      if (QUERY && (view === "backtest" || view === "about")) showView("sites");
+      if (QUERY && selected) {
+        selected = null;
+        clearIncident();
+        $("#incident-panel").classList.add("hidden");
+        $("#incident-list").classList.remove("hidden");
+      }
+      renderIncidentList();
+      renderSites();
+    }, 120);
+  });
+  $("#search").addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    const site = SITES.find(matches);
+    if (!site) return;
+    const inc = INCIDENTS.find((i) => i.site_id === site.site_id);
+    if (inc) openIncident(inc.incident_id);
+    else { fly(L.geoJSON(site.outline).getBounds(), { ...fitPadding(), maxZoom: 15 }); toast(`${site.name}: no fire detected`); }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!$("#modal").classList.contains("hidden")) return; // the dialog handles its own keys
+    const typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+    if (e.key === "/" && !typing) { e.preventDefault(); $("#search").focus(); }
+    else if (e.key === "Escape" && typing) document.activeElement.blur();
+    else if (e.key === "Escape" && selected) closeIncident();
+  });
   $("#btn-refresh").addEventListener("click", async () => {
     await Promise.all([loadHealth(), loadIncidents()]);
     if (selected) openIncident(selected);
