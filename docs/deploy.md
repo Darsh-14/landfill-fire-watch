@@ -61,9 +61,16 @@ MSYS_NO_PATHCONV=1 aws bedrock-runtime converse --region <region> --model-id <id
   --messages '[{"role":"user","content":[{"text":"Reply with OK"}]}]' --inference-config maxTokens=10
 ```
 
-On our account every model in ap-south-1 answered `ValidationException: Operation not allowed`, while
-`us.anthropic.claude-haiku-4-5-20251001-v1:0` in us-east-1 worked. The stack stays in ap-south-1; only the
-model calls go to the other region: `make deploy ... BEDROCK_REGION=us-east-1` (the IAM policy allows it).
+On our account every model in ap-south-1 answered `ValidationException: Operation not allowed`; us-east-1
+works. The stack stays in ap-south-1; only the model calls go to the other region:
+`make deploy ... BEDROCK_REGION=us-east-1` (the IAM policy allows it).
+
+Model used: **`us.amazon.nova-pro-v1:0`** (Amazon Nova Pro, us-east-1). Anthropic models on Bedrock need the
+one-time use case form *and* an AWS Marketplace subscription; ours failed with
+`AccessDeniedException ... INVALID_PAYMENT_INSTRUMENT` (no valid payment method for Marketplace). Amazon
+Nova models are not sold through Marketplace. A quick ping can succeed while the agent call is still refused,
+so test with the agent: `aws_check.py --draft` and read `validator_result` (check 1 shows the Bedrock error).
+On 2026-10-11 Nova Pro's first draft failed checks 7 and 11 and its retry passed all 11 checks.
 
 **Cost alarm (USD 5).** Put your email into `docs/aws/budget-notifications.json` (do not commit it), then:
 
