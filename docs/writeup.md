@@ -48,3 +48,5 @@ checked on imagery by our AI coding agent, not yet by a person on the ground, an
 ## AI coding tools
 
 Claude Code (Anthropic's Claude) wrote the code, tests and documentation with the team.
+
+The demo video narration is synthesised with Amazon Polly (neural voice Kajal, Indian English).
