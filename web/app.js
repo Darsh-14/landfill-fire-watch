@@ -193,11 +193,10 @@
     const active = new Set(INCIDENTS.filter((i) => i.mode === "live").map((i) => i.site_id));
     const shownSites = SITES.filter(matches);
     $("#site-list").innerHTML = `<h2 class="view-title">Landfills</h2>
-      <p class="view-sub">${QUERY ? `${shownSites.length} of ${SITES.length} match` : `${SITES.length} landfills, checked every 3 hours.`}</p>
+      ${QUERY ? `<p class="view-sub">${shownSites.length} of ${SITES.length} match</p>` : ""}
       ${shownSites.length ? shownSites.map((s) => `<button class="site-item${active.has(s.site_id) ? " has-inc" : ""}" data-site="${esc(s.site_id)}">
-        <span class="inc-ic">${icon("pin")}</span>
         <span class="inc-main"><strong>${esc(s.name)}</strong><small>${esc(s.city)}, ${esc(s.state)}</small></span>
-        <span class="${s.verified ? "verified" : "unverified"}" title="${s.verified ? "Outline checked on satellite imagery" : "Outline not checked on imagery yet"}">${s.verified ? "Outline checked" : "Outline not checked"}</span>
+        <span class="${s.verified ? "verified" : "unverified"}" title="${s.verified ? "Outline checked on satellite imagery by an AI assistant, not yet by a person" : "Outline not checked on imagery yet"}">${s.verified ? "Checked by AI" : "Not checked"}</span>
         <span class="inc-chev">${icon("chev")}</span></button>`).join("") : `<p class="empty">${SITES.length ? "No landfill matches this search." : "No landfills loaded."}</p>`}`;
     $$(".site-item").forEach((b) => b.addEventListener("click", () => {
       const s = siteOf(b.dataset.site);
@@ -214,8 +213,18 @@
   let selected = null;
   const RANK = { CONFIRMED: 4, PROBABLE: 3, CANDIDATE: 2, CLOSED: 1, FALSE_ALARM: 0 };
 
+  let BACKTEST = null;
+  async function loadBacktestData() { if (!BACKTEST) { try { BACKTEST = await get("/backtest"); } catch (_) { BACKTEST = { events: [] }; } } return BACKTEST; }
+  // A replay incident's place in the backtest: the event's main fire, a miss, or a later separate hotspot.
+  function replayContext(inc) {
+    const ev = (BACKTEST ? BACKTEST.events : []).find((e) => e.site_id === inc.site_id);
+    if (!ev || inc.mode !== "replay") return "";
+    if (!ev.detected) return "In the backtest this counts as a miss: it stayed a possible fire and never reached probable.";
+    if (inc.status === "CANDIDATE") return "A later, separate hotspot at the same landfill, after the main fire. It stayed a possible fire.";
+    return "";
+  }
   async function loadIncidents() {
-    try { INCIDENTS = await get("/incidents"); } catch (e) { $("#incident-list").innerHTML = '<p class="empty">Cannot load fires. Try refresh.</p>'; return; }
+    try { [INCIDENTS] = await Promise.all([get("/incidents"), loadBacktestData()]); } catch (e) { $("#incident-list").innerHTML = '<p class="empty">Cannot load fires. Try refresh.</p>'; return; }
     renderIncidentList();
     drawPins();
     renderSites();
@@ -226,22 +235,23 @@
     const live = shown.filter((i) => i.mode === "live");
     const replay = shown.filter((i) => i.mode === "replay");
     const row = (i) => `<button class="incident-item ${esc(i.status)}${i.incident_id === selected ? " selected" : ""}" data-id="${esc(i.incident_id)}">
-        <span class="inc-ic">${icon("flame")}</span>
         <span class="inc-main">
           <span class="inc-title"><strong>${esc(siteName(i.site_id))}</strong>${i.mode === "replay" ? '<span class="badge replay">Replay</span>' : ""}</span>
           <span class="inc-meta"><span class="badge ${esc(i.status)}">${esc(statusName(i.status))}</span>${esc(day(i.first_ist))}</span>
+          <span class="inc-facts">${esc(i.overpass_count)} satellite pass${Number(i.overpass_count) === 1 ? "" : "es"} · ${esc(i.receptors_in_zone)} places in smoke area</span>
         </span><span class="inc-chev">${icon("chev")}</span></button>`;
     // MVP §2.2 item 12: how many incidents a person has marked, per outcome.
     const count = (s) => INCIDENTS.filter((i) => i.human_status === s).length;
     list.innerHTML = `<h2 class="view-title">Fires</h2>
       <div class="section-label">Now</div>
-      ${live.length ? live.map(row).join("") : QUERY ? '<p class="empty">No live fire matches this search.</p>' : `<div class="all-clear">${icon("shield")}<div><b>No fires detected</b><span>at the ${esc(SITES.length)} watched landfills</span></div></div>`}
+      ${live.length ? live.map(row).join("") : QUERY ? '<p class="empty">No live fire matches this search.</p>' : `<div class="all-clear"><div><b>No fires detected</b><span>at the ${esc(SITES.length)} watched landfills</span></div></div>
+        ${replay.some((i) => i.status === "PROBABLE") ? `<button class="tour" data-id="${esc((replay.find((i) => i.site_id === "brahmapuram-kochi" && i.status === "PROBABLE") || replay.find((i) => i.status === "PROBABLE")).incident_id)}"><span><b>See how it works</b><span>Open a real past fire: Brahmapuram, Kochi, 2023</span></span>${icon("chev")}</button>` : ""}`}
       ${replay.length ? `<div class="section-label">Past fires · replays</div>${replay.map(row).join("")}` : ""}
       <div class="section-label">Checked by a person</div>
       <div class="review-counts">
         <div><b>${count("CONFIRMED")}</b><span>confirmed</span></div><div><b>${count("FALSE_ALARM")}</b><span>false alarm</span></div>
         <div><b>${count("CLOSED")}</b><span>closed</span></div><div><b>${INCIDENTS.filter((i) => !i.human_status).length}</b><span>waiting</span></div></div>`;
-    $$(".incident-item", list).forEach((b) => b.addEventListener("click", () => openIncident(b.dataset.id)));
+    $$(".incident-item, .tour", list).forEach((b) => b.addEventListener("click", () => openIncident(b.dataset.id)));
   }
 
   function drawPins() {
@@ -334,6 +344,11 @@
     if (bounds.isValid()) fly(bounds, fitPadding());
   }
 
+  // One satellite pass in the updates feed: newest first, plain words, sensor details in small type.
+  const SAT_NAME = { N: "S-NPP", N20: "NOAA-20", N21: "NOAA-21", Terra: "Terra", Aqua: "Aqua" };
+  const passItem = (g) => `<li><span class="when">${esc(when(g.acq_ist))}</span>
+      <span class="what" title="${esc(SAT_NAME[g.satellite] || g.satellite)} satellite · ${g.n} pixel${g.n > 1 ? "s" : ""}">Hotspot seen, ${esc([...g.tiers].join("/"))} confidence${g.maxFrp !== null ? ` · heat ${esc(fmt(g.maxFrp))} MW` : ""}</span>
+      </li>`;
   const progress = (steps) => `<ol class="progress">${steps.map(([label, done]) => `<li class="${done ? "done" : ""}"><i></i><span>${esc(label)}</span></li>`).join("")}</ol>`;
 
   function renderIncident(d) {
@@ -345,59 +360,67 @@
     const sent = d.approvals.length > 0;
     const toward = z && !z.calm ? listWords([...new Set(z.toward_deg.map(compass))]) : "";
     const kinds = (k) => d.receptors.filter((r) => k.includes(r.kind)).length;
+    const isUnnamed = (r) => !r.name || r.name.startsWith("Unnamed");
+    const unnamed = d.receptors.filter(isUnnamed).length;
+    // Named places first (nearest first), then the unnamed ones.
+    const byName = [...d.receptors].sort((a, b) => (isUnnamed(a) - isUnnamed(b)) || (a.distance_km - b.distance_km));
     const [label, help] = STATUS[inc.status] || [inc.status, ""];
     const panel = $("#incident-panel");
     panel.innerHTML = `
       <div class="detail-head">
         <button class="icon-btn" id="btn-back" aria-label="Back">${icon("back")}</button>
         <div class="grow"><h2>${esc(d.site ? d.site.name : inc.site_id)}</h2><span class="note">${esc(d.site ? d.site.city + ", " + d.site.state : "")}</span></div>
-        <button class="icon-btn" id="btn-link" title="Copy link to this fire" aria-label="Copy link to this fire">${icon("link")}</button>
+        <button class="share-btn" id="btn-link" title="Copy link to this fire">Share</button>
       </div>
-      ${replay ? `<p class="replay-note">${icon("info")}<span><b>Replay</b> · historical data. Alerts go to the demo email list only.</span></p>` : ""}
-      <div class="status-card ${esc(inc.status)}"><b>${esc(label)}</b><span>${esc(human ? `Marked by a person${human.note ? ": " + human.note : ""}` : help)}</span></div>
-      ${progress([["Detected", true], ["Smoke area", !!z], ["Alert written", !!(draft && draft.validated)], ["Sent", sent]])}
+      <div class="facts">
+        <span class="badge lg ${esc(inc.status)}">${esc(label)}</span>${replay ? '<span class="badge lg replay" title="Historical data. Alerts go to the demo email list only.">Replay</span>' : ""}
+        <span class="fact"><b>${esc(d.receptors.length)}</b> places in the smoke area</span>
+      </div>
+      ${replayContext(inc) ? `<p class="context">${esc(replayContext(inc))}</p>` : ""}
+      <details class="explain"><summary>What does “${esc(label)}” mean?</summary>
+        <p>${esc(human ? `Marked by a person${human.note ? ": " + human.note : ""}.` : help)} A satellite hotspot is not a confirmed fire; a person must check.</p>
+        <p><b>Heat (MW)</b> is the fire's heat output measured from space. <b>Confidence</b> is how sure the satellite is that the hotspot is a fire. A <b>satellite pass</b> is one look by one satellite; each passes a few times a day.</p></details>
 
       <section class="step">
-        <div class="step-head"><span class="step-num">1</span><h3>What the satellites saw</h3></div>
+        <div class="step-head"><span class="step-num">1</span><h3>What the satellites saw</h3><span class="state done">Detected</span></div>
         <div class="stats">
-          <div class="stat"><span>First seen</span><b>${esc(when(s.first_ist))}</b></div>
-          <div class="stat"><span>Last seen</span><b>${esc(when(s.last_ist))}</b></div>
+          <div class="stat wide"><span>First seen</span><b>${esc(when(s.first_ist))}</b></div>
           <div class="stat"><span>Satellite passes</span><b>${esc(inc.overpass_count)}</b></div>
-          <div class="stat"><span>Peak heat</span><b>${esc(fmt(inc.max_frp_mw))} MW</b></div>
+          <div class="stat"><span>Strongest heat</span><b>${esc(fmt(inc.max_frp_mw))} MW</b></div>
         </div>
-        <details><summary>Details ${icon("chev")}</summary>
-          ${human ? "" : `<p class="reason">Rule result: ${esc(inc.status_reason)}</p>`}
-          <ul class="timeline">${groups.map((g) => `<li><b>${esc(when(g.acq_ist))}</b> · ${esc(g.source)} (${esc(g.satellite)}) · ${g.n} pixel${g.n > 1 ? "s" : ""}, ${esc([...g.tiers].join("/"))} confidence · ${esc(fmt(g.maxFrp))} MW</li>`).join("")}</ul>
-        </details>
+        <h4 class="sub">Updates</h4>
+        <ul class="feed">${[...groups].reverse().slice(0, 3).map(passItem).join("")}</ul>
+        ${groups.length > 3 ? `<details class="more"><summary>Show all ${groups.length} passes ${icon("chev")}</summary>
+          <ul class="feed">${[...groups].reverse().slice(3).map(passItem).join("")}</ul></details>` : ""}
+        ${human ? "" : `<details><summary>Rule details ${icon("chev")}</summary><p class="reason">${esc(inc.status_reason)}</p></details>`}
       </section>
 
       <section class="step">
-        <div class="step-head"><span class="step-num">2</span><h3>Where smoke may go</h3></div>
+        <div class="step-head"><span class="step-num">2</span><h3>Where smoke may go</h3><span class="state${z ? " done" : ""}">${z ? "Mapped" : "No wind data"}</span></div>
         <p class="headline">${z ? (z.calm ? "Calm wind: all around the site" : `Toward the ${esc(toward)}`) : "No wind data"}
           ${z ? `<span>Up to ${esc(z.length_km)} km from the landfill</span>` : ""}</p>
         <div class="kind-row">
-          <div><b>${kinds(["school", "kindergarten", "college"])}</b><span><i class="dot school"></i>schools</span></div>
-          <div><b>${kinds(["hospital", "clinic"])}</b><span><i class="dot hospital"></i>hospitals</span></div>
+          <div><b>${kinds(["school", "kindergarten", "college"])}</b><span><i class="dot school"></i>schools and colleges</span></div>
+          <div><b>${kinds(["hospital", "clinic"])}</b><span><i class="dot hospital"></i>hospitals and clinics</span></div>
         </div>
         <p class="fine">From wind direction only. Not a pollution forecast.</p>
         <details><summary>All ${d.receptors.length} places ${icon("chev")}</summary>
-          ${d.receptors.length ? `<div class="scroll">${d.receptors.map((r) => `<div class="rec"><i class="dot ${["hospital", "clinic"].includes(r.kind) ? "hospital" : "school"}"></i><span>${esc(r.name)}</span><small>${esc(r.distance_km)} km</small></div>`).join("")}</div>`
+          ${d.receptors.length ? `<div class="scroll">${byName.map((r) => `<div class="rec"><i class="dot ${["hospital", "clinic"].includes(r.kind) ? "hospital" : "school"}"></i><span>${esc(r.name)}</span><small>${esc(r.distance_km)} km</small></div>`).join("")}</div>`
             : '<p class="empty">None inside the area.</p>'}
+          <p class="reason">From OpenStreetMap${unnamed ? `; ${unnamed} have no name there` : ""}. One place can be listed twice.</p>
           ${z ? `<p class="reason">Wind: ${esc(z.wind_hours.length)} hours, average ${esc(fmt(z.mean_speed_ms))} m/s (Open-Meteo, ${esc(fmt(z.wind_point_lat))}, ${esc(fmt(z.wind_point_lon))}).</p>` : ""}
         </details>
       </section>
 
       <section class="step">
-        <div class="step-head"><span class="step-num">3</span><h3>Alert message</h3></div>
+        <div class="step-head"><span class="step-num">3</span><h3>Alert message</h3><span class="state${draft && draft.validated ? " done" : ""}">${draft ? (draft.validated ? "Checked" : "Not passed") : "Not written"}</span></div>
         <div id="draft-area">${renderDraft(draft)}</div>
       </section>
 
       <section class="step s-approve">
-        <div class="step-head"><span class="step-num">4</span><h3>Send</h3></div>
-        <button class="btn primary big" id="btn-approve" ${draft && draft.validated ? "" : "disabled"}>${icon("shield")}${replay ? "Send demo email" : "Send alert"}</button>
-        <p class="fine">${draft && draft.validated ? (replay ? "Replay: goes to the demo email list only." : "Goes to the alert email list.") : "Write the alert first."}</p>
+        <div class="step-head"><span class="step-num">4</span><h3>Send</h3><span class="state${sent ? " done" : ""}">${sent ? (replay ? "Sent (demo)" : "Sent") : "Not sent"}</span></div>
+        ${sent ? sentBlock(d.approvals) : `<p class="lead-sm">${draft && draft.validated ? "Not sent yet." : "Write the alert first."}</p>`}
         <div id="action-msg" class="msg"></div>
-        ${sent ? sentBlock(d.approvals) : ""}
         <details><summary>Mark this fire ${icon("chev")}</summary>
           <div class="review-row">
             <button class="btn small" data-review="CONFIRMED">Confirmed fire</button>
@@ -405,27 +428,31 @@
             <button class="btn small" data-review="CLOSED">Closed</button></div>
         </details>
       </section>`;
+    panel.insertAdjacentHTML("beforeend", `<div class="action-bar">
+        <button class="btn ghost" id="bar-alert">Alert message</button>
+        <button class="btn primary" id="bar-send" ${draft && draft.validated ? "" : "disabled"}>${replay ? "Send demo email" : "Send alert"}</button></div>`);
+    $("#bar-alert").addEventListener("click", () => $("#draft-area").closest(".step").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "start" }));
+    $("#bar-send").addEventListener("click", () => approve(inc.incident_id, replay));
     bindDraftTabs(draft);
     $("#btn-back").addEventListener("click", closeIncident);
     $("#btn-link").addEventListener("click", async () => {
       try { await navigator.clipboard.writeText(location.href); toast("Link copied"); } catch (_) { toast("Copy the address bar to share this fire"); }
     });
     $$("[data-draft]", panel).forEach((b) => b.addEventListener("click", () => requestDraft(inc.incident_id, draft ? draft.created_utc : null)));
-    $("#btn-approve").addEventListener("click", () => approve(inc.incident_id, replay));
     $$("[data-review]", panel).forEach((b) => b.addEventListener("click", () => review(inc.incident_id, b.dataset.review)));
   }
 
   function sentBlock(approvals) {
     const last = approvals[approvals.length - 1];
     const many = approvals.length > 1;
-    return `<div class="sent"><div>${icon("shield")}Sent ${many ? `${approvals.length} times · last ` : ""}${esc(fromUtc(last.approved_utc))}${last.topic === "demo" ? " · demo" : ""}</div>
+    return `<div class="sent"><div>Sent ${many ? `${approvals.length} times · last ` : ""}${esc(fromUtc(last.approved_utc))}${last.topic === "demo" ? " · demo" : ""}</div>
       ${many ? `<details><summary>All sends ${icon("chev")}</summary>${approvals.map((a) => `<p class="reason">${esc(fromUtc(a.approved_utc))} · ${esc(a.topic)} topic${a.template_used ? " · template" : ""}</p>`).join("")}</details>` : ""}</div>`;
   }
 
   function renderDraft(draft) {
     if (!draft) {
       return `<p class="lead-sm">No alert written yet.</p>
-        <button class="btn wide" data-draft>${icon("pen")}Write alert</button>
+        <button class="btn wide" data-draft>Write alert</button>
         <div id="draft-msg" class="msg"></div>`;
     }
     const checks = draft.report.checks;
@@ -435,7 +462,7 @@
     return `
       <div class="seg draft-tabs">${tabs.map(([k, l], n) => `<button data-t="${k}"${n ? "" : ' class="active"'}>${l}</button>`).join("")}</div>
       <div class="draft-text" id="draft-text"></div>
-      <div class="check-line ${failed ? "bad" : "good"}">${icon(failed ? "warn" : "shield")}
+      <div class="check-line ${failed ? "bad" : "good"}">
         <span>${failed ? `Failed ${failed} of ${checks.length} safety checks` : `Passed all ${checks.length} safety checks`}</span>
         ${draft.template_used ? '<span class="badge template">Template used</span>' : ""}</div>
       <details><summary>Details ${icon("chev")}</summary>
@@ -443,7 +470,7 @@
         ${rejected.map((a) => `<p class="reason">Attempt ${esc(a.attempt)} was rejected and rewritten: ${esc(a.errors.join(" | "))}</p>`).join("")}
         <p class="reason">Written by ${esc(draft.model)} · ${esc(fromUtc(draft.created_utc))}</p>
       </details>
-      <button class="btn small ghost" data-draft>${icon("pen")}Rewrite</button>
+      <button class="btn small ghost" data-draft>Rewrite</button>
       <div id="draft-msg" class="msg"></div>`;
   }
 
@@ -508,7 +535,6 @@
         const passes = Number(m.overpasses_with_detections);
         return `<div class="card bt-card">
         <div class="bt-head">
-          <span class="bt-ic${m.detected ? "" : " miss"}">${icon(m.detected ? "flame" : "close")}</span>
           <div class="grow"><h3>${esc(s ? s.name : m.event_id)}</h3><span class="note">${esc(s ? `${s.city} · ${year}` : year)}</span></div>
           <span class="badge ${m.detected ? "found" : "missed"}">${m.detected ? "Found" : "Missed"}</span>
         </div>
@@ -517,10 +543,10 @@
           <div class="stat"><span>First seen</span><b>${esc(m.first_detection_ist ? dayMonthTime(m.first_detection_ist) : "Not seen")}</b></div>
           ${m.detected ? `<div class="stat"><span>Detected</span><b>${esc(after)}</b></div>
           <div class="stat"><span>In smoke area</span><b>${esc(m.receptor_count)} places</b></div>`
-            : `<div class="stat wide"><span>Why missed</span><b>Heat seen on only ${esc(passes)} satellite pass${passes === 1 ? "" : "es"}</b></div>`}
+            : `<div class="stat wide"><span>Why missed</span><b>Heat on only ${esc(passes)} satellite pass${passes === 1 ? "" : "es"}, so it stayed a possible fire</b></div>`}
         </div></div>`; }).join("")}
       <div class="card"><h3>Quiet periods</h3>
-        <p class="note">${quietAlerts} alerts in ${b.quiet_windows.length} monsoon periods with no reported fire. Cloud also hides fires, so this is weak evidence.</p></div>
+        <p class="note">${quietAlerts} alerts in ${b.quiet_windows.length} monsoon periods with no reported fire. Weak evidence: cloud also hides fires.</p></div>
       <details class="card"><summary>Details ${icon("chev")}</summary>
         <p class="reason">NASA FIRMS archive (standard processing). Found = at least one probable fire in the window.
           Settings frozen before the first run: <code>${esc(String(b.config_hash).slice(0, 12))}</code> · ${esc(b.freeze)}</p>

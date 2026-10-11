@@ -65,7 +65,7 @@ One change after the freeze, recorded in `data/config_freeze.yaml`: the live sca
 from 1 to 2 days on 11 Oct, because FIRMS returns only the current UTC date for 1 and the first AWS scan missed
 the previous night's VIIRS passes. The backtest does not read it, so the results below are unchanged.
 
-| Event | Reported start | Sources | Detected | First detection (IST) | Δ days | Overpasses | Max FRP (MW) | Smoke zone at PROBABLE | Receptors in zone |
+| Event | Reported start | Sources | Detected | First detection (IST) | Δ days | Passes with heat in the window (all incidents) | Max FRP (MW) | Smoke zone at PROBABLE | Receptors in zone |
 |---|---|---|---|---|---|---|---|---|---|
 | deonar-2016 | 2016-01-27 | VIIRS S-NPP, MODIS | yes | 2016-01-28 02:45 | +1 | 12 | 49.61 | toward SSW, ESE, SE, SSE; 10 km | 217 |
 | ghazipur-2022 | 2022-03-28 | VIIRS S-NPP, NOAA-20, MODIS | **no (miss)** | — | — | 1 | 1.68 | — | — |

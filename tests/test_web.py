@@ -34,7 +34,7 @@ def test_leaflet_is_loaded_from_cdnjs_with_integrity():
 
 def test_replay_badge_and_screening_wording_in_app():
     js = (WEB / "app.js").read_text(encoding="utf-8")
-    assert "<b>Replay</b> · historical data" in js and "Not a pollution forecast" in js and "Template used" in js
+    assert 'badge lg replay' in js and "Historical data. Alerts go to the demo email list only." in js and "Not a pollution forecast" in js and "Template used" in js
 
 
 def test_flexible_controls_exist():
