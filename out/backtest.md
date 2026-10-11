@@ -1,7 +1,7 @@
 # Backtest results
 
-- Generated: 2026-10-10T20:24:50Z · git `50ce282`
-- Config hash: `264d376145f22cd62b0d37e6c694a2270534312545cfcf33fc5fe22ef69690de` · frozen 2026-10-10T15:18:15Z at 1d234e5
+- Generated: 2026-10-10T20:24:50Z · git `6abb16d`
+- Config hash: `264d376145f22cd62b0d37e6c694a2270534312545cfcf33fc5fe22ef69690de` · frozen 2026-10-10T15:18:15Z at 9f9b2f2
 - Outline check (`verified_by` in data/sites.yaml): deonar-mumbai: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md); ghazipur-delhi: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md); brahmapuram-kochi: Claude Code (AI imagery check on Esri World Imagery, 2026-10-10, delegated by Darsh-14; see docs/site-review.md)
 - Data: NASA FIRMS archive (standard processing). Detected = at least one PROBABLE incident in the window.
 
