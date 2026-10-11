@@ -21,7 +21,7 @@ Obey these rules in every task. If a task conflicts with a rule, stop and tell t
 2. **Never invent data.** Do not type coordinates, polygons, dates, field names, rule text, or statistics from memory. Get them from an API, a file in `data/`, or the user. If you cannot get a value, write `TODO(verify)` and tell the user.
 3. **Fetch before you parse.** Before you write a parser for any API, fetch one real sample. Save it in `tests/fixtures/`. Write the parser against that sample.
 4. **No message leaves without a human.** The system drafts alerts. A person approves each one. Never call SNS publish from a code path that a person did not trigger.
-5. **Label replays.** Each incident built from historical data has `mode = "replay"`. The UI shows "REPLAY — historical data" on it. A replay alert never goes to the live SNS topic.
+5. **Label replays.** Each incident built from historical data has `mode = "replay"`. The UI shows "Replay · historical data" on it. A replay alert never goes to the live SNS topic.
 6. **Show the limits.** The UI always shows data age and the sensors used. The limits list in `docs/MVP.md` §9 is in
    the README and the writeup. (Team decision 2026-10-11: the limits panel was removed from the dashboard; the
    hackathon rules do not require it in the UI.)

@@ -123,8 +123,8 @@
     const b = $(`.layer[data-layer="${k}"]`);
     if (b) b.setAttribute("aria-pressed", String(on));
   }
-  const TIER = { high: ["#e8553e", "#ffb3a6"], nominal: ["#f39a3c", "#ffd29a"], low: ["#f3e27a", "#fff6c2"] };
-  const KIND_COLOR = { school: "#5b8cff", kindergarten: "#5b8cff", college: "#5b8cff", hospital: "#ff6b6b", clinic: "#ff6b6b" };
+  // Map colours are CSS classes on the paths (style.css), so they follow the theme tokens like the rest of the UI.
+  const HOSPITAL_KINDS = ["hospital", "clinic"];
   const fly = (bounds, opts) => (REDUCE ? map.fitBounds(bounds, { ...opts, animate: false }) : map.flyToBounds(bounds, { ...opts, duration: 1.1 }));
 
   function pixelBounds(d) {
@@ -305,17 +305,18 @@
     const inc = d.incident;
     const bounds = L.latLngBounds([]);
     if (inc.smoke && inc.smoke.geometry_geojson) {
-      const z = L.geoJSON(inc.smoke.geometry_geojson, { style: { color: "#f3b23c", weight: 1.2, fillColor: "#f3b23c", fillOpacity: 0.16, dashArray: "6 4" } })
+      const z = L.geoJSON(inc.smoke.geometry_geojson, { style: { className: "map-smoke", weight: 1.2, fillOpacity: 0.16, dashArray: "6 4" } })
         .bindTooltip("Smoke screening sector (wind direction only). Not a pollution forecast.").addTo(LAYERS.smoke);
       bounds.extend(z.getBounds());
     }
     for (const r of d.receptors) {
-      L.circleMarker([r.lat, r.lon], { radius: 4, color: "#111", weight: 1, fillColor: KIND_COLOR[r.kind] || "#9aa1ad", fillOpacity: 0.95 })
-        .bindTooltip(`${esc(r.name)} · ${esc(r.distance_km)} km`).addTo(["hospital", "clinic"].includes(r.kind) ? LAYERS.hospitals : LAYERS.schools);
+      const hosp = HOSPITAL_KINDS.includes(r.kind);
+      L.circleMarker([r.lat, r.lon], { radius: 4, weight: 1, fillOpacity: 1, className: hosp ? "map-hospital" : "map-school" })
+        .bindTooltip(`${esc(r.name)} · ${esc(r.distance_km)} km`).addTo(hosp ? LAYERS.hospitals : LAYERS.schools);
     }
     for (const det of d.detections) {
-      const [fill, stroke] = TIER[det.tier] || TIER.low;
-      const rect = L.rectangle(pixelBounds(det), { color: stroke, weight: 1, fillColor: fill, fillOpacity: 0.5 })
+      const tier = ["high", "nominal", "low"].includes(det.tier) ? det.tier : "low";
+      const rect = L.rectangle(pixelBounds(det), { className: `map-hot-${tier}`, weight: 1, fillOpacity: 0.5 })
         .bindTooltip(`Satellite hotspot · ${esc(when(det.acq_ist))} · ${esc(TIER_NAME[det.tier] || det.tier)} confidence${det.static ? " (static source)" : ""}`)
         .addTo(LAYERS.hotspots);
       bounds.extend(rect.getBounds());
@@ -344,7 +345,7 @@
         <div class="grow"><h2>${esc(d.site ? d.site.name : inc.site_id)}</h2><span class="note">${esc(d.site ? d.site.city + ", " + d.site.state : "")}</span></div>
         <button class="icon-btn" id="btn-link" title="Copy link to this fire" aria-label="Copy link to this fire">${icon("link")}</button>
       </div>
-      ${replay ? `<div class="replay-banner">${icon("info")}REPLAY — historical data. Alerts go to the demo topic only.</div>` : ""}
+      ${replay ? `<p class="replay-note">${icon("info")}<span><b>Replay</b> · historical data. Alerts go to the demo email list only.</span></p>` : ""}
       <div class="status-card ${esc(inc.status)}"><b>${esc(label)}</b><span>${esc(human ? `Marked by a person${human.note ? ": " + human.note : ""}` : help)}</span></div>
       ${progress([["Detected", true], ["Smoke area", !!z], ["Alert written", !!(draft && draft.validated)], ["Sent", sent]])}
 
@@ -547,7 +548,7 @@
   function applyTheme(t) {
     document.documentElement.dataset.theme = t;
     $("#btn-theme use").setAttribute("href", t === "light" ? "#i-moon" : "#i-sun");
-    $('meta[name="theme-color"]').setAttribute("content", t === "light" ? "#eef0f3" : "#1b1e25");
+    $('meta[name="theme-color"]').setAttribute("content", t === "light" ? "#f2f2f7" : "#000000");
   }
   // ?theme=light|dark in the link wins (handy for sharing or projecting); otherwise the viewer's last choice.
   const linkTheme = new URLSearchParams(location.search).get("theme");
