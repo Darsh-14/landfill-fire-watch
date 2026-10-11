@@ -55,6 +55,11 @@ def test_check1_not_json_is_rejected():
     assert not rep.passed and check(rep, 1).passed is False
 
 
+def test_check1_drafter_error_is_reported_not_hidden():
+    _, rep = validate('{"_error": "ResourceNotFoundException: use case form"}', make_ctx())
+    assert not rep.passed and "no draft: ResourceNotFoundException" in check(rep, 1).detail
+
+
 def test_check1_too_long_is_rejected():
     ctx = make_ctx()
     d = good(ctx)

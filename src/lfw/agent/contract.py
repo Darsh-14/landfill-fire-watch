@@ -113,6 +113,9 @@ def validate(raw: str | dict, ctx: DraftContext) -> tuple[DraftBundle | None, Va
     # 1. JSON parses into DraftBundle
     try:
         data = json.loads(raw) if isinstance(raw, str) else raw
+        if isinstance(data, dict) and "_error" in data:  # the drafter failed (model, network, timeout)
+            add(1, "parses into DraftBundle", False, f"no draft: {data['_error']}"[:300])
+            return None, ValidationReport(passed=False, checks=checks)
         draft = DraftBundle.model_validate(data)
         add(1, "parses into DraftBundle", True)
     except (json.JSONDecodeError, ValidationError, TypeError) as exc:
