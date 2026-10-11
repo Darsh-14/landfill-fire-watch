@@ -8,7 +8,12 @@
   <meta name="description" content="Satellite hotspot screening for Indian landfills, with human-approved alerts for people downwind.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
+  <link rel="preconnect" href="https://fbd66upo93.execute-api.ap-south-1.amazonaws.com" crossorigin>
+  <link rel="preconnect" href="https://tile.openstreetmap.org">
+  <!-- Inter is only the fallback for non-Apple devices: load it without blocking the first paint. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"
         integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w=="
         crossorigin="anonymous" referrerpolicy="no-referrer">

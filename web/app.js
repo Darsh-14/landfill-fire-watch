@@ -310,7 +310,7 @@
     $("#incident-list").classList.add("hidden");
     const panel = $("#incident-panel");
     panel.classList.remove("hidden");
-    panel.innerHTML = '<p class="empty"><span class="spinner"></span> Loading</p>';
+    panel.innerHTML = '<div class="skeleton" role="status" aria-label="Loading this fire"><i></i><i></i><i></i><i></i></div>';
     $(".panel-body").scrollTop = 0;
     if (isMobile()) setSheet("normal");
     map.closePopup();
@@ -318,6 +318,7 @@
     let d;
     try { d = await get(`/incidents/${encodeURIComponent(id)}`); } catch (e) { panel.innerHTML = '<p class="empty">Cannot load this fire. Try refresh.</p>'; return; }
     renderIncident(d);
+    panel.classList.remove("reveal"); void panel.offsetWidth; panel.classList.add("reveal");
     drawIncident(d);
   }
 
@@ -555,7 +556,9 @@
     try {
       await post(`/incidents/${encodeURIComponent(id)}/draft`);
       $$("[data-draft]").forEach((b) => { b.disabled = true; });
-      msg('<span class="spinner"></span> Writing and checking the alert. This takes up to a minute.', "draft-msg");
+      const area = $("#draft-area");
+      if (area) area.innerHTML = '<div class="skeleton draft-skeleton"><i></i><i></i><i></i></div><div id="draft-msg" class="msg" role="status"></div>';
+      msg("Writing and checking the alert. This takes up to a minute.", "draft-msg");
       for (let i = 0; i < 40; i++) { // poll up to ~2 minutes (Lambda draft runs asynchronously)
         const d = await get(`/incidents/${encodeURIComponent(id)}`);
         if (d.draft && d.draft.created_utc !== previous) { renderIncident(d); toast(d.draft.validated ? "Alert ready" : "Alert written, but it did not pass the checks", !d.draft.validated); return; }

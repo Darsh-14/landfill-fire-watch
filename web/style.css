@@ -657,3 +657,19 @@ table.places .num { text-align: right; white-space: nowrap; font-variant-numeric
 .hash { font-variant-numeric: tabular-nums; color: var(--ink); }
 .nav-brand { box-shadow: none; }
 .brand-chip .ic { background: var(--fire); }
+
+/* ------------------------------------------------------------ rules 34-36: motion and loading
+   Full motion is the default; the prefers-reduced-motion block above turns it off. One reveal when a
+   fire opens; other motion only answers an action (expand, confirm, toast). */
+.step, .modal-card { animation: none; }
+.incident-panel.reveal { animation: reveal .42s var(--ease) both; }
+@keyframes reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.skeleton { display: grid; gap: 10px; padding: 18px 2px; min-height: 260px; }
+.skeleton i { display: block; height: 14px; border-radius: 6px; background: var(--surface-3); animation: pulse-bg 1.4s ease-in-out infinite; }
+.skeleton i:nth-child(1) { width: 55%; height: 22px; }
+.skeleton i:nth-child(2) { width: 90%; }
+.skeleton i:nth-child(3) { width: 80%; }
+.skeleton i:nth-child(4) { width: 65%; }
+.draft-skeleton { min-height: 150px; padding: 12px 14px; border: 0.5px solid var(--line-2); border-radius: 10px; }
+@keyframes pulse-bg { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .incident-panel.reveal, .skeleton i { animation: none !important; } }
