@@ -54,7 +54,16 @@ aws bedrock list-foundation-models --region ap-south-1 --by-output-modality TEXT
 ```
 
 Use one of those ids as `BEDROCK_MODEL_ID` below (an inference profile id works too). The id is never
-hard-coded in the code.
+hard-coded in the code. Listed does not mean callable: test one first.
+
+```bash
+MSYS_NO_PATHCONV=1 aws bedrock-runtime converse --region <region> --model-id <id> \
+  --messages '[{"role":"user","content":[{"text":"Reply with OK"}]}]' --inference-config maxTokens=10
+```
+
+On our account every model in ap-south-1 answered `ValidationException: Operation not allowed`, while
+`us.anthropic.claude-haiku-4-5-20251001-v1:0` in us-east-1 worked. The stack stays in ap-south-1; only the
+model calls go to the other region: `make deploy ... BEDROCK_REGION=us-east-1` (the IAM policy allows it).
 
 **Cost alarm (USD 5).** Put your email into `docs/aws/budget-notifications.json` (do not commit it), then:
 
@@ -86,7 +95,7 @@ MSYS_NO_PATHCONV=1 aws ssm put-parameter --region ap-south-1 --name /lfw/admin_t
 ```bash
 make check                         # ruff + cfn-lint + all tests (no AWS needed)
 make lint                          # cfn-lint on template.yaml
-make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id from step 2>
+make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id from step 2> [BEDROCK_REGION=us-east-1]
 ```
 
 `make deploy` = `make package` (Linux wheels from the committed locks, zipped to `build/<fn>.zip`) then
@@ -120,7 +129,7 @@ run, uploads a zip of `web/` and waits for the deployment. It prints the URL
 (`https://main.<appId>.amplifyapp.com`). Then lock CORS to that origin:
 
 ```bash
-make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id> ALLOWED_ORIGIN=https://main.<appId>.amplifyapp.com
+make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id> BEDROCK_REGION=<region> ALLOWED_ORIGIN=https://main.<appId>.amplifyapp.com
 ```
 
 Steps the script cannot do for you: confirm the SNS emails; enable Bedrock model access; look at the
@@ -153,7 +162,7 @@ enabled for that model/region, or the id is an inference profile from another re
 | Run one scan now | `aws lambda invoke --function-name <ScanFunctionName> --payload '{}' /dev/stdout` |
 | Tail scan logs | `aws logs tail /aws/lambda/<ScanFunctionName> --follow` |
 | Re-seed a replay | `AWS_REGION=ap-south-1 python scripts/aws_seed.py --events brahmapuram-2023` |
-| Update code | `make deploy ALERT_EMAIL=... BEDROCK_MODEL_ID=...` |
+| Update code | `make deploy ALERT_EMAIL=... BEDROCK_MODEL_ID=... BEDROCK_REGION=... ALLOWED_ORIGIN=...` (repeat every value: omitted ones fall back to defaults) |
 | Update web | `python scripts/deploy_web.py` |
 
 ## 7. Cost and teardown

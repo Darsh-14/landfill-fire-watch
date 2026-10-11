@@ -105,12 +105,15 @@ check: lint
 ALERT_EMAIL ?=
 BEDROCK_MODEL_ID ?=
 ALLOWED_ORIGIN ?= *
+# Bedrock may be enabled in a different region from the stack (the IAM policy allows that).
+BEDROCK_REGION ?= ap-south-1
 
 deploy-check:
 	@test -n "$(ALERT_EMAIL)" && test -n "$(BEDROCK_MODEL_ID)" || { \
-	  echo "usage: make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id> [ALLOWED_ORIGIN=https://...]"; exit 2; }
+	  echo "usage: make deploy ALERT_EMAIL=you@example.com BEDROCK_MODEL_ID=<id> [BEDROCK_REGION=us-east-1] [ALLOWED_ORIGIN=https://...]"; exit 2; }
 
 deploy: deploy-check package
 	rm -rf .aws-sam
 	sam deploy --template-file template.yaml --parameter-overrides \
-	  AlertEmail="$(ALERT_EMAIL)" BedrockModelId="$(BEDROCK_MODEL_ID)" AllowedOrigin="$(ALLOWED_ORIGIN)"
+	  AlertEmail="$(ALERT_EMAIL)" BedrockModelId="$(BEDROCK_MODEL_ID)" AllowedOrigin="$(ALLOWED_ORIGIN)" \
+	  BedrockRegion="$(BEDROCK_REGION)"
