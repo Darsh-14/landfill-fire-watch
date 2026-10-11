@@ -7,6 +7,7 @@ real event is detected (that is the job of `make backtest` after the outlines ar
 from datetime import date
 
 import pytest
+import yaml
 
 import scripts.backtest as bt
 from conftest import square_site
@@ -72,6 +73,22 @@ def test_freeze_mismatch_is_detected(monkeypatch, tmp_path):
     monkeypatch.setattr(bt, "FREEZE", f)
     ok, msg = bt.freeze_state()
     assert not ok and "changed since freeze" in msg
+
+
+def test_recorded_amendment_is_accepted_but_any_other_change_is_not(monkeypatch):
+    ok, msg = bt.freeze_state()  # the real data/config_freeze.yaml
+    assert ok and "amended after the freeze: SCAN_DAY_RANGE" in msg
+    monkeypatch.setattr(bt.config, "FRP_HIGH_MW", bt.config.FRP_HIGH_MW + 1)
+    ok, msg = bt.freeze_state()
+    assert not ok and "changed since freeze" in msg
+
+
+def test_amended_constants_are_live_scan_only():
+    frozen = yaml.safe_load(bt.FREEZE.read_text(encoding="utf-8"))
+    files = [*(bt.ROOT / "src" / "lfw").rglob("*.py"), *(bt.ROOT / "scripts").glob("*.py")]
+    for a in frozen["amendments"]:
+        users = {p.name for p in files if a["constant"] in p.read_text(encoding="utf-8")}
+        assert users == {"config.py", "scanner.py"}, (a["constant"], users)
 
 
 @pytest.mark.parametrize("value", [None, 3.2])

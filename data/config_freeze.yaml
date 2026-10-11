@@ -3,3 +3,15 @@
 config_hash: 264d376145f22cd62b0d37e6c694a2270534312545cfcf33fc5fe22ef69690de
 frozen_utc: '2026-10-10T15:18:15Z'
 git_commit: 1d234e5
+# Changes after the freeze. Each one is a live-scan-only constant (the backtest never reads it);
+# scripts/backtest.py accepts the current config only if restoring frozen_value gives config_hash.
+amendments:
+- constant: SCAN_DAY_RANGE
+  frozen_value: 1
+  new_value: 2
+  amended_utc: '2026-10-11T08:00:00Z'
+  config_hash_after: b335602fdfd5a46ed6144453f90207848b7e5e3d7280de73f27e214768591946
+  reason: >-
+    FIRMS DAY_RANGE=1 returns only the current UTC date. The first AWS scan (2026-10-11 07:45 UTC)
+    got 0 rows from all three VIIRS feeds and missed the previous night's passes. Live scan only;
+    backtest results are unchanged.

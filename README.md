@@ -61,6 +61,9 @@ Rules and thresholds were frozen before the first run (config hash `264d3761…`
 Two rule details were decided by the team before any backtest result was seen: rows from the same satellite
 at most 10 minutes apart count as one overpass, and static-land-source pixels can make an incident CANDIDATE
 but not PROBABLE. NASA FIRMS archive (standard processing); detected = at least one PROBABLE incident.
+One change after the freeze, recorded in `data/config_freeze.yaml`: the live scan window `SCAN_DAY_RANGE` went
+from 1 to 2 days on 11 Oct, because FIRMS returns only the current UTC date for 1 and the first AWS scan missed
+the previous night's VIIRS passes. The backtest does not read it, so the results below are unchanged.
 
 | Event | Reported start | Sources | Detected | First detection (IST) | Δ days | Overpasses | Max FRP (MW) | Smoke zone at PROBABLE | Receptors in zone |
 |---|---|---|---|---|---|---|---|---|---|

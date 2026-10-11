@@ -29,8 +29,12 @@ LIVE_SOURCES = ("VIIRS_SNPP_NRT", "VIIRS_NOAA20_NRT", "VIIRS_NOAA21_NRT", "MODIS
 # Archive (standard processing) sources for the backtest. The FIRMS API page lists no NOAA-21 SP feed.
 ARCHIVE_SOURCES = ("VIIRS_SNPP_SP", "VIIRS_NOAA20_SP", "MODIS_SP")
 
-# Live scan window: last 24 h. The 3-hour schedule overlaps on purpose; detection keys dedupe.
-SCAN_DAY_RANGE = 1
+# Live scan window. FIRMS DAY_RANGE=1 returns only the current UTC date, so a scan early in the UTC
+# day saw no VIIRS rows and never saw the previous night's passes (first AWS scan, 2026-10-11:
+# 0 rows from the three VIIRS feeds; DAY_RANGE=2 gave 597 + 831 rows dated 10 Oct). 2 = today and
+# yesterday, which covers the last 24 h at any scan time. Detection keys dedupe the overlap.
+# Amended after the freeze (data/config_freeze.yaml): live scan only, the backtest does not read it.
+SCAN_DAY_RANGE = 2
 
 # India bounding box (west, south, east, north) for the live scan. Copied from the Nominatim
 # `boundingbox` of relation 304716 (India) in tests/fixtures/nominatim_india.json, 2026-10-10.
@@ -168,10 +172,12 @@ HTTP_BACKOFF_S = 3.0  # Doubled per retry: 3 s, then 6 s.
 USER_AGENT = "LandfillFireWatch/0.1 (WeMakeDevs x AWS Environmental Hacks)"
 
 
-def config_hash() -> str:
-    """SHA-256 over every UPPER_CASE constant in this module, in sorted order."""
+def config_hash(overrides: dict | None = None) -> str:
+    """SHA-256 over every UPPER_CASE constant in this module, in sorted order.
+
+    `overrides` puts back earlier values (used to check that a recorded amendment is the only change)."""
     values = {}
-    for name, value in sorted(globals().items()):
+    for name, value in sorted((globals() | (overrides or {})).items()):
         if not name.isupper():
             continue
         if isinstance(value, (frozenset, set)):

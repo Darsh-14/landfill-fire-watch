@@ -235,9 +235,16 @@ def freeze_state() -> tuple[bool, str]:
     if not FREEZE.exists():
         return False, "no data/config_freeze.yaml"
     frozen = yaml.safe_load(FREEZE.read_text(encoding="utf-8"))
-    if frozen.get("config_hash") != config.config_hash():
-        return False, f"config.py changed since freeze ({frozen.get('config_hash', '')[:12]})"
-    return True, f"frozen {frozen.get('frozen_utc')} at {frozen.get('git_commit')}"
+    base = f"frozen {frozen.get('frozen_utc')} at {frozen.get('git_commit')}"
+    if frozen.get("config_hash") == config.config_hash():
+        return True, base
+    # Recorded amendments (live-scan-only constants) are accepted only if putting their frozen values
+    # back reproduces the frozen hash exactly, i.e. nothing else in config.py changed.
+    amends = frozen.get("amendments") or []
+    restored = {a["constant"]: a["frozen_value"] for a in amends}
+    if amends and frozen.get("config_hash") == config.config_hash(restored):
+        return True, f"{base}; amended after the freeze: {', '.join(restored)} (live scan only)"
+    return False, f"config.py changed since freeze ({frozen.get('config_hash', '')[:12]})"
 
 
 def do_freeze() -> int:
