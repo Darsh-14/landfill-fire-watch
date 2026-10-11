@@ -177,7 +177,7 @@
       const mins = Number(h.minutes_ago);
       const ago = mins < 1 ? "just now" : mins < 60 ? `${mins} min ago` : `${Math.round(mins / 60)} h ago`;
       const stale = mins > 6 * 60;
-      el.innerHTML = `<span class="age${stale ? "" : " fresh"}">${stale ? "Out of date. " : ""}Checked ${time} IST, ${esc(ago)}</span>
+      el.innerHTML = `<span class="age${stale ? " stale-age" : " fresh"}">${stale ? "Out of date. " : ""}Checked ${time} IST, ${esc(ago)}</span>
         <span>Satellites: <b>${esc(h.sources)}</b></span>
         ${h.latest_detection_utc ? `<span>Newest data: <b>${esc(fromUtc(h.latest_detection_utc))}</b></span>` : ""}`;
     } catch (e) {
@@ -277,11 +277,13 @@
       const c = siteCenter(s);
       if (!c) continue;
       const inc = bySite.get(s.site_id);
-      const m = L.marker(c, { icon: L.divIcon({ className: "", iconSize: [30, 30], iconAnchor: [15, 15],
-        html: `<div class="pin ${inc ? esc(inc.status) : "site"}"><span class="pin-dot">${icon("flame")}</span><span class="pin-label">${esc(s.name)}</span></div>` }), riseOnHover: true });
+      const pinName = `${s.name}, ${s.city}: ${inc ? statusName(inc.status) + (inc.mode === "replay" ? " (replay)" : "") : "no fire detected"}`;
+      const m = L.marker(c, { title: pinName, alt: pinName, keyboard: true, riseOnHover: true,
+        icon: L.divIcon({ className: "", iconSize: [30, 30], iconAnchor: [15, 15],
+          html: `<div class="pin ${inc ? esc(inc.status) : "site"}"><span class="pin-dot">${icon(inc && inc.status === "CANDIDATE" ? "flame-o" : "flame")}</span><span class="pin-label">${esc(s.name)}</span></div>` }) });
       if (inc) {
         m.bindPopup(`<b>${esc(statusName(inc.status))}</b>${inc.mode === "replay" ? " (replay)" : ""}<br>${esc(s.name)}, ${esc(s.city)}<br>${esc(when(inc.first_ist))}
-          <br><span class="pop-link" data-open="${esc(inc.incident_id)}">Open</span>`);
+          <br><button class="pop-link" data-open="${esc(inc.incident_id)}">Open this fire</button>`);
         m.on("popupopen", (e) => { const a = e.popup.getElement().querySelector("[data-open]"); if (a) a.onclick = () => openIncident(a.dataset.open); });
       } else {
         m.bindTooltip(`${esc(s.name)}: no fire detected`);
@@ -481,7 +483,7 @@
     if (!draft) {
       return `<p class="lead-sm">No alert written yet.</p>
         <button class="btn wide" data-draft>Write alert</button>
-        <div id="draft-msg" class="msg"></div>`;
+        <div id="draft-msg" class="msg" role="status"></div>`;
     }
     const checks = draft.report.checks;
     const failed = checks.filter((c) => c.passed === false).length;
@@ -499,7 +501,7 @@
         <p class="reason">Written by ${esc(draft.model)} on ${esc(fromUtc(draft.created_utc))}</p>
       </details>
       <button class="btn small ghost" data-draft>Rewrite</button>
-      <div id="draft-msg" class="msg"></div>`;
+      <div id="draft-msg" class="msg" role="status"></div>`;
   }
 
   function bindDraftTabs(draft) {
@@ -513,6 +515,7 @@
   }
 
   const msg = (html, id = "action-msg") => { const el = $(`#${id}`); if (el) el.innerHTML = html; };
+  const errMsg = (text, id = "action-msg") => msg(`<span class="fail" role="alert">${esc(text)}</span>`, id);
 
   async function requestDraft(id, previous) {
     try {
@@ -524,8 +527,8 @@
         if (d.draft && d.draft.created_utc !== previous) { renderIncident(d); toast(d.draft.validated ? "Alert ready" : "Alert written, but it did not pass the checks", !d.draft.validated); return; }
         await sleep(3000);
       }
-      msg('<span class="fail">No alert after 2 minutes. Try again.</span>', "draft-msg");
-    } catch (e) { msg(`<span class="fail">${esc(e.message)}</span>`, "draft-msg"); }
+      errMsg("No alert after 2 minutes. Try again.", "draft-msg");
+    } catch (e) { errMsg(e.message, "draft-msg"); }
   }
 
   async function approve(id, replay) {
@@ -536,14 +539,14 @@
       const r = await post(`/incidents/${encodeURIComponent(id)}/approve`);
       toast(r.topic === "demo" ? "Demo sent" : "Alert sent");
       await openIncident(id);
-    } catch (e) { msg(`<span class="fail">${esc(e.message)}</span>`); toast(e.message, true); }
+    } catch (e) { errMsg(e.message); toast(e.message, true); }
   }
 
   async function review(id, status) {
     const note = await modal({ title: statusName(status), text: "Add a note (optional).", input: true, placeholder: "Note", ok: "Save" });
     if (note === null) return;
     try { await post(`/incidents/${encodeURIComponent(id)}/review`, { status, note }); await loadIncidents(); await openIncident(id); toast("Saved"); }
-    catch (e) { msg(`<span class="fail">${esc(e.message)}</span>`); }
+    catch (e) { errMsg(e.message); }
   }
 
   // ------------------------------------------------------------------ backtest

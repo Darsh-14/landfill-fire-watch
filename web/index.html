@@ -82,7 +82,7 @@
 
     <!-- Panel: floating card on desktop, bottom sheet on mobile -->
     <section id="side" class="panel" aria-label="Details">
-      <button class="sheet-handle" id="sheet-handle" aria-label="Expand or collapse"><i></i></button>
+      <button class="sheet-handle" id="sheet-handle" aria-label="Resize the panel: tap to cycle small, half, full"><i></i></button>
       <div class="panel-body">
         <label class="search" id="search-wrap"><svg class="ic"><use href="#i-search"/></svg>
           <input id="search" type="search" placeholder="Search landfill or city" autocomplete="off" aria-label="Search landfill or city">
@@ -133,7 +133,7 @@
       </div>
     </div>
   </div>
-  <div id="toast" class="toast" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
           integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="

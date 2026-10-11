@@ -1,32 +1,32 @@
 /* WeSave: Apple-style, map-first. Desktop: sidebar rail + frosted panel. Mobile (< 900px): full-screen map,
    bottom sheet, translucent tab bar. Colours follow Apple's system palette in dark and light. */
 :root {
-  --bg: #000000;
-  --surface: #1c1c1e;
-  --surface-2: #2c2c2e;
-  --surface-3: #3a3a3c;
-  --glass: rgba(28, 28, 30, 0.72);
-  --glass-strong: rgba(28, 28, 30, 0.86);
-  --line: rgba(84, 84, 88, 0.36);
-  --line-2: rgba(84, 84, 88, 0.6);
-  --ink: #f5f5f7;
-  --muted: rgba(235, 235, 245, 0.62);
-  --dim: rgba(235, 235, 245, 0.48);
-  --tint: #ff9f0a;          /* action colour (system orange) */
-  --on-tint: #1c1204;
-  --fire: #ff453a;          /* system red */
-  --fire-soft: rgba(255, 69, 58, 0.16);
-  --amber: #ff9f0a;
-  --amber-soft: rgba(255, 159, 10, 0.16);
-  --replay: #bf5af2;        /* system purple */
-  --replay-soft: rgba(191, 90, 242, 0.16);
-  --ok: #30d158;            /* system green */
-  --ok-soft: rgba(48, 209, 88, 0.15);
-  --bad: var(--fire);
-  --school: #0a84ff;        /* system blue */
-  --hospital: #ff375f;      /* system pink */
-  --outline: #f5f5f7;
-  --plume: #f2a23a;
+  --bg: #0E141B;           /* Night */
+  --surface: #18212B;      /* Haze */
+  --surface-2: #1F2935;
+  --surface-3: #283443;
+  --glass: rgba(24, 33, 43, 0.82);
+  --glass-strong: rgba(24, 33, 43, 0.94);
+  --line: rgba(163, 174, 187, 0.22);
+  --line-2: #6E7E92;            /* input borders, >= 3:1 on Haze */
+  --ink: #E6EBF0;
+  --muted: #A3AEBB;        /* Slate */
+  --dim: #A3AEBB;
+  --tint: #7FB0FF;         /* Sky: actions */
+  --on-tint: #0E141B;
+  --fire: #FF7A70;         /* Ember: fire status only */
+  --fire-soft: rgba(255, 122, 112, 0.16);
+  --amber: #A3AEBB;
+  --amber-soft: rgba(163, 174, 187, 0.14);
+  --replay: #C9B6FF;
+  --replay-soft: rgba(201, 182, 255, 0.14);
+  --ok: #57C785;           /* Signal: done */
+  --ok-soft: rgba(87, 199, 133, 0.14);
+  --bad: #FF7A70;
+  --school: #7FB0FF;
+  --hospital: #FF7AAE;
+  --outline: #E6EBF0;
+  --plume: #F2A23A;        /* Plume: the smoke sector only */
   --hot-high: #ff453a;      /* hotspot tiers: system red, orange, yellow */
   --hot-med: #ff9f0a;
   --hot-low: #ffd60a;
@@ -45,31 +45,31 @@
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Inter", "Segoe UI", Roboto, sans-serif;
 }
 :root[data-theme="light"] {
-  --bg: #f2f2f7;
-  --surface: #ffffff;
-  --surface-2: #f2f2f7;
-  --surface-3: #e5e5ea;
-  --glass: rgba(255, 255, 255, 0.72);
-  --glass-strong: rgba(255, 255, 255, 0.88);
-  --line: rgba(60, 60, 67, 0.18);
-  --line-2: rgba(60, 60, 67, 0.29);
-  --ink: #1d1d1f;
-  --muted: rgba(60, 60, 67, 0.66);
-  --dim: rgba(60, 60, 67, 0.56);
-  --tint: #ff9500;
-  --on-tint: #ffffff;
-  --fire: #d70015;
-  --fire-soft: rgba(215, 0, 21, 0.08);
-  --amber: #c27400;
-  --amber-soft: rgba(194, 116, 0, 0.1);
-  --replay: #8944ab;
-  --replay-soft: rgba(137, 68, 171, 0.09);
-  --ok: #248a3d;
-  --ok-soft: rgba(36, 138, 61, 0.1);
-  --bad: #d70015;
-  --school: #007aff;
-  --hospital: #ff2d55;
-  --outline: #1d1d1f;
+  --bg: #EEF1F4;           /* Ash */
+  --surface: #FFFFFF;      /* Paper */
+  --surface-2: #F4F6F8;
+  --surface-3: #E3E7EC;
+  --glass: rgba(255, 255, 255, 0.86);
+  --glass-strong: rgba(255, 255, 255, 0.96);
+  --line: rgba(22, 32, 42, 0.12);
+  --line-2: #8A94A3;       /* input borders, >= 3:1 on Paper */
+  --ink: #16202A;
+  --muted: #4A5563;        /* Slate */
+  --dim: #4A5563;
+  --tint: #1F5FBF;         /* Sky: actions */
+  --on-tint: #FFFFFF;
+  --fire: #B3261E;         /* Ember */
+  --fire-soft: rgba(179, 38, 30, 0.09);
+  --amber: #4A5563;
+  --amber-soft: rgba(74, 85, 99, 0.1);
+  --replay: #5B3FB0;
+  --replay-soft: rgba(91, 63, 176, 0.09);
+  --ok: #1B7040;           /* Signal */
+  --ok-soft: rgba(27, 112, 64, 0.1);
+  --bad: #B3261E;
+  --school: #1F5FBF;
+  --hospital: #C2185B;
+  --outline: #16202A;
   --plume: #985000;
   --hot-high: #ff3b30;
   --hot-med: #ff9500;
@@ -178,7 +178,7 @@ body.panel-off .map-top { left: 14px; }
 .sw { width: 13px; height: 13px; border-radius: 4px; display: inline-block; border: 1px solid transparent; flex: none; }
 .sw.site { border: 1.5px solid var(--outline); background: transparent; }
 .sw.det-high { background: var(--hot-high); } .sw.det-nominal { background: var(--hot-med); } .sw.det-low { background: var(--hot-low); }
-.sw.smoke { background: color-mix(in srgb, var(--tint) 30%, transparent); border-color: var(--tint); }
+.sw.smoke { border: 1.5px solid var(--plume); background: repeating-linear-gradient(125deg, color-mix(in srgb, var(--plume) 55%, transparent) 0 2px, color-mix(in srgb, var(--plume) 12%, transparent) 2px 5px); }
 .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
 .dot.school { background: var(--school); } .dot.hospital { background: var(--hospital); }
 
@@ -579,3 +579,33 @@ details.limits li { margin: 3px 0; }
 .badge.lg .ic { width: 15px; height: 15px; }
 .step-head .state .ic { width: 14px; height: 14px; margin-right: 3px; vertical-align: -2px; }
 .inc-meta > span:last-child { color: var(--muted); }
+
+/* ------------------------------------------------------------ rules 12-20: accessibility */
+:focus-visible { outline: 3px solid var(--tint); outline-offset: 2px; }
+.btn { min-height: 44px; }
+.btn.small { min-height: 36px; }
+.share-btn { min-height: 36px; }
+.icon-btn { width: 40px; height: 40px; }
+.seg button { min-height: 36px; }
+summary { min-height: 40px; }
+.legend .layer { min-height: 32px; }
+.leaflet-popup-content .pop-link { display: inline-flex; align-items: center; min-height: 32px; border: 0; background: none;
+  padding: 0; font: inherit; color: var(--tint); font-weight: 600; cursor: pointer; }
+.panel-body { scroll-padding-bottom: 96px; scroll-padding-top: 72px; }
+.status-strip .age { color: var(--ink); }
+.status-strip .age::before { background: var(--ok); }
+.status-strip .age.stale-age::before { background: var(--muted); }
+.map-hot-high { stroke-width: 2; }
+.map-hot-nominal { stroke-width: 1; }
+.map-hot-low { stroke-dasharray: 3 2; }
+.pin.CANDIDATE .pin-dot { background: var(--surface); color: var(--fire); border-color: var(--fire); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+@media (max-width: 899px) {
+  .leaflet-control-zoom { display: block; margin-top: 160px !important; }
+  .nav-btn { min-height: 48px; }
+}
+@media (max-width: 360px) {
+  dl.lines { grid-template-columns: 6.2em 1fr; }
+  .brand-chip small { display: none; }
+  .facts { gap: 6px; }
+}
