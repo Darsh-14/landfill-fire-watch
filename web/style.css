@@ -609,3 +609,9 @@ summary { min-height: 40px; }
   .brand-chip small { display: none; }
   .facts { gap: 6px; }
 }
+
+/* ------------------------------------------------------------ rule 21: next-step bar */
+.action-bar { align-items: center; }
+.bar-step { flex: none; font-size: var(--fs-sm); color: var(--muted); min-width: 5.5em; }
+.action-bar #bar-next { flex: 1; }
+.action-bar #bar-next:disabled { opacity: 1; background: var(--ok-soft); color: var(--ok); }

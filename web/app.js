@@ -458,11 +458,43 @@
         </details>
       </section>
       ${limitsBlock()}`;
-    panel.insertAdjacentHTML("beforeend", `<div class="action-bar">
-        <button class="btn ghost" id="bar-alert">Alert message</button>
-        <button class="btn primary" id="bar-send" ${draft && draft.validated ? "" : "disabled"}>${replay ? "Send demo email" : "Send alert"}</button></div>`);
-    $("#bar-alert").addEventListener("click", () => $("#draft-area").closest(".step").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "start" }));
-    $("#bar-send").addEventListener("click", () => approve(inc.incident_id, replay));
+    // Sticky bar: one button for the next step of the path (rule 21).
+    panel.insertAdjacentHTML("beforeend", `<div class="action-bar"><span class="bar-step" id="bar-step"></span>
+        <button class="btn ghost hidden" id="bar-again"></button><button class="btn primary" id="bar-next"></button></div>`);
+    const step3 = $("#st3").closest(".step");
+    let reviewed = false;
+    const goReview = () => {
+      step3.scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "start" });
+      $("#st3").setAttribute("tabindex", "-1");
+      $("#st3").focus({ preventScroll: true });
+      reviewed = true; updateBar();
+    };
+    function updateBar() {
+      const btn = $("#bar-next"), stepEl = $("#bar-step");
+      if (!btn) return;
+      let label, action, stepNo, disabled = false;
+      if (sent) { label = replay ? "Demo sent" : "Sent"; stepNo = 4; disabled = true; }
+      else if (!draft) { label = "Write alert"; stepNo = 3; action = () => requestDraft(inc.incident_id, null); }
+      else if (!draft.validated) { label = "Rewrite alert"; stepNo = 3; action = () => requestDraft(inc.incident_id, draft.created_utc); }
+      else if (!reviewed) { label = "Review alert"; stepNo = 3; action = goReview; }
+      else { label = replay ? "Send demo email" : "Send alert"; stepNo = 4; action = () => approve(inc.incident_id, replay); }
+      const again = $("#bar-again");
+      again.classList.toggle("hidden", !sent || !(draft && draft.validated));
+      again.textContent = "Send again";
+      again.onclick = () => approve(inc.incident_id, replay);
+      btn.textContent = label;
+      btn.disabled = disabled;
+      btn.onclick = action || null;
+      stepEl.textContent = `Step ${stepNo} of 4`;
+    }
+    // Reading the alert counts as reviewing it: once most of step 3 has been on screen, offer Send.
+    if ("IntersectionObserver" in window && draft && draft.validated && !sent) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { reviewed = true; updateBar(); io.disconnect(); }
+      }, { root: $(".panel-body"), threshold: 0.6 });
+      io.observe(step3);
+    }
+    updateBar();
     bindDraftTabs(draft);
     $("#btn-back").addEventListener("click", closeIncident);
     $("#btn-link").addEventListener("click", async () => {
