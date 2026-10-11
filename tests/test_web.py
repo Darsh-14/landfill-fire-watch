@@ -20,7 +20,7 @@ def test_limits_panel_matches_the_fixed_text():
 
 def test_footer_names_aws_services_and_credits():
     p = page()
-    assert "Running on AWS (ap-south-1): EventBridge · Lambda · DynamoDB · S3 · Bedrock (Strands) · SNS" in p
+    assert "Running on AWS: EventBridge · Lambda · DynamoDB · S3 · SNS (ap-south-1) · Bedrock via Strands (us-east-1)" in p
     assert "Fire Information for Resource Management" in p and "OpenStreetMap contributors" in p and "CC BY 4.0" in p
 
 

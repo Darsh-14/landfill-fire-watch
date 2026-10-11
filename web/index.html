@@ -2,29 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1e25">
   <title>Landfill Fire Watch</title>
   <meta name="description" content="Satellite hotspot screening for Indian landfills, with human-approved alerts for people downwind.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"
         integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <h1>Landfill Fire Watch</h1>
-      <span class="tag">satellite hotspot screening · a person approves every alert</span>
-    </div>
-    <div id="status-strip" class="status-strip" aria-live="polite">Loading status…</div>
-  </header>
+  <!-- SVG icon sprite (drawn for this page) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-flame" viewBox="0 0 24 24"><path fill="currentColor" d="M12.6 2.2c.3 3-1.4 4.6-3 6.2C8 10 6.5 11.6 6.5 14.4A5.5 5.5 0 0 0 12 20a5.5 5.5 0 0 0 5.5-5.6c0-2-.9-3.6-2-4.8.1 1.4-.4 2.6-1.4 3.2.4-3.4-.6-7.3-1.5-10.6Z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3" fill="currentColor"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 11v5M12 7.8v.1"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M19 12a7 7 0 1 1-2.1-5M19 4v4h-4"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-sat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="m9 9 6 6M7.5 10.5l3-3 6 6-3 3zM4 7l3-3 3 3-3 3zM14 17l3-3 3 3-3 3z"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M3 9h11a3 3 0 1 0-3-3M3 14h15a3 3 0 1 1-3 3M3 19h7"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 20l1-4L16 5l3 3L8 19zM14 7l3 3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 4 2.8 20h18.4z"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 10v4.5M12 17.2v.1"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></symbol>
+  </svg>
 
-  <main>
+  <!-- Splash: shown while the first data loads -->
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="logo-rings"><span></span><span></span><span></span>
+      <svg class="logo-flame"><use href="#i-flame"/></svg></div>
+    <div class="splash-name">Landfill Fire Watch</div>
+    <div class="splash-tag">satellite hotspot screening</div>
+  </div>
+
+  <div class="app">
+    <!-- Navigation: left rail on desktop, bottom bar on mobile -->
+    <nav class="nav" aria-label="Views">
+      <div class="nav-brand" title="Landfill Fire Watch"><svg class="ic"><use href="#i-flame"/></svg></div>
+      <button class="nav-btn active" data-view="incidents"><span class="nav-ic"><svg class="ic"><use href="#i-flame"/></svg></span><span>Incidents</span></button>
+      <button class="nav-btn" data-view="backtest"><span class="nav-ic"><svg class="ic"><use href="#i-chart"/></svg></span><span>Backtest</span></button>
+      <button class="nav-btn" data-view="sites"><span class="nav-ic"><svg class="ic"><use href="#i-pin"/></svg></span><span>Sites</span></button>
+      <button class="nav-btn" data-view="about"><span class="nav-ic"><svg class="ic"><use href="#i-info"/></svg></span><span>About</span></button>
+    </nav>
+
     <section id="map-wrap" aria-label="Map">
       <div id="map"></div>
-      <div class="legend">
+
+      <!-- Data age and sensors: always visible (CLAUDE.md rule 6) -->
+      <div class="map-top">
+        <div class="brand-chip"><svg class="ic"><use href="#i-flame"/></svg><div><b>Landfill Fire Watch</b><small>a person approves every alert</small></div></div>
+        <div class="status-wrap">
+          <div id="status-strip" class="status-strip" aria-live="polite">Loading status…</div>
+          <button id="btn-refresh" class="round-btn" title="Refresh"><svg class="ic"><use href="#i-refresh"/></svg></button>
+        </div>
+      </div>
+
+      <div class="legend" aria-label="Legend">
+        <button id="legend-toggle" class="legend-toggle" aria-label="Show legend">Legend</button>
         <span><i class="sw site"></i>Landfill outline</span>
-        <span><i class="sw det-high"></i>Hotspot (pixel size) high</span>
+        <span><i class="sw det-high"></i>Hotspot, high</span>
         <span><i class="sw det-nominal"></i>nominal</span>
         <span><i class="sw det-low"></i>low</span>
         <span><i class="sw smoke"></i>Smoke screening sector</span>
@@ -33,52 +74,67 @@
       </div>
     </section>
 
-    <section id="side" aria-label="Incidents">
-      <nav class="tabs" role="tablist">
-        <button role="tab" class="tab active" data-view="incidents">Incidents</button>
-        <button role="tab" class="tab" data-view="backtest">Backtest</button>
-        <button role="tab" class="tab" data-view="sites">Sites</button>
-      </nav>
+    <!-- Panel: floating card on desktop, bottom sheet on mobile -->
+    <section id="side" class="panel" aria-label="Details">
+      <button class="sheet-handle" id="sheet-handle" aria-label="Expand or collapse"><i></i></button>
+      <div class="panel-body">
+        <div id="view-incidents" class="view">
+          <div id="incident-list" class="incident-list"></div>
+          <div id="incident-panel" class="incident-panel hidden"></div>
+        </div>
+        <div id="view-backtest" class="view hidden"><div id="backtest"></div></div>
+        <div id="view-sites" class="view hidden"><div id="site-list"></div></div>
+        <div id="view-about" class="view hidden">
+          <h2 class="view-title">About</h2>
+          <p class="lead">Landfill Fire Watch checks NASA satellite hotspots against the outlines of Indian landfills every
+            3 hours. Fixed, tested rules decide what is a possible fire, where smoke may go and which schools and hospitals
+            are inside that sector. An AI agent only writes the alert text from those facts, a validator checks it, and a
+            person approves every message.</p>
+          <div class="card">
+            <p class="aws">Running on AWS: EventBridge · Lambda · DynamoDB · S3 · SNS (ap-south-1) · Bedrock via Strands (us-east-1)</p>
+          </div>
+          <div class="card credits">
+            <h3>Data credits</h3>
+            <p>Fire data: We acknowledge the use of data and/or imagery from NASA's Fire Information for Resource Management
+              System (FIRMS) (<a href="https://earthdata.nasa.gov/firms">https://earthdata.nasa.gov/firms</a>), part of NASA's
+              Land, Atmosphere Near real-time Capability for Earth observations (LANCE)
+              (<a href="https://earthdata.nasa.gov/lance">https://earthdata.nasa.gov/lance</a>) and NASA's Earth Science Data
+              and Information System (ESDIS).</p>
+            <p>Landfill outlines, schools and hospitals, map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL).</p>
+            <p><a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
+              (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).</p>
+          </div>
+        </div>
 
-      <div id="view-incidents" class="view">
-        <div id="incident-list" class="incident-list"></div>
-        <div id="incident-panel" class="incident-panel hidden"></div>
+        <!-- Limits: always shown, in every view (CLAUDE.md rule 6) -->
+        <aside id="limits" class="limits" aria-label="Limits">
+          <h2><svg class="ic"><use href="#i-warn"/></svg>Limits</h2>
+          <ul>
+            <li>Detects surface fires only. Fires that smoulder underground can be missed.</li>
+            <li>Pixel size is about 375 m (VIIRS) to 1 km or more (MODIS). A hotspot can come from a nearby heat source.</li>
+            <li>Satellites pass a few times a day. Cloud and thick smoke can block detection.</li>
+            <li>A detection is not a confirmation. A person must check.</li>
+            <li>The smoke zone is a screening sector from wind direction. It is not a pollution forecast.</li>
+          </ul>
+        </aside>
       </div>
-
-      <div id="view-backtest" class="view hidden">
-        <div id="backtest"></div>
-      </div>
-
-      <div id="view-sites" class="view hidden">
-        <div id="site-list"></div>
-      </div>
-
-      <aside id="limits" class="limits" aria-label="Limits">
-        <h2>Limits</h2>
-        <ul>
-          <li>Detects surface fires only. Fires that smoulder underground can be missed.</li>
-          <li>Pixel size is about 375 m (VIIRS) to 1 km or more (MODIS). A hotspot can come from a nearby heat source.</li>
-          <li>Satellites pass a few times a day. Cloud and thick smoke can block detection.</li>
-          <li>A detection is not a confirmation. A person must check.</li>
-          <li>The smoke zone is a screening sector from wind direction. It is not a pollution forecast.</li>
-        </ul>
-      </aside>
     </section>
-  </main>
+  </div>
 
-  <footer>
-    <p class="aws">Running on AWS (ap-south-1): EventBridge · Lambda · DynamoDB · S3 · Bedrock (Strands) · SNS</p>
-    <p class="credits">
-      Fire data: We acknowledge the use of data and/or imagery from NASA's Fire Information for Resource Management
-      System (FIRMS) (<a href="https://earthdata.nasa.gov/firms">https://earthdata.nasa.gov/firms</a>), part of NASA's
-      Land, Atmosphere Near real-time Capability for Earth observations (LANCE)
-      (<a href="https://earthdata.nasa.gov/lance">https://earthdata.nasa.gov/lance</a>) and NASA's Earth Science Data
-      and Information System (ESDIS).
-      · Landfill outlines, schools and hospitals: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL).
-      · <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
-      (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).
-    </p>
-  </footer>
+  <!-- Dialog for the admin token, confirmations and review notes -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-icon"><svg class="ic"><use href="#i-shield"/></svg></div>
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
+      <input id="modal-input" class="hidden" autocomplete="off">
+      <div class="modal-actions">
+        <button class="btn ghost" id="modal-cancel">Cancel</button>
+        <button class="btn primary" id="modal-ok">OK</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast" aria-live="polite"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
           integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
