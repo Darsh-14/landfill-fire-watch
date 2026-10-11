@@ -1,1 +1,1 @@
-"""Landfill Fire Watch."""
+"""WeSave."""

@@ -1,4 +1,4 @@
-/* Landfill Fire Watch: dark, map-first, minimal. Desktop: left rail + floating panel.
+/* WeSave: dark, map-first, minimal. Desktop: left rail + floating panel.
    Mobile (< 900px): full-screen map, bottom sheet, bottom navigation. */
 :root {
   --bg: #1b1e25;
@@ -413,3 +413,53 @@ td:first-child { color: var(--ink); }
   .review-counts b { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ------------------------------------------------------------ plain-language workflow pieces */
+.step-num { font-weight: 600; font-size: 13px; }
+.status-card { border-radius: 14px; padding: 12px 14px; margin: 4px 0 14px; background: var(--fire-soft);
+  border: 1px solid rgba(232, 85, 62, .3); }
+.status-card b { display: block; font-size: 16px; font-weight: 600; color: #ffb3a6; }
+.status-card span { font-size: 12.5px; color: var(--muted); }
+.status-card.CANDIDATE { background: var(--amber-soft); border-color: rgba(243, 178, 60, .3); }
+.status-card.CANDIDATE b { color: var(--amber); }
+.status-card.FALSE_ALARM, .status-card.CLOSED { background: var(--surface-2); border-color: var(--line); }
+.status-card.FALSE_ALARM b, .status-card.CLOSED b { color: var(--ink); }
+.progress { list-style: none; display: flex; margin: 0 0 6px; padding: 0; }
+.progress li { flex: 1; position: relative; text-align: center; font-size: 11px; color: var(--dim); padding-top: 18px; }
+.progress li i { position: absolute; top: 0; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%;
+  background: var(--surface-3); border: 2px solid var(--bg); z-index: 1; }
+.progress li::before { content: ""; position: absolute; top: 5px; left: -50%; width: 100%; height: 2px; background: var(--surface-3); }
+.progress li:first-child::before { display: none; }
+.progress li.done { color: var(--ink); }
+.progress li.done i { background: var(--ok); }
+.progress li.done::before { background: var(--ok); }
+.headline { margin: 0 0 10px; font-size: 14.5px; font-weight: 500; }
+.fine { margin: 8px 0 0; font-size: 11.5px; color: var(--dim); }
+.lead-sm { margin: 0 0 10px; color: var(--muted); font-size: 13px; }
+.btn.wide { width: 100%; }
+.btn.big { width: 100%; padding: 14px; font-size: 15px; }
+.check-line { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px; font-weight: 500; }
+.check-line.good { color: var(--ok); }
+.check-line.bad { color: var(--bad); }
+.check-line .ic { width: 17px; height: 17px; }
+.step > .btn.ghost { margin-top: 10px; }
+#draft-area > .btn.ghost { margin-top: 10px; }
+.kind-row span { display: flex; align-items: center; gap: 6px; }
+.kind-row .dot { margin: 0; }
+.inc-meta { display: flex; align-items: center; gap: 8px; }
+.all-clear { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 14px; background: var(--ok-soft);
+  border: 1px solid rgba(95, 208, 138, .25); color: var(--ok); }
+.all-clear .ic { width: 26px; height: 26px; }
+.all-clear b { display: block; color: var(--ink); font-weight: 600; }
+.all-clear span { font-size: 12px; color: var(--muted); }
+.score { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 16px; }
+.score b { font-size: 26px; font-weight: 600; color: var(--ok); }
+.score span { color: var(--muted); font-size: 13px; }
+.sent div { display: flex; align-items: center; gap: 6px; color: var(--ok); font-size: 12.5px; }
+.sent .ic { width: 15px; height: 15px; }
+.how { margin: 0 0 16px; padding-left: 20px; color: var(--muted); font-size: 13px; }
+.how li { margin-bottom: 6px; }
+.how b { color: var(--ink); font-weight: 600; }
+.site-item .verified, .site-item .unverified { flex: none; }
+details.card summary { color: var(--ink); }
+.step details .timeline { margin-top: 6px; }

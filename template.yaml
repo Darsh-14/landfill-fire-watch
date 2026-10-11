@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  Landfill Fire Watch - satellite hotspot screening for Indian landfills with human-approved alerts.
+  WeSave - satellite hotspot screening for Indian landfills with human-approved alerts.
   Scheduled scan (EventBridge Scheduler) -> Lambda -> DynamoDB/S3; HTTP API; Strands agent on Bedrock;
   SNS live + demo topics. Build packages first with `make package` (Linux wheels, no Docker).
 
@@ -81,13 +81,13 @@ Resources:
   LiveTopic:
     Type: AWS::SNS::Topic
     Properties:
-      DisplayName: Landfill Fire Watch LIVE
+      DisplayName: WeSave LIVE
       Subscription: [{ Protocol: email, Endpoint: !Ref AlertEmail }]
 
   DemoTopic:
     Type: AWS::SNS::Topic
     Properties:
-      DisplayName: Landfill Fire Watch DEMO (replays)
+      DisplayName: WeSave DEMO (replays)
       Subscription: [{ Protocol: email, Endpoint: !Ref AlertEmail }]
 
   # ------------------------------------------------------------------ functions
@@ -122,7 +122,7 @@ Resources:
           Type: ScheduleV2
           Properties:
             ScheduleExpression: !Ref ScanSchedule
-            Description: Landfill Fire Watch live scan
+            Description: WeSave live scan
             State: ENABLED
 
   ApiFunction:

@@ -1,4 +1,4 @@
-# Landfill Fire Watch — MVP specification
+# WeSave — MVP specification
 
 Status: build spec for the hackathon MVP. Deadline: Sunday 11 Oct 2026, 8:00 PM IST. Target: submit by 7:00 PM IST.
 Rules for the coding agent are in `/CLAUDE.md`. This file gives the details.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#1b1e25">
-  <title>Landfill Fire Watch</title>
+  <title>WeSave</title>
   <meta name="description" content="Satellite hotspot screening for Indian landfills, with human-approved alerts for people downwind.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,17 +36,17 @@
   <div id="splash" class="splash" aria-hidden="true">
     <div class="logo-rings"><span></span><span></span><span></span>
       <svg class="logo-flame"><use href="#i-flame"/></svg></div>
-    <div class="splash-name">Landfill Fire Watch</div>
-    <div class="splash-tag">satellite hotspot screening</div>
+    <div class="splash-name">WeSave</div>
+    <div class="splash-tag">Landfill fire alerts</div>
   </div>
 
   <div class="app">
     <!-- Navigation: left rail on desktop, bottom bar on mobile -->
     <nav class="nav" aria-label="Views">
-      <div class="nav-brand" title="Landfill Fire Watch"><svg class="ic"><use href="#i-flame"/></svg></div>
-      <button class="nav-btn active" data-view="incidents"><span class="nav-ic"><svg class="ic"><use href="#i-flame"/></svg></span><span>Incidents</span></button>
-      <button class="nav-btn" data-view="backtest"><span class="nav-ic"><svg class="ic"><use href="#i-chart"/></svg></span><span>Backtest</span></button>
-      <button class="nav-btn" data-view="sites"><span class="nav-ic"><svg class="ic"><use href="#i-pin"/></svg></span><span>Sites</span></button>
+      <div class="nav-brand" title="WeSave"><svg class="ic"><use href="#i-flame"/></svg></div>
+      <button class="nav-btn active" data-view="incidents"><span class="nav-ic"><svg class="ic"><use href="#i-flame"/></svg></span><span>Fires</span></button>
+      <button class="nav-btn" data-view="backtest"><span class="nav-ic"><svg class="ic"><use href="#i-chart"/></svg></span><span>Tested</span></button>
+      <button class="nav-btn" data-view="sites"><span class="nav-ic"><svg class="ic"><use href="#i-pin"/></svg></span><span>Landfills</span></button>
       <button class="nav-btn" data-view="about"><span class="nav-ic"><svg class="ic"><use href="#i-info"/></svg></span><span>About</span></button>
     </nav>
 
@@ -55,7 +55,7 @@
 
       <!-- Data age and sensors: always visible (CLAUDE.md rule 6) -->
       <div class="map-top">
-        <div class="brand-chip"><svg class="ic"><use href="#i-flame"/></svg><div><b>Landfill Fire Watch</b><small>a person approves every alert</small></div></div>
+        <div class="brand-chip"><svg class="ic"><use href="#i-flame"/></svg><div><b>WeSave</b><small>Landfill fire alerts</small></div></div>
         <div class="status-wrap">
           <div id="status-strip" class="status-strip" aria-live="polite">Loading status…</div>
           <button id="btn-refresh" class="round-btn" title="Refresh"><svg class="ic"><use href="#i-refresh"/></svg></button>
@@ -64,13 +64,13 @@
 
       <div class="legend" aria-label="Legend">
         <button id="legend-toggle" class="legend-toggle" aria-label="Show legend">Legend</button>
-        <span><i class="sw site"></i>Landfill outline</span>
-        <span><i class="sw det-high"></i>Hotspot, high</span>
-        <span><i class="sw det-nominal"></i>nominal</span>
+        <span><i class="sw site"></i>Landfill</span>
+        <span><i class="sw det-high"></i>Hotspot: high</span>
+        <span><i class="sw det-nominal"></i>medium</span>
         <span><i class="sw det-low"></i>low</span>
-        <span><i class="sw smoke"></i>Smoke screening sector</span>
-        <span><i class="dot school"></i>School / college</span>
-        <span><i class="dot hospital"></i>Hospital / clinic</span>
+        <span><i class="sw smoke"></i>Possible smoke area</span>
+        <span><i class="dot school"></i>School</span>
+        <span><i class="dot hospital"></i>Hospital</span>
       </div>
     </section>
 
@@ -86,10 +86,13 @@
         <div id="view-sites" class="view hidden"><div id="site-list"></div></div>
         <div id="view-about" class="view hidden">
           <h2 class="view-title">About</h2>
-          <p class="lead">Landfill Fire Watch checks NASA satellite hotspots against the outlines of Indian landfills every
-            3 hours. Fixed, tested rules decide what is a possible fire, where smoke may go and which schools and hospitals
-            are inside that sector. An AI agent only writes the alert text from those facts, a validator checks it, and a
-            person approves every message.</p>
+          <p class="lead">WeSave checks 11 Indian landfills for fire every 3 hours, using NASA satellite data.</p>
+          <ol class="how">
+            <li><b>Detect.</b> Fixed rules decide if a satellite hotspot is a possible fire.</li>
+            <li><b>Smoke area.</b> Wind direction shows where smoke may go, and which schools and hospitals are inside.</li>
+            <li><b>Write.</b> AI writes the alert from those facts. 11 safety checks review it.</li>
+            <li><b>Send.</b> Nothing is sent until a person approves.</li>
+          </ol>
           <div class="card">
             <p class="aws">Running on AWS: EventBridge · Lambda · DynamoDB · S3 · SNS (ap-south-1) · Bedrock via Strands (us-east-1)</p>
           </div>

@@ -1,4 +1,4 @@
-# Landfill Fire Watch. Run from Git Bash; recipes are POSIX sh (CLAUDE.md §3).
+# WeSave. Run from Git Bash; recipes are POSIX sh (CLAUDE.md §3).
 
 ifeq ($(OS),Windows_NT)
 PY := .venv/Scripts/python.exe

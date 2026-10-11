@@ -1,11 +1,11 @@
-# CLAUDE.md — Landfill Fire Watch
+# CLAUDE.md — WeSave
 
 Read this file first. Read `docs/MVP.md` for the full specification.
 This file holds the rules you must follow. `docs/MVP.md` holds the details.
 
 ## 1. What this project is
 
-Landfill Fire Watch detects possible fires at Indian landfills from NASA satellite data.
+WeSave detects possible fires at Indian landfills from NASA satellite data.
 It then tells the people downwind, and the officials who must act.
 
 - Hackathon: WeMakeDevs × AWS "Environmental Hacks". Deadline: **Sunday 11 Oct 2026, 8:00 PM IST**.

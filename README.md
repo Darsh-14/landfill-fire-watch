@@ -1,4 +1,4 @@
-# Landfill Fire Watch
+# WeSave
 
 **Satellite hotspot screening for Indian landfills, with human-approved alerts for the people downwind.**
 WeMakeDevs × AWS "Environmental Hacks" · Track: **Waste and Energy** · Licence: Apache-2.0 (code), ODbL (OSM-derived data).

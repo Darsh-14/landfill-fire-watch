@@ -48,7 +48,7 @@ def message_for(draft: dict, inc: Incident) -> str:
     parts += ["", f"Incident: {inc.incident_id} · mode: {inc.mode} · code status: {inc.status}",
               "Drafted by " + ("a fixed template" if draft.get("template_used") else draft.get("model", "the agent"))
               + "; checked by the validator; approved by the duty officer.",
-              "Landfill Fire Watch — satellite screening, not a confirmation."]
+              "WeSave — satellite screening, not a confirmation."]
     return "\n".join(parts)
 
 

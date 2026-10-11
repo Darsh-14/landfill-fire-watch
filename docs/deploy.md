@@ -1,4 +1,4 @@
-# Deploying Landfill Fire Watch on AWS (ap-south-1)
+# Deploying WeSave on AWS (ap-south-1)
 
 Everything below runs from **Git Bash** in the repo root unless marked PowerShell.
 Tools: AWS CLI v2 and AWS SAM CLI (`scoop install aws aws-sam-cli`), Python venv from `make setup`.
