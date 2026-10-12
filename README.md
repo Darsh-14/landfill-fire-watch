@@ -35,7 +35,7 @@ screening service. Every claim we make is listed with its source in [`docs/claim
  Dashboard (Amplify) ──► API Gateway HTTP API ──► Lambda: api
                               POST draft   ──► Lambda: draft (Strands Agents + Amazon Bedrock)
                                                  read-only tools → validator (11 checks) → retry → template
-                              POST approve ──► SNS: demo topic (replays) or live topic ──► email
+                              POST approve ──► SNS: demo topic (replays) or live topic ──► email.
 ```
 
 ### What code decides, and what the model writes
